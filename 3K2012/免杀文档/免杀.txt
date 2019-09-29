@@ -1,0 +1,30 @@
+1.内核:使用QQ2011的版权信息,Version info -> Module attributes选项全去掉
+  ->CP Secure Troj.GameThief.W32.OnLineGames.tcdi
+
+2.内核:更换图标 QQ_5.ico(从QQ.exe导出的图标)
+ ->a-squared Trojan-GameThief.Win32.Lmir!IK
+ ->Ikarus Trojan-GameThief.Win32.Lmir 
+
+3.内核: (sCmd = 'WININET.DLL') or 修改为：(sCmd = SetDate('XFAFAJ[!KCC'){'WININET.DLL'}) or 
+ ->瑞星 [Suspicious]
+
+
+内核+ASPack后，报：
+ClamAV PUA.Packed.ASPack 
+
+*************未加壳(登陆器,未加内核)*************
+VBA32  MalwareScope.Trojan-PSW.Game.16 (paranoid heuristics) 
+->if IsNT then begin // 98 下失败
+
+
+  
+
+**************登陆器加WL壳(附资源,内核加壳)**********************************
+WL壳:资源监控 选择上
+
+1.登陆器:更换图标 Y:\系统补丁\清客\GameOfMir\工具\RES\DIYM2.ico
+ ->a-squared Trojan-GameThief.Win32.Lmir!IK
+ ->Ikarus Trojan-GameThief.Win32.Lmir 
+ 注：图标不能与内核使用的图标(QQ_5.ico)一样,如一样则又会报以上两种
+
+

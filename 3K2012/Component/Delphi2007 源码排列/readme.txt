@@ -1,0 +1,3 @@
+运行SetupEx.exe可安装
+再次运行卸载
+只支持delphi2007

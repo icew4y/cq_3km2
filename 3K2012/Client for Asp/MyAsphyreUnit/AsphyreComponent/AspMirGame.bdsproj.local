@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/08/09 19:52:26.130.pas,Z:\系统补丁\清客\Mir200\Client\DxDraws.pas=</Transaction>
+    <Transaction>2011-11-19 14:47:59.671.pas,D:\M2Engine\Mir200\Client for Asp\MyAsphyreUnit\AsphyreComponent\Unit2.pas=D:\M2Engine\Mir200\Client for Asp\Unit2.pas</Transaction>
+    <Transaction>2011-11-19 14:52:16.250.pas,D:\M2Engine\Mir200\Client for Asp\MyAsphyreUnit\AsphyreComponent\Unit3.pas=D:\M2Engine\Mir200\Client for Asp\Unit3.pas</Transaction>
+    <Transaction>2011-11-19 17:01:24.265.pas,D:\M2Engine\Mir200\Client for Asp\Unit2.pas=</Transaction>
+    <Transaction>2011-11-19 17:01:26.703.pas,D:\M2Engine\Mir200\Client for Asp\Unit3.pas=</Transaction>
+  </Transactions>
+</BorlandProject>

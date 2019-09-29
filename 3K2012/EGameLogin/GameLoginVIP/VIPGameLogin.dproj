@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{89d5598d-725b-441e-a02b-0ed94a9743d1}</ProjectGuid>
+    <MainSource>VIPGameLogin.dpr</MainSource>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>D:\VIPGameLogin.exe</DCC_DependencyCheckOutputName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_GenerateStackFrames>True</DCC_GenerateStackFrames>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_ExeOutput>D:\</DCC_ExeOutput>
+    <DCC_DcuOutput>.\Temp</DCC_DcuOutput>
+    <DCC_ObjOutput>.\Temp</DCC_ObjOutput>
+    <DCC_HppOutput>.\Temp</DCC_HppOutput>
+    <DCC_UnitSearchPath>..\..\Common;..\Common</DCC_UnitSearchPath>
+    <DCC_ResourcePath>..\..\Common;..\Common</DCC_ResourcePath>
+    <DCC_ObjPath>..\..\Common;..\Common</DCC_ObjPath>
+    <DCC_IncludePath>..\..\Common;..\Common</DCC_IncludePath>
+    <DCC_Define>VIPVer;RELEASE</DCC_Define>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_GenerateStackFrames>True</DCC_GenerateStackFrames>
+    <DCC_ExeOutput>D:\</DCC_ExeOutput>
+    <DCC_UnitSearchPath>..\..\Common;..\Common;D:\Working\3K2012\Component\RSA;D:\Working\3K2012\Component\JSocket;D:\Working\3K2012\Component\ImageButton;D:\Working\3K2012\Component\ImageProgressbar;D:\Working\3K2012\Component\WinHttp\Sources;D:\Working\3K2012\Component\加密控件;D:\Working\3K2012\Component\加密控件\Hashes;D:\Working\3K2012\Component\加密控件\Ciphers;D:\Working\3K2012\Component\VCLZip</DCC_UnitSearchPath>
+    <DCC_ResourcePath>..\..\Common;..\Common;D:\Working\3K2012\Component\RSA;D:\Working\3K2012\Component\JSocket;D:\Working\3K2012\Component\ImageButton;D:\Working\3K2012\Component\ImageProgressbar;D:\Working\3K2012\Component\WinHttp\Sources;D:\Working\3K2012\Component\加密控件;D:\Working\3K2012\Component\加密控件\Hashes;D:\Working\3K2012\Component\加密控件\Ciphers;D:\Working\3K2012\Component\VCLZip</DCC_ResourcePath>
+    <DCC_ObjPath>..\..\Common;..\Common;D:\Working\3K2012\Component\RSA;D:\Working\3K2012\Component\JSocket;D:\Working\3K2012\Component\ImageButton;D:\Working\3K2012\Component\ImageProgressbar;D:\Working\3K2012\Component\WinHttp\Sources;D:\Working\3K2012\Component\加密控件;D:\Working\3K2012\Component\加密控件\Hashes;D:\Working\3K2012\Component\加密控件\Ciphers;D:\Working\3K2012\Component\VCLZip</DCC_ObjPath>
+    <DCC_IncludePath>..\..\Common;..\Common;D:\Working\3K2012\Component\RSA;D:\Working\3K2012\Component\JSocket;D:\Working\3K2012\Component\ImageButton;D:\Working\3K2012\Component\ImageProgressbar;D:\Working\3K2012\Component\WinHttp\Sources;D:\Working\3K2012\Component\加密控件;D:\Working\3K2012\Component\加密控件\Hashes;D:\Working\3K2012\Component\加密控件\Ciphers;D:\Working\3K2012\Component\VCLZip</DCC_IncludePath>
+    <DCC_Define>VIPVer;DEBUG</DCC_Define>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType>VCLApplication</Borland.ProjectType>
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><VersionInfo><VersionInfo Name="IncludeVerInfo">True</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">2</VersionInfo><VersionInfo Name="MinorVer">61</VersionInfo><VersionInfo Name="Release">2032</VersionInfo><VersionInfo Name="Build">232</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">2052</VersionInfo><VersionInfo Name="CodePage">936</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName"></VersionInfoKeys><VersionInfoKeys Name="FileDescription">Copy by 2010-2012</VersionInfoKeys><VersionInfoKeys Name="FileVersion">2.61.2032.232</VersionInfoKeys><VersionInfoKeys Name="InternalName"></VersionInfoKeys><VersionInfoKeys Name="LegalCopyright">Copyright ? 2012 All Rights Reserved</VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys><VersionInfoKeys Name="ProductName"></VersionInfoKeys><VersionInfoKeys Name="ProductVersion">1.60.2031.231</VersionInfoKeys></VersionInfoKeys><Source><Source Name="MainSource">VIPGameLogin.dpr</Source></Source></Delphi.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="VIPGameLogin.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="..\..\Common\EDcodeUnit.pas" />
+    <DCCReference Include="..\Common\uTasBMPFIle.pas" />
+    <DCCReference Include="..\LoginCommon\ChangePassword.pas">
+      <Form>FrmChangePassword</Form>
+    </DCCReference>
+    <DCCReference Include="..\LoginCommon\FileUnit.pas" />
+    <DCCReference Include="..\LoginCommon\GameLoginShare.pas" />
+    <DCCReference Include="..\LoginCommon\GameMon.pas" />
+    <DCCReference Include="..\LoginCommon\GetBackPassword.pas">
+      <Form>FrmGetBackPassword</Form>
+    </DCCReference>
+    <DCCReference Include="..\LoginCommon\Md5.pas" />
+    <DCCReference Include="..\LoginCommon\MsgBox.pas">
+      <Form>FrmMessageBox</Form>
+    </DCCReference>
+    <DCCReference Include="..\LoginCommon\NewAccount.pas">
+      <Form>FrmNewAccount</Form>
+    </DCCReference>
+    <DCCReference Include="..\LoginCommon\Reg.pas" />
+    <DCCReference Include="..\LoginCommon\Secrch.pas" />
+    <DCCReference Include="Common\Common.pas" />
+    <DCCReference Include="fmMain.pas">
+      <Form>FrmMain2</Form>
+    </DCCReference>
+  </ItemGroup>
+</Project>

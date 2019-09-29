@@ -1,0 +1,180 @@
+
+<HTML><HEAD>
+<TITLE>VclSkin</TITLE>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type>
+
+<style>
+A  {
+	color : #008000;
+	text-decoration : none;
+}
+
+A:Visited  {
+        color : #800000;
+}
+
+A:Active  {}
+
+A:Hover  {
+	color : #FF8000;
+	text-decoration : underline;
+}
+TABLE  {
+	font-size : x-small;
+}
+TD  {
+	background-color : #f7ede5;
+    vertical-align:Top;
+}    
+Body {     
+	font-family : Verdana, Tahoma, Arial, Helvetica, Geneva, Sans-Serif;
+    font-size : x-small;
+    background-color : #f7ede5;  
+}
+</style>
+
+<META content="MSHTML 5.00.2919.6307" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>
+<TABLE border=0 cellSpacing=4>
+  <TBODY>
+  <TR>
+      <TD align=middle width=179> 
+        <P align=left>&nbsp;</P></TD>
+      <TD vAlign=top width=483>&nbsp; 
+        <h2 align=left><font size=7>Delphi VCLSkin</font><font size="5">2.30</font></h2>  
+        <P class=sidenote><A href="http://www.link-rank.com" >LinkRank software</A> 
+          ,June 2, 2003</P>
+      </TD></TR>
+  <TR>
+      <TD vAlign=top width=179> 
+        <p align=center><br>&nbsp;</p>
+      <p align=left>&nbsp;</p>
+      <P align=center></P>
+      <P>&nbsp;</P>
+      <P> </P>
+      <div align=center>&nbsp;</div>
+      <P align=center>&nbsp;</P>
+      <P>&nbsp;</P>
+      <P>&nbsp;</P>
+      <P>&nbsp;</P>
+      <P>&nbsp;</P></TD>
+      <TD vAlign=top width=483> 
+        <p align=right> D5 D6 D7</p>
+        <p>VCLSkin is an VCL library that extend Delphi application with skinnable 
+          user interface . It allows software developers to make their applications 
+          skinnable without modifing source code . Skins support for forms, menus 
+          and controls. VCLSkin provides you with plenty of high quality skins 
+          for your application .</p>
+        <p> 
+        <hr size=1 width="100%">
+        <p><strong><a name=#Installation 
+      ><strong 
+      >Installation</strong></a></strong></p>
+        <ul>
+          <li> Unzip the files : vclskind5.zip or vckskind6.zip. 
+          <li> From Delphi menu, Select File| Open project: reg/winskind6.dpk. 
+          <li> Select 'Project-&gt; Build' menu to compile. 
+          <li> Press Install. 
+          <li> The component is now installed in a new 'VCLSkin' page. 
+          <li>Add path in delphi library path. 
+        </ul>
+        <p>If you have a previous version installed:</p>
+        <ul>
+          <li>Replace the old files (*.dcu) with the new one, open the package 
+            and recompile. 
+          <li>If you encounter any problems remove all the compiled units .dcu, 
+            .bpl, .dcp (try to locate them also in 'C:\Program Files\Borland\DelphiX\Projects\Bpl' 
+            and 'C:\Program Files\Borland\DelphiX\lib'), then install pre-compiled 
+            units again. </li>
+        </ul>
+        <p><b>Upgrade from Vclskin1.2:</b></p>
+        <ul>
+          <li>Buckup your application.</li>
+          <li>TSkinform was deleted from Vclskin2.0, you should delete Tskinform 
+            components from your application, then rebuild project.</li>
+        </ul>
+        <hr SIZE=1 width="100%">
+        <h2>TSkinData </h2>
+        <h3>property</h3>
+        <p></p>
+        <p><font color=navy 
+      ><b>Active</b></font><b>:</b> enable / disable skin at runtime. </p>
+        <p><font color=navy 
+      ><b>DisableTag</b></font><b>:</b> To prevent Twinskinform from skining a 
+          certain control; set the control's Tag property value to <b><font color="red">99</font></b> 
+          <br>
+          (control.tag mod 100=disabletag) <font color=navy 
+      ><b>SkinFile</b></font><b>:</b> This string value is skin file with path.</p>
+        <p><font color=navy 
+      ><b>SkinControls</b></font><b>:</b> Specifies which control types be automaticaly 
+          skined . </p>
+        <p><font color=navy 
+      ><b>SkinFile</b></font><b>:</b> Load skin file at runtime.</p>
+        <p><font color=navy 
+      ><b>SkinStore</b></font><b>:</b> Store skin file in application.</p>
+        <p><font color=navy 
+      ><b>SkinFormType</b></font><b>:</b> support multi-skin in application.</p>
+        <h3>Method</h3>
+        <ul>
+          <li><b>LoadFromStream(Stream: TStream);</b></li>
+          <li><b>LoadFromFile(value:string);</b></li>
+          <li><b>LoadFromCollection(astore:TSkinStore;aindex:integer);</b></li>
+          <li><b>AddNestForm(fParent,fNested:Tform); </b></li>
+          <li><b>UpdateSkinControl(fParent:Tform); </b></li>
+          <li><b>UpdateMenu(fParent:Tform);</b></li>
+        </ul>
+        <h3>Event</h3>
+        <ul>
+          <li>OnFormSkin(Sender:TObject;aName:string;Var DoSkin:boolean);</li>
+        </ul>
+        <p>OnFormSkin happen before form skin, if Doskin is true, Vclskin will 
+          skin this form, if false, Vclskin will skip this form. aName is classname 
+          of the form.</p>
+        <h3></h3>
+        <ul>
+          <li>OnSkinChangned(Sender:TObject);</li>
+        </ul>
+        <p>OnSkinChanged happen after skin file have changed.</p>
+        <p>&nbsp;</p>
+        <h2>TSkinStore</h2>
+        <p>TSkinStore can store multi-skinfiles in your application. Tskindata 
+          can load skin file from TSkinStore: TSkinData.LoadFromCollection(astore:TSkinStore;aindex:integer), 
+        </p>
+        <hr size=1 width="100%">
+        <h3></h3>
+        <h3><strong><a name=#KnownIssues><strong>Known issues</strong></a></strong></h3>
+        <p><b>When user Drag Scrollbar thumb, scroolbar are shown as a normal. 
+          </b></p>
+        <p>When user Drag scrollbar thumb, Windows paint srollbar itself, not 
+          delphi, we must Hook Windows API to avoid this, it isn't easy work. 
+          We plan to fix it in the feature.</p>
+        <hr size=1 width="100%">
+        <p><b>How to get skin color?</b></p>
+        <p>It is easy to get skin Window Tcolor : skindata.Colors[csButtonFace].</p>
+        <p> Skindata.Colors: TShemeColors;</p>
+        <p>TShemeColor=(csText,csTitleTextActive,csTitleTextNoActive,<br>
+          csButtonFace,csButtonText,<br>
+          csButtonHilight,csButtonlight,csButtonShadow,csButtonDkshadow,<br>
+          csSelectText,csSelectBg,csHilightText,csHilight,<br>
+          csMenuBar,csMenuBarText,csMenuText,csMenubg,<br>
+          csScrollbar,csTextDisable);<br>
+          TShemeColors=array[csText..csTextDisable] of Tcolor;<br>
+        </p>
+        <p><a href="http://www.link-rank.com/guide.htm">Let VclSkin support your 
+          component</a></p>
+        <p>website : <a href="http://www.link-rank.com">http://www.link-rank.com</a></p>
+        <p>email : <a href="mailto:info@link-rank.com">info@link-rank.com</a></p>
+        <p>&nbsp;</p>
+        <p></p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </TD>
+    </TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<P align=center>&nbsp;</P>
+  <P align=center>&nbsp;</P>
+</CENTER>
+
+</BODY></HTML>
+

@@ -1,0 +1,5 @@
+constructor TDLabel.Create(AOwner: TComponent); ->需研究
+procedure TfrmMain.PrintScreenNow;
+g_ImgMixSurface           :TDirectDrawSurface;
+SetBkMode(Canvas.handle, TRANSPARENT);
+dd := TDirectDrawSurface.Create (frmMain.DXDraw.DDraw);->无法解决，也没看到效果

@@ -1,0 +1,45 @@
+package WinSkinD5R;
+
+{$R *.RES}
+{$ALIGN ON}
+{$ASSERTIONS OFF}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'Vclskin Runtime'}
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  vcl50,
+  Vclx50;
+
+contains
+  WinSkinForm in '..\Source\WinSkinForm.pas',
+  WinSubClass in '..\Source\WinSubClass.pas',
+  SkinRead in '..\Source\SkinRead.pas',
+  WinConvert in '..\Source\WinConvert.pas',
+  WinSkinData in '..\Source\WinSkinData.pas',
+  WinSkinDlg in '..\Source\WinSkinDlg.pas',
+  WinSkinMenu in '..\Source\Winskinmenu.pas',
+  WinSkinStore in '..\Source\WinSkinStore.pas',
+  ImgUtil in '..\Source\ImgUtil.pas',
+  WinSkinIni in '..\Source\WinSkinIni.pas';
+
+end.

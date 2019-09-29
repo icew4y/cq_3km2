@@ -1,0 +1,69 @@
+package BSFD6;
+
+{$R *.res}
+{$R 'bsReg.dcr'}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'BusinessSkinForm VCL'}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  designide,
+  vcl,
+  dbrtl,
+  vcldb;
+
+contains
+  BusinessSkinForm in 'BusinessSkinForm.pas',
+  bsDBGrids in 'bsdbgrids.pas',
+  bsreg in 'bsReg.pas',
+  bsSkinBoxCtrls in 'bsSkinBoxCtrls.pas',
+  bsSkinCtrls in 'bsSkinCtrls.pas',
+  bsSkinData in 'bsSkinData.pas',
+  bsSkinGrids in 'bsSkinGrids.pas',
+  bsSkinHint in 'bsSkinHint.pas',
+  bsSkinMenus in 'bsSkinMenus.pas',
+  bsSkinTabs in 'bsSkinTabs.pas',
+  bsTrayIcon in 'bsTrayIcon.pas',
+  bsUtils in 'bsUtils.pas',
+  bsdbctrls in 'bsdbctrls.pas',
+  bscalc in 'bscalc.pas',
+  bsSkinZip in 'bsSkinZip.pas',
+  bsSkinUnZip in 'bsSkinUnZip.pas',
+  bsMessages in 'bsMessages.pas',
+  bsSkinShellCtrls in 'bsSkinShellCtrls.pas',
+  bsfilectrl in 'bsfilectrl.pas',
+  bsEffects in 'bsEffects.pas',
+  NBPagesEditor in 'NBPagesEditor.pas' {NBPagesForm},
+  bsCalendar in 'bscalendar.pas',
+  bszlib in 'bszlib.pas',
+  bsColorCtrls in 'bsColorCtrls.pas',
+  bsDialogs in 'bsDialogs.pas',
+  bszlibcompress in 'bszlibcompress.pas',
+  bsconst in 'bsconst.pas',
+  bsRootEdit in 'bsRootEdit.pas' {bsRootPathEditDlg},
+  bsSkinPrinter in 'bsSkinPrinter.pas',
+  bsCategoryButtons in 'bscategorybuttons.pas',
+  bsButtonGroup in 'bsButtonGroup.pas';
+
+end.

@@ -1,0 +1,1 @@
+Brcc32 D3DDll.rc

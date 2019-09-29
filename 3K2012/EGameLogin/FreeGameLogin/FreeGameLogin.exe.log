@@ -1,0 +1,69 @@
+WinLicense - Professional Software Protection and Licensing Management  [Version 2.2.1.0]
+
+Protection Options for Software: FreeµÇÂ½Æ÷ (Input File: FreeGameLogin.exe)
+---------------------------------------
+
+Macros Information
+------------------
+VM Macros: 0
+CodeReplace Macros: 0
+ENCRYPT Macros: 0
+CLEAR Macros: 0
+MUTATE Macros: 0
+STR_ENCRYPT Macros: 0
+RegisteredVM Macros: 0
+CHECK_PROTECTION Macros: 0
+CHECK_CODE_INTEGRITY Macros: 0
+CHECK_REGISTRATION Macros: 0
+CHECK_VIRTUAL_PC Macros: 0
+
+
+Protection Options
+------------------
+Anti-Debugger: Advanced
+Anti-Dumpers: ENABLED
+Entry Point Obfuscation: ENABLED
+Resource Encryption: ENABLED
+VMWare compatible: ENABLED
+API-Wrapping Level: Level 2
+Anti-Patching: None
+Metamorph Security: ENABLED
+Memory Guard: ENABLED
+When Debugger Found: Display Message
+Application compression: ENABLED
+Resources compression: ENABLED
+SecureEngine compression: ENABLED
+Anti-File Monitor: ENABLED
+Anti-Registry Monitor: ENABLED
+Delphi/BCB form protection: ENABLED
+Ring-0 Protection: DISABLED
+
+
+Virtual Machine Settings
+------------------------
+Number of Virtual APIs wrapped: 0
+API Virtualization Level: 3
+Entry Point Virtualization: 0 instructions
+Multi Branch Technology: DISABLED
+Virtual Machine Processor: Mutable CISC processor
+Number of CPUs: 1
+Opcode Type: Metamorphic - Level 2
+Dynamic Opcode: 20% Dynamic
+
+
+Advanced Protection Options
+---------------------------
+Encrypt Application: ENABLED
+DLL plugin: DISABLED
+Export Generators: DISABLED
+Keep Trial Running: DISABLED
+Hide from PE scanners: Type 2
+.NET assemblies: ENABLED
+Active Context: DISABLED
+Custom Event: 
+Add Manifest: Launch Application: 
+
+
+XBundler files
+--------------
+No files to bundle

@@ -1,0 +1,21 @@
+.LOG
+11:47 2011-07-23
+系统插件：主工程代码USER部分，必需先是系统单元，不然加WL壳，不管怎么设置都会报病毒
+
+library SystemModule;
+
+uses
+  SysUtils,//系统单元
+  Classes,//系统单元
+  SystemManage in 'SystemManage.pas',
+  SystemShare in 'SystemShare.pas',
+  Module in 'Module.pas',
+  SDK in 'SDK.pas',
+  EncryptUnit in 'EncryptUnit.pas',
+  UserLicense in 'UserLicense\UserLicense.pas',
+  DESTRING in 'DESTRING.pas';
+
+
+系统插件WL工程:压缩->SecureEegine不能选择(360云必杀)
+
+引用异常控件，全部免杀金山

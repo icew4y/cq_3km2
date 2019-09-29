@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <PersonalityInfo>
+    <Option>
+      <Option Name="Personality">Default.Personality</Option>
+      <Option Name="ProjectType"></Option>
+      <Option Name="Version">1.0</Option>
+      <Option Name="GUID">{6269802C-25FB-4C05-AA8B-1721DC6D766B}</Option>
+    </Option>
+  </PersonalityInfo>
+  <Default.Personality>
+    
+    <Projects>
+      <Projects Name="mir2.exe">..\..\Client\mir2.bdsproj</Projects>
+      <Projects Name="GameLogin.exe">..\EGameLogin2\GameLogin.bdsproj</Projects>
+      <Projects Name="MakeGameLogin.exe">MakeGameLogin.bdsproj</Projects>
+      <Projects Name="Targets">mir2.exe GameLogin.exe GameLogin.exe MakeGameLogin.exe</Projects>
+    </Projects>
+    <Dependencies/>
+  </Default.Personality>
+</BorlandProject>

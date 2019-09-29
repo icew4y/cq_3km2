@@ -1,0 +1,3262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="JSocket">
+  <const name="CM_SOCKETMESSAGE" type="Integer">
+    <value>
+      $401
+    </value>
+  </const>
+  <const name="CM_DEFERFREE" type="Integer">
+    <value>
+      $402
+    </value>
+  </const>
+  <const name="CM_LOOKUPCOMPLETE" type="Integer">
+    <value>
+      $403
+    </value>
+  </const>
+  <class name="ESocketError">
+    <ancestor name="Exception" namespace="SysUtils">
+      <methodref name="Create" visibility="public">
+      </methodref>
+      <methodref name="CreateFmt" visibility="public">
+      </methodref>
+      <methodref name="CreateRes" visibility="public">
+      </methodref>
+      <methodref name="CreateRes" visibility="public">
+      </methodref>
+      <methodref name="CreateResFmt" visibility="public">
+      </methodref>
+      <methodref name="CreateResFmt" visibility="public">
+      </methodref>
+      <methodref name="CreateHelp" visibility="public">
+      </methodref>
+      <methodref name="CreateFmtHelp" visibility="public">
+      </methodref>
+      <methodref name="CreateResHelp" visibility="public">
+      </methodref>
+      <methodref name="CreateResHelp" visibility="public">
+      </methodref>
+      <methodref name="CreateResFmtHelp" visibility="public">
+      </methodref>
+      <methodref name="CreateResFmtHelp" visibility="public">
+      </methodref>
+      <propertyref name="HelpContext" visibility="public">
+      </propertyref>
+      <propertyref name="Message" visibility="public">
+      </propertyref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="InitInstance" visibility="public">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public">
+        </methodref>
+        <methodref name="ClassName" visibility="public">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public">
+        </methodref>
+        <methodref name="ClassParent" visibility="public">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public">
+        </methodref>
+        <methodref name="MethodName" visibility="public">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public">
+        </methodref>
+        <methodref name="Dispatch" visibility="public">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public">
+        </methodref>
+        <methodref name="NewInstance" visibility="public">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public">
+        </methodref>
+        <methodref name="Destroy" visibility="public">
+        </methodref>
+      </ancestor>
+    </ancestor>
+  </class>
+  <struct name="TCMSocketMessage">
+    <field name="Msg" type="Cardinal" visibility="public" />
+    <field name="Socket" type="Integer" visibility="public" />
+    <field name="SelectEvent" type="Word" visibility="public" />
+    <field name="SelectError" type="Word" visibility="public" />
+    <field name="Result" type="Integer" visibility="public" />
+  </struct>
+  <struct name="TCMLookupComplete">
+    <field name="Msg" type="Cardinal" visibility="public" />
+    <field name="LookupHandle" type="Cardinal" visibility="public" />
+    <field name="AsyncBufLen" type="Word" visibility="public" />
+    <field name="AsyncError" type="Word" visibility="public" />
+    <field name="Result" type="Integer" visibility="public" />
+  </struct>
+  <const name="stNonBlocking" type="TServerType">
+    <value>
+      stNonBlocking
+    </value>
+  </const>
+  <const name="stThreadBlocking" type="TServerType">
+    <value>
+      stThreadBlocking
+    </value>
+  </const>
+  <enum name="TServerType">
+    <element name="stNonBlocking" />
+    <element name="stThreadBlocking" />
+  </enum>
+  <const name="ctNonBlocking" type="TClientType">
+    <value>
+      ctNonBlocking
+    </value>
+  </const>
+  <const name="ctBlocking" type="TClientType">
+    <value>
+      ctBlocking
+    </value>
+  </const>
+  <enum name="TClientType">
+    <element name="ctNonBlocking" />
+    <element name="ctBlocking" />
+  </enum>
+  <const name="asRead" type="TAsyncStyle">
+    <value>
+      asRead
+    </value>
+  </const>
+  <const name="asWrite" type="TAsyncStyle">
+    <value>
+      asWrite
+    </value>
+  </const>
+  <const name="asOOB" type="TAsyncStyle">
+    <value>
+      asOOB
+    </value>
+  </const>
+  <const name="asAccept" type="TAsyncStyle">
+    <value>
+      asAccept
+    </value>
+  </const>
+  <const name="asConnect" type="TAsyncStyle">
+    <value>
+      asConnect
+    </value>
+  </const>
+  <const name="asClose" type="TAsyncStyle">
+    <value>
+      asClose
+    </value>
+  </const>
+  <enum name="TAsyncStyle">
+    <element name="asRead" />
+    <element name="asWrite" />
+    <element name="asOOB" />
+    <element name="asAccept" />
+    <element name="asConnect" />
+    <element name="asClose" />
+  </enum>
+  <set name="TAsyncStyles" type="TAsyncStyle">
+    <element name="asRead" />
+    <element name="asWrite" />
+    <element name="asOOB" />
+    <element name="asAccept" />
+    <element name="asConnect" />
+    <element name="asClose" />
+  </set>
+  <const name="seLookup" type="TSocketEvent">
+    <value>
+      seLookup
+    </value>
+  </const>
+  <const name="seConnecting" type="TSocketEvent">
+    <value>
+      seConnecting
+    </value>
+  </const>
+  <const name="seConnect" type="TSocketEvent">
+    <value>
+      seConnect
+    </value>
+  </const>
+  <const name="seDisconnect" type="TSocketEvent">
+    <value>
+      seDisconnect
+    </value>
+  </const>
+  <const name="seListen" type="TSocketEvent">
+    <value>
+      seListen
+    </value>
+  </const>
+  <const name="seAccept" type="TSocketEvent">
+    <value>
+      seAccept
+    </value>
+  </const>
+  <const name="seWrite" type="TSocketEvent">
+    <value>
+      seWrite
+    </value>
+  </const>
+  <const name="seRead" type="TSocketEvent">
+    <value>
+      seRead
+    </value>
+  </const>
+  <enum name="TSocketEvent">
+    <element name="seLookup" />
+    <element name="seConnecting" />
+    <element name="seConnect" />
+    <element name="seDisconnect" />
+    <element name="seListen" />
+    <element name="seAccept" />
+    <element name="seWrite" />
+    <element name="seRead" />
+  </enum>
+  <const name="lsIdle" type="TLookupState">
+    <value>
+      lsIdle
+    </value>
+  </const>
+  <const name="lsLookupAddress" type="TLookupState">
+    <value>
+      lsLookupAddress
+    </value>
+  </const>
+  <const name="lsLookupService" type="TLookupState">
+    <value>
+      lsLookupService
+    </value>
+  </const>
+  <enum name="TLookupState">
+    <element name="lsIdle" />
+    <element name="lsLookupAddress" />
+    <element name="lsLookupService" />
+  </enum>
+  <const name="eeGeneral" type="TErrorEvent">
+    <value>
+      eeGeneral
+    </value>
+  </const>
+  <const name="eeSend" type="TErrorEvent">
+    <value>
+      eeSend
+    </value>
+  </const>
+  <const name="eeReceive" type="TErrorEvent">
+    <value>
+      eeReceive
+    </value>
+  </const>
+  <const name="eeConnect" type="TErrorEvent">
+    <value>
+      eeConnect
+    </value>
+  </const>
+  <const name="eeDisconnect" type="TErrorEvent">
+    <value>
+      eeDisconnect
+    </value>
+  </const>
+  <const name="eeAccept" type="TErrorEvent">
+    <value>
+      eeAccept
+    </value>
+  </const>
+  <const name="eeLookup" type="TErrorEvent">
+    <value>
+      eeLookup
+    </value>
+  </const>
+  <enum name="TErrorEvent">
+    <element name="eeGeneral" />
+    <element name="eeSend" />
+    <element name="eeReceive" />
+    <element name="eeConnect" />
+    <element name="eeDisconnect" />
+    <element name="eeAccept" />
+    <element name="eeLookup" />
+  </enum>
+  <class name="TCustomWinSocket">
+    <ancestor name="TObject" namespace="System">
+      <methodref name="Create" visibility="public">
+      </methodref>
+      <methodref name="Free" visibility="public">
+      </methodref>
+      <methodref name="InitInstance" visibility="public">
+      </methodref>
+      <methodref name="CleanupInstance" visibility="public">
+      </methodref>
+      <methodref name="ClassType" visibility="public">
+      </methodref>
+      <methodref name="ClassName" visibility="public">
+      </methodref>
+      <methodref name="ClassNameIs" visibility="public">
+      </methodref>
+      <methodref name="ClassParent" visibility="public">
+      </methodref>
+      <methodref name="ClassInfo" visibility="public">
+      </methodref>
+      <methodref name="InstanceSize" visibility="public">
+      </methodref>
+      <methodref name="InheritsFrom" visibility="public">
+      </methodref>
+      <methodref name="MethodAddress" visibility="public">
+      </methodref>
+      <methodref name="MethodName" visibility="public">
+      </methodref>
+      <methodref name="FieldAddress" visibility="public">
+      </methodref>
+      <methodref name="GetInterface" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceEntry" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceTable" visibility="public">
+      </methodref>
+      <methodref name="SafeCallException" visibility="public">
+      </methodref>
+      <methodref name="AfterConstruction" visibility="public">
+      </methodref>
+      <methodref name="BeforeDestruction" visibility="public">
+      </methodref>
+      <methodref name="Dispatch" visibility="public">
+      </methodref>
+      <methodref name="DefaultHandler" visibility="public">
+      </methodref>
+      <methodref name="NewInstance" visibility="public">
+      </methodref>
+      <methodref name="FreeInstance" visibility="public">
+      </methodref>
+      <methodref name="Destroy" visibility="public">
+      </methodref>
+    </ancestor>
+    <members>
+      <field name="FSocket" type="Integer" visibility="private" />
+      <field name="FConnected" type="Boolean" visibility="private" />
+      <field name="FSendStream" type="TStream" visibility="private" />
+      <field name="FDropAfterSend" type="Boolean" visibility="private" />
+      <field name="FHandle" type="HWND" visibility="private" />
+      <field name="FAddr" type="sockaddr_in" visibility="private" />
+      <field name="FAsyncStyles" type="TAsyncStyles" visibility="private" />
+      <field name="FLookupState" type="TLookupState" visibility="private" />
+      <field name="FLookupHandle" type="Cardinal" visibility="private" />
+      <field name="FOnSocketEvent" type="TSocketEventEvent" visibility="private" />
+      <field name="FOnErrorEvent" type="TSocketErrorEvent" visibility="private" />
+      <field name="FSocketLock" type="TCriticalSection" visibility="private" />
+      <field name="FGetHostData" type="Pointer" visibility="private" />
+      <field name="FData" type="Pointer" visibility="private" />
+      <field name="FService" type="string" visibility="private" />
+      <field name="FPort" type="Word" visibility="private" />
+      <field name="FClient" type="Boolean" visibility="private" />
+      <field name="FQueueSize" type="Integer" visibility="private" />
+      <function name="SendStreamPiece" visibility="private">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="WndProc" visibility="private">
+        <parameters>
+          <parameter name="Message" type="TMessage" paramflags="var" />
+        </parameters>
+      </procedure>
+      <procedure name="CMLookupComplete" visibility="public" procflags="message">
+        <parameters>
+          <parameter name="Message" type="TCMLookupComplete" paramflags="var" />
+        </parameters>
+      </procedure>
+      <procedure name="CMSocketMessage" visibility="public" procflags="message">
+        <parameters>
+          <parameter name="Message" type="TCMSocketMessage" paramflags="var" />
+        </parameters>
+      </procedure>
+      <procedure name="CMDeferFree" visibility="public" procflags="message">
+        <parameters>
+          <parameter name="Message" paramflags="var" />
+        </parameters>
+      </procedure>
+      <procedure name="DeferFree" visibility="private">
+      </procedure>
+      <procedure name="DoSetAsyncStyles" visibility="private">
+      </procedure>
+      <function name="GetHandle" visibility="private">
+        <parameters>
+          <retval type="HWND" />
+        </parameters>
+      </function>
+      <function name="GetLocalHost" visibility="private">
+        <parameters>
+          <retval type="string" />
+        </parameters>
+      </function>
+      <function name="GetLocalAddress" visibility="private">
+        <parameters>
+          <retval type="string" />
+        </parameters>
+      </function>
+      <function name="GetLocalPort" visibility="private">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetRemoteHost" visibility="private">
+        <parameters>
+          <retval type="string" />
+        </parameters>
+      </function>
+      <function name="GetRemoteAddress" visibility="private">
+        <parameters>
+          <retval type="string" />
+        </parameters>
+      </function>
+      <function name="GetRemotePort" visibility="private">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetRemoteAddr" visibility="private">
+        <parameters>
+          <retval type="sockaddr_in" />
+        </parameters>
+      </function>
+      <function name="CheckSocketResult" visibility="private">
+        <parameters>
+          <parameter name="ResultCode" type="Integer" />
+          <parameter name="Op" type="string" paramflags="const" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <procedure name="AsyncInitSocket" visibility="protected">
+        <parameters>
+          <parameter name="Name" type="string" paramflags="const" />
+          <parameter name="Address" type="string" paramflags="const" />
+          <parameter name="Service" type="string" paramflags="const" />
+          <parameter name="Port" type="Word" />
+          <parameter name="QueueSize" type="Integer" />
+          <parameter name="Client" type="Boolean" />
+        </parameters>
+      </procedure>
+      <procedure name="DoOpen" visibility="protected">
+      </procedure>
+      <procedure name="DoListen" visibility="protected">
+        <parameters>
+          <parameter name="QueueSize" type="Integer" />
+        </parameters>
+      </procedure>
+      <function name="InitSocket" visibility="protected">
+        <parameters>
+          <parameter name="Name" type="string" paramflags="const" />
+          <parameter name="Address" type="string" paramflags="const" />
+          <parameter name="Service" type="string" paramflags="const" />
+          <parameter name="Port" type="Word" />
+          <parameter name="Client" type="Boolean" />
+          <retval type="sockaddr_in" />
+        </parameters>
+      </function>
+      <procedure name="Event" visibility="protected" procflags="dynamic">
+        <parameters>
+          <parameter name="Socket" type="TCustomWinSocket" />
+          <parameter name="SocketEvent" type="TSocketEvent" />
+        </parameters>
+      </procedure>
+      <procedure name="Error" visibility="protected" procflags="dynamic">
+        <parameters>
+          <parameter name="Socket" type="TCustomWinSocket" />
+          <parameter name="ErrorEvent" type="TErrorEvent" />
+          <parameter name="ErrorCode" type="Integer" paramflags="var" />
+        </parameters>
+      </procedure>
+      <procedure name="SetAsyncStyles" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="TAsyncStyles" />
+        </parameters>
+      </procedure>
+      <field name="nIndex" type="Integer" visibility="public" />
+      <constructor name="Create" visibility="public">
+        <parameters>
+          <parameter name="ASocket" type="Integer" />
+        </parameters>
+      </constructor>
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+      <procedure name="Close" visibility="public">
+      </procedure>
+      <procedure name="DefaultHandler" visibility="public" procflags="override">
+        <parameters>
+          <parameter name="Message" paramflags="var" />
+        </parameters>
+      </procedure>
+      <procedure name="Lock" visibility="public">
+      </procedure>
+      <procedure name="Unlock" visibility="public">
+      </procedure>
+      <procedure name="Listen" visibility="public">
+        <parameters>
+          <parameter name="Name" type="string" paramflags="const" />
+          <parameter name="Address" type="string" paramflags="const" />
+          <parameter name="Service" type="string" paramflags="const" />
+          <parameter name="Port" type="Word" />
+          <parameter name="QueueSize" type="Integer" />
+          <parameter name="Block" type="Boolean">
+            <value>
+              True
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="Open" visibility="public">
+        <parameters>
+          <parameter name="Name" type="string" paramflags="const" />
+          <parameter name="Address" type="string" paramflags="const" />
+          <parameter name="Service" type="string" paramflags="const" />
+          <parameter name="Port" type="Word" />
+          <parameter name="Block" type="Boolean">
+            <value>
+              True
+            </value>
+          </parameter>
+        </parameters>
+      </procedure>
+      <procedure name="Accept" visibility="public" procflags="virtual">
+        <parameters>
+          <parameter name="Socket" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="Connect" visibility="public" procflags="virtual">
+        <parameters>
+          <parameter name="Socket" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="Disconnect" visibility="public" procflags="virtual">
+        <parameters>
+          <parameter name="Socket" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="Read" visibility="public" procflags="virtual">
+        <parameters>
+          <parameter name="Socket" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="Write" visibility="public" procflags="virtual">
+        <parameters>
+          <parameter name="Socket" type="Integer" />
+        </parameters>
+      </procedure>
+      <function name="LookupName" visibility="public">
+        <parameters>
+          <parameter name="name" type="string" paramflags="const" />
+          <retval type="in_addr" />
+        </parameters>
+      </function>
+      <function name="LookupService" visibility="public">
+        <parameters>
+          <parameter name="service" type="string" paramflags="const" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="ReceiveLength" visibility="public">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="ReceiveBuf" visibility="public">
+        <parameters>
+          <parameter name="Buf" paramflags="var" />
+          <parameter name="Count" type="Integer" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="ReceiveText" visibility="public">
+        <parameters>
+          <retval type="string" />
+        </parameters>
+      </function>
+      <function name="SendBuf" visibility="public">
+        <parameters>
+          <parameter name="Buf" paramflags="var" />
+          <parameter name="Count" type="Integer" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="SendStream" visibility="public">
+        <parameters>
+          <parameter name="AStream" type="TStream" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="SendStreamThenDrop" visibility="public">
+        <parameters>
+          <parameter name="AStream" type="TStream" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="SendText" visibility="public">
+        <parameters>
+          <parameter name="S" type="string" paramflags="const" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <property name="LocalHost" visibility="public" read="GetLocalHost" type="string" />
+      <property name="LocalAddress" visibility="public" read="GetLocalAddress" type="string" />
+      <property name="LocalPort" visibility="public" read="GetLocalPort" type="Integer" />
+      <property name="RemoteHost" visibility="public" read="GetRemoteHost" type="string" />
+      <property name="RemoteAddress" visibility="public" read="GetRemoteAddress" type="string" />
+      <property name="RemotePort" visibility="public" read="GetRemotePort" type="Integer" />
+      <property name="RemoteAddr" visibility="public" read="GetRemoteAddr" type="sockaddr_in" />
+      <property name="Connected" visibility="public" read="FConnected" type="Boolean" />
+      <property name="Addr" visibility="public" read="FAddr" type="sockaddr_in" />
+      <property name="ASyncStyles" visibility="public" read="FAsyncStyles" write="SetAsyncStyles" type="TAsyncStyles" />
+      <property name="Handle" visibility="public" read="GetHandle" type="HWND" />
+      <property name="SocketHandle" visibility="public" read="FSocket" type="Integer" />
+      <property name="LookupState" visibility="public" read="FLookupState" type="TLookupState" />
+      <event name="OnSocketEvent" visibility="public" read="FOnSocketEvent" write="FOnSocketEvent" type="TSocketEventEvent" />
+      <event name="OnErrorEvent" visibility="public" read="FOnErrorEvent" write="FOnErrorEvent" type="TSocketErrorEvent" />
+      <property name="Data" visibility="public" read="FData" write="FData" type="Pointer" />
+    </members>
+  </class>
+  <class name="TClientWinSocket">
+    <ancestor name="TCustomWinSocket" namespace="JSocket">
+      <methodref name="SendStreamPiece" visibility="private" />
+      <methodref name="WndProc" visibility="private" />
+      <methodref name="CMLookupComplete" visibility="public" />
+      <methodref name="CMSocketMessage" visibility="public" />
+      <methodref name="CMDeferFree" visibility="public" />
+      <methodref name="DeferFree" visibility="private" />
+      <methodref name="DoSetAsyncStyles" visibility="private" />
+      <methodref name="GetHandle" visibility="private" />
+      <methodref name="GetLocalHost" visibility="private" />
+      <methodref name="GetLocalAddress" visibility="private" />
+      <methodref name="GetLocalPort" visibility="private" />
+      <methodref name="GetRemoteHost" visibility="private" />
+      <methodref name="GetRemoteAddress" visibility="private" />
+      <methodref name="GetRemotePort" visibility="private" />
+      <methodref name="GetRemoteAddr" visibility="private" />
+      <methodref name="CheckSocketResult" visibility="private" />
+      <methodref name="AsyncInitSocket" visibility="protected" />
+      <methodref name="DoOpen" visibility="protected" />
+      <methodref name="DoListen" visibility="protected" />
+      <methodref name="InitSocket" visibility="protected" />
+      <methodref name="Event" visibility="protected" />
+      <methodref name="Error" visibility="protected" />
+      <methodref name="SetAsyncStyles" visibility="protected" />
+      <methodref name="Create" visibility="public" />
+      <methodref name="Destroy" visibility="public" />
+      <methodref name="Close" visibility="public" />
+      <methodref name="DefaultHandler" visibility="public" />
+      <methodref name="Lock" visibility="public" />
+      <methodref name="Unlock" visibility="public" />
+      <methodref name="Listen" visibility="public" />
+      <methodref name="Open" visibility="public" />
+      <methodref name="Accept" visibility="public" />
+      <methodref name="Connect" visibility="public" />
+      <methodref name="Disconnect" visibility="public" />
+      <methodref name="Read" visibility="public" />
+      <methodref name="Write" visibility="public" />
+      <methodref name="LookupName" visibility="public" />
+      <methodref name="LookupService" visibility="public" />
+      <methodref name="ReceiveLength" visibility="public" />
+      <methodref name="ReceiveBuf" visibility="public" />
+      <methodref name="ReceiveText" visibility="public" />
+      <methodref name="SendBuf" visibility="public" />
+      <methodref name="SendStream" visibility="public" />
+      <methodref name="SendStreamThenDrop" visibility="public" />
+      <methodref name="SendText" visibility="public" />
+      <propertyref name="LocalHost" visibility="public" />
+      <propertyref name="LocalAddress" visibility="public" />
+      <propertyref name="LocalPort" visibility="public" />
+      <propertyref name="RemoteHost" visibility="public" />
+      <propertyref name="RemoteAddress" visibility="public" />
+      <propertyref name="RemotePort" visibility="public" />
+      <propertyref name="RemoteAddr" visibility="public" />
+      <propertyref name="Connected" visibility="public" />
+      <propertyref name="Addr" visibility="public" />
+      <propertyref name="ASyncStyles" visibility="public" />
+      <propertyref name="Handle" visibility="public" />
+      <propertyref name="SocketHandle" visibility="public" />
+      <propertyref name="LookupState" visibility="public" />
+      <eventref name="OnSocketEvent" visibility="public" />
+      <eventref name="OnErrorEvent" visibility="public" />
+      <propertyref name="Data" visibility="public" />
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="InitInstance" visibility="public">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public">
+        </methodref>
+        <methodref name="ClassName" visibility="public">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public">
+        </methodref>
+        <methodref name="ClassParent" visibility="public">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public">
+        </methodref>
+        <methodref name="MethodName" visibility="public">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public">
+        </methodref>
+        <methodref name="Dispatch" visibility="public">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public">
+        </methodref>
+        <methodref name="NewInstance" visibility="public">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public">
+        </methodref>
+        <methodref name="Destroy" visibility="public">
+        </methodref>
+      </ancestor>
+    </ancestor>
+    <members>
+      <field name="FClientType" type="TClientType" visibility="private" />
+      <procedure name="SetClientType" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="TClientType" />
+        </parameters>
+      </procedure>
+      <procedure name="Connect" visibility="public" procflags="override">
+        <parameters>
+          <parameter name="Socket" type="Integer" />
+        </parameters>
+      </procedure>
+      <property name="ClientType" visibility="public" read="FClientType" write="SetClientType" type="TClientType" />
+    </members>
+  </class>
+  <class name="TServerClientWinSocket">
+    <ancestor name="TCustomWinSocket" namespace="JSocket">
+      <methodref name="SendStreamPiece" visibility="private" />
+      <methodref name="WndProc" visibility="private" />
+      <methodref name="CMLookupComplete" visibility="public" />
+      <methodref name="CMSocketMessage" visibility="public" />
+      <methodref name="CMDeferFree" visibility="public" />
+      <methodref name="DeferFree" visibility="private" />
+      <methodref name="DoSetAsyncStyles" visibility="private" />
+      <methodref name="GetHandle" visibility="private" />
+      <methodref name="GetLocalHost" visibility="private" />
+      <methodref name="GetLocalAddress" visibility="private" />
+      <methodref name="GetLocalPort" visibility="private" />
+      <methodref name="GetRemoteHost" visibility="private" />
+      <methodref name="GetRemoteAddress" visibility="private" />
+      <methodref name="GetRemotePort" visibility="private" />
+      <methodref name="GetRemoteAddr" visibility="private" />
+      <methodref name="CheckSocketResult" visibility="private" />
+      <methodref name="AsyncInitSocket" visibility="protected" />
+      <methodref name="DoOpen" visibility="protected" />
+      <methodref name="DoListen" visibility="protected" />
+      <methodref name="InitSocket" visibility="protected" />
+      <methodref name="Event" visibility="protected" />
+      <methodref name="Error" visibility="protected" />
+      <methodref name="SetAsyncStyles" visibility="protected" />
+      <methodref name="Create" visibility="public" />
+      <methodref name="Destroy" visibility="public" />
+      <methodref name="Close" visibility="public" />
+      <methodref name="DefaultHandler" visibility="public" />
+      <methodref name="Lock" visibility="public" />
+      <methodref name="Unlock" visibility="public" />
+      <methodref name="Listen" visibility="public" />
+      <methodref name="Open" visibility="public" />
+      <methodref name="Accept" visibility="public" />
+      <methodref name="Connect" visibility="public" />
+      <methodref name="Disconnect" visibility="public" />
+      <methodref name="Read" visibility="public" />
+      <methodref name="Write" visibility="public" />
+      <methodref name="LookupName" visibility="public" />
+      <methodref name="LookupService" visibility="public" />
+      <methodref name="ReceiveLength" visibility="public" />
+      <methodref name="ReceiveBuf" visibility="public" />
+      <methodref name="ReceiveText" visibility="public" />
+      <methodref name="SendBuf" visibility="public" />
+      <methodref name="SendStream" visibility="public" />
+      <methodref name="SendStreamThenDrop" visibility="public" />
+      <methodref name="SendText" visibility="public" />
+      <propertyref name="LocalHost" visibility="public" />
+      <propertyref name="LocalAddress" visibility="public" />
+      <propertyref name="LocalPort" visibility="public" />
+      <propertyref name="RemoteHost" visibility="public" />
+      <propertyref name="RemoteAddress" visibility="public" />
+      <propertyref name="RemotePort" visibility="public" />
+      <propertyref name="RemoteAddr" visibility="public" />
+      <propertyref name="Connected" visibility="public" />
+      <propertyref name="Addr" visibility="public" />
+      <propertyref name="ASyncStyles" visibility="public" />
+      <propertyref name="Handle" visibility="public" />
+      <propertyref name="SocketHandle" visibility="public" />
+      <propertyref name="LookupState" visibility="public" />
+      <eventref name="OnSocketEvent" visibility="public" />
+      <eventref name="OnErrorEvent" visibility="public" />
+      <propertyref name="Data" visibility="public" />
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="InitInstance" visibility="public">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public">
+        </methodref>
+        <methodref name="ClassName" visibility="public">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public">
+        </methodref>
+        <methodref name="ClassParent" visibility="public">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public">
+        </methodref>
+        <methodref name="MethodName" visibility="public">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public">
+        </methodref>
+        <methodref name="Dispatch" visibility="public">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public">
+        </methodref>
+        <methodref name="NewInstance" visibility="public">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public">
+        </methodref>
+        <methodref name="Destroy" visibility="public">
+        </methodref>
+      </ancestor>
+    </ancestor>
+    <members>
+      <field name="FServerWinSocket" type="TServerWinSocket" visibility="private" />
+      <constructor name="Create" visibility="public">
+        <parameters>
+          <parameter name="Socket" type="Integer" />
+          <parameter name="ServerWinSocket" type="TServerWinSocket" />
+        </parameters>
+      </constructor>
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+      <property name="ServerWinSocket" visibility="public" read="FServerWinSocket" type="TServerWinSocket" />
+    </members>
+  </class>
+  <class name="TServerWinSocket">
+    <ancestor name="TCustomWinSocket" namespace="JSocket">
+      <methodref name="SendStreamPiece" visibility="private" />
+      <methodref name="WndProc" visibility="private" />
+      <methodref name="CMLookupComplete" visibility="public" />
+      <methodref name="CMSocketMessage" visibility="public" />
+      <methodref name="CMDeferFree" visibility="public" />
+      <methodref name="DeferFree" visibility="private" />
+      <methodref name="DoSetAsyncStyles" visibility="private" />
+      <methodref name="GetHandle" visibility="private" />
+      <methodref name="GetLocalHost" visibility="private" />
+      <methodref name="GetLocalAddress" visibility="private" />
+      <methodref name="GetLocalPort" visibility="private" />
+      <methodref name="GetRemoteHost" visibility="private" />
+      <methodref name="GetRemoteAddress" visibility="private" />
+      <methodref name="GetRemotePort" visibility="private" />
+      <methodref name="GetRemoteAddr" visibility="private" />
+      <methodref name="CheckSocketResult" visibility="private" />
+      <methodref name="AsyncInitSocket" visibility="protected" />
+      <methodref name="DoOpen" visibility="protected" />
+      <methodref name="DoListen" visibility="protected" />
+      <methodref name="InitSocket" visibility="protected" />
+      <methodref name="Event" visibility="protected" />
+      <methodref name="Error" visibility="protected" />
+      <methodref name="SetAsyncStyles" visibility="protected" />
+      <methodref name="Create" visibility="public" />
+      <methodref name="Destroy" visibility="public" />
+      <methodref name="Close" visibility="public" />
+      <methodref name="DefaultHandler" visibility="public" />
+      <methodref name="Lock" visibility="public" />
+      <methodref name="Unlock" visibility="public" />
+      <methodref name="Listen" visibility="public" />
+      <methodref name="Open" visibility="public" />
+      <methodref name="Accept" visibility="public" />
+      <methodref name="Connect" visibility="public" />
+      <methodref name="Disconnect" visibility="public" />
+      <methodref name="Read" visibility="public" />
+      <methodref name="Write" visibility="public" />
+      <methodref name="LookupName" visibility="public" />
+      <methodref name="LookupService" visibility="public" />
+      <methodref name="ReceiveLength" visibility="public" />
+      <methodref name="ReceiveBuf" visibility="public" />
+      <methodref name="ReceiveText" visibility="public" />
+      <methodref name="SendBuf" visibility="public" />
+      <methodref name="SendStream" visibility="public" />
+      <methodref name="SendStreamThenDrop" visibility="public" />
+      <methodref name="SendText" visibility="public" />
+      <propertyref name="LocalHost" visibility="public" />
+      <propertyref name="LocalAddress" visibility="public" />
+      <propertyref name="LocalPort" visibility="public" />
+      <propertyref name="RemoteHost" visibility="public" />
+      <propertyref name="RemoteAddress" visibility="public" />
+      <propertyref name="RemotePort" visibility="public" />
+      <propertyref name="RemoteAddr" visibility="public" />
+      <propertyref name="Connected" visibility="public" />
+      <propertyref name="Addr" visibility="public" />
+      <propertyref name="ASyncStyles" visibility="public" />
+      <propertyref name="Handle" visibility="public" />
+      <propertyref name="SocketHandle" visibility="public" />
+      <propertyref name="LookupState" visibility="public" />
+      <eventref name="OnSocketEvent" visibility="public" />
+      <eventref name="OnErrorEvent" visibility="public" />
+      <propertyref name="Data" visibility="public" />
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="InitInstance" visibility="public">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public">
+        </methodref>
+        <methodref name="ClassName" visibility="public">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public">
+        </methodref>
+        <methodref name="ClassParent" visibility="public">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public">
+        </methodref>
+        <methodref name="MethodName" visibility="public">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public">
+        </methodref>
+        <methodref name="Dispatch" visibility="public">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public">
+        </methodref>
+        <methodref name="NewInstance" visibility="public">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public">
+        </methodref>
+        <methodref name="Destroy" visibility="public">
+        </methodref>
+      </ancestor>
+    </ancestor>
+    <members>
+      <field name="FServerType" type="TServerType" visibility="private" />
+      <field name="FThreadCacheSize" type="Integer" visibility="private" />
+      <field name="FConnections" type="TList" visibility="private" />
+      <field name="FActiveThreads" type="TList" visibility="private" />
+      <field name="FListLock" type="TCriticalSection" visibility="private" />
+      <field name="FServerAcceptThread" type="TServerAcceptThread" visibility="private" />
+      <field name="FOnGetSocket" type="TGetSocketEvent" visibility="private" />
+      <field name="FOnGetThread" type="TGetThreadEvent" visibility="private" />
+      <field name="FOnThreadStart" type="TThreadNotifyEvent" visibility="private" />
+      <field name="FOnThreadEnd" type="TThreadNotifyEvent" visibility="private" />
+      <field name="FOnClientConnect" type="TSocketNotifyEvent" visibility="private" />
+      <field name="FOnClientDisconnect" type="TSocketNotifyEvent" visibility="private" />
+      <field name="FOnClientRead" type="TSocketNotifyEvent" visibility="private" />
+      <field name="FOnClientWrite" type="TSocketNotifyEvent" visibility="private" />
+      <field name="FOnClientError" type="TSocketErrorEvent" visibility="private" />
+      <procedure name="AddClient" visibility="private">
+        <parameters>
+          <parameter name="AClient" type="TServerClientWinSocket" />
+        </parameters>
+      </procedure>
+      <procedure name="RemoveClient" visibility="private">
+        <parameters>
+          <parameter name="AClient" type="TServerClientWinSocket" />
+        </parameters>
+      </procedure>
+      <procedure name="AddThread" visibility="private">
+        <parameters>
+          <parameter name="AThread" type="TServerClientThread" />
+        </parameters>
+      </procedure>
+      <procedure name="RemoveThread" visibility="private">
+        <parameters>
+          <parameter name="AThread" type="TServerClientThread" />
+        </parameters>
+      </procedure>
+      <procedure name="ClientEvent" visibility="private">
+        <parameters>
+          <parameter name="Sender" type="TObject" />
+          <parameter name="Socket" type="TCustomWinSocket" />
+          <parameter name="SocketEvent" type="TSocketEvent" />
+        </parameters>
+      </procedure>
+      <procedure name="ClientError" visibility="private">
+        <parameters>
+          <parameter name="Sender" type="TObject" />
+          <parameter name="Socket" type="TCustomWinSocket" />
+          <parameter name="ErrorEvent" type="TErrorEvent" />
+          <parameter name="ErrorCode" type="Integer" paramflags="var" />
+        </parameters>
+      </procedure>
+      <function name="GetActiveConnections" visibility="private">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetActiveThreads" visibility="private">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetConnections" visibility="private">
+        <parameters>
+          <parameter name="Index" type="Integer" />
+          <retval type="TCustomWinSocket" />
+        </parameters>
+      </function>
+      <function name="GetIdleThreads" visibility="private">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="DoCreateThread" visibility="public" procflags="virtual">
+        <parameters>
+          <parameter name="ClientSocket" type="TServerClientWinSocket" />
+          <retval type="TServerClientThread" />
+        </parameters>
+      </function>
+      <procedure name="Listen" visibility="protected">
+        <parameters>
+          <parameter name="Name" type="string" paramflags="var" />
+          <parameter name="Address" type="string" paramflags="var" />
+          <parameter name="Service" type="string" paramflags="var" />
+          <parameter name="Port" type="Word" />
+          <parameter name="QueueSize" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="SetServerType" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="TServerType" />
+        </parameters>
+      </procedure>
+      <procedure name="SetThreadCacheSize" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="ThreadEnd" visibility="protected" procflags="dynamic">
+        <parameters>
+          <parameter name="AThread" type="TServerClientThread" />
+        </parameters>
+      </procedure>
+      <procedure name="ThreadStart" visibility="protected" procflags="dynamic">
+        <parameters>
+          <parameter name="AThread" type="TServerClientThread" />
+        </parameters>
+      </procedure>
+      <function name="GetClientSocket" visibility="protected" procflags="dynamic">
+        <parameters>
+          <parameter name="Socket" type="Integer" />
+          <retval type="TServerClientWinSocket" />
+        </parameters>
+      </function>
+      <function name="GetServerThread" visibility="protected" procflags="dynamic">
+        <parameters>
+          <parameter name="ClientSocket" type="TServerClientWinSocket" />
+          <retval type="TServerClientThread" />
+        </parameters>
+      </function>
+      <procedure name="ClientRead" visibility="protected" procflags="dynamic">
+        <parameters>
+          <parameter name="Socket" type="TCustomWinSocket" />
+        </parameters>
+      </procedure>
+      <procedure name="ClientWrite" visibility="protected" procflags="dynamic">
+        <parameters>
+          <parameter name="Socket" type="TCustomWinSocket" />
+        </parameters>
+      </procedure>
+      <procedure name="ClientConnect" visibility="protected" procflags="dynamic">
+        <parameters>
+          <parameter name="Socket" type="TCustomWinSocket" />
+        </parameters>
+      </procedure>
+      <procedure name="ClientDisconnect" visibility="protected" procflags="dynamic">
+        <parameters>
+          <parameter name="Socket" type="TCustomWinSocket" />
+        </parameters>
+      </procedure>
+      <procedure name="ClientErrorEvent" visibility="protected" procflags="dynamic">
+        <parameters>
+          <parameter name="Socket" type="TCustomWinSocket" />
+          <parameter name="ErrorEvent" type="TErrorEvent" />
+          <parameter name="ErrorCode" type="Integer" paramflags="var" />
+        </parameters>
+      </procedure>
+      <constructor name="Create" visibility="public">
+        <parameters>
+          <parameter name="ASocket" type="Integer" />
+        </parameters>
+      </constructor>
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+      <procedure name="Accept" visibility="public" procflags="override">
+        <parameters>
+          <parameter name="Socket" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="Disconnect" visibility="public" procflags="override">
+        <parameters>
+          <parameter name="Socket" type="Integer" />
+        </parameters>
+      </procedure>
+      <function name="GetClientThread" visibility="public">
+        <parameters>
+          <parameter name="ClientSocket" type="TServerClientWinSocket" />
+          <retval type="TServerClientThread" />
+        </parameters>
+      </function>
+      <property name="ActiveConnections" visibility="public" read="GetActiveConnections" type="Integer" />
+      <property name="ActiveThreads" visibility="public" read="GetActiveThreads" type="Integer" />
+      <property name="Connections" visibility="public" read="GetConnections" type="TCustomWinSocket" />
+      <property name="IdleThreads" visibility="public" read="GetIdleThreads" type="Integer" />
+      <property name="ServerType" visibility="public" read="FServerType" write="SetServerType" type="TServerType" />
+      <property name="ThreadCacheSize" visibility="public" read="FThreadCacheSize" write="SetThreadCacheSize" type="Integer" />
+      <event name="OnGetSocket" visibility="public" read="FOnGetSocket" write="FOnGetSocket" type="TGetSocketEvent" />
+      <event name="OnGetThread" visibility="public" read="FOnGetThread" write="FOnGetThread" type="TGetThreadEvent" />
+      <event name="OnThreadStart" visibility="public" read="FOnThreadStart" write="FOnThreadStart" type="TThreadNotifyEvent" />
+      <event name="OnThreadEnd" visibility="public" read="FOnThreadEnd" write="FOnThreadEnd" type="TThreadNotifyEvent" />
+      <event name="OnClientConnect" visibility="public" read="FOnClientConnect" write="FOnClientConnect" type="TSocketNotifyEvent" />
+      <event name="OnClientDisconnect" visibility="public" read="FOnClientDisconnect" write="FOnClientDisconnect" type="TSocketNotifyEvent" />
+      <event name="OnClientRead" visibility="public" read="FOnClientRead" write="FOnClientRead" type="TSocketNotifyEvent" />
+      <event name="OnClientWrite" visibility="public" read="FOnClientWrite" write="FOnClientWrite" type="TSocketNotifyEvent" />
+      <event name="OnClientError" visibility="public" read="FOnClientError" write="FOnClientError" type="TSocketErrorEvent" />
+    </members>
+  </class>
+  <class name="TServerAcceptThread">
+    <ancestor name="TThread" namespace="Classes">
+      <methodref name="CallOnTerminate" visibility="private">
+      </methodref>
+      <methodref name="Synchronize" visibility="private">
+      </methodref>
+      <methodref name="GetPriority" visibility="private">
+      </methodref>
+      <methodref name="SetPriority" visibility="private">
+      </methodref>
+      <methodref name="SetSuspended" visibility="private">
+      </methodref>
+      <methodref name="CheckThreadError" visibility="protected">
+      </methodref>
+      <methodref name="CheckThreadError" visibility="protected">
+      </methodref>
+      <methodref name="DoTerminate" visibility="public">
+      </methodref>
+      <methodref name="Execute" visibility="public">
+      </methodref>
+      <methodref name="Queue" visibility="protected">
+      </methodref>
+      <methodref name="Synchronize" visibility="protected">
+      </methodref>
+      <propertyref name="ReturnValue" visibility="protected">
+      </propertyref>
+      <propertyref name="Terminated" visibility="protected">
+      </propertyref>
+      <methodref name="Create" visibility="public">
+      </methodref>
+      <methodref name="Destroy" visibility="public">
+      </methodref>
+      <methodref name="AfterConstruction" visibility="public">
+      </methodref>
+      <methodref name="Resume" visibility="public">
+      </methodref>
+      <methodref name="Suspend" visibility="public">
+      </methodref>
+      <methodref name="Terminate" visibility="public">
+      </methodref>
+      <methodref name="WaitFor" visibility="public">
+      </methodref>
+      <methodref name="Queue" visibility="public">
+      </methodref>
+      <methodref name="RemoveQueuedEvents" visibility="public">
+      </methodref>
+      <methodref name="StaticQueue" visibility="public">
+      </methodref>
+      <methodref name="Synchronize" visibility="public">
+      </methodref>
+      <methodref name="StaticSynchronize" visibility="public">
+      </methodref>
+      <propertyref name="FatalException" visibility="public">
+      </propertyref>
+      <propertyref name="FreeOnTerminate" visibility="public">
+      </propertyref>
+      <propertyref name="Handle" visibility="public">
+      </propertyref>
+      <propertyref name="Priority" visibility="public">
+      </propertyref>
+      <propertyref name="Suspended" visibility="public">
+      </propertyref>
+      <propertyref name="ThreadID" visibility="public">
+      </propertyref>
+      <eventref name="OnTerminate" visibility="public">
+      </eventref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="InitInstance" visibility="public">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public">
+        </methodref>
+        <methodref name="ClassName" visibility="public">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public">
+        </methodref>
+        <methodref name="ClassParent" visibility="public">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public">
+        </methodref>
+        <methodref name="MethodName" visibility="public">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public">
+        </methodref>
+        <methodref name="Dispatch" visibility="public">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public">
+        </methodref>
+        <methodref name="NewInstance" visibility="public">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public">
+        </methodref>
+        <methodref name="Destroy" visibility="public">
+        </methodref>
+      </ancestor>
+    </ancestor>
+    <members>
+      <field name="FServerSocket" type="TServerWinSocket" visibility="private" />
+      <constructor name="Create" visibility="public">
+        <parameters>
+          <parameter name="CreateSuspended" type="Boolean" />
+          <parameter name="ASocket" type="TServerWinSocket" />
+        </parameters>
+      </constructor>
+      <procedure name="Execute" visibility="public" procflags="override">
+      </procedure>
+      <property name="ServerSocket" visibility="public" read="FServerSocket" type="TServerWinSocket" />
+    </members>
+  </class>
+  <class name="TServerClientThread">
+    <ancestor name="TThread" namespace="Classes">
+      <methodref name="CallOnTerminate" visibility="private">
+      </methodref>
+      <methodref name="Synchronize" visibility="private">
+      </methodref>
+      <methodref name="GetPriority" visibility="private">
+      </methodref>
+      <methodref name="SetPriority" visibility="private">
+      </methodref>
+      <methodref name="SetSuspended" visibility="private">
+      </methodref>
+      <methodref name="CheckThreadError" visibility="protected">
+      </methodref>
+      <methodref name="CheckThreadError" visibility="protected">
+      </methodref>
+      <methodref name="DoTerminate" visibility="public">
+      </methodref>
+      <methodref name="Execute" visibility="public">
+      </methodref>
+      <methodref name="Queue" visibility="protected">
+      </methodref>
+      <methodref name="Synchronize" visibility="protected">
+      </methodref>
+      <propertyref name="ReturnValue" visibility="protected">
+      </propertyref>
+      <propertyref name="Terminated" visibility="protected">
+      </propertyref>
+      <methodref name="Create" visibility="public">
+      </methodref>
+      <methodref name="Destroy" visibility="public">
+      </methodref>
+      <methodref name="AfterConstruction" visibility="public">
+      </methodref>
+      <methodref name="Resume" visibility="public">
+      </methodref>
+      <methodref name="Suspend" visibility="public">
+      </methodref>
+      <methodref name="Terminate" visibility="public">
+      </methodref>
+      <methodref name="WaitFor" visibility="public">
+      </methodref>
+      <methodref name="Queue" visibility="public">
+      </methodref>
+      <methodref name="RemoveQueuedEvents" visibility="public">
+      </methodref>
+      <methodref name="StaticQueue" visibility="public">
+      </methodref>
+      <methodref name="Synchronize" visibility="public">
+      </methodref>
+      <methodref name="StaticSynchronize" visibility="public">
+      </methodref>
+      <propertyref name="FatalException" visibility="public">
+      </propertyref>
+      <propertyref name="FreeOnTerminate" visibility="public">
+      </propertyref>
+      <propertyref name="Handle" visibility="public">
+      </propertyref>
+      <propertyref name="Priority" visibility="public">
+      </propertyref>
+      <propertyref name="Suspended" visibility="public">
+      </propertyref>
+      <propertyref name="ThreadID" visibility="public">
+      </propertyref>
+      <eventref name="OnTerminate" visibility="public">
+      </eventref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="InitInstance" visibility="public">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public">
+        </methodref>
+        <methodref name="ClassName" visibility="public">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public">
+        </methodref>
+        <methodref name="ClassParent" visibility="public">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public">
+        </methodref>
+        <methodref name="MethodName" visibility="public">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public">
+        </methodref>
+        <methodref name="Dispatch" visibility="public">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public">
+        </methodref>
+        <methodref name="NewInstance" visibility="public">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public">
+        </methodref>
+        <methodref name="Destroy" visibility="public">
+        </methodref>
+      </ancestor>
+    </ancestor>
+    <members>
+      <field name="FClientSocket" type="TServerClientWinSocket" visibility="private" />
+      <field name="FServerSocket" type="TServerWinSocket" visibility="private" />
+      <field name="FException" type="Exception" visibility="private" />
+      <field name="FEvent" type="TSimpleEvent" visibility="private" />
+      <field name="FKeepInCache" type="Boolean" visibility="private" />
+      <field name="FData" type="Pointer" visibility="private" />
+      <procedure name="HandleEvent" visibility="private">
+        <parameters>
+          <parameter name="Sender" type="TObject" />
+          <parameter name="Socket" type="TCustomWinSocket" />
+          <parameter name="SocketEvent" type="TSocketEvent" />
+        </parameters>
+      </procedure>
+      <procedure name="HandleError" visibility="private">
+        <parameters>
+          <parameter name="Sender" type="TObject" />
+          <parameter name="Socket" type="TCustomWinSocket" />
+          <parameter name="ErrorEvent" type="TErrorEvent" />
+          <parameter name="ErrorCode" type="Integer" paramflags="var" />
+        </parameters>
+      </procedure>
+      <procedure name="DoHandleException" visibility="private">
+      </procedure>
+      <procedure name="DoRead" visibility="private">
+      </procedure>
+      <procedure name="DoWrite" visibility="private">
+      </procedure>
+      <procedure name="DoTerminate" visibility="public" procflags="override">
+      </procedure>
+      <procedure name="Execute" visibility="public" procflags="override">
+      </procedure>
+      <procedure name="ClientExecute" visibility="public" procflags="virtual">
+      </procedure>
+      <procedure name="Event" visibility="public" procflags="virtual">
+        <parameters>
+          <parameter name="SocketEvent" type="TSocketEvent" />
+        </parameters>
+      </procedure>
+      <procedure name="Error" visibility="public" procflags="virtual">
+        <parameters>
+          <parameter name="ErrorEvent" type="TErrorEvent" />
+          <parameter name="ErrorCode" type="Integer" paramflags="var" />
+        </parameters>
+      </procedure>
+      <procedure name="HandleException" visibility="public" procflags="virtual">
+      </procedure>
+      <procedure name="ReActivate" visibility="protected">
+        <parameters>
+          <parameter name="ASocket" type="TServerClientWinSocket" />
+        </parameters>
+      </procedure>
+      <function name="StartConnect" visibility="protected">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="EndConnect" visibility="protected">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <constructor name="Create" visibility="public">
+        <parameters>
+          <parameter name="CreateSuspended" type="Boolean" />
+          <parameter name="ASocket" type="TServerClientWinSocket" />
+        </parameters>
+      </constructor>
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+      <property name="ClientSocket" visibility="public" read="FClientSocket" type="TServerClientWinSocket" />
+      <property name="ServerSocket" visibility="public" read="FServerSocket" type="TServerWinSocket" />
+      <property name="KeepInCache" visibility="public" read="FKeepInCache" write="FKeepInCache" type="Boolean" />
+      <property name="Data" visibility="public" read="FData" write="FData" type="Pointer" />
+    </members>
+  </class>
+  <class name="TAbstractSocket">
+    <ancestor name="TComponent" namespace="Classes">
+      <methodref name="GetComObject" visibility="private">
+      </methodref>
+      <methodref name="GetComponent" visibility="private">
+      </methodref>
+      <methodref name="GetComponentCount" visibility="private">
+      </methodref>
+      <methodref name="GetComponentIndex" visibility="private">
+      </methodref>
+      <methodref name="Insert" visibility="private">
+      </methodref>
+      <methodref name="ReadLeft" visibility="private">
+      </methodref>
+      <methodref name="ReadTop" visibility="private">
+      </methodref>
+      <methodref name="Remove" visibility="private">
+      </methodref>
+      <methodref name="RemoveNotification" visibility="private">
+      </methodref>
+      <methodref name="SetComponentIndex" visibility="private">
+      </methodref>
+      <methodref name="SetReference" visibility="private">
+      </methodref>
+      <methodref name="WriteLeft" visibility="private">
+      </methodref>
+      <methodref name="WriteTop" visibility="private">
+      </methodref>
+      <methodref name="IntfGetComponent" visibility="private">
+      </methodref>
+      <methodref name="ChangeName" visibility="protected">
+      </methodref>
+      <methodref name="DefineProperties" visibility="public">
+      </methodref>
+      <methodref name="GetChildren" visibility="protected">
+      </methodref>
+      <methodref name="GetChildOwner" visibility="protected">
+      </methodref>
+      <methodref name="GetChildParent" visibility="protected">
+      </methodref>
+      <methodref name="GetOwner" visibility="protected">
+      </methodref>
+      <methodref name="Loaded" visibility="public">
+      </methodref>
+      <methodref name="Notification" visibility="public">
+      </methodref>
+      <methodref name="PaletteCreated" visibility="protected">
+      </methodref>
+      <methodref name="ReadState" visibility="public">
+      </methodref>
+      <methodref name="SetAncestor" visibility="protected">
+      </methodref>
+      <methodref name="SetDesigning" visibility="protected">
+      </methodref>
+      <methodref name="SetInline" visibility="protected">
+      </methodref>
+      <methodref name="SetDesignInstance" visibility="protected">
+      </methodref>
+      <methodref name="SetName" visibility="public">
+      </methodref>
+      <methodref name="SetChildOrder" visibility="protected">
+      </methodref>
+      <methodref name="SetParentComponent" visibility="protected">
+      </methodref>
+      <methodref name="Updating" visibility="protected">
+      </methodref>
+      <methodref name="Updated" visibility="protected">
+      </methodref>
+      <methodref name="UpdateRegistry" visibility="public">
+      </methodref>
+      <methodref name="ValidateRename" visibility="public">
+      </methodref>
+      <methodref name="ValidateContainer" visibility="protected">
+      </methodref>
+      <methodref name="ValidateInsert" visibility="protected">
+      </methodref>
+      <methodref name="WriteState" visibility="public">
+      </methodref>
+      <methodref name="QueryInterface" visibility="public">
+      </methodref>
+      <methodref name="_AddRef" visibility="protected">
+      </methodref>
+      <methodref name="_Release" visibility="protected">
+      </methodref>
+      <methodref name="GetTypeInfoCount" visibility="protected">
+      </methodref>
+      <methodref name="GetTypeInfo" visibility="protected">
+      </methodref>
+      <methodref name="GetIDsOfNames" visibility="protected">
+      </methodref>
+      <methodref name="Invoke" visibility="protected">
+      </methodref>
+      <methodref name="Create" visibility="public">
+      </methodref>
+      <methodref name="Destroy" visibility="public">
+      </methodref>
+      <methodref name="BeforeDestruction" visibility="public">
+      </methodref>
+      <methodref name="DestroyComponents" visibility="public">
+      </methodref>
+      <methodref name="Destroying" visibility="public">
+      </methodref>
+      <methodref name="ExecuteAction" visibility="public">
+      </methodref>
+      <methodref name="FindComponent" visibility="public">
+      </methodref>
+      <methodref name="FreeNotification" visibility="public">
+      </methodref>
+      <methodref name="RemoveFreeNotification" visibility="public">
+      </methodref>
+      <methodref name="FreeOnRelease" visibility="public">
+      </methodref>
+      <methodref name="GetEnumerator" visibility="public">
+      </methodref>
+      <methodref name="GetParentComponent" visibility="public">
+      </methodref>
+      <methodref name="GetNamePath" visibility="public">
+      </methodref>
+      <methodref name="HasParent" visibility="public">
+      </methodref>
+      <methodref name="InsertComponent" visibility="public">
+      </methodref>
+      <methodref name="RemoveComponent" visibility="public">
+      </methodref>
+      <methodref name="SetSubComponent" visibility="public">
+      </methodref>
+      <methodref name="SafeCallException" visibility="public">
+      </methodref>
+      <methodref name="UpdateAction" visibility="public">
+      </methodref>
+      <methodref name="IsImplementorOf" visibility="public">
+      </methodref>
+      <methodref name="ReferenceInterface" visibility="public">
+      </methodref>
+      <propertyref name="ComObject" visibility="public">
+      </propertyref>
+      <propertyref name="Components" visibility="public">
+      </propertyref>
+      <propertyref name="ComponentCount" visibility="public">
+      </propertyref>
+      <propertyref name="ComponentIndex" visibility="public">
+      </propertyref>
+      <propertyref name="ComponentState" visibility="public">
+      </propertyref>
+      <propertyref name="ComponentStyle" visibility="public">
+      </propertyref>
+      <propertyref name="DesignInfo" visibility="public">
+      </propertyref>
+      <propertyref name="Owner" visibility="public">
+      </propertyref>
+      <propertyref name="VCLComObject" visibility="public">
+      </propertyref>
+      <propertyref name="Name" visibility="published">
+      </propertyref>
+      <propertyref name="Tag" visibility="published">
+      </propertyref>
+      <ancestor name="TPersistent" namespace="Classes">
+        <methodref name="AssignError" visibility="private">
+        </methodref>
+        <methodref name="AssignTo" visibility="public">
+        </methodref>
+        <methodref name="DefineProperties" visibility="public">
+        </methodref>
+        <methodref name="GetOwner" visibility="protected">
+        </methodref>
+        <methodref name="Destroy" visibility="public">
+        </methodref>
+        <methodref name="Assign" visibility="public">
+        </methodref>
+        <methodref name="GetNamePath" visibility="public">
+        </methodref>
+        <ancestor name="TObject" namespace="System">
+          <methodref name="Create" visibility="public">
+          </methodref>
+          <methodref name="Free" visibility="public">
+          </methodref>
+          <methodref name="InitInstance" visibility="public">
+          </methodref>
+          <methodref name="CleanupInstance" visibility="public">
+          </methodref>
+          <methodref name="ClassType" visibility="public">
+          </methodref>
+          <methodref name="ClassName" visibility="public">
+          </methodref>
+          <methodref name="ClassNameIs" visibility="public">
+          </methodref>
+          <methodref name="ClassParent" visibility="public">
+          </methodref>
+          <methodref name="ClassInfo" visibility="public">
+          </methodref>
+          <methodref name="InstanceSize" visibility="public">
+          </methodref>
+          <methodref name="InheritsFrom" visibility="public">
+          </methodref>
+          <methodref name="MethodAddress" visibility="public">
+          </methodref>
+          <methodref name="MethodName" visibility="public">
+          </methodref>
+          <methodref name="FieldAddress" visibility="public">
+          </methodref>
+          <methodref name="GetInterface" visibility="public">
+          </methodref>
+          <methodref name="GetInterfaceEntry" visibility="public">
+          </methodref>
+          <methodref name="GetInterfaceTable" visibility="public">
+          </methodref>
+          <methodref name="SafeCallException" visibility="public">
+          </methodref>
+          <methodref name="AfterConstruction" visibility="public">
+          </methodref>
+          <methodref name="BeforeDestruction" visibility="public">
+          </methodref>
+          <methodref name="Dispatch" visibility="public">
+          </methodref>
+          <methodref name="DefaultHandler" visibility="public">
+          </methodref>
+          <methodref name="NewInstance" visibility="public">
+          </methodref>
+          <methodref name="FreeInstance" visibility="public">
+          </methodref>
+          <methodref name="Destroy" visibility="public">
+          </methodref>
+        </ancestor>
+      </ancestor>
+    </ancestor>
+    <members>
+      <field name="FActive" type="Boolean" visibility="private" />
+      <field name="FPort" type="Integer" visibility="private" />
+      <field name="FAddress" type="string" visibility="private" />
+      <field name="FHost" type="string" visibility="private" />
+      <field name="FService" type="string" visibility="private" />
+      <procedure name="DoEvent" visibility="private">
+        <parameters>
+          <parameter name="Sender" type="TObject" />
+          <parameter name="Socket" type="TCustomWinSocket" />
+          <parameter name="SocketEvent" type="TSocketEvent" />
+        </parameters>
+      </procedure>
+      <procedure name="DoError" visibility="private">
+        <parameters>
+          <parameter name="Sender" type="TObject" />
+          <parameter name="Socket" type="TCustomWinSocket" />
+          <parameter name="ErrorEvent" type="TErrorEvent" />
+          <parameter name="ErrorCode" type="Integer" paramflags="var" />
+        </parameters>
+      </procedure>
+      <procedure name="Event" visibility="public" procflags="abstract virtual">
+        <parameters>
+          <parameter name="Socket" type="TCustomWinSocket" />
+          <parameter name="SocketEvent" type="TSocketEvent" />
+        </parameters>
+      </procedure>
+      <procedure name="Error" visibility="public" procflags="abstract virtual">
+        <parameters>
+          <parameter name="Socket" type="TCustomWinSocket" />
+          <parameter name="ErrorEvent" type="TErrorEvent" />
+          <parameter name="ErrorCode" type="Integer" paramflags="var" />
+        </parameters>
+      </procedure>
+      <procedure name="DoActivate" visibility="public" procflags="abstract virtual">
+        <parameters>
+          <parameter name="Value" type="Boolean" />
+        </parameters>
+      </procedure>
+      <procedure name="InitSocket" visibility="protected">
+        <parameters>
+          <parameter name="Socket" type="TCustomWinSocket" />
+        </parameters>
+      </procedure>
+      <procedure name="Loaded" visibility="public" procflags="override">
+      </procedure>
+      <procedure name="SetActive" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="Boolean" />
+        </parameters>
+      </procedure>
+      <procedure name="SetAddress" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="string" />
+        </parameters>
+      </procedure>
+      <procedure name="SetHost" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="string" />
+        </parameters>
+      </procedure>
+      <procedure name="SetPort" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="SetService" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="string" />
+        </parameters>
+      </procedure>
+      <property name="Active" visibility="protected" read="FActive" write="SetActive" type="Boolean" />
+      <property name="Address" visibility="protected" read="FAddress" write="SetAddress" type="string" />
+      <property name="Host" visibility="protected" read="FHost" write="SetHost" type="string" />
+      <property name="Port" visibility="protected" read="FPort" write="SetPort" type="Integer" />
+      <property name="Service" visibility="protected" read="FService" write="SetService" type="string" />
+      <procedure name="Open" visibility="public">
+      </procedure>
+      <procedure name="Close" visibility="public">
+      </procedure>
+    </members>
+  </class>
+  <class name="TCustomSocket">
+    <ancestor name="TAbstractSocket" namespace="JSocket">
+      <methodref name="DoEvent" visibility="private" />
+      <methodref name="DoError" visibility="private" />
+      <methodref name="Event" visibility="public" />
+      <methodref name="Error" visibility="public" />
+      <methodref name="DoActivate" visibility="public" />
+      <methodref name="InitSocket" visibility="protected" />
+      <methodref name="Loaded" visibility="public" />
+      <methodref name="SetActive" visibility="protected" />
+      <methodref name="SetAddress" visibility="protected" />
+      <methodref name="SetHost" visibility="protected" />
+      <methodref name="SetPort" visibility="protected" />
+      <methodref name="SetService" visibility="protected" />
+      <propertyref name="Active" visibility="protected" />
+      <propertyref name="Address" visibility="protected" />
+      <propertyref name="Host" visibility="protected" />
+      <propertyref name="Port" visibility="protected" />
+      <propertyref name="Service" visibility="protected" />
+      <methodref name="Open" visibility="public" />
+      <methodref name="Close" visibility="public" />
+      <ancestor name="TComponent" namespace="Classes">
+        <methodref name="GetComObject" visibility="private">
+        </methodref>
+        <methodref name="GetComponent" visibility="private">
+        </methodref>
+        <methodref name="GetComponentCount" visibility="private">
+        </methodref>
+        <methodref name="GetComponentIndex" visibility="private">
+        </methodref>
+        <methodref name="Insert" visibility="private">
+        </methodref>
+        <methodref name="ReadLeft" visibility="private">
+        </methodref>
+        <methodref name="ReadTop" visibility="private">
+        </methodref>
+        <methodref name="Remove" visibility="private">
+        </methodref>
+        <methodref name="RemoveNotification" visibility="private">
+        </methodref>
+        <methodref name="SetComponentIndex" visibility="private">
+        </methodref>
+        <methodref name="SetReference" visibility="private">
+        </methodref>
+        <methodref name="WriteLeft" visibility="private">
+        </methodref>
+        <methodref name="WriteTop" visibility="private">
+        </methodref>
+        <methodref name="IntfGetComponent" visibility="private">
+        </methodref>
+        <methodref name="ChangeName" visibility="protected">
+        </methodref>
+        <methodref name="DefineProperties" visibility="public">
+        </methodref>
+        <methodref name="GetChildren" visibility="protected">
+        </methodref>
+        <methodref name="GetChildOwner" visibility="protected">
+        </methodref>
+        <methodref name="GetChildParent" visibility="protected">
+        </methodref>
+        <methodref name="GetOwner" visibility="protected">
+        </methodref>
+        <methodref name="Loaded" visibility="public">
+        </methodref>
+        <methodref name="Notification" visibility="public">
+        </methodref>
+        <methodref name="PaletteCreated" visibility="protected">
+        </methodref>
+        <methodref name="ReadState" visibility="public">
+        </methodref>
+        <methodref name="SetAncestor" visibility="protected">
+        </methodref>
+        <methodref name="SetDesigning" visibility="protected">
+        </methodref>
+        <methodref name="SetInline" visibility="protected">
+        </methodref>
+        <methodref name="SetDesignInstance" visibility="protected">
+        </methodref>
+        <methodref name="SetName" visibility="public">
+        </methodref>
+        <methodref name="SetChildOrder" visibility="protected">
+        </methodref>
+        <methodref name="SetParentComponent" visibility="protected">
+        </methodref>
+        <methodref name="Updating" visibility="protected">
+        </methodref>
+        <methodref name="Updated" visibility="protected">
+        </methodref>
+        <methodref name="UpdateRegistry" visibility="public">
+        </methodref>
+        <methodref name="ValidateRename" visibility="public">
+        </methodref>
+        <methodref name="ValidateContainer" visibility="protected">
+        </methodref>
+        <methodref name="ValidateInsert" visibility="protected">
+        </methodref>
+        <methodref name="WriteState" visibility="public">
+        </methodref>
+        <methodref name="QueryInterface" visibility="public">
+        </methodref>
+        <methodref name="_AddRef" visibility="protected">
+        </methodref>
+        <methodref name="_Release" visibility="protected">
+        </methodref>
+        <methodref name="GetTypeInfoCount" visibility="protected">
+        </methodref>
+        <methodref name="GetTypeInfo" visibility="protected">
+        </methodref>
+        <methodref name="GetIDsOfNames" visibility="protected">
+        </methodref>
+        <methodref name="Invoke" visibility="protected">
+        </methodref>
+        <methodref name="Create" visibility="public">
+        </methodref>
+        <methodref name="Destroy" visibility="public">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public">
+        </methodref>
+        <methodref name="DestroyComponents" visibility="public">
+        </methodref>
+        <methodref name="Destroying" visibility="public">
+        </methodref>
+        <methodref name="ExecuteAction" visibility="public">
+        </methodref>
+        <methodref name="FindComponent" visibility="public">
+        </methodref>
+        <methodref name="FreeNotification" visibility="public">
+        </methodref>
+        <methodref name="RemoveFreeNotification" visibility="public">
+        </methodref>
+        <methodref name="FreeOnRelease" visibility="public">
+        </methodref>
+        <methodref name="GetEnumerator" visibility="public">
+        </methodref>
+        <methodref name="GetParentComponent" visibility="public">
+        </methodref>
+        <methodref name="GetNamePath" visibility="public">
+        </methodref>
+        <methodref name="HasParent" visibility="public">
+        </methodref>
+        <methodref name="InsertComponent" visibility="public">
+        </methodref>
+        <methodref name="RemoveComponent" visibility="public">
+        </methodref>
+        <methodref name="SetSubComponent" visibility="public">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public">
+        </methodref>
+        <methodref name="UpdateAction" visibility="public">
+        </methodref>
+        <methodref name="IsImplementorOf" visibility="public">
+        </methodref>
+        <methodref name="ReferenceInterface" visibility="public">
+        </methodref>
+        <propertyref name="ComObject" visibility="public">
+        </propertyref>
+        <propertyref name="Components" visibility="public">
+        </propertyref>
+        <propertyref name="ComponentCount" visibility="public">
+        </propertyref>
+        <propertyref name="ComponentIndex" visibility="public">
+        </propertyref>
+        <propertyref name="ComponentState" visibility="public">
+        </propertyref>
+        <propertyref name="ComponentStyle" visibility="public">
+        </propertyref>
+        <propertyref name="DesignInfo" visibility="public">
+        </propertyref>
+        <propertyref name="Owner" visibility="public">
+        </propertyref>
+        <propertyref name="VCLComObject" visibility="public">
+        </propertyref>
+        <propertyref name="Name" visibility="published">
+        </propertyref>
+        <propertyref name="Tag" visibility="published">
+        </propertyref>
+        <ancestor name="TPersistent" namespace="Classes">
+          <methodref name="AssignError" visibility="private">
+          </methodref>
+          <methodref name="AssignTo" visibility="public">
+          </methodref>
+          <methodref name="DefineProperties" visibility="public">
+          </methodref>
+          <methodref name="GetOwner" visibility="protected">
+          </methodref>
+          <methodref name="Destroy" visibility="public">
+          </methodref>
+          <methodref name="Assign" visibility="public">
+          </methodref>
+          <methodref name="GetNamePath" visibility="public">
+          </methodref>
+          <ancestor name="TObject" namespace="System">
+            <methodref name="Create" visibility="public">
+            </methodref>
+            <methodref name="Free" visibility="public">
+            </methodref>
+            <methodref name="InitInstance" visibility="public">
+            </methodref>
+            <methodref name="CleanupInstance" visibility="public">
+            </methodref>
+            <methodref name="ClassType" visibility="public">
+            </methodref>
+            <methodref name="ClassName" visibility="public">
+            </methodref>
+            <methodref name="ClassNameIs" visibility="public">
+            </methodref>
+            <methodref name="ClassParent" visibility="public">
+            </methodref>
+            <methodref name="ClassInfo" visibility="public">
+            </methodref>
+            <methodref name="InstanceSize" visibility="public">
+            </methodref>
+            <methodref name="InheritsFrom" visibility="public">
+            </methodref>
+            <methodref name="MethodAddress" visibility="public">
+            </methodref>
+            <methodref name="MethodName" visibility="public">
+            </methodref>
+            <methodref name="FieldAddress" visibility="public">
+            </methodref>
+            <methodref name="GetInterface" visibility="public">
+            </methodref>
+            <methodref name="GetInterfaceEntry" visibility="public">
+            </methodref>
+            <methodref name="GetInterfaceTable" visibility="public">
+            </methodref>
+            <methodref name="SafeCallException" visibility="public">
+            </methodref>
+            <methodref name="AfterConstruction" visibility="public">
+            </methodref>
+            <methodref name="BeforeDestruction" visibility="public">
+            </methodref>
+            <methodref name="Dispatch" visibility="public">
+            </methodref>
+            <methodref name="DefaultHandler" visibility="public">
+            </methodref>
+            <methodref name="NewInstance" visibility="public">
+            </methodref>
+            <methodref name="FreeInstance" visibility="public">
+            </methodref>
+            <methodref name="Destroy" visibility="public">
+            </methodref>
+          </ancestor>
+        </ancestor>
+      </ancestor>
+    </ancestor>
+    <members>
+      <field name="FOnLookup" type="TSocketNotifyEvent" visibility="private" />
+      <field name="FOnConnect" type="TSocketNotifyEvent" visibility="private" />
+      <field name="FOnConnecting" type="TSocketNotifyEvent" visibility="private" />
+      <field name="FOnDisconnect" type="TSocketNotifyEvent" visibility="private" />
+      <field name="FOnListen" type="TSocketNotifyEvent" visibility="private" />
+      <field name="FOnAccept" type="TSocketNotifyEvent" visibility="private" />
+      <field name="FOnRead" type="TSocketNotifyEvent" visibility="private" />
+      <field name="FOnWrite" type="TSocketNotifyEvent" visibility="private" />
+      <field name="FOnError" type="TSocketErrorEvent" visibility="private" />
+      <procedure name="Event" visibility="public" procflags="override">
+        <parameters>
+          <parameter name="Socket" type="TCustomWinSocket" />
+          <parameter name="SocketEvent" type="TSocketEvent" />
+        </parameters>
+      </procedure>
+      <procedure name="Error" visibility="public" procflags="override">
+        <parameters>
+          <parameter name="Socket" type="TCustomWinSocket" />
+          <parameter name="ErrorEvent" type="TErrorEvent" />
+          <parameter name="ErrorCode" type="Integer" paramflags="var" />
+        </parameters>
+      </procedure>
+      <event name="OnLookup" visibility="protected" read="FOnLookup" write="FOnLookup" type="TSocketNotifyEvent" />
+      <event name="OnConnecting" visibility="protected" read="FOnConnecting" write="FOnConnecting" type="TSocketNotifyEvent" />
+      <event name="OnConnect" visibility="protected" read="FOnConnect" write="FOnConnect" type="TSocketNotifyEvent" />
+      <event name="OnDisconnect" visibility="protected" read="FOnDisconnect" write="FOnDisconnect" type="TSocketNotifyEvent" />
+      <event name="OnListen" visibility="protected" read="FOnListen" write="FOnListen" type="TSocketNotifyEvent" />
+      <event name="OnAccept" visibility="protected" read="FOnAccept" write="FOnAccept" type="TSocketNotifyEvent" />
+      <event name="OnRead" visibility="protected" read="FOnRead" write="FOnRead" type="TSocketNotifyEvent" />
+      <event name="OnWrite" visibility="protected" read="FOnWrite" write="FOnWrite" type="TSocketNotifyEvent" />
+      <event name="OnError" visibility="protected" read="FOnError" write="FOnError" type="TSocketErrorEvent" />
+    </members>
+  </class>
+  <class name="TWinSocketStream">
+    <ancestor name="TStream" namespace="Classes">
+      <methodref name="GetPosition" visibility="private">
+      </methodref>
+      <methodref name="SetPosition" visibility="private">
+      </methodref>
+      <methodref name="SetSize64" visibility="private">
+      </methodref>
+      <methodref name="GetSize" visibility="public">
+      </methodref>
+      <methodref name="SetSize" visibility="public">
+      </methodref>
+      <methodref name="SetSize" visibility="public">
+      </methodref>
+      <methodref name="Read" visibility="public">
+      </methodref>
+      <methodref name="Write" visibility="public">
+      </methodref>
+      <methodref name="Seek" visibility="public">
+      </methodref>
+      <methodref name="Seek" visibility="public">
+      </methodref>
+      <methodref name="ReadBuffer" visibility="public">
+      </methodref>
+      <methodref name="WriteBuffer" visibility="public">
+      </methodref>
+      <methodref name="CopyFrom" visibility="public">
+      </methodref>
+      <methodref name="ReadComponent" visibility="public">
+      </methodref>
+      <methodref name="ReadComponentRes" visibility="public">
+      </methodref>
+      <methodref name="WriteComponent" visibility="public">
+      </methodref>
+      <methodref name="WriteComponentRes" visibility="public">
+      </methodref>
+      <methodref name="WriteDescendent" visibility="public">
+      </methodref>
+      <methodref name="WriteDescendentRes" visibility="public">
+      </methodref>
+      <methodref name="WriteResourceHeader" visibility="public">
+      </methodref>
+      <methodref name="FixupResourceHeader" visibility="public">
+      </methodref>
+      <methodref name="ReadResHeader" visibility="public">
+      </methodref>
+      <propertyref name="Position" visibility="public">
+      </propertyref>
+      <propertyref name="Size" visibility="public">
+      </propertyref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="InitInstance" visibility="public">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public">
+        </methodref>
+        <methodref name="ClassName" visibility="public">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public">
+        </methodref>
+        <methodref name="ClassParent" visibility="public">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public">
+        </methodref>
+        <methodref name="MethodName" visibility="public">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public">
+        </methodref>
+        <methodref name="Dispatch" visibility="public">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public">
+        </methodref>
+        <methodref name="NewInstance" visibility="public">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public">
+        </methodref>
+        <methodref name="Destroy" visibility="public">
+        </methodref>
+      </ancestor>
+    </ancestor>
+    <members>
+      <field name="FSocket" type="TCustomWinSocket" visibility="private" />
+      <field name="FTimeout" type="Integer" visibility="private" />
+      <field name="FEvent" type="TSimpleEvent" visibility="private" />
+      <constructor name="Create" visibility="public">
+        <parameters>
+          <parameter name="ASocket" type="TCustomWinSocket" />
+          <parameter name="TimeOut" type="Integer" />
+        </parameters>
+      </constructor>
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+      <function name="WaitForData" visibility="public">
+        <parameters>
+          <parameter name="Timeout" type="Integer" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="Read" visibility="public" procflags="override">
+        <parameters>
+          <parameter name="Buffer" paramflags="var" />
+          <parameter name="Count" type="Integer" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="Write" visibility="public" procflags="override">
+        <parameters>
+          <parameter name="Buffer" paramflags="const" />
+          <parameter name="Count" type="Integer" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="Seek" visibility="public" procflags="overload override">
+        <parameters>
+          <parameter name="Offset" type="Integer" />
+          <parameter name="Origin" type="Word" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <property name="TimeOut" visibility="public" read="FTimeout" write="FTimeout" type="Integer" />
+    </members>
+  </class>
+  <class name="TClientSocket">
+    <ancestor name="TCustomSocket" namespace="JSocket">
+      <methodref name="Event" visibility="public" />
+      <methodref name="Error" visibility="public" />
+      <eventref name="OnLookup" visibility="protected" />
+      <eventref name="OnConnecting" visibility="protected" />
+      <eventref name="OnConnect" visibility="protected" />
+      <eventref name="OnDisconnect" visibility="protected" />
+      <eventref name="OnListen" visibility="protected" />
+      <eventref name="OnAccept" visibility="protected" />
+      <eventref name="OnRead" visibility="protected" />
+      <eventref name="OnWrite" visibility="protected" />
+      <eventref name="OnError" visibility="protected" />
+      <ancestor name="TAbstractSocket" namespace="JSocket">
+        <methodref name="DoEvent" visibility="private" />
+        <methodref name="DoError" visibility="private" />
+        <methodref name="Event" visibility="public" />
+        <methodref name="Error" visibility="public" />
+        <methodref name="DoActivate" visibility="public" />
+        <methodref name="InitSocket" visibility="protected" />
+        <methodref name="Loaded" visibility="public" />
+        <methodref name="SetActive" visibility="protected" />
+        <methodref name="SetAddress" visibility="protected" />
+        <methodref name="SetHost" visibility="protected" />
+        <methodref name="SetPort" visibility="protected" />
+        <methodref name="SetService" visibility="protected" />
+        <propertyref name="Active" visibility="protected" />
+        <propertyref name="Address" visibility="protected" />
+        <propertyref name="Host" visibility="protected" />
+        <propertyref name="Port" visibility="protected" />
+        <propertyref name="Service" visibility="protected" />
+        <methodref name="Open" visibility="public" />
+        <methodref name="Close" visibility="public" />
+        <ancestor name="TComponent" namespace="Classes">
+          <methodref name="GetComObject" visibility="private">
+          </methodref>
+          <methodref name="GetComponent" visibility="private">
+          </methodref>
+          <methodref name="GetComponentCount" visibility="private">
+          </methodref>
+          <methodref name="GetComponentIndex" visibility="private">
+          </methodref>
+          <methodref name="Insert" visibility="private">
+          </methodref>
+          <methodref name="ReadLeft" visibility="private">
+          </methodref>
+          <methodref name="ReadTop" visibility="private">
+          </methodref>
+          <methodref name="Remove" visibility="private">
+          </methodref>
+          <methodref name="RemoveNotification" visibility="private">
+          </methodref>
+          <methodref name="SetComponentIndex" visibility="private">
+          </methodref>
+          <methodref name="SetReference" visibility="private">
+          </methodref>
+          <methodref name="WriteLeft" visibility="private">
+          </methodref>
+          <methodref name="WriteTop" visibility="private">
+          </methodref>
+          <methodref name="IntfGetComponent" visibility="private">
+          </methodref>
+          <methodref name="ChangeName" visibility="protected">
+          </methodref>
+          <methodref name="DefineProperties" visibility="public">
+          </methodref>
+          <methodref name="GetChildren" visibility="protected">
+          </methodref>
+          <methodref name="GetChildOwner" visibility="protected">
+          </methodref>
+          <methodref name="GetChildParent" visibility="protected">
+          </methodref>
+          <methodref name="GetOwner" visibility="protected">
+          </methodref>
+          <methodref name="Loaded" visibility="public">
+          </methodref>
+          <methodref name="Notification" visibility="public">
+          </methodref>
+          <methodref name="PaletteCreated" visibility="protected">
+          </methodref>
+          <methodref name="ReadState" visibility="public">
+          </methodref>
+          <methodref name="SetAncestor" visibility="protected">
+          </methodref>
+          <methodref name="SetDesigning" visibility="protected">
+          </methodref>
+          <methodref name="SetInline" visibility="protected">
+          </methodref>
+          <methodref name="SetDesignInstance" visibility="protected">
+          </methodref>
+          <methodref name="SetName" visibility="public">
+          </methodref>
+          <methodref name="SetChildOrder" visibility="protected">
+          </methodref>
+          <methodref name="SetParentComponent" visibility="protected">
+          </methodref>
+          <methodref name="Updating" visibility="protected">
+          </methodref>
+          <methodref name="Updated" visibility="protected">
+          </methodref>
+          <methodref name="UpdateRegistry" visibility="public">
+          </methodref>
+          <methodref name="ValidateRename" visibility="public">
+          </methodref>
+          <methodref name="ValidateContainer" visibility="protected">
+          </methodref>
+          <methodref name="ValidateInsert" visibility="protected">
+          </methodref>
+          <methodref name="WriteState" visibility="public">
+          </methodref>
+          <methodref name="QueryInterface" visibility="public">
+          </methodref>
+          <methodref name="_AddRef" visibility="protected">
+          </methodref>
+          <methodref name="_Release" visibility="protected">
+          </methodref>
+          <methodref name="GetTypeInfoCount" visibility="protected">
+          </methodref>
+          <methodref name="GetTypeInfo" visibility="protected">
+          </methodref>
+          <methodref name="GetIDsOfNames" visibility="protected">
+          </methodref>
+          <methodref name="Invoke" visibility="protected">
+          </methodref>
+          <methodref name="Create" visibility="public">
+          </methodref>
+          <methodref name="Destroy" visibility="public">
+          </methodref>
+          <methodref name="BeforeDestruction" visibility="public">
+          </methodref>
+          <methodref name="DestroyComponents" visibility="public">
+          </methodref>
+          <methodref name="Destroying" visibility="public">
+          </methodref>
+          <methodref name="ExecuteAction" visibility="public">
+          </methodref>
+          <methodref name="FindComponent" visibility="public">
+          </methodref>
+          <methodref name="FreeNotification" visibility="public">
+          </methodref>
+          <methodref name="RemoveFreeNotification" visibility="public">
+          </methodref>
+          <methodref name="FreeOnRelease" visibility="public">
+          </methodref>
+          <methodref name="GetEnumerator" visibility="public">
+          </methodref>
+          <methodref name="GetParentComponent" visibility="public">
+          </methodref>
+          <methodref name="GetNamePath" visibility="public">
+          </methodref>
+          <methodref name="HasParent" visibility="public">
+          </methodref>
+          <methodref name="InsertComponent" visibility="public">
+          </methodref>
+          <methodref name="RemoveComponent" visibility="public">
+          </methodref>
+          <methodref name="SetSubComponent" visibility="public">
+          </methodref>
+          <methodref name="SafeCallException" visibility="public">
+          </methodref>
+          <methodref name="UpdateAction" visibility="public">
+          </methodref>
+          <methodref name="IsImplementorOf" visibility="public">
+          </methodref>
+          <methodref name="ReferenceInterface" visibility="public">
+          </methodref>
+          <propertyref name="ComObject" visibility="public">
+          </propertyref>
+          <propertyref name="Components" visibility="public">
+          </propertyref>
+          <propertyref name="ComponentCount" visibility="public">
+          </propertyref>
+          <propertyref name="ComponentIndex" visibility="public">
+          </propertyref>
+          <propertyref name="ComponentState" visibility="public">
+          </propertyref>
+          <propertyref name="ComponentStyle" visibility="public">
+          </propertyref>
+          <propertyref name="DesignInfo" visibility="public">
+          </propertyref>
+          <propertyref name="Owner" visibility="public">
+          </propertyref>
+          <propertyref name="VCLComObject" visibility="public">
+          </propertyref>
+          <propertyref name="Name" visibility="published">
+          </propertyref>
+          <propertyref name="Tag" visibility="published">
+          </propertyref>
+          <ancestor name="TPersistent" namespace="Classes">
+            <methodref name="AssignError" visibility="private">
+            </methodref>
+            <methodref name="AssignTo" visibility="public">
+            </methodref>
+            <methodref name="DefineProperties" visibility="public">
+            </methodref>
+            <methodref name="GetOwner" visibility="protected">
+            </methodref>
+            <methodref name="Destroy" visibility="public">
+            </methodref>
+            <methodref name="Assign" visibility="public">
+            </methodref>
+            <methodref name="GetNamePath" visibility="public">
+            </methodref>
+            <ancestor name="TObject" namespace="System">
+              <methodref name="Create" visibility="public">
+              </methodref>
+              <methodref name="Free" visibility="public">
+              </methodref>
+              <methodref name="InitInstance" visibility="public">
+              </methodref>
+              <methodref name="CleanupInstance" visibility="public">
+              </methodref>
+              <methodref name="ClassType" visibility="public">
+              </methodref>
+              <methodref name="ClassName" visibility="public">
+              </methodref>
+              <methodref name="ClassNameIs" visibility="public">
+              </methodref>
+              <methodref name="ClassParent" visibility="public">
+              </methodref>
+              <methodref name="ClassInfo" visibility="public">
+              </methodref>
+              <methodref name="InstanceSize" visibility="public">
+              </methodref>
+              <methodref name="InheritsFrom" visibility="public">
+              </methodref>
+              <methodref name="MethodAddress" visibility="public">
+              </methodref>
+              <methodref name="MethodName" visibility="public">
+              </methodref>
+              <methodref name="FieldAddress" visibility="public">
+              </methodref>
+              <methodref name="GetInterface" visibility="public">
+              </methodref>
+              <methodref name="GetInterfaceEntry" visibility="public">
+              </methodref>
+              <methodref name="GetInterfaceTable" visibility="public">
+              </methodref>
+              <methodref name="SafeCallException" visibility="public">
+              </methodref>
+              <methodref name="AfterConstruction" visibility="public">
+              </methodref>
+              <methodref name="BeforeDestruction" visibility="public">
+              </methodref>
+              <methodref name="Dispatch" visibility="public">
+              </methodref>
+              <methodref name="DefaultHandler" visibility="public">
+              </methodref>
+              <methodref name="NewInstance" visibility="public">
+              </methodref>
+              <methodref name="FreeInstance" visibility="public">
+              </methodref>
+              <methodref name="Destroy" visibility="public">
+              </methodref>
+            </ancestor>
+          </ancestor>
+        </ancestor>
+      </ancestor>
+    </ancestor>
+    <members>
+      <field name="FClientSocket" type="TClientWinSocket" visibility="private" />
+      <procedure name="DoActivate" visibility="public" procflags="override">
+        <parameters>
+          <parameter name="Value" type="Boolean" />
+        </parameters>
+      </procedure>
+      <function name="GetClientType" visibility="protected">
+        <parameters>
+          <retval type="TClientType" />
+        </parameters>
+      </function>
+      <procedure name="SetClientType" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="TClientType" />
+        </parameters>
+      </procedure>
+      <constructor name="Create" visibility="public">
+        <parameters>
+          <parameter name="AOwner" type="TComponent" />
+        </parameters>
+      </constructor>
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+      <property name="Socket" visibility="public" read="FClientSocket" type="TClientWinSocket" />
+      <property name="Active" visibility="published" read="FActive" write="SetActive" type="Boolean" hoisted="true" />
+      <property name="Address" visibility="published" read="FAddress" write="SetAddress" type="string" hoisted="true" />
+      <property name="ClientType" visibility="published" read="GetClientType" write="SetClientType" type="TClientType" />
+      <property name="Host" visibility="published" read="FHost" write="SetHost" type="string" hoisted="true" />
+      <property name="Port" visibility="published" read="FPort" write="SetPort" type="Integer" hoisted="true" />
+      <property name="Service" visibility="published" read="FService" write="SetService" type="string" hoisted="true" />
+      <event name="OnLookup" visibility="published" read="FOnLookup" write="FOnLookup" type="TSocketNotifyEvent" hoisted="true" />
+      <event name="OnConnecting" visibility="published" read="FOnConnecting" write="FOnConnecting" type="TSocketNotifyEvent" hoisted="true" />
+      <event name="OnConnect" visibility="published" read="FOnConnect" write="FOnConnect" type="TSocketNotifyEvent" hoisted="true" />
+      <event name="OnDisconnect" visibility="published" read="FOnDisconnect" write="FOnDisconnect" type="TSocketNotifyEvent" hoisted="true" />
+      <event name="OnRead" visibility="published" read="FOnRead" write="FOnRead" type="TSocketNotifyEvent" hoisted="true" />
+      <event name="OnWrite" visibility="published" read="FOnWrite" write="FOnWrite" type="TSocketNotifyEvent" hoisted="true" />
+      <event name="OnError" visibility="published" read="FOnError" write="FOnError" type="TSocketErrorEvent" hoisted="true" />
+    </members>
+  </class>
+  <class name="TCustomServerSocket">
+    <ancestor name="TCustomSocket" namespace="JSocket">
+      <methodref name="Event" visibility="public" />
+      <methodref name="Error" visibility="public" />
+      <eventref name="OnLookup" visibility="protected" />
+      <eventref name="OnConnecting" visibility="protected" />
+      <eventref name="OnConnect" visibility="protected" />
+      <eventref name="OnDisconnect" visibility="protected" />
+      <eventref name="OnListen" visibility="protected" />
+      <eventref name="OnAccept" visibility="protected" />
+      <eventref name="OnRead" visibility="protected" />
+      <eventref name="OnWrite" visibility="protected" />
+      <eventref name="OnError" visibility="protected" />
+      <ancestor name="TAbstractSocket" namespace="JSocket">
+        <methodref name="DoEvent" visibility="private" />
+        <methodref name="DoError" visibility="private" />
+        <methodref name="Event" visibility="public" />
+        <methodref name="Error" visibility="public" />
+        <methodref name="DoActivate" visibility="public" />
+        <methodref name="InitSocket" visibility="protected" />
+        <methodref name="Loaded" visibility="public" />
+        <methodref name="SetActive" visibility="protected" />
+        <methodref name="SetAddress" visibility="protected" />
+        <methodref name="SetHost" visibility="protected" />
+        <methodref name="SetPort" visibility="protected" />
+        <methodref name="SetService" visibility="protected" />
+        <propertyref name="Active" visibility="protected" />
+        <propertyref name="Address" visibility="protected" />
+        <propertyref name="Host" visibility="protected" />
+        <propertyref name="Port" visibility="protected" />
+        <propertyref name="Service" visibility="protected" />
+        <methodref name="Open" visibility="public" />
+        <methodref name="Close" visibility="public" />
+        <ancestor name="TComponent" namespace="Classes">
+          <methodref name="GetComObject" visibility="private">
+          </methodref>
+          <methodref name="GetComponent" visibility="private">
+          </methodref>
+          <methodref name="GetComponentCount" visibility="private">
+          </methodref>
+          <methodref name="GetComponentIndex" visibility="private">
+          </methodref>
+          <methodref name="Insert" visibility="private">
+          </methodref>
+          <methodref name="ReadLeft" visibility="private">
+          </methodref>
+          <methodref name="ReadTop" visibility="private">
+          </methodref>
+          <methodref name="Remove" visibility="private">
+          </methodref>
+          <methodref name="RemoveNotification" visibility="private">
+          </methodref>
+          <methodref name="SetComponentIndex" visibility="private">
+          </methodref>
+          <methodref name="SetReference" visibility="private">
+          </methodref>
+          <methodref name="WriteLeft" visibility="private">
+          </methodref>
+          <methodref name="WriteTop" visibility="private">
+          </methodref>
+          <methodref name="IntfGetComponent" visibility="private">
+          </methodref>
+          <methodref name="ChangeName" visibility="protected">
+          </methodref>
+          <methodref name="DefineProperties" visibility="public">
+          </methodref>
+          <methodref name="GetChildren" visibility="protected">
+          </methodref>
+          <methodref name="GetChildOwner" visibility="protected">
+          </methodref>
+          <methodref name="GetChildParent" visibility="protected">
+          </methodref>
+          <methodref name="GetOwner" visibility="protected">
+          </methodref>
+          <methodref name="Loaded" visibility="public">
+          </methodref>
+          <methodref name="Notification" visibility="public">
+          </methodref>
+          <methodref name="PaletteCreated" visibility="protected">
+          </methodref>
+          <methodref name="ReadState" visibility="public">
+          </methodref>
+          <methodref name="SetAncestor" visibility="protected">
+          </methodref>
+          <methodref name="SetDesigning" visibility="protected">
+          </methodref>
+          <methodref name="SetInline" visibility="protected">
+          </methodref>
+          <methodref name="SetDesignInstance" visibility="protected">
+          </methodref>
+          <methodref name="SetName" visibility="public">
+          </methodref>
+          <methodref name="SetChildOrder" visibility="protected">
+          </methodref>
+          <methodref name="SetParentComponent" visibility="protected">
+          </methodref>
+          <methodref name="Updating" visibility="protected">
+          </methodref>
+          <methodref name="Updated" visibility="protected">
+          </methodref>
+          <methodref name="UpdateRegistry" visibility="public">
+          </methodref>
+          <methodref name="ValidateRename" visibility="public">
+          </methodref>
+          <methodref name="ValidateContainer" visibility="protected">
+          </methodref>
+          <methodref name="ValidateInsert" visibility="protected">
+          </methodref>
+          <methodref name="WriteState" visibility="public">
+          </methodref>
+          <methodref name="QueryInterface" visibility="public">
+          </methodref>
+          <methodref name="_AddRef" visibility="protected">
+          </methodref>
+          <methodref name="_Release" visibility="protected">
+          </methodref>
+          <methodref name="GetTypeInfoCount" visibility="protected">
+          </methodref>
+          <methodref name="GetTypeInfo" visibility="protected">
+          </methodref>
+          <methodref name="GetIDsOfNames" visibility="protected">
+          </methodref>
+          <methodref name="Invoke" visibility="protected">
+          </methodref>
+          <methodref name="Create" visibility="public">
+          </methodref>
+          <methodref name="Destroy" visibility="public">
+          </methodref>
+          <methodref name="BeforeDestruction" visibility="public">
+          </methodref>
+          <methodref name="DestroyComponents" visibility="public">
+          </methodref>
+          <methodref name="Destroying" visibility="public">
+          </methodref>
+          <methodref name="ExecuteAction" visibility="public">
+          </methodref>
+          <methodref name="FindComponent" visibility="public">
+          </methodref>
+          <methodref name="FreeNotification" visibility="public">
+          </methodref>
+          <methodref name="RemoveFreeNotification" visibility="public">
+          </methodref>
+          <methodref name="FreeOnRelease" visibility="public">
+          </methodref>
+          <methodref name="GetEnumerator" visibility="public">
+          </methodref>
+          <methodref name="GetParentComponent" visibility="public">
+          </methodref>
+          <methodref name="GetNamePath" visibility="public">
+          </methodref>
+          <methodref name="HasParent" visibility="public">
+          </methodref>
+          <methodref name="InsertComponent" visibility="public">
+          </methodref>
+          <methodref name="RemoveComponent" visibility="public">
+          </methodref>
+          <methodref name="SetSubComponent" visibility="public">
+          </methodref>
+          <methodref name="SafeCallException" visibility="public">
+          </methodref>
+          <methodref name="UpdateAction" visibility="public">
+          </methodref>
+          <methodref name="IsImplementorOf" visibility="public">
+          </methodref>
+          <methodref name="ReferenceInterface" visibility="public">
+          </methodref>
+          <propertyref name="ComObject" visibility="public">
+          </propertyref>
+          <propertyref name="Components" visibility="public">
+          </propertyref>
+          <propertyref name="ComponentCount" visibility="public">
+          </propertyref>
+          <propertyref name="ComponentIndex" visibility="public">
+          </propertyref>
+          <propertyref name="ComponentState" visibility="public">
+          </propertyref>
+          <propertyref name="ComponentStyle" visibility="public">
+          </propertyref>
+          <propertyref name="DesignInfo" visibility="public">
+          </propertyref>
+          <propertyref name="Owner" visibility="public">
+          </propertyref>
+          <propertyref name="VCLComObject" visibility="public">
+          </propertyref>
+          <propertyref name="Name" visibility="published">
+          </propertyref>
+          <propertyref name="Tag" visibility="published">
+          </propertyref>
+          <ancestor name="TPersistent" namespace="Classes">
+            <methodref name="AssignError" visibility="private">
+            </methodref>
+            <methodref name="AssignTo" visibility="public">
+            </methodref>
+            <methodref name="DefineProperties" visibility="public">
+            </methodref>
+            <methodref name="GetOwner" visibility="protected">
+            </methodref>
+            <methodref name="Destroy" visibility="public">
+            </methodref>
+            <methodref name="Assign" visibility="public">
+            </methodref>
+            <methodref name="GetNamePath" visibility="public">
+            </methodref>
+            <ancestor name="TObject" namespace="System">
+              <methodref name="Create" visibility="public">
+              </methodref>
+              <methodref name="Free" visibility="public">
+              </methodref>
+              <methodref name="InitInstance" visibility="public">
+              </methodref>
+              <methodref name="CleanupInstance" visibility="public">
+              </methodref>
+              <methodref name="ClassType" visibility="public">
+              </methodref>
+              <methodref name="ClassName" visibility="public">
+              </methodref>
+              <methodref name="ClassNameIs" visibility="public">
+              </methodref>
+              <methodref name="ClassParent" visibility="public">
+              </methodref>
+              <methodref name="ClassInfo" visibility="public">
+              </methodref>
+              <methodref name="InstanceSize" visibility="public">
+              </methodref>
+              <methodref name="InheritsFrom" visibility="public">
+              </methodref>
+              <methodref name="MethodAddress" visibility="public">
+              </methodref>
+              <methodref name="MethodName" visibility="public">
+              </methodref>
+              <methodref name="FieldAddress" visibility="public">
+              </methodref>
+              <methodref name="GetInterface" visibility="public">
+              </methodref>
+              <methodref name="GetInterfaceEntry" visibility="public">
+              </methodref>
+              <methodref name="GetInterfaceTable" visibility="public">
+              </methodref>
+              <methodref name="SafeCallException" visibility="public">
+              </methodref>
+              <methodref name="AfterConstruction" visibility="public">
+              </methodref>
+              <methodref name="BeforeDestruction" visibility="public">
+              </methodref>
+              <methodref name="Dispatch" visibility="public">
+              </methodref>
+              <methodref name="DefaultHandler" visibility="public">
+              </methodref>
+              <methodref name="NewInstance" visibility="public">
+              </methodref>
+              <methodref name="FreeInstance" visibility="public">
+              </methodref>
+              <methodref name="Destroy" visibility="public">
+              </methodref>
+            </ancestor>
+          </ancestor>
+        </ancestor>
+      </ancestor>
+    </ancestor>
+    <members>
+      <field name="FServerSocket" type="TServerWinSocket" visibility="protected" />
+      <procedure name="DoActivate" visibility="public" procflags="override">
+        <parameters>
+          <parameter name="Value" type="Boolean" />
+        </parameters>
+      </procedure>
+      <function name="GetServerType" visibility="protected">
+        <parameters>
+          <retval type="TServerType" />
+        </parameters>
+      </function>
+      <function name="GetGetThreadEvent" visibility="protected">
+        <parameters>
+          <retval type="TGetThreadEvent" />
+        </parameters>
+      </function>
+      <function name="GetGetSocketEvent" visibility="protected">
+        <parameters>
+          <retval type="TGetSocketEvent" />
+        </parameters>
+      </function>
+      <function name="GetThreadCacheSize" visibility="protected">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetOnThreadStart" visibility="protected">
+        <parameters>
+          <retval type="TThreadNotifyEvent" />
+        </parameters>
+      </function>
+      <function name="GetOnThreadEnd" visibility="protected">
+        <parameters>
+          <retval type="TThreadNotifyEvent" />
+        </parameters>
+      </function>
+      <function name="GetOnClientEvent" visibility="protected">
+        <parameters>
+          <parameter name="Index" type="Integer" />
+          <retval type="TSocketNotifyEvent" />
+        </parameters>
+      </function>
+      <function name="GetOnClientError" visibility="protected">
+        <parameters>
+          <retval type="TSocketErrorEvent" />
+        </parameters>
+      </function>
+      <procedure name="SetServerType" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="TServerType" />
+        </parameters>
+      </procedure>
+      <procedure name="SetGetThreadEvent" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="TGetThreadEvent" />
+        </parameters>
+      </procedure>
+      <procedure name="SetGetSocketEvent" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="TGetSocketEvent" />
+        </parameters>
+      </procedure>
+      <procedure name="SetThreadCacheSize" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="SetOnThreadStart" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="TThreadNotifyEvent" />
+        </parameters>
+      </procedure>
+      <procedure name="SetOnThreadEnd" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="TThreadNotifyEvent" />
+        </parameters>
+      </procedure>
+      <procedure name="SetOnClientEvent" visibility="protected">
+        <parameters>
+          <parameter name="Index" type="Integer" />
+          <parameter name="Value" type="TSocketNotifyEvent" />
+        </parameters>
+      </procedure>
+      <procedure name="SetOnClientError" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="TSocketErrorEvent" />
+        </parameters>
+      </procedure>
+      <property name="ServerType" visibility="protected" read="GetServerType" write="SetServerType" type="TServerType" />
+      <property name="ThreadCacheSize" visibility="protected" read="GetThreadCacheSize" write="SetThreadCacheSize" type="Integer" />
+      <event name="OnGetThread" visibility="protected" read="GetGetThreadEvent" write="SetGetThreadEvent" type="TGetThreadEvent" />
+      <event name="OnGetSocket" visibility="protected" read="GetGetSocketEvent" write="SetGetSocketEvent" type="TGetSocketEvent" />
+      <event name="OnThreadStart" visibility="protected" read="GetOnThreadStart" write="SetOnThreadStart" type="TThreadNotifyEvent" />
+      <event name="OnThreadEnd" visibility="protected" read="GetOnThreadEnd" write="SetOnThreadEnd" type="TThreadNotifyEvent" />
+      <event name="OnClientConnect" visibility="protected" read="GetOnClientEvent" write="SetOnClientEvent" type="TSocketNotifyEvent" index="2" />
+      <event name="OnClientDisconnect" visibility="protected" read="GetOnClientEvent" write="SetOnClientEvent" type="TSocketNotifyEvent" index="3" />
+      <event name="OnClientRead" visibility="protected" read="GetOnClientEvent" write="SetOnClientEvent" type="TSocketNotifyEvent" index="0" />
+      <event name="OnClientWrite" visibility="protected" read="GetOnClientEvent" write="SetOnClientEvent" type="TSocketNotifyEvent" index="1" />
+      <event name="OnClientError" visibility="protected" read="GetOnClientError" write="SetOnClientError" type="TSocketErrorEvent" />
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+    </members>
+  </class>
+  <class name="TServerSocket">
+    <ancestor name="TCustomServerSocket" namespace="JSocket">
+      <methodref name="DoActivate" visibility="public" />
+      <methodref name="GetServerType" visibility="protected" />
+      <methodref name="GetGetThreadEvent" visibility="protected" />
+      <methodref name="GetGetSocketEvent" visibility="protected" />
+      <methodref name="GetThreadCacheSize" visibility="protected" />
+      <methodref name="GetOnThreadStart" visibility="protected" />
+      <methodref name="GetOnThreadEnd" visibility="protected" />
+      <methodref name="GetOnClientEvent" visibility="protected" />
+      <methodref name="GetOnClientError" visibility="protected" />
+      <methodref name="SetServerType" visibility="protected" />
+      <methodref name="SetGetThreadEvent" visibility="protected" />
+      <methodref name="SetGetSocketEvent" visibility="protected" />
+      <methodref name="SetThreadCacheSize" visibility="protected" />
+      <methodref name="SetOnThreadStart" visibility="protected" />
+      <methodref name="SetOnThreadEnd" visibility="protected" />
+      <methodref name="SetOnClientEvent" visibility="protected" />
+      <methodref name="SetOnClientError" visibility="protected" />
+      <propertyref name="ServerType" visibility="protected" />
+      <propertyref name="ThreadCacheSize" visibility="protected" />
+      <eventref name="OnGetThread" visibility="protected" />
+      <eventref name="OnGetSocket" visibility="protected" />
+      <eventref name="OnThreadStart" visibility="protected" />
+      <eventref name="OnThreadEnd" visibility="protected" />
+      <eventref name="OnClientConnect" visibility="protected" />
+      <eventref name="OnClientDisconnect" visibility="protected" />
+      <eventref name="OnClientRead" visibility="protected" />
+      <eventref name="OnClientWrite" visibility="protected" />
+      <eventref name="OnClientError" visibility="protected" />
+      <methodref name="Destroy" visibility="public" />
+      <ancestor name="TCustomSocket" namespace="JSocket">
+        <methodref name="Event" visibility="public" />
+        <methodref name="Error" visibility="public" />
+        <eventref name="OnLookup" visibility="protected" />
+        <eventref name="OnConnecting" visibility="protected" />
+        <eventref name="OnConnect" visibility="protected" />
+        <eventref name="OnDisconnect" visibility="protected" />
+        <eventref name="OnListen" visibility="protected" />
+        <eventref name="OnAccept" visibility="protected" />
+        <eventref name="OnRead" visibility="protected" />
+        <eventref name="OnWrite" visibility="protected" />
+        <eventref name="OnError" visibility="protected" />
+        <ancestor name="TAbstractSocket" namespace="JSocket">
+          <methodref name="DoEvent" visibility="private" />
+          <methodref name="DoError" visibility="private" />
+          <methodref name="Event" visibility="public" />
+          <methodref name="Error" visibility="public" />
+          <methodref name="DoActivate" visibility="public" />
+          <methodref name="InitSocket" visibility="protected" />
+          <methodref name="Loaded" visibility="public" />
+          <methodref name="SetActive" visibility="protected" />
+          <methodref name="SetAddress" visibility="protected" />
+          <methodref name="SetHost" visibility="protected" />
+          <methodref name="SetPort" visibility="protected" />
+          <methodref name="SetService" visibility="protected" />
+          <propertyref name="Active" visibility="protected" />
+          <propertyref name="Address" visibility="protected" />
+          <propertyref name="Host" visibility="protected" />
+          <propertyref name="Port" visibility="protected" />
+          <propertyref name="Service" visibility="protected" />
+          <methodref name="Open" visibility="public" />
+          <methodref name="Close" visibility="public" />
+          <ancestor name="TComponent" namespace="Classes">
+            <methodref name="GetComObject" visibility="private">
+            </methodref>
+            <methodref name="GetComponent" visibility="private">
+            </methodref>
+            <methodref name="GetComponentCount" visibility="private">
+            </methodref>
+            <methodref name="GetComponentIndex" visibility="private">
+            </methodref>
+            <methodref name="Insert" visibility="private">
+            </methodref>
+            <methodref name="ReadLeft" visibility="private">
+            </methodref>
+            <methodref name="ReadTop" visibility="private">
+            </methodref>
+            <methodref name="Remove" visibility="private">
+            </methodref>
+            <methodref name="RemoveNotification" visibility="private">
+            </methodref>
+            <methodref name="SetComponentIndex" visibility="private">
+            </methodref>
+            <methodref name="SetReference" visibility="private">
+            </methodref>
+            <methodref name="WriteLeft" visibility="private">
+            </methodref>
+            <methodref name="WriteTop" visibility="private">
+            </methodref>
+            <methodref name="IntfGetComponent" visibility="private">
+            </methodref>
+            <methodref name="ChangeName" visibility="protected">
+            </methodref>
+            <methodref name="DefineProperties" visibility="public">
+            </methodref>
+            <methodref name="GetChildren" visibility="protected">
+            </methodref>
+            <methodref name="GetChildOwner" visibility="protected">
+            </methodref>
+            <methodref name="GetChildParent" visibility="protected">
+            </methodref>
+            <methodref name="GetOwner" visibility="protected">
+            </methodref>
+            <methodref name="Loaded" visibility="public">
+            </methodref>
+            <methodref name="Notification" visibility="public">
+            </methodref>
+            <methodref name="PaletteCreated" visibility="protected">
+            </methodref>
+            <methodref name="ReadState" visibility="public">
+            </methodref>
+            <methodref name="SetAncestor" visibility="protected">
+            </methodref>
+            <methodref name="SetDesigning" visibility="protected">
+            </methodref>
+            <methodref name="SetInline" visibility="protected">
+            </methodref>
+            <methodref name="SetDesignInstance" visibility="protected">
+            </methodref>
+            <methodref name="SetName" visibility="public">
+            </methodref>
+            <methodref name="SetChildOrder" visibility="protected">
+            </methodref>
+            <methodref name="SetParentComponent" visibility="protected">
+            </methodref>
+            <methodref name="Updating" visibility="protected">
+            </methodref>
+            <methodref name="Updated" visibility="protected">
+            </methodref>
+            <methodref name="UpdateRegistry" visibility="public">
+            </methodref>
+            <methodref name="ValidateRename" visibility="public">
+            </methodref>
+            <methodref name="ValidateContainer" visibility="protected">
+            </methodref>
+            <methodref name="ValidateInsert" visibility="protected">
+            </methodref>
+            <methodref name="WriteState" visibility="public">
+            </methodref>
+            <methodref name="QueryInterface" visibility="public">
+            </methodref>
+            <methodref name="_AddRef" visibility="protected">
+            </methodref>
+            <methodref name="_Release" visibility="protected">
+            </methodref>
+            <methodref name="GetTypeInfoCount" visibility="protected">
+            </methodref>
+            <methodref name="GetTypeInfo" visibility="protected">
+            </methodref>
+            <methodref name="GetIDsOfNames" visibility="protected">
+            </methodref>
+            <methodref name="Invoke" visibility="protected">
+            </methodref>
+            <methodref name="Create" visibility="public">
+            </methodref>
+            <methodref name="Destroy" visibility="public">
+            </methodref>
+            <methodref name="BeforeDestruction" visibility="public">
+            </methodref>
+            <methodref name="DestroyComponents" visibility="public">
+            </methodref>
+            <methodref name="Destroying" visibility="public">
+            </methodref>
+            <methodref name="ExecuteAction" visibility="public">
+            </methodref>
+            <methodref name="FindComponent" visibility="public">
+            </methodref>
+            <methodref name="FreeNotification" visibility="public">
+            </methodref>
+            <methodref name="RemoveFreeNotification" visibility="public">
+            </methodref>
+            <methodref name="FreeOnRelease" visibility="public">
+            </methodref>
+            <methodref name="GetEnumerator" visibility="public">
+            </methodref>
+            <methodref name="GetParentComponent" visibility="public">
+            </methodref>
+            <methodref name="GetNamePath" visibility="public">
+            </methodref>
+            <methodref name="HasParent" visibility="public">
+            </methodref>
+            <methodref name="InsertComponent" visibility="public">
+            </methodref>
+            <methodref name="RemoveComponent" visibility="public">
+            </methodref>
+            <methodref name="SetSubComponent" visibility="public">
+            </methodref>
+            <methodref name="SafeCallException" visibility="public">
+            </methodref>
+            <methodref name="UpdateAction" visibility="public">
+            </methodref>
+            <methodref name="IsImplementorOf" visibility="public">
+            </methodref>
+            <methodref name="ReferenceInterface" visibility="public">
+            </methodref>
+            <propertyref name="ComObject" visibility="public">
+            </propertyref>
+            <propertyref name="Components" visibility="public">
+            </propertyref>
+            <propertyref name="ComponentCount" visibility="public">
+            </propertyref>
+            <propertyref name="ComponentIndex" visibility="public">
+            </propertyref>
+            <propertyref name="ComponentState" visibility="public">
+            </propertyref>
+            <propertyref name="ComponentStyle" visibility="public">
+            </propertyref>
+            <propertyref name="DesignInfo" visibility="public">
+            </propertyref>
+            <propertyref name="Owner" visibility="public">
+            </propertyref>
+            <propertyref name="VCLComObject" visibility="public">
+            </propertyref>
+            <propertyref name="Name" visibility="published">
+            </propertyref>
+            <propertyref name="Tag" visibility="published">
+            </propertyref>
+            <ancestor name="TPersistent" namespace="Classes">
+              <methodref name="AssignError" visibility="private">
+              </methodref>
+              <methodref name="AssignTo" visibility="public">
+              </methodref>
+              <methodref name="DefineProperties" visibility="public">
+              </methodref>
+              <methodref name="GetOwner" visibility="protected">
+              </methodref>
+              <methodref name="Destroy" visibility="public">
+              </methodref>
+              <methodref name="Assign" visibility="public">
+              </methodref>
+              <methodref name="GetNamePath" visibility="public">
+              </methodref>
+              <ancestor name="TObject" namespace="System">
+                <methodref name="Create" visibility="public">
+                </methodref>
+                <methodref name="Free" visibility="public">
+                </methodref>
+                <methodref name="InitInstance" visibility="public">
+                </methodref>
+                <methodref name="CleanupInstance" visibility="public">
+                </methodref>
+                <methodref name="ClassType" visibility="public">
+                </methodref>
+                <methodref name="ClassName" visibility="public">
+                </methodref>
+                <methodref name="ClassNameIs" visibility="public">
+                </methodref>
+                <methodref name="ClassParent" visibility="public">
+                </methodref>
+                <methodref name="ClassInfo" visibility="public">
+                </methodref>
+                <methodref name="InstanceSize" visibility="public">
+                </methodref>
+                <methodref name="InheritsFrom" visibility="public">
+                </methodref>
+                <methodref name="MethodAddress" visibility="public">
+                </methodref>
+                <methodref name="MethodName" visibility="public">
+                </methodref>
+                <methodref name="FieldAddress" visibility="public">
+                </methodref>
+                <methodref name="GetInterface" visibility="public">
+                </methodref>
+                <methodref name="GetInterfaceEntry" visibility="public">
+                </methodref>
+                <methodref name="GetInterfaceTable" visibility="public">
+                </methodref>
+                <methodref name="SafeCallException" visibility="public">
+                </methodref>
+                <methodref name="AfterConstruction" visibility="public">
+                </methodref>
+                <methodref name="BeforeDestruction" visibility="public">
+                </methodref>
+                <methodref name="Dispatch" visibility="public">
+                </methodref>
+                <methodref name="DefaultHandler" visibility="public">
+                </methodref>
+                <methodref name="NewInstance" visibility="public">
+                </methodref>
+                <methodref name="FreeInstance" visibility="public">
+                </methodref>
+                <methodref name="Destroy" visibility="public">
+                </methodref>
+              </ancestor>
+            </ancestor>
+          </ancestor>
+        </ancestor>
+      </ancestor>
+    </ancestor>
+    <members>
+      <constructor name="Create" visibility="public">
+        <parameters>
+          <parameter name="AOwner" type="TComponent" />
+        </parameters>
+      </constructor>
+      <property name="Socket" visibility="public" read="FServerSocket" type="TServerWinSocket" />
+      <property name="Active" visibility="published" read="FActive" write="SetActive" type="Boolean" hoisted="true" />
+      <property name="Address" visibility="published" read="FAddress" write="SetAddress" type="string" hoisted="true" />
+      <property name="Port" visibility="published" read="FPort" write="SetPort" type="Integer" hoisted="true" />
+      <property name="Host" visibility="published" read="FHost" write="SetHost" type="string" hoisted="true" />
+      <property name="Service" visibility="published" read="FService" write="SetService" type="string" hoisted="true" />
+      <property name="ServerType" visibility="published" read="GetServerType" write="SetServerType" type="TServerType" hoisted="true" />
+      <property name="ThreadCacheSize" visibility="published" read="GetThreadCacheSize" write="SetThreadCacheSize" type="Integer" default="10" hoisted="true" />
+      <event name="OnListen" visibility="published" read="FOnListen" write="FOnListen" type="TSocketNotifyEvent" hoisted="true" />
+      <event name="OnAccept" visibility="published" read="FOnAccept" write="FOnAccept" type="TSocketNotifyEvent" hoisted="true" />
+      <event name="OnGetThread" visibility="published" read="GetGetThreadEvent" write="SetGetThreadEvent" type="TGetThreadEvent" hoisted="true" />
+      <event name="OnGetSocket" visibility="published" read="GetGetSocketEvent" write="SetGetSocketEvent" type="TGetSocketEvent" hoisted="true" />
+      <event name="OnThreadStart" visibility="published" read="GetOnThreadStart" write="SetOnThreadStart" type="TThreadNotifyEvent" hoisted="true" />
+      <event name="OnThreadEnd" visibility="published" read="GetOnThreadEnd" write="SetOnThreadEnd" type="TThreadNotifyEvent" hoisted="true" />
+      <event name="OnClientConnect" visibility="published" read="GetOnClientEvent" write="SetOnClientEvent" type="TSocketNotifyEvent" index="2" hoisted="true" />
+      <event name="OnClientDisconnect" visibility="published" read="GetOnClientEvent" write="SetOnClientEvent" type="TSocketNotifyEvent" index="3" hoisted="true" />
+      <event name="OnClientRead" visibility="published" read="GetOnClientEvent" write="SetOnClientEvent" type="TSocketNotifyEvent" index="0" hoisted="true" />
+      <event name="OnClientWrite" visibility="published" read="GetOnClientEvent" write="SetOnClientEvent" type="TSocketNotifyEvent" index="1" hoisted="true" />
+      <event name="OnClientError" visibility="published" read="GetOnClientError" write="SetOnClientError" type="TSocketErrorEvent" hoisted="true" />
+    </members>
+  </class>
+  <function name="SetErrorProc" visibility="public">
+    <parameters>
+      <parameter name="ErrorProc" type="TSocketErrorProc" />
+      <retval type="TSocketErrorProc" />
+    </parameters>
+  </function>
+  <procedure name="Register" visibility="public">
+  </procedure>
+</namespace>

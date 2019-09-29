@@ -1,0 +1,1 @@
+Activate the Web Server and place CGI.html file into the Web directory; then open a CGI.html document.

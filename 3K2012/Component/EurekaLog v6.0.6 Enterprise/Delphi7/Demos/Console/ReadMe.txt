@@ -1,0 +1,1 @@
+Compile Console.dpr file, then open a DOS shell and go to the program directory to run it.

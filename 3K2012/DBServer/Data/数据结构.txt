@@ -1,0 +1,238 @@
+TBL_CHARACTER(Hum.db)
+    FLD_CHARNAME    CHAR(14)     NOT NULL,---角色名称
+    FLD_LOGINID     CHAR(10)     NOT NULL,----账号
+    FLD_SELECTID    INT          NOT NULL,---ID
+    FLD_SELECTED    BIT          NOT NULL,----是否是选择的人物
+    FLD_ISHERO      BIT          NOT NULL,----是否英雄
+    FLD_COUNT       INT          NOT NULL,----操作次数
+    FLD_CREATEDATE  DATETIME     NOT NULL,---创建日期
+    FLD_LASTUPDATE  DATETIME     NOT NULL,---最后更新日期   
+    FLD_MODDATE     DATETIME     NOT NULL,---操作日期
+    FLD_DELETED     BIT          NOT NULL---是否删除
+
+----------------------------------------------------------------
+int     = integer
+Tinyint = Byte
+bigint  = LongWord
+BIT     = Boolean
+
+ftString=VARCHAR
+ftSmallint=DECIMAL
+ftInteger=DECIMAL
+ftWord=INT
+ftBoolean=INT
+ftFloat=DECIMAL
+ftCurrency=INT
+ftBCD=DECIMAL
+ftGraphic=IMAGE
+ftBlob=IMAGE
+ftDateTime=DATETIME
+ftMemo=TEXT
+ftFixedChar=CHAR
+ftDate=DATETIME
+ftUnknown=VARCHAR
+ftTime=DATETIME
+ftLargeInt=BigInt 
+ftBytes=binary
+ftWideString=nchar
+ftVarBytes=sql_variant
+ftGuid=uniqueidentifier
+
+TBL_CHARACTERMIR
+    FLD_CHARNAME    	CHAR(14)     	NOT NULL,--人物名
+    FLD_CURMAP   	CHAR(16),--地图名
+    FLD_CX 		INT 		NULL,--X坐标
+    FLD_CY 		INT 		NULL,--Y坐标
+    FLD_DIR 		TINYINT 	NULL,--方向
+    FLD_HAIR 		TINYINT 	NULL,--发型
+    FLD_SEX 		TINYINT 	NULL,--性别
+    FLD_JOB 		TINYINT 	NULL,--职业
+    FLD_GOLD 		INT 		NULL,--金币数(人物) 英雄怒气值(英雄)
+--Abil-----
+    FLD_LEVEL 		INT 		NULL,--等级
+    FLD_AC              INT 		NULL,--HP 上限
+    FLD_MAC             INT 		NULL,--MP 上限
+    FLD_DC              INT 		NULL,--MaxHP 上限
+    FLD_MC              INT 		NULL,--MaxMP 上限
+    FLD_SC              INT 		NULL,--LoByte()-自动修炼修炼场所 HiByte()-自动修炼修炼强度
+    FLD_HP 		INT 		NULL,--HP下限
+    FLD_MP 		INT 		NULL,--Mp下限
+    FLD_MaxHP 		INT 		NULL,--MaxHP下限
+    FLD_MaxMP 		INT 		NULL,--MaxMP下限
+    FLD_NG 		INT 		NULL,--当前内力值
+    FLD_MaxNG 		INT 		NULL,--内力值上限
+    FLD_EXP 		bigint 		NULL,--当前经验
+    FLD_MaxExp 		bigint 		NULL,--升级经验
+    FLD_Weight 		INT 		NULL,--当前重量
+    FLD_MaxWeight 	INT 		NULL,--最大重量
+    FLD_WearWeight 	TINYINT 	NULL,--当前负重
+    FLD_MaxWearWeight 	TINYINT 	NULL,--最大负重
+    FLD_HandWeight 	TINYINT 	NULL,--当前腕力
+    FLD_MaxHandWeight 	TINYINT 	NULL,--最大腕力
+--wStatusTimeArr写入表TBL_CHARBINRAY中
+    FLD_HOMEMAP 	CHAR(16) 	NULL,--Home 家(主体),用于是否第一次召唤(英雄)
+    FLD_HOMEX 		INT 		NULL,--Home X
+    FLD_HOMEY 		INT 		NULL,--Home Y
+    FLD_DEARNAME 	CHAR(14)	NULL,--别名(配偶)
+    FLD_MASTERNAME      CHAR(14) 	NULL,--人物-师傅名字 英雄-主体名字
+    FLD_MASTER 		BIT 		NULL,--是否有徒弟
+    FLD_CreditPoint 	INT 		NULL,--声望点
+    FLD_btDivorce	Tinyint		NULL, --是否结婚(未使用)
+    FLD_MarryCount 	INT 		NULL,--结婚次数
+    FLD_StoragePwd 	CHAR(10)	NULL,--仓库密码
+    FLD_ReLevel 	TINYINT 	NULL,--转生等级
+
+--btUnKnow2写入表TBL_CHARBINRAY中
+--BonusAbil: TNakedAbility分配的属性值
+    FLD_BONUSDC 	INT	    	NULL,
+    FLD_BONUSMC 	INT	        NULL,
+    FLD_BONUSSC 	INT	    	NULL,
+    FLD_BONUSAC       	INT	  	NULL,
+    FLD_BONUSMAC 	INT	    	NULL,
+    FLD_BONUSHP       	INT	  	NULL,
+    FLD_BONUSMP       	INT	  	NULL,
+    FLD_BONUSHIT        INT	  	NULL,
+    FLD_BONUSSPEED      INT	  	NULL,
+    FLD_BONUX2          INT	  	NULL,
+
+    FLD_BONUSPOINT 	INT 		NULL,--奖励点 
+    FLD_GAMEGOLD 	INT 		NULL,--游戏币
+    FLD_GameDiaMond 	INT 		NULL,--金刚石
+    FLD_GameGird 	INT 		NULL,--灵符    
+    FLD_GAMEPOINT 	INT 		NULL,--声望
+    FLD_GAMEGLORY 	INT		NULL,--荣誉
+    FLD_PayMentPoint 	INT 		NULL,--充值点
+    FLD_Loyal 		bigint 		NULL,--忠诚度(英雄) 主将累计经验(主体)
+    FLD_PKPOINT 	INT		NULL,--PK点数
+    FLD_ALLOWGROUP 	BIT 		NULL,--允许组队
+    FLD_btF9 	        TINYINT 	NULL,
+    FLD_AttatckMode 	TINYINT 	NULL,--攻击模式
+    FLD_IncHealth 	TINYINT 	NULL,--增加健康数
+    FLD_IncSpell 	TINYINT		NULL,--增加攻击点
+    FLD_IncHealing 	TINYINT 	NULL,--增加治愈点
+    FLD_FightZoneDieCount TINYINT 	NULL,--在行会占争地图中死亡次数
+    FLD_Account 	CHAR(10) 	NULL,--登录帐号
+    FLD_EF		TINYINT 	NULL,--英雄类型 0-白日门英雄 1-卧龙英雄 2-主将英雄 3-副将英雄
+    FLD_LockLogon 	BIT 		NULL,--是否锁定登陆
+    FLD_Contribution 	INT 		NULL,--贡献值(主体)
+    FLD_HungerStatus 	INT 		NULL,--饥饿状态(主体)
+    FLD_AllowGuildReCall BIT 		NULL,--是否允许行会合一
+    FLD_GroupRcallTime  INT 		NULL,--队传送时间
+    FLD_BodyLuck 	FLOAT 		NULL,--幸运度
+    FLD_AllowGroupReCall BIT 		NULL,--是否允许天地合一
+    FLD_EXPRATE 	INT 		NULL,--经验倍数
+    FLD_ExpTime 	bigint 		NULL,--经验倍数时间
+    FLD_LastOutStatus 	TINYINT 	NULL,--退出状态 1为死亡退出
+    FLD_MasterCount 	INT 		NULL,--出师徒弟数
+    FLD_HasHero 	BIT 		NOT NULL,--是否有白日门英雄(主体使用)
+    FLD_IsHero 		BIT 		NOT NULL,--是否是英雄
+    FLD_Status		TINYINT 	NULL,--英雄状态(英雄) 所选副将职业(主体)
+    FLD_HeroChrName 	CHAR(14) 	NULL,--英雄名称
+--UnKnow写入表TBL_CHARBINRAY中
+--QuestFlag写入表TBL_CHARBINRAY中
+--HumItems写入表TBL_CHARACTER_ITEM中
+--BagItems写入表TBL_CHARACTER_ITEM中
+--HumMagics写入表TBL_CHARACTER_MAGIC中
+--StorageItems写入表TBL_CHARACTER_STORAGE中
+--HumAddItems写入表TBL_CHARACTER_ITEM中
+    FLD_WinExp 		bigint 		NULL,--累计经验
+    FLD_UsesItemTick	INT 		NULL,--聚灵珠聚集时间
+    FLD_nReserved 	bigint 		NULL,--(人物)酿酒的时间,即还有多长时间可以取回酒 (英雄)经络修炼经验
+    FLD_nReserved1	INT 		NULL,--当前药力值
+    FLD_nReserved2	INT 		NULL,--药力值上限
+    FLD_nReserved3	INT 		NULL,--使用药酒时间,计算长时间没使用药酒
+    FLD_n_Reserved	INT 		NULL,--当前酒量值
+    FLD_n_Reserved1	INT 		NULL,--酒量上限
+    FLD_n_Reserved2	INT 		NULL,--当前醉酒度
+    FLD_n_Reserved3	INT 		NULL,--药力值等级
+    FLD_boReserved 	BIT 		NULL,--是否请过酒 T-请过酒(主体)
+    FLD_boReserved1 	BIT 		NULL,--是否有卧龙英雄(主体)
+    FLD_boReserved2 	BIT 		NULL,--是否酿酒 T-正在酿酒 (主体)
+    FLD_boReserved3 	BIT 		NULL,--人是否喝酒醉了(主体)
+    FLD_GiveDate	INT 		NULL,--人物领取行会酒泉日期(主体)
+    FLD_MaxExp68 	bigint 		NULL,--自动修炼累计时长
+    FLD_ExpSkill69	INT 		NULL,--内功当前经验
+--HumNGMagics写入表TBL_CHARACTER_MAGIC中
+    FLD_m_nReserved1	INT 		NULL,--吸伤属性
+    FLD_m_nReserved2	INT 		NULL,--主将英雄等级(主体)
+    FLD_m_nReserved3	INT 		NULL,--副将英雄等级(主体)
+    FLD_m_nReserved4 	bigint 		NULL,--真视秘籍使用时间
+    FLD_m_nReserved5 	bigint 		NULL,--使用物品(玄绿,玄紫,玄褐)改变说话颜色的使用时间(主体) 
+    FLD_m_nReserved6 	bigint 		NULL,--主将累计内功经验(主体)
+    FLD_m_nReserved7	INT 		NULL,--主将英雄内功等级(主体)
+    FLD_m_nReserved8	INT 		NULL,--副将英雄内功等级(主体)
+    FLD_Proficiency	INT 		NULL,--熟练度(制造神秘卷轴)
+
+    FLD_Reserved2	INT 		NULL,--预留变量2
+    FLD_Reserved3	INT 		NULL,--预留变量3
+    FLD_Reserved4	INT 		NULL,--预留变量4
+    FLD_Exp68		bigint 		NULL,--不再使用此变量
+    FLD_Reserved5	bigint 		NULL,--预留变量5
+    FLD_Reserved6	bigint 		NULL,--预留变量6
+    FLD_Reserved7	bigint 		NULL,--预留变量7
+    FLD_Reserved8	TINYINT 	NULL,--预留变量8
+--SpiritMedia写入表TBL_CHARACTER_ITEM中
+    FLD_DeputyHeroName	CHAR(14)     NOT NULL,--副将名称
+
+    FLD_CREATEDATE 	DATETIME 	NULL,--最后更新日期
+    FLD_DELETED         BIT             NOT NULL---是否删除
+
+---------------------------------------------------------
+TBL_CHARBINRAY
+    FLD_LOGINID		CHAR(10)     	NULL,
+    FLD_CHARNAME	CHAR(14)	NOT NULL,
+    FLD_UnKnow2         BINARY(3)       NULL,--btUnKnow2
+    FLD_UnKnow          BINARY(30)      NULL,--UnKnow
+    FLD_QUESTFLAG       BINARY(128)     NULL,--QuestFlag
+    FLD_STATUSTIMEARR   BINARY(24)      NULL--wStatusTimeArr人物状态属性值，一般是持续多少秒(word)
+
+----------------------------------------------------------
+TBL_CHARACTER_MAGIC(HumMagics, HumNGMagics)
+    FLD_LOGINID		CHAR(10)	NULL,
+    FLD_CHARNAME	CHAR(14)	NOT NULL,
+    FLD_MAGID 		INT	    	NOT NULL,
+    FLD_LEVEL 		TINYINT		NOT NULL,
+    FLD_USEKEY 	        TINYINT		NOT NULL,
+    FLD_CURRTRAIN	INT	  	NOT NULL,
+    FLD_ZT		BIT 		NOT NULL--是否内功技能 T-内功技能 F-普通技能
+
+----------------------------------------------------------
+TBL_CHARACTER_ITEM,TBL_CHARACTER_STORAGE
+    FLD_LOGINID		CHAR(10)	NULL,
+    FLD_CHARNAME	CHAR(14)	NOT NULL,
+    FLD_POSITION	INT	   	NULL,--1-9为9格装备，10-13为新增四格装备 14-斗笠 15-灵媒位 16-61包裹物品
+    FLD_MAKEINDEX	INT	        NOT NULL,--制造ID
+    FLD_STDINDEX	INT	   	NOT NULL,--物品ID
+    FLD_DURA		INT		NOT NULL,--持久
+    FLD_DURAMAX		INT		NOT NULL,--最大持久
+    FLD_VALUE           BINARY(20)      NULL,
+    FLD_UnKnowValue     BINARY(10)      NULL
+
+-----------------------------------------------------------
+TBL_DeputyHero(副将数据表)
+    FLD_sHeroChrName	CHAR(14)     NOT NULL,--英雄名称
+    FLD_btJob 		TINYINT      NOT NULL,--职业 0-战 1-法 2-道 3-刺客
+    FLD_nHP 		INT 	     NULL,--当前HP值
+    FLD_nMP 		INT 	     NULL,--当前MP值
+    FLD_boDeleted	BIT	     NOT NULL,--是否删除
+    FLD_dCreateDate     DATETIME     NOT NULL,--最后登录时间
+
+TBL_DeputyHero_ITEM(HumItems,BagItems,HumAddItems)--副将物品表
+    FLD_sHeroChrName	CHAR(14)	NOT NULL,
+    FLD_btJob 		TINYINT         NOT NULL,--职业 0-战 1-法 2-道 3-刺客
+    FLD_POSITION	INT	   	NULL,--1-9为9格装备，10-13为新增四格装备 14-斗笠 15-灵媒位 16-61包裹物品
+    FLD_MAKEINDEX	INT	        NOT NULL,--制造ID
+    FLD_STDINDEX	INT	   	NOT NULL,--物品ID
+    FLD_DURA		INT		NOT NULL,--持久
+    FLD_DURAMAX		INT		NOT NULL,--最大持久
+    FLD_VALUE           BINARY(20)      NULL,
+    FLD_UnKnowValue     BINARY(10)      NULL
+
+TBL_DeputyHero_MAGIC(HumMagics, HumNGMagics)--副将普通技能，内功技能表
+    FLD_sHeroChrName	CHAR(14)	NOT NULL,
+    FLD_btJob 		TINYINT         NOT NULL,--职业 0-战 1-法 2-道 3-刺客
+    FLD_MAGID 		INT	    	NOT NULL,
+    FLD_LEVEL 		TINYINT		NOT NULL,
+    FLD_USEKEY 	        TINYINT		NOT NULL,
+    FLD_CURRTRAIN	INT	  	NOT NULL,
+    FLD_ZT		BIT 		NOT NULL--是否内功技能 T-内功技能 F-普通技能

@@ -1,0 +1,1 @@
+Activate the Web Server, place ISAPI.html file into the Web directory and then open ISAPI.html document.

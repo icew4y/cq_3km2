@@ -1,0 +1,164 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{a978be99-8b0a-448c-b72d-a6c20e8a7b2e}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Projects Include="..\Mir200\Client\MirGame.bdsproj" />
+    <Projects Include="black\Sources\MSI_D2007_Dsgn.dproj" />
+    <Projects Include="black\Sources\MSI_D2007_Rtl.dproj" />
+    <Projects Include="businessskinform.v5.25.fs\BSFD2007.dproj" />
+    <Projects Include="DirectX\DelphiX_for2007.dproj" />
+    <Projects Include="ehl.5013\Delphi2007\DclEhLib110.dproj" />
+    <Projects Include="ehl.5013\Delphi2007\EhLib110.dproj" />
+    <Projects Include="ImageButton\imgbtn.dproj" />
+    <Projects Include="ImageProgressbar\drgf.dproj" />
+    <Projects Include="JSocket\Jacky.dproj" />
+    <Projects Include="RSA\PacRAS.dproj" />
+    <Projects Include="Wil控件\drgf1.dproj" />
+    <Projects Include="WinHttp\Sources\WinHTTPBDS2006.dproj" />
+    <Projects Include="加密控件\DCP_D6.dproj" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Default.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+<BorlandProject xmlns=""><Default.Personality></Default.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Target Name="MSI_D2007_Dsgn">
+    <MSBuild Projects="black\Sources\MSI_D2007_Dsgn.dproj" Targets="" />
+  </Target>
+  <Target Name="MSI_D2007_Dsgn:Clean">
+    <MSBuild Projects="black\Sources\MSI_D2007_Dsgn.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="MSI_D2007_Dsgn:Make">
+    <MSBuild Projects="black\Sources\MSI_D2007_Dsgn.dproj" Targets="Make" />
+  </Target>
+  <Target Name="MSI_D2007_Rtl">
+    <MSBuild Projects="black\Sources\MSI_D2007_Rtl.dproj" Targets="" />
+  </Target>
+  <Target Name="MSI_D2007_Rtl:Clean">
+    <MSBuild Projects="black\Sources\MSI_D2007_Rtl.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="MSI_D2007_Rtl:Make">
+    <MSBuild Projects="black\Sources\MSI_D2007_Rtl.dproj" Targets="Make" />
+  </Target>
+  <Target Name="BSFD2007">
+    <MSBuild Projects="businessskinform.v5.25.fs\BSFD2007.dproj" Targets="" />
+  </Target>
+  <Target Name="BSFD2007:Clean">
+    <MSBuild Projects="businessskinform.v5.25.fs\BSFD2007.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="BSFD2007:Make">
+    <MSBuild Projects="businessskinform.v5.25.fs\BSFD2007.dproj" Targets="Make" />
+  </Target>
+  <Target Name="DelphiX_for2007">
+    <MSBuild Projects="DirectX\DelphiX_for2007.dproj" Targets="" />
+  </Target>
+  <Target Name="DelphiX_for2007:Clean">
+    <MSBuild Projects="DirectX\DelphiX_for2007.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="DelphiX_for2007:Make">
+    <MSBuild Projects="DirectX\DelphiX_for2007.dproj" Targets="Make" />
+  </Target>
+  <Target Name="DclEhLib110">
+    <MSBuild Projects="ehl.5013\Delphi2007\DclEhLib110.dproj" Targets="" />
+  </Target>
+  <Target Name="DclEhLib110:Clean">
+    <MSBuild Projects="ehl.5013\Delphi2007\DclEhLib110.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="DclEhLib110:Make">
+    <MSBuild Projects="ehl.5013\Delphi2007\DclEhLib110.dproj" Targets="Make" />
+  </Target>
+  <Target Name="EhLib110">
+    <MSBuild Projects="ehl.5013\Delphi2007\EhLib110.dproj" Targets="" />
+  </Target>
+  <Target Name="EhLib110:Clean">
+    <MSBuild Projects="ehl.5013\Delphi2007\EhLib110.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="EhLib110:Make">
+    <MSBuild Projects="ehl.5013\Delphi2007\EhLib110.dproj" Targets="Make" />
+  </Target>
+  <Target Name="imgbtn">
+    <MSBuild Projects="ImageButton\imgbtn.dproj" Targets="" />
+  </Target>
+  <Target Name="imgbtn:Clean">
+    <MSBuild Projects="ImageButton\imgbtn.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="imgbtn:Make">
+    <MSBuild Projects="ImageButton\imgbtn.dproj" Targets="Make" />
+  </Target>
+  <Target Name="drgf">
+    <MSBuild Projects="ImageProgressbar\drgf.dproj" Targets="" />
+  </Target>
+  <Target Name="drgf:Clean">
+    <MSBuild Projects="ImageProgressbar\drgf.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="drgf:Make">
+    <MSBuild Projects="ImageProgressbar\drgf.dproj" Targets="Make" />
+  </Target>
+  <Target Name="Jacky">
+    <MSBuild Projects="JSocket\Jacky.dproj" Targets="" />
+  </Target>
+  <Target Name="Jacky:Clean">
+    <MSBuild Projects="JSocket\Jacky.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="Jacky:Make">
+    <MSBuild Projects="JSocket\Jacky.dproj" Targets="Make" />
+  </Target>
+  <Target Name="PacRAS">
+    <MSBuild Projects="RSA\PacRAS.dproj" Targets="" />
+  </Target>
+  <Target Name="PacRAS:Clean">
+    <MSBuild Projects="RSA\PacRAS.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="PacRAS:Make">
+    <MSBuild Projects="RSA\PacRAS.dproj" Targets="Make" />
+  </Target>
+  <Target Name="drgf1">
+    <MSBuild Projects="Wil控件\drgf1.dproj" Targets="" />
+  </Target>
+  <Target Name="drgf1:Clean">
+    <MSBuild Projects="Wil控件\drgf1.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="drgf1:Make">
+    <MSBuild Projects="Wil控件\drgf1.dproj" Targets="Make" />
+  </Target>
+  <Target Name="WinHTTPBDS2006">
+    <MSBuild Projects="WinHttp\Sources\WinHTTPBDS2006.dproj" Targets="" />
+  </Target>
+  <Target Name="WinHTTPBDS2006:Clean">
+    <MSBuild Projects="WinHttp\Sources\WinHTTPBDS2006.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="WinHTTPBDS2006:Make">
+    <MSBuild Projects="WinHttp\Sources\WinHTTPBDS2006.dproj" Targets="Make" />
+  </Target>
+  <Target Name="DCP_D6">
+    <MSBuild Projects="加密控件\DCP_D6.dproj" Targets="" />
+  </Target>
+  <Target Name="DCP_D6:Clean">
+    <MSBuild Projects="加密控件\DCP_D6.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="DCP_D6:Make">
+    <MSBuild Projects="加密控件\DCP_D6.dproj" Targets="Make" />
+  </Target>
+  <Target Name="MirGame">
+    <MSBuild Projects="..\Mir200\Client\MirGame.bdsproj" Targets="" />
+  </Target>
+  <Target Name="MirGame:Clean">
+    <MSBuild Projects="..\Mir200\Client\MirGame.bdsproj" Targets="Clean" />
+  </Target>
+  <Target Name="MirGame:Make">
+    <MSBuild Projects="..\Mir200\Client\MirGame.bdsproj" Targets="Make" />
+  </Target>
+  <Target Name="Build">
+    <CallTarget Targets="MSI_D2007_Dsgn;MSI_D2007_Rtl;BSFD2007;DelphiX_for2007;DclEhLib110;EhLib110;imgbtn;drgf;Jacky;PacRAS;drgf1;WinHTTPBDS2006;DCP_D6;MirGame" />
+  </Target>
+  <Target Name="Clean">
+    <CallTarget Targets="MSI_D2007_Dsgn:Clean;MSI_D2007_Rtl:Clean;BSFD2007:Clean;DelphiX_for2007:Clean;DclEhLib110:Clean;EhLib110:Clean;imgbtn:Clean;drgf:Clean;Jacky:Clean;PacRAS:Clean;drgf1:Clean;WinHTTPBDS2006:Clean;DCP_D6:Clean;MirGame:Clean" />
+  </Target>
+  <Target Name="Make">
+    <CallTarget Targets="MSI_D2007_Dsgn:Make;MSI_D2007_Rtl:Make;BSFD2007:Make;DelphiX_for2007:Make;DclEhLib110:Make;EhLib110:Make;imgbtn:Make;drgf:Make;Jacky:Make;PacRAS:Make;drgf1:Make;WinHTTPBDS2006:Make;DCP_D6:Make;MirGame:Make" />
+  </Target>
+  <Import Condition="Exists('$(MSBuildBinPath)\Borland.Group.Targets')" Project="$(MSBuildBinPath)\Borland.Group.Targets" />
+</Project>

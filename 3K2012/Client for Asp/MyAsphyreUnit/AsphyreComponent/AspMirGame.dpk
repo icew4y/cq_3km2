@@ -1,0 +1,54 @@
+package AspMirGame;
+
+{$R *.res}
+{$R 'AspDWinCtl.dcr'}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$IMPLICITBUILD ON}
+{$DEFINE ProjectIsBpl}
+
+requires
+  vcl,
+  rtl,
+  VclSmp,
+  vclx,
+  designide,
+  xmlrtl,
+  vclactnband,
+  vclie,
+  vcljpg;
+
+contains
+  AspDWinCtl in 'AspDWinCtl.pas',
+  uAspDScrollBox in 'uAspDScrollBox.pas',
+  uAspDScrollBar in 'uAspDScrollBar.pas',
+  uAspDTreeView in 'uAspDTreeView.pas',
+  uAspDListView in 'uAspDListView.pas',
+  uAspDLabel in 'uAspDLabel.pas',
+  uAspDCheckBox in 'uAspDCheckBox.pas',
+  uAspDPopupMenu in 'uAspDPopupMenu.pas',
+  uAspDComboBox in 'uAspDComboBox.pas',
+  uAspDChatMemo in 'uAspDChatMemo.pas',
+  CommonDef in 'Common\CommonDef.pas',
+  DX8Textures in 'DX8Textures.pas';
+
+end.

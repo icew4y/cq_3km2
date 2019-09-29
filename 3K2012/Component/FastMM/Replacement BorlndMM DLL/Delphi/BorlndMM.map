@@ -1,0 +1,1240 @@
+
+ Start         Length     Name                   Class
+ 0001:00D21000 000074A0H .text                   CODE
+ 0002:00D29000 000000F0H .itext                  ICODE
+ 0003:00D2A000 00000EE8H .data                   DATA
+ 0004:00D2B000 00006134H .bss                    BSS
+ 0005:00000000 00000000H .tls                    TLS
+
+
+Detailed map of segments
+
+ 0001:00000000 00003065 C=CODE     S=.text    G=(none)   M=System   ACBP=A9
+ 0001:00003068 000001A2 C=CODE     S=.text    G=(none)   M=SysInit  ACBP=A9
+ 0001:0000320C 000000B4 C=CODE     S=.text    G=(none)   M=Windows  ACBP=A9
+ 0001:000032C0 00000006 C=CODE     S=.text    G=(none)   M=SHFolder ACBP=A9
+ 0001:000032C8 0000414B C=CODE     S=.text    G=(none)   M=FastMM4  ACBP=A9
+ 0001:00007414 0000008C C=CODE     S=.text    G=(none)   M=BorlndMM ACBP=A9
+ 0002:00000000 00000095 C=ICODE    S=.itext   G=(none)   M=System   ACBP=A9
+ 0002:00000098 00000011 C=ICODE    S=.itext   G=(none)   M=Windows  ACBP=A9
+ 0002:000000AC 00000021 C=ICODE    S=.itext   G=(none)   M=FastMM4  ACBP=A9
+ 0002:000000D0 0000001D C=ICODE    S=.itext   G=(none)   M=BorlndMM ACBP=A9
+ 0003:00000000 00000778 C=DATA     S=.data    G=DGROUP   M=System   ACBP=A9
+ 0003:00000778 0000002C C=DATA     S=.data    G=DGROUP   M=SysInit  ACBP=A9
+ 0003:000007A4 00000740 C=DATA     S=.data    G=DGROUP   M=FastMM4  ACBP=A9
+ 0004:00000000 000027DC C=BSS      S=.bss     G=DGROUP   M=System   ACBP=A9
+ 0004:000027DC 00000010 C=BSS      S=.bss     G=DGROUP   M=SysInit  ACBP=A9
+ 0004:000027EC 00000008 C=BSS      S=.bss     G=DGROUP   M=Windows  ACBP=A9
+ 0004:000027F4 0000393F C=BSS      S=.bss     G=DGROUP   M=FastMM4  ACBP=A9
+ 0005:00000000 00000008 C=TLS      S=.tls     G=(none)   M=System   ACBP=A9
+
+
+  Address             Publics by Name
+
+ 0002:000000D0       BorlndMM.BorlndMM
+ 0001:0000741C       BorlndMM.DumpBlocks
+ 0001:00007430       BorlndMM.Finalization
+ 0001:00007414       BorlndMM.GetAllocMemCount
+ 0001:00007418       BorlndMM.GetAllocMemSize
+ 0001:00007428       BorlndMM.HeapAddRef
+ 0001:00007420       BorlndMM.HeapRelease
+ 0004:000027F8       FastMM4..1
+ 0001:00003398       FastMM4..TFreedObject
+ 0001:00003CF0       FastMM4.AllocateLargeBlock
+ 0004:00004A00       FastMM4.AllocationGroupStack
+ 0004:000059A0       FastMM4.AllocationGroupStackTop
+ 0001:00003C38       FastMM4.AllocNewSequentialFeedMediumPool
+ 0004:000027FC       FastMM4.AllocSize2SmallBlockTypeIndX4
+ 0001:00003824       FastMM4.AppendClassNameToBuffer
+ 0001:0000431C       FastMM4.AppendEventLog
+ 0001:00003430       FastMM4.AppendModuleFileName
+ 0001:00003808       FastMM4.AppendStringToBuffer
+ 0001:00003444       FastMM4.AppendStringToModuleName
+ 0001:00003BB0       FastMM4.BinMediumSequentialFeedRemainder
+ 0001:000042AC       FastMM4.BlockFullDebugModeMMRoutines
+ 0001:000046D4       FastMM4.CalculateHeaderCheckSum
+ 0001:00003750       FastMM4.CardinalToHexBuf
+ 0001:00003634       FastMM4.CardinalToStrBuf
+ 0001:000054F0       FastMM4.CheckBlockBeforeFreeOrRealloc
+ 0001:00006784       FastMM4.CheckBlocksOnShutdown
+ 0001:00006E14       FastMM4.CheckCanInstallMemoryManager
+ 0001:000046C0       FastMM4.CheckFillPattern
+ 0001:00005324       FastMM4.CheckFreeBlockUnmodified
+ 0001:0000662C       FastMM4.CheckSmallBlockPoolForLeaks
+ 0003:000007BC       FastMM4.Copyright
+ 0004:000059A4       FastMM4.CurrentAllocationNumber
+ 0001:00005770       FastMM4.DebugAllocMem
+ 0001:00005548       FastMM4.DebugFreeMem
+ 0001:000053EC       FastMM4.DebugGetMem
+ 0001:00005624       FastMM4.DebugReallocMem
+ 0001:00003984       FastMM4.DetectClassInstance
+ 0001:0000650C       FastMM4.DetectStringData
+ 0001:0000429C       FastMM4.DoneChangingFullDebugModeBlock
+ 0004:000049F8       FastMM4.ExpectedMemoryLeaks
+ 0004:000049FC       FastMM4.ExpectedMemoryLeaksListLocked
+ 0001:000042FC       FastMM4.ExtractFileName
+ 0001:000041A8       FastMM4.FastFreeMem
+ 0001:00006C90       FastMM4.FastGetHeapStatus
+ 0001:00003E20       FastMM4.FastGetMem
+ 0002:000000AC       FastMM4.FastMM4
+ 0004:00006130       FastMM4.FastMMIsInstalled
+ 0001:00003614       FastMM4.FillDWord
+ 0001:000073D4       FastMM4.Finalization
+ 0001:00007394       FastMM4.FinalizeMemoryManager
+ 0001:0000342C       FastMM4.FindFirstSetBit
+ 0001:000048A8       FastMM4.FreeBlockByteWasModified
+ 0004:00005DB4       FastMM4.FreedObjectVMT
+ 0001:00003D70       FastMM4.FreeLargeBlock
+ 0001:00004150       FastMM4.FreeMediumBlock
+ 0003:000007A8       FastMM4.FullDebugModeRegisterAllAllocsAsExpectedMemoryLeak
+ 0003:000007A4       FastMM4.FullDebugModeScanMemoryPoolBeforeEveryOperation
+ 0001:000039B4       FastMM4.GetAvailableSpaceInBlock
+ 0001:00004650       FastMM4.GetCurrentAllocationGroup
+ 0001:00003A28       FastMM4.GetFirstAndLastSmallBlockInPool
+ 0001:00003A88       FastMM4.GetFirstMediumBlockInPool
+ 0001:00006590       FastMM4.GetMemoryLeakType
+ 0001:00003624       FastMM4.GetStackTrace
+ 0001:0000360C       FastMM4.GetThreadID
+ 0003:000007AC       FastMM4.HexTable
+ 0001:000042A4       FastMM4.IncrementAllocationNumber
+ 0001:00007124       FastMM4.InitializeMemoryManager
+ 0001:00003B54       FastMM4.InsertMediumBlockIntoBin
+ 0001:0000730C       FastMM4.InstallMemoryManager
+ 0001:00003904       FastMM4.InternalIsValidClass
+ 0001:0000583C       FastMM4.InternalScanMemoryPool
+ 0001:000057B0       FastMM4.InternalScanSmallBlockPool
+ 0004:00006131       FastMM4.IsMemoryManagerOwner
+ 0001:00003888       FastMM4.IsValidVMTAddress
+ 0004:000049E8       FastMM4.LargeBlocksCircularList
+ 0004:000049E4       FastMM4.LargeBlocksLocked
+ 0004:00002958       FastMM4.LastSequentiallyFedMediumBlock
+ 0001:000039E0       FastMM4.LockAllSmallBlockTypes
+ 0001:00003424       FastMM4.LockCmpxchg
+ 0001:00004248       FastMM4.LockCmpxchg32
+ 0001:00006404       FastMM4.LockExpectedMemoryLeaksList
+ 0001:00003CB4       FastMM4.LockLargeBlocks
+ 0001:00003AC8       FastMM4.LockMediumBlocks
+ 0001:00005964       FastMM4.LogAllocatedBlocksToFile
+ 0001:000048EC       FastMM4.LogBlockChanges
+ 0001:000049B0       FastMM4.LogBlockError
+ 0001:00004718       FastMM4.LogCurrentThreadAndStackTrace
+ 0003:00000EE0       FastMM4.LogFileExtAnsi
+ 0001:000047BC       FastMM4.LogMemoryDump
+ 0001:00005024       FastMM4.LogMemoryLeakOrAllocatedBlock
+ 0001:0000362C       FastMM4.LogStackTrace
+ 0004:00002964       FastMM4.MediumBlockBinBitmaps
+ 0004:00002960       FastMM4.MediumBlockBinGroupBitmap
+ 0004:000029E4       FastMM4.MediumBlockBins
+ 0004:00002944       FastMM4.MediumBlockPoolsCircularList
+ 0004:00002954       FastMM4.MediumBlocksLocked
+ 0004:0000295C       FastMM4.MediumSequentialFeedBytesLeft
+ 0004:000059AC       FastMM4.MMLogFileName
+ 0001:000034A4       FastMM4.Move12
+ 0001:000034B8       FastMM4.Move20
+ 0001:000034D8       FastMM4.Move28
+ 0001:00003504       FastMM4.Move36
+ 0001:0000349C       FastMM4.Move4
+ 0001:00003524       FastMM4.Move44
+ 0001:00003548       FastMM4.Move52
+ 0001:00003574       FastMM4.Move60
+ 0001:000035A4       FastMM4.Move68
+ 0001:000035DC       FastMM4.MoveX16L4
+ 0004:00006118       FastMM4.NewMemoryManager
+ 0001:00003A64       FastMM4.NextMediumBlock
+ 0004:00006100       FastMM4.OldMemoryManager
+ 0001:00004690       FastMM4.PopAllocationGroup
+ 0001:00004660       FastMM4.PushAllocationGroup
+ 0001:00005798       FastMM4.RaiseMemoryCorruptionError
+ 0001:0000646C       FastMM4.RegisterExpectedMemoryLeak
+ 0001:00003B04       FastMM4.RemoveMediumFreeBlock
+ 0004:00005DAC       FastMM4.ReservedBlock
+ 0001:000048A0       FastMM4.RotateRight
+ 0001:0000597C       FastMM4.ScanMemoryPoolForCorruptions
+ 0001:0000455C       FastMM4.SetDefaultMMLogFileName
+ 0001:00004618       FastMM4.SetMMLogFileName
+ 0004:00006132       FastMM4.ShowingMessageBox
+ 0001:00003854       FastMM4.ShowMessageBox
+ 0003:000007E0       FastMM4.SmallBlockTypes
+ 0003:000007C0       FastMM4.StandardVirtualMethodNames
+ 0001:00004250       FastMM4.StartChangingFullDebugModeBlock
+ 0001:000033F4       FastMM4.StrLen
+ 0001:000046B0       FastMM4.SumCardinals
+ 0004:000027F4       FastMM4.SuppressMessageBoxes
+ 0001:0000598C       FastMM4.TFreedObject.GetVirtualMethodIndex
+ 0001:00005E44       FastMM4.TFreedObject.VirtualMethodError
+ 0004:000059A8       FastMM4.ThreadsInFullDebugModeRoutine
+ 0001:000042E8       FastMM4.UnblockFullDebugModeMMRoutines
+ 0001:000064BC       FastMM4.UnregisterExpectedMemoryLeak
+ 0001:000062AC       FastMM4.UpdateExpectedLeakList
+ 0001:000046F4       FastMM4.UpdateHeaderAndFooterCheckSums
+ 0004:00005DB0       FastMM4.VMIndex
+ 0001:000032C0       SHFolder.SHGetFolderPathA
+ 0001:00003178       SysInit.@GetTls
+ 0001:000031C4       SysInit.@InitLib
+ 0001:00003098       SysInit.AllocTlsBuffer
+ 0004:000027E4       SysInit.DllProc
+ 0001:00003154       SysInit.ExitProcessTLS
+ 0001:0000311C       SysInit.ExitThreadTLS
+ 0001:000030A4       SysInit.GetTlsSize
+ 0004:000027E0       SysInit.HInstance
+ 0001:000031B8       SysInit.InitializeModule
+ 0001:000030F0       SysInit.InitProcessTLS
+ 0001:000030AC       SysInit.InitThreadTLS
+ 0001:00003068       SysInit.LocalAlloc
+ 0001:00003070       SysInit.LocalFree
+ 0003:0000077C       SysInit.Module
+ 0004:000027DC       SysInit.ModuleIsLib
+ 0001:00003078       SysInit.TlsAlloc
+ 0004:000027E8       SysInit.tlsBuffer
+ 0001:00003080       SysInit.TlsFree
+ 0001:00003088       SysInit.TlsGetValue
+ 0003:00000778       SysInit.TlsIndex
+ 0005:00000008       SysInit.TlsLast
+ 0003:00000794       SysInit.TlsProc
+ 0001:00003090       SysInit.TlsSetValue
+ 0004:000005A0       System..6
+ 0001:00000000       System..TObject
+ 0001:0000236C       System.@BeforeDestruction
+ 0001:00002364       System.@ClassDestroy
+ 0001:0000201C       System.@Close
+ 0001:00002E80       System.@DispCallByIDError
+ 0001:000026CC       System.@DoneExcept
+ 0001:00002E88       System.@DynArrayClear
+ 0001:0000279C       System.@ExceptionHandler
+ 0001:00002074       System.@FillChar
+ 0001:00002D94       System.@FinalizeArray
+ 0001:00002D48       System.@FinalizeRecord
+ 0001:0000220C       System.@FpuInit
+ 0001:00002148       System.@FpuMaskInit
+ 0001:00001E20       System.@FreeMem
+ 0001:00001E04       System.@GetMem
+ 0001:00002C14       System.@Halt
+ 0001:00002B38       System.@Halt0
+ 0001:0000246C       System.@HandleAnyException
+ 0001:00002598       System.@HandleFinally
+ 0001:00002640       System.@HandleFinallyInternal
+ 0001:00002FA0       System.@IntfClear
+ 0001:00002118       System.@isNECWindows
+ 0001:00002C50       System.@LStrArrayClr
+ 0001:00002C2C       System.@LStrClr
+ 0001:00002CDC       System.@LStrFromPChar
+ 0001:00002CAC       System.@LStrFromPCharLen
+ 0001:00002C80       System.@NewAnsiString
+ 0001:00002678       System.@RaiseAgain
+ 0001:00002C20       System.@RunError
+ 0001:00002950       System.@StartLib
+ 0001:00002D7C       System.@VarClr
+ 0001:00002D24       System.@WStrArrayClr
+ 0001:00002D0C       System.@WStrClr
+ 0001:00000570       System.AllocateLargeBlock
+ 0001:000004B0       System.AllocNewSequentialFeedMediumPool
+ 0004:000005A8       System.AllocSize2SmallBlockTypeIndX4
+ 0001:00001244       System.AppendStringToBuffer
+ 0001:00000444       System.BinMediumSequentialFeedRemainder
+ 0001:00001BB4       System.BuildBlockTypeLookupTable
+ 0001:00001128       System.CardinalToStrBuf
+ 0001:000023E8       System.CheckJmp
+ 0001:0000148C       System.CheckSmallBlockPoolForLeaks
+ 0004:0000002C       System.CmdLine
+ 0004:00000028       System.CmdShow
+ 0003:00000028       System.Copyright
+ 0003:00000014       System.DebugHook
+ 0003:00000010       System.Default8087CW
+ 0004:000005A4       System.DefaultSystemCodePage
+ 0001:00000110       System.DestroyWindow
+ 0003:00000768       System.dig
+ 0004:00000000       System.DispCallByIDProc
+ 0003:00000740       System.errCaption
+ 0001:00001F00       System.Error
+ 0003:00000004       System.ErrorAddr
+ 0001:00001EB4       System.ErrorAt
+ 0004:00000008       System.ErrorProc
+ 0004:000003D0       System.ErrOutput
+ 0004:0000000C       System.ExceptObjProc
+ 0004:00000004       System.ExceptProc
+ 0003:00000000       System.ExitCode
+ 0001:00002A7C       System.ExitDll
+ 0004:00000030       System.ExitProc
+ 0001:0000007C       System.ExitProcess
+ 0004:00000018       System.ExitProcessProc
+ 0004:000027A4       System.ExpectedMemoryLeaks
+ 0004:000027A8       System.ExpectedMemoryLeaksListLocked
+ 0003:00000008       System.FileMode
+ 0001:00003008       System.Finalization
+ 0001:00001DB0       System.FinalizeMemoryManager
+ 0001:00002884       System.FinalizeUnits
+ 0001:00001D20       System.FreeAllMemory
+ 0001:000005D4       System.FreeLargeBlock
+ 0001:0000008C       System.FreeLibrary
+ 0001:00002FC8       System.FreeMemory
+ 0001:00003000       System.GetACP
+ 0001:000000D4       System.GetCmdShow
+ 0001:00000094       System.GetCommandLine
+ 0001:000000CC       System.GetCurrentThreadId
+ 0001:000022F8       System.GetDynaMethod
+ 0001:000010EC       System.GetFirstAndLastSmallBlockInPool
+ 0001:000010AC       System.GetFirstMediumBlockInPool
+ 0001:00001A50       System.GetHeapStatus
+ 0001:00002110       System.GetKeyboardType
+ 0001:00002FB8       System.GetMemory
+ 0001:00001E38       System.GetMemoryManager
+ 0001:00001358       System.GetObjectClass
+ 0001:0000009C       System.GetStartupInfo
+ 0001:00000054       System.GetStdHandle
+ 0004:000027B0       System.InitContext
+ 0001:00001BF8       System.InitializeMemoryManager
+ 0001:000028E8       System.InitUnits
+ 0005:00000004       System.InOutRes
+ 0004:00000038       System.Input
+ 0001:000003E4       System.InsertMediumBlockIntoBin
+ 0001:000012D8       System.InternalIsValidClass
+ 0004:00000034       System.IsConsole
+ 0004:00000024       System.IsLibrary
+ 0001:00001E60       System.IsMemoryManagerSet
+ 0004:00000035       System.IsMultiThread
+ 0001:0000125C       System.IsValidVMTAddress
+ 0003:00000018       System.JITEnable
+ 0004:00002794       System.LargeBlocksCircularList
+ 0004:00002790       System.LargeBlocksLocked
+ 0004:00000704       System.LastSequentiallyFedMediumBlock
+ 0003:00000020       System.LibModuleList
+ 0001:00000304       System.LockAllSmallBlockTypes
+ 0001:00000178       System.LockCmpxchg
+ 0001:00001380       System.LockExpectedMemoryLeaksList
+ 0001:00000528       System.LockLargeBlocks
+ 0001:0000035C       System.LockMediumBlocks
+ 0004:0000001C       System.MainInstance
+ 0004:00000020       System.MainThreadID
+ 0001:00002A18       System.MakeErrorMessage
+ 0001:000026FC       System.MapToRunError
+ 0004:00000710       System.MediumBlockBinBitmaps
+ 0004:0000070C       System.MediumBlockBinGroupBitmap
+ 0004:00000790       System.MediumBlockBins
+ 0004:000006F0       System.MediumBlockPoolsCircularList
+ 0004:00000700       System.MediumBlocksLocked
+ 0004:00000708       System.MediumSequentialFeedBytesLeft
+ 0003:0000070C       System.MemoryManager
+ 0001:00000084       System.MessageBox
+ 0004:000006EE       System.MinimumBlockAlignment
+ 0004:000027AC       System.MMSharingWindow
+ 0003:00000024       System.ModuleUnloadList
+ 0001:00001F1C       System.Move
+ 0001:00000180       System.Move12
+ 0001:00000194       System.Move20
+ 0001:000001B4       System.Move28
+ 0001:000001E0       System.Move36
+ 0001:00000200       System.Move44
+ 0001:00000224       System.Move52
+ 0001:00000250       System.Move60
+ 0001:00000280       System.Move68
+ 0001:000002B8       System.MoveX16L4
+ 0001:000002E8       System.MoveX8L4
+ 0004:0000059D       System.NeverSleepOnMMThreadContention
+ 0001:00001088       System.NextMediumBlock
+ 0003:0000001C       System.NoErrMsg
+ 0001:000023D4       System.NotifyAnyExcept
+ 0001:000023BC       System.NotifyExcept
+ 0001:00002408       System.NotifyExceptFinally
+ 0001:00002EC4       System.NotifyModuleUnload
+ 0001:00002398       System.NotifyNonDelphiException
+ 0001:0000237C       System.NotifyReRaise
+ 0001:00002430       System.NotifyTerminate
+ 0001:0000244C       System.NotifyUnhandled
+ 0004:00000204       System.Output
+ 0001:0000005C       System.RaiseException
+ 0004:00000010       System.RaiseExceptionProc
+ 0005:00000000       System.RaiseListPtr
+ 0001:00000678       System.ReallocateLargeBlock
+ 0001:00002FE0       System.ReallocMemory
+ 0001:000000A4       System.RegCloseKey
+ 0001:00002F20       System.RegisterModule
+ 0001:000000AC       System.RegOpenKeyEx
+ 0001:000000B4       System.RegQueryValueEx
+ 0003:00000724       System.reMap
+ 0001:000003A4       System.RemoveMediumFreeBlock
+ 0004:0000059C       System.ReportMemoryLeaksOnShutdown
+ 0001:00000064       System.RtlUnwind
+ 0004:00000014       System.RTLUnwindProc
+ 0003:00000748       System.runErrMsg
+ 0001:00001EA8       System.RunErrorAt
+ 0001:000015D8       System.ScanForMemoryLeaks
+ 0001:0000283C       System.SetExceptionHandler
+ 0001:00001F0C       System.SetInOutRes
+ 0001:00001E4C       System.SetMemoryManager
+ 0001:00000108       System.Sleep
+ 0003:0000002C       System.SmallBlockTypes
+ 0001:00001058       System.SysAllocMem
+ 0001:00000B48       System.SysFreeMem
+ 0001:000000C4       System.SysFreeString
+ 0001:000007C4       System.SysGetMem
+ 0001:00000D40       System.SysReallocMem
+ 0001:000013F4       System.SysRegisterExpectedMemoryLeak
+ 0002:00000000       System.System
+ 0001:00001434       System.SysUnregisterExpectedMemoryLeak
+ 0004:00000036       System.Test8086
+ 0001:00002334       System.TObject.AfterConstruction
+ 0001:00002338       System.TObject.BeforeDestruction
+ 0001:00002218       System.TObject.ClassName
+ 0001:000022D8       System.TObject.CleanupInstance
+ 0001:00002330       System.TObject.DefaultHandler
+ 0001:00002264       System.TObject.Destroy
+ 0001:0000233C       System.TObject.Dispatch
+ 0001:00002274       System.TObject.Free
+ 0001:00002248       System.TObject.FreeInstance
+ 0001:00002280       System.TObject.InitInstance
+ 0001:0000225C       System.TObject.InstanceSize
+ 0001:0000222C       System.TObject.NewInstance
+ 0001:00002328       System.TObject.SafeCallException
+ 0001:0000006C       System.UnhandledExceptionFilter
+ 0001:00002F30       System.UnregisterModule
+ 0001:0000285C       System.UnsetExceptionHandler
+ 0003:0000000C       System.VarClearProc
+ 0001:000000F8       System.VirtualAlloc
+ 0001:00000100       System.VirtualFree
+ 0001:000000BC       System.VirtualQuery
+ 0001:00002AAC       System.WriteErrorMessage
+ 0001:00000074       System.WriteFile
+ 0004:000027EC       Windows..3
+ 0001:0000320C       Windows.CloseHandle
+ 0001:00003214       Windows.CreateFileA
+ 0001:0000327C       Windows.Finalization
+ 0001:0000321C       Windows.FreeLibrary
+ 0001:00003224       Windows.GetEnvironmentVariableA
+ 0001:0000322C       Windows.GetLocalTime
+ 0001:00003234       Windows.GetModuleFileNameA
+ 0004:000027F0       Windows.HtmlHelpModule
+ 0001:00003274       Windows.MessageBoxA
+ 0001:0000323C       Windows.RaiseException
+ 0001:00003244       Windows.SetFilePointer
+ 0001:0000324C       Windows.Sleep
+ 0001:00003254       Windows.VirtualAlloc
+ 0001:0000325C       Windows.VirtualFree
+ 0001:00003264       Windows.VirtualQuery
+ 0002:00000098       Windows.Windows
+ 0001:0000326C       Windows.WriteFile
+
+
+  Address             Publics by Value
+
+ 0001:00000000       System..TObject
+ 0001:00000054       System.GetStdHandle
+ 0001:0000005C       System.RaiseException
+ 0001:00000064       System.RtlUnwind
+ 0001:0000006C       System.UnhandledExceptionFilter
+ 0001:00000074       System.WriteFile
+ 0001:0000007C       System.ExitProcess
+ 0001:00000084       System.MessageBox
+ 0001:0000008C       System.FreeLibrary
+ 0001:00000094       System.GetCommandLine
+ 0001:0000009C       System.GetStartupInfo
+ 0001:000000A4       System.RegCloseKey
+ 0001:000000AC       System.RegOpenKeyEx
+ 0001:000000B4       System.RegQueryValueEx
+ 0001:000000BC       System.VirtualQuery
+ 0001:000000C4       System.SysFreeString
+ 0001:000000CC       System.GetCurrentThreadId
+ 0001:000000D4       System.GetCmdShow
+ 0001:000000F8       System.VirtualAlloc
+ 0001:00000100       System.VirtualFree
+ 0001:00000108       System.Sleep
+ 0001:00000110       System.DestroyWindow
+ 0001:00000178       System.LockCmpxchg
+ 0001:00000180       System.Move12
+ 0001:00000194       System.Move20
+ 0001:000001B4       System.Move28
+ 0001:000001E0       System.Move36
+ 0001:00000200       System.Move44
+ 0001:00000224       System.Move52
+ 0001:00000250       System.Move60
+ 0001:00000280       System.Move68
+ 0001:000002B8       System.MoveX16L4
+ 0001:000002E8       System.MoveX8L4
+ 0001:00000304       System.LockAllSmallBlockTypes
+ 0001:0000035C       System.LockMediumBlocks
+ 0001:000003A4       System.RemoveMediumFreeBlock
+ 0001:000003E4       System.InsertMediumBlockIntoBin
+ 0001:00000444       System.BinMediumSequentialFeedRemainder
+ 0001:000004B0       System.AllocNewSequentialFeedMediumPool
+ 0001:00000528       System.LockLargeBlocks
+ 0001:00000570       System.AllocateLargeBlock
+ 0001:000005D4       System.FreeLargeBlock
+ 0001:00000678       System.ReallocateLargeBlock
+ 0001:000007C4       System.SysGetMem
+ 0001:00000B48       System.SysFreeMem
+ 0001:00000D40       System.SysReallocMem
+ 0001:00001058       System.SysAllocMem
+ 0001:00001088       System.NextMediumBlock
+ 0001:000010AC       System.GetFirstMediumBlockInPool
+ 0001:000010EC       System.GetFirstAndLastSmallBlockInPool
+ 0001:00001128       System.CardinalToStrBuf
+ 0001:00001244       System.AppendStringToBuffer
+ 0001:0000125C       System.IsValidVMTAddress
+ 0001:000012D8       System.InternalIsValidClass
+ 0001:00001358       System.GetObjectClass
+ 0001:00001380       System.LockExpectedMemoryLeaksList
+ 0001:000013F4       System.SysRegisterExpectedMemoryLeak
+ 0001:00001434       System.SysUnregisterExpectedMemoryLeak
+ 0001:0000148C       System.CheckSmallBlockPoolForLeaks
+ 0001:000015D8       System.ScanForMemoryLeaks
+ 0001:00001A50       System.GetHeapStatus
+ 0001:00001BB4       System.BuildBlockTypeLookupTable
+ 0001:00001BF8       System.InitializeMemoryManager
+ 0001:00001D20       System.FreeAllMemory
+ 0001:00001DB0       System.FinalizeMemoryManager
+ 0001:00001E04       System.@GetMem
+ 0001:00001E20       System.@FreeMem
+ 0001:00001E38       System.GetMemoryManager
+ 0001:00001E4C       System.SetMemoryManager
+ 0001:00001E60       System.IsMemoryManagerSet
+ 0001:00001EA8       System.RunErrorAt
+ 0001:00001EB4       System.ErrorAt
+ 0001:00001F00       System.Error
+ 0001:00001F0C       System.SetInOutRes
+ 0001:00001F1C       System.Move
+ 0001:0000201C       System.@Close
+ 0001:00002074       System.@FillChar
+ 0001:00002110       System.GetKeyboardType
+ 0001:00002118       System.@isNECWindows
+ 0001:00002148       System.@FpuMaskInit
+ 0001:0000220C       System.@FpuInit
+ 0001:00002218       System.TObject.ClassName
+ 0001:0000222C       System.TObject.NewInstance
+ 0001:00002248       System.TObject.FreeInstance
+ 0001:0000225C       System.TObject.InstanceSize
+ 0001:00002264       System.TObject.Destroy
+ 0001:00002274       System.TObject.Free
+ 0001:00002280       System.TObject.InitInstance
+ 0001:000022D8       System.TObject.CleanupInstance
+ 0001:000022F8       System.GetDynaMethod
+ 0001:00002328       System.TObject.SafeCallException
+ 0001:00002330       System.TObject.DefaultHandler
+ 0001:00002334       System.TObject.AfterConstruction
+ 0001:00002338       System.TObject.BeforeDestruction
+ 0001:0000233C       System.TObject.Dispatch
+ 0001:00002364       System.@ClassDestroy
+ 0001:0000236C       System.@BeforeDestruction
+ 0001:0000237C       System.NotifyReRaise
+ 0001:00002398       System.NotifyNonDelphiException
+ 0001:000023BC       System.NotifyExcept
+ 0001:000023D4       System.NotifyAnyExcept
+ 0001:000023E8       System.CheckJmp
+ 0001:00002408       System.NotifyExceptFinally
+ 0001:00002430       System.NotifyTerminate
+ 0001:0000244C       System.NotifyUnhandled
+ 0001:0000246C       System.@HandleAnyException
+ 0001:00002598       System.@HandleFinally
+ 0001:00002640       System.@HandleFinallyInternal
+ 0001:00002678       System.@RaiseAgain
+ 0001:000026CC       System.@DoneExcept
+ 0001:000026FC       System.MapToRunError
+ 0001:0000279C       System.@ExceptionHandler
+ 0001:0000283C       System.SetExceptionHandler
+ 0001:0000285C       System.UnsetExceptionHandler
+ 0001:00002884       System.FinalizeUnits
+ 0001:000028E8       System.InitUnits
+ 0001:00002950       System.@StartLib
+ 0001:00002A18       System.MakeErrorMessage
+ 0001:00002A7C       System.ExitDll
+ 0001:00002AAC       System.WriteErrorMessage
+ 0001:00002B38       System.@Halt0
+ 0001:00002C14       System.@Halt
+ 0001:00002C20       System.@RunError
+ 0001:00002C2C       System.@LStrClr
+ 0001:00002C50       System.@LStrArrayClr
+ 0001:00002C80       System.@NewAnsiString
+ 0001:00002CAC       System.@LStrFromPCharLen
+ 0001:00002CDC       System.@LStrFromPChar
+ 0001:00002D0C       System.@WStrClr
+ 0001:00002D24       System.@WStrArrayClr
+ 0001:00002D48       System.@FinalizeRecord
+ 0001:00002D7C       System.@VarClr
+ 0001:00002D94       System.@FinalizeArray
+ 0001:00002E80       System.@DispCallByIDError
+ 0001:00002E88       System.@DynArrayClear
+ 0001:00002EC4       System.NotifyModuleUnload
+ 0001:00002F20       System.RegisterModule
+ 0001:00002F30       System.UnregisterModule
+ 0001:00002FA0       System.@IntfClear
+ 0001:00002FB8       System.GetMemory
+ 0001:00002FC8       System.FreeMemory
+ 0001:00002FE0       System.ReallocMemory
+ 0001:00003000       System.GetACP
+ 0001:00003008       System.Finalization
+ 0001:00003068       SysInit.LocalAlloc
+ 0001:00003070       SysInit.LocalFree
+ 0001:00003078       SysInit.TlsAlloc
+ 0001:00003080       SysInit.TlsFree
+ 0001:00003088       SysInit.TlsGetValue
+ 0001:00003090       SysInit.TlsSetValue
+ 0001:00003098       SysInit.AllocTlsBuffer
+ 0001:000030A4       SysInit.GetTlsSize
+ 0001:000030AC       SysInit.InitThreadTLS
+ 0001:000030F0       SysInit.InitProcessTLS
+ 0001:0000311C       SysInit.ExitThreadTLS
+ 0001:00003154       SysInit.ExitProcessTLS
+ 0001:00003178       SysInit.@GetTls
+ 0001:000031B8       SysInit.InitializeModule
+ 0001:000031C4       SysInit.@InitLib
+ 0001:0000320C       Windows.CloseHandle
+ 0001:00003214       Windows.CreateFileA
+ 0001:0000321C       Windows.FreeLibrary
+ 0001:00003224       Windows.GetEnvironmentVariableA
+ 0001:0000322C       Windows.GetLocalTime
+ 0001:00003234       Windows.GetModuleFileNameA
+ 0001:0000323C       Windows.RaiseException
+ 0001:00003244       Windows.SetFilePointer
+ 0001:0000324C       Windows.Sleep
+ 0001:00003254       Windows.VirtualAlloc
+ 0001:0000325C       Windows.VirtualFree
+ 0001:00003264       Windows.VirtualQuery
+ 0001:0000326C       Windows.WriteFile
+ 0001:00003274       Windows.MessageBoxA
+ 0001:0000327C       Windows.Finalization
+ 0001:000032C0       SHFolder.SHGetFolderPathA
+ 0001:00003398       FastMM4..TFreedObject
+ 0001:000033F4       FastMM4.StrLen
+ 0001:00003424       FastMM4.LockCmpxchg
+ 0001:0000342C       FastMM4.FindFirstSetBit
+ 0001:00003430       FastMM4.AppendModuleFileName
+ 0001:00003444       FastMM4.AppendStringToModuleName
+ 0001:0000349C       FastMM4.Move4
+ 0001:000034A4       FastMM4.Move12
+ 0001:000034B8       FastMM4.Move20
+ 0001:000034D8       FastMM4.Move28
+ 0001:00003504       FastMM4.Move36
+ 0001:00003524       FastMM4.Move44
+ 0001:00003548       FastMM4.Move52
+ 0001:00003574       FastMM4.Move60
+ 0001:000035A4       FastMM4.Move68
+ 0001:000035DC       FastMM4.MoveX16L4
+ 0001:0000360C       FastMM4.GetThreadID
+ 0001:00003614       FastMM4.FillDWord
+ 0001:00003624       FastMM4.GetStackTrace
+ 0001:0000362C       FastMM4.LogStackTrace
+ 0001:00003634       FastMM4.CardinalToStrBuf
+ 0001:00003750       FastMM4.CardinalToHexBuf
+ 0001:00003808       FastMM4.AppendStringToBuffer
+ 0001:00003824       FastMM4.AppendClassNameToBuffer
+ 0001:00003854       FastMM4.ShowMessageBox
+ 0001:00003888       FastMM4.IsValidVMTAddress
+ 0001:00003904       FastMM4.InternalIsValidClass
+ 0001:00003984       FastMM4.DetectClassInstance
+ 0001:000039B4       FastMM4.GetAvailableSpaceInBlock
+ 0001:000039E0       FastMM4.LockAllSmallBlockTypes
+ 0001:00003A28       FastMM4.GetFirstAndLastSmallBlockInPool
+ 0001:00003A64       FastMM4.NextMediumBlock
+ 0001:00003A88       FastMM4.GetFirstMediumBlockInPool
+ 0001:00003AC8       FastMM4.LockMediumBlocks
+ 0001:00003B04       FastMM4.RemoveMediumFreeBlock
+ 0001:00003B54       FastMM4.InsertMediumBlockIntoBin
+ 0001:00003BB0       FastMM4.BinMediumSequentialFeedRemainder
+ 0001:00003C38       FastMM4.AllocNewSequentialFeedMediumPool
+ 0001:00003CB4       FastMM4.LockLargeBlocks
+ 0001:00003CF0       FastMM4.AllocateLargeBlock
+ 0001:00003D70       FastMM4.FreeLargeBlock
+ 0001:00003E20       FastMM4.FastGetMem
+ 0001:00004150       FastMM4.FreeMediumBlock
+ 0001:000041A8       FastMM4.FastFreeMem
+ 0001:00004248       FastMM4.LockCmpxchg32
+ 0001:00004250       FastMM4.StartChangingFullDebugModeBlock
+ 0001:0000429C       FastMM4.DoneChangingFullDebugModeBlock
+ 0001:000042A4       FastMM4.IncrementAllocationNumber
+ 0001:000042AC       FastMM4.BlockFullDebugModeMMRoutines
+ 0001:000042E8       FastMM4.UnblockFullDebugModeMMRoutines
+ 0001:000042FC       FastMM4.ExtractFileName
+ 0001:0000431C       FastMM4.AppendEventLog
+ 0001:0000455C       FastMM4.SetDefaultMMLogFileName
+ 0001:00004618       FastMM4.SetMMLogFileName
+ 0001:00004650       FastMM4.GetCurrentAllocationGroup
+ 0001:00004660       FastMM4.PushAllocationGroup
+ 0001:00004690       FastMM4.PopAllocationGroup
+ 0001:000046B0       FastMM4.SumCardinals
+ 0001:000046C0       FastMM4.CheckFillPattern
+ 0001:000046D4       FastMM4.CalculateHeaderCheckSum
+ 0001:000046F4       FastMM4.UpdateHeaderAndFooterCheckSums
+ 0001:00004718       FastMM4.LogCurrentThreadAndStackTrace
+ 0001:000047BC       FastMM4.LogMemoryDump
+ 0001:000048A0       FastMM4.RotateRight
+ 0001:000048A8       FastMM4.FreeBlockByteWasModified
+ 0001:000048EC       FastMM4.LogBlockChanges
+ 0001:000049B0       FastMM4.LogBlockError
+ 0001:00005024       FastMM4.LogMemoryLeakOrAllocatedBlock
+ 0001:00005324       FastMM4.CheckFreeBlockUnmodified
+ 0001:000053EC       FastMM4.DebugGetMem
+ 0001:000054F0       FastMM4.CheckBlockBeforeFreeOrRealloc
+ 0001:00005548       FastMM4.DebugFreeMem
+ 0001:00005624       FastMM4.DebugReallocMem
+ 0001:00005770       FastMM4.DebugAllocMem
+ 0001:00005798       FastMM4.RaiseMemoryCorruptionError
+ 0001:000057B0       FastMM4.InternalScanSmallBlockPool
+ 0001:0000583C       FastMM4.InternalScanMemoryPool
+ 0001:00005964       FastMM4.LogAllocatedBlocksToFile
+ 0001:0000597C       FastMM4.ScanMemoryPoolForCorruptions
+ 0001:0000598C       FastMM4.TFreedObject.GetVirtualMethodIndex
+ 0001:00005E44       FastMM4.TFreedObject.VirtualMethodError
+ 0001:000062AC       FastMM4.UpdateExpectedLeakList
+ 0001:00006404       FastMM4.LockExpectedMemoryLeaksList
+ 0001:0000646C       FastMM4.RegisterExpectedMemoryLeak
+ 0001:000064BC       FastMM4.UnregisterExpectedMemoryLeak
+ 0001:0000650C       FastMM4.DetectStringData
+ 0001:00006590       FastMM4.GetMemoryLeakType
+ 0001:0000662C       FastMM4.CheckSmallBlockPoolForLeaks
+ 0001:00006784       FastMM4.CheckBlocksOnShutdown
+ 0001:00006C90       FastMM4.FastGetHeapStatus
+ 0001:00006E14       FastMM4.CheckCanInstallMemoryManager
+ 0001:00007124       FastMM4.InitializeMemoryManager
+ 0001:0000730C       FastMM4.InstallMemoryManager
+ 0001:00007394       FastMM4.FinalizeMemoryManager
+ 0001:000073D4       FastMM4.Finalization
+ 0001:00007414       BorlndMM.GetAllocMemCount
+ 0001:00007418       BorlndMM.GetAllocMemSize
+ 0001:0000741C       BorlndMM.DumpBlocks
+ 0001:00007420       BorlndMM.HeapRelease
+ 0001:00007428       BorlndMM.HeapAddRef
+ 0001:00007430       BorlndMM.Finalization
+ 0002:00000000       System.System
+ 0002:00000098       Windows.Windows
+ 0002:000000AC       FastMM4.FastMM4
+ 0002:000000D0       BorlndMM.BorlndMM
+ 0003:00000000       System.ExitCode
+ 0003:00000004       System.ErrorAddr
+ 0003:00000008       System.FileMode
+ 0003:0000000C       System.VarClearProc
+ 0003:00000010       System.Default8087CW
+ 0003:00000014       System.DebugHook
+ 0003:00000018       System.JITEnable
+ 0003:0000001C       System.NoErrMsg
+ 0003:00000020       System.LibModuleList
+ 0003:00000024       System.ModuleUnloadList
+ 0003:00000028       System.Copyright
+ 0003:0000002C       System.SmallBlockTypes
+ 0003:0000070C       System.MemoryManager
+ 0003:00000724       System.reMap
+ 0003:00000740       System.errCaption
+ 0003:00000748       System.runErrMsg
+ 0003:00000768       System.dig
+ 0003:00000778       SysInit.TlsIndex
+ 0003:0000077C       SysInit.Module
+ 0003:00000794       SysInit.TlsProc
+ 0003:000007A4       FastMM4.FullDebugModeScanMemoryPoolBeforeEveryOperation
+ 0003:000007A8       FastMM4.FullDebugModeRegisterAllAllocsAsExpectedMemoryLeak
+ 0003:000007AC       FastMM4.HexTable
+ 0003:000007BC       FastMM4.Copyright
+ 0003:000007C0       FastMM4.StandardVirtualMethodNames
+ 0003:000007E0       FastMM4.SmallBlockTypes
+ 0003:00000EE0       FastMM4.LogFileExtAnsi
+ 0004:00000000       System.DispCallByIDProc
+ 0004:00000004       System.ExceptProc
+ 0004:00000008       System.ErrorProc
+ 0004:0000000C       System.ExceptObjProc
+ 0004:00000010       System.RaiseExceptionProc
+ 0004:00000014       System.RTLUnwindProc
+ 0004:00000018       System.ExitProcessProc
+ 0004:0000001C       System.MainInstance
+ 0004:00000020       System.MainThreadID
+ 0004:00000024       System.IsLibrary
+ 0004:00000028       System.CmdShow
+ 0004:0000002C       System.CmdLine
+ 0004:00000030       System.ExitProc
+ 0004:00000034       System.IsConsole
+ 0004:00000035       System.IsMultiThread
+ 0004:00000036       System.Test8086
+ 0004:00000038       System.Input
+ 0004:00000204       System.Output
+ 0004:000003D0       System.ErrOutput
+ 0004:0000059C       System.ReportMemoryLeaksOnShutdown
+ 0004:0000059D       System.NeverSleepOnMMThreadContention
+ 0004:000005A0       System..6
+ 0004:000005A4       System.DefaultSystemCodePage
+ 0004:000005A8       System.AllocSize2SmallBlockTypeIndX4
+ 0004:000006EE       System.MinimumBlockAlignment
+ 0004:000006F0       System.MediumBlockPoolsCircularList
+ 0004:00000700       System.MediumBlocksLocked
+ 0004:00000704       System.LastSequentiallyFedMediumBlock
+ 0004:00000708       System.MediumSequentialFeedBytesLeft
+ 0004:0000070C       System.MediumBlockBinGroupBitmap
+ 0004:00000710       System.MediumBlockBinBitmaps
+ 0004:00000790       System.MediumBlockBins
+ 0004:00002790       System.LargeBlocksLocked
+ 0004:00002794       System.LargeBlocksCircularList
+ 0004:000027A4       System.ExpectedMemoryLeaks
+ 0004:000027A8       System.ExpectedMemoryLeaksListLocked
+ 0004:000027AC       System.MMSharingWindow
+ 0004:000027B0       System.InitContext
+ 0004:000027DC       SysInit.ModuleIsLib
+ 0004:000027E0       SysInit.HInstance
+ 0004:000027E4       SysInit.DllProc
+ 0004:000027E8       SysInit.tlsBuffer
+ 0004:000027EC       Windows..3
+ 0004:000027F0       Windows.HtmlHelpModule
+ 0004:000027F4       FastMM4.SuppressMessageBoxes
+ 0004:000027F8       FastMM4..1
+ 0004:000027FC       FastMM4.AllocSize2SmallBlockTypeIndX4
+ 0004:00002944       FastMM4.MediumBlockPoolsCircularList
+ 0004:00002954       FastMM4.MediumBlocksLocked
+ 0004:00002958       FastMM4.LastSequentiallyFedMediumBlock
+ 0004:0000295C       FastMM4.MediumSequentialFeedBytesLeft
+ 0004:00002960       FastMM4.MediumBlockBinGroupBitmap
+ 0004:00002964       FastMM4.MediumBlockBinBitmaps
+ 0004:000029E4       FastMM4.MediumBlockBins
+ 0004:000049E4       FastMM4.LargeBlocksLocked
+ 0004:000049E8       FastMM4.LargeBlocksCircularList
+ 0004:000049F8       FastMM4.ExpectedMemoryLeaks
+ 0004:000049FC       FastMM4.ExpectedMemoryLeaksListLocked
+ 0004:00004A00       FastMM4.AllocationGroupStack
+ 0004:000059A0       FastMM4.AllocationGroupStackTop
+ 0004:000059A4       FastMM4.CurrentAllocationNumber
+ 0004:000059A8       FastMM4.ThreadsInFullDebugModeRoutine
+ 0004:000059AC       FastMM4.MMLogFileName
+ 0004:00005DAC       FastMM4.ReservedBlock
+ 0004:00005DB0       FastMM4.VMIndex
+ 0004:00005DB4       FastMM4.FreedObjectVMT
+ 0004:00006100       FastMM4.OldMemoryManager
+ 0004:00006118       FastMM4.NewMemoryManager
+ 0004:00006130       FastMM4.FastMMIsInstalled
+ 0004:00006131       FastMM4.IsMemoryManagerOwner
+ 0004:00006132       FastMM4.ShowingMessageBox
+ 0005:00000000       System.RaiseListPtr
+ 0005:00000004       System.InOutRes
+ 0005:00000008       SysInit.TlsLast
+
+
+Line numbers for FastMM4Messages(FastMM4Messages.pas) segment .text
+
+   129 0001:00000000
+
+Line numbers for FastMM4(FastMM4.pas) segment .text
+
+  1894 0001:000033F4  1895 0001:000033F7  1897 0001:000033F9  1898 0001:000033FB
+  1900 0001:000033FD  1901 0001:00003400  1903 0001:00003403  1904 0001:00003406
+  1905 0001:00003409  1906 0001:0000340B  1907 0001:0000340D  1908 0001:0000340F
+  1909 0001:00003411  1910 0001:00003413  1911 0001:00003415  1912 0001:00003419
+  1914 0001:0000341A  1915 0001:0000341E  1917 0001:0000341F  1918 0001:00003421
+  1986 0001:00003424  1991 0001:00003428  1999 0001:0000342C  2000 0001:0000342F
+  2008 0001:00003430  2015 0001:00003433  2018 0001:00003435  2022 0001:00003441
+  2030 0001:00003444  2032 0001:0000344E  2034 0001:00003457  2037 0001:0000345B
+  2038 0001:00003460  2042 0001:00003464  2043 0001:00003465  2039 0001:00003466
+  2046 0001:0000346F  2047 0001:00003470  2048 0001:00003479  2049 0001:0000347B
+  2050 0001:0000347E  2051 0001:0000347F  2052 0001:00003482  2057 0001:00003485
+  2058 0001:00003487  2060 0001:00003488  2055 0001:00003489  2062 0001:00003490
+  2063 0001:00003493  2064 0001:00003495  2073 0001:0000349C  2074 0001:0000349E
+  2075 0001:000034A0  2079 0001:000034A4  2080 0001:000034A6  2081 0001:000034A8
+  2082 0001:000034AB  2083 0001:000034AE  2084 0001:000034B1  2085 0001:000034B4
+  2089 0001:000034B8  2090 0001:000034BA  2091 0001:000034BC  2092 0001:000034BF
+  2093 0001:000034C2  2094 0001:000034C5  2095 0001:000034C8  2096 0001:000034CB
+  2097 0001:000034CE  2098 0001:000034D1  2099 0001:000034D4  2103 0001:000034D8
+  2104 0001:000034DA  2105 0001:000034DC  2106 0001:000034DF  2107 0001:000034E2
+  2108 0001:000034E5  2109 0001:000034E8  2110 0001:000034EB  2111 0001:000034EE
+  2112 0001:000034F1  2113 0001:000034F4  2114 0001:000034F7  2115 0001:000034FA
+  2116 0001:000034FD  2117 0001:00003500  2121 0001:00003504  2122 0001:00003506
+  2123 0001:00003509  2124 0001:0000350C  2125 0001:0000350F  2126 0001:00003512
+  2127 0001:00003515  2128 0001:00003518  2129 0001:0000351B  2130 0001:0000351E
+  2131 0001:00003520  2135 0001:00003524  2136 0001:00003526  2137 0001:00003529
+  2138 0001:0000352C  2139 0001:0000352F  2140 0001:00003532  2141 0001:00003535
+  2142 0001:00003538  2143 0001:0000353B  2144 0001:0000353E  2145 0001:00003541
+  2146 0001:00003544  2147 0001:00003546  2151 0001:00003548  2152 0001:0000354A
+  2153 0001:0000354D  2154 0001:00003550  2155 0001:00003553  2156 0001:00003556
+  2157 0001:00003559  2158 0001:0000355C  2159 0001:0000355F  2160 0001:00003562
+  2161 0001:00003565  2162 0001:00003568  2163 0001:0000356B  2164 0001:0000356E
+  2165 0001:00003570  2169 0001:00003574  2170 0001:00003576  2171 0001:00003579
+  2172 0001:0000357C  2173 0001:0000357F  2174 0001:00003582  2175 0001:00003585
+  2176 0001:00003588  2177 0001:0000358B  2178 0001:0000358E  2179 0001:00003591
+  2180 0001:00003594  2181 0001:00003597  2182 0001:0000359A  2183 0001:0000359D
+  2184 0001:000035A0  2185 0001:000035A2  2189 0001:000035A4  2190 0001:000035A6
+  2191 0001:000035A9  2192 0001:000035AC  2193 0001:000035AF  2194 0001:000035B2
+  2195 0001:000035B5  2196 0001:000035B8  2197 0001:000035BB  2198 0001:000035BE
+  2199 0001:000035C1  2200 0001:000035C4  2201 0001:000035C7  2202 0001:000035CA
+  2203 0001:000035CD  2204 0001:000035D0  2205 0001:000035D3  2206 0001:000035D6
+  2207 0001:000035D8  2214 0001:000035DC  2215 0001:000035DF  2216 0001:000035E1
+  2272 0001:000035E3  2273 0001:000035E5  2276 0001:000035E7  2277 0001:000035EA
+  2278 0001:000035EE  2279 0001:000035F2  2281 0001:000035F5  2282 0001:000035F8
+  2285 0001:000035FA  2286 0001:000035FD  2287 0001:00003600  2288 0001:00003604
+  2290 0001:00003608  2396 0001:0000360C  2397 0001:00003613  2405 0001:00003614
+  2406 0001:00003616  2407 0001:00003618  2409 0001:0000361A  2410 0001:0000361D
+  2411 0001:00003620  2413 0001:00003622  2421 0001:00003624  2427 0001:0000362C
+  2472 0001:00003634  2473 0001:00003635  2475 0001:00003637  2476 0001:0000363A
+  2477 0001:0000363F  2478 0001:00003641  2479 0001:00003644  2480 0001:00003646
+  2481 0001:0000364C  2482 0001:0000364F  2483 0001:00003652  2484 0001:00003654
+  2485 0001:00003656  2486 0001:00003659  2488 0001:0000365B  2489 0001:0000365D
+  2490 0001:00003660  2491 0001:00003663  2492 0001:00003666  2493 0001:0000366C
+  2494 0001:0000366E  2495 0001:00003671  2497 0001:00003673  2498 0001:00003676
+  2499 0001:00003679  2500 0001:0000367C  2501 0001:0000367F  2502 0001:00003682
+  2503 0001:00003688  2504 0001:0000368A  2505 0001:0000368D  2507 0001:0000368F
+  2508 0001:00003692  2509 0001:00003695  2510 0001:00003698  2511 0001:0000369B
+  2512 0001:0000369E  2513 0001:000036A4  2514 0001:000036A6  2515 0001:000036A9
+  2517 0001:000036AB  2518 0001:000036AE  2519 0001:000036B1  2520 0001:000036B4
+  2521 0001:000036B7  2522 0001:000036BA  2523 0001:000036C0  2524 0001:000036C2
+  2525 0001:000036C5  2527 0001:000036C7  2528 0001:000036CA  2529 0001:000036CD
+  2530 0001:000036D0  2531 0001:000036D3  2532 0001:000036D6  2533 0001:000036DC
+  2534 0001:000036DE  2535 0001:000036E1  2537 0001:000036E3  2538 0001:000036E6
+  2539 0001:000036E9  2540 0001:000036EC  2541 0001:000036EF  2542 0001:000036F2
+  2543 0001:000036F8  2544 0001:000036FA  2545 0001:000036FD  2547 0001:000036FF
+  2548 0001:00003702  2549 0001:00003705  2550 0001:00003708  2551 0001:0000370B
+  2552 0001:0000370E  2553 0001:00003714  2554 0001:00003716  2555 0001:00003719
+  2557 0001:0000371B  2558 0001:0000371E  2559 0001:00003721  2560 0001:00003724
+  2561 0001:00003727  2562 0001:0000372A  2563 0001:00003730  2564 0001:00003732
+  2565 0001:00003735  2567 0001:00003737  2568 0001:0000373A  2569 0001:0000373D
+  2570 0001:00003740  2571 0001:00003743  2572 0001:00003746  2574 0001:00003748
+  2576 0001:0000374B  2577 0001:0000374C  2586 0001:00003750  2587 0001:00003751
+  2589 0001:00003752  2591 0001:00003754  2593 0001:00003756  2595 0001:00003758
+  2596 0001:0000375E  2598 0001:00003764  2599 0001:00003767  2601 0001:0000376A
+  2602 0001:0000376D  2603 0001:0000376F  2604 0001:00003775  2605 0001:00003777
+  2606 0001:0000377A  2608 0001:0000377D  2609 0001:00003780  2610 0001:00003782
+  2611 0001:00003788  2612 0001:0000378A  2613 0001:0000378D  2615 0001:00003790
+  2616 0001:00003793  2617 0001:00003795  2618 0001:0000379B  2619 0001:0000379D
+  2620 0001:000037A0  2622 0001:000037A3  2623 0001:000037A6  2624 0001:000037A8
+  2625 0001:000037AE  2626 0001:000037B0  2627 0001:000037B3  2629 0001:000037B6
+  2630 0001:000037B9  2632 0001:000037BC  2633 0001:000037BF  2634 0001:000037C1
+  2635 0001:000037C7  2636 0001:000037C9  2637 0001:000037CC  2639 0001:000037CF
+  2640 0001:000037D2  2641 0001:000037D4  2642 0001:000037DA  2643 0001:000037DC
+  2644 0001:000037DF  2646 0001:000037E2  2647 0001:000037E5  2648 0001:000037E7
+  2649 0001:000037ED  2650 0001:000037EF  2651 0001:000037F2  2653 0001:000037F5
+  2654 0001:000037F8  2655 0001:000037FE  2657 0001:00003800  2659 0001:00003803
+  2660 0001:00003804  2661 0001:00003805  2666 0001:00003808  2667 0001:00003811
+  2668 0001:0000381A  2669 0001:0000381E  2676 0001:00003824  2678 0001:00003827
+  2680 0001:0000382B  2682 0001:00003830  2686 0001:0000383B  2688 0001:0000384A
+  2692 0001:00003854  2693 0001:00003857  2695 0001:00003869  2696 0001:00003870
+  2698 0001:0000387E  2700 0001:00003885  2710 0001:00003888  2712 0001:0000388C
+  2716 0001:0000389B  2720 0001:000038B7  2721 0001:000038BF  2724 0001:000038CE
+  2730 0001:000038FE  2731 0001:00003900  2737 0001:00003904  2740 0001:0000390E
+  2745 0001:0000393C  2747 0001:00003943  2753 0001:0000397B  2754 0001:0000397D
+  2756 0001:00003984  2758 0001:0000398B  2760 0001:0000398D  2762 0001:00003992
+  2767 0001:000039A9  2768 0001:000039AB  2782 0001:000039B4  2783 0001:000039B9
+  2785 0001:000039BD  2786 0001:000039C0  2790 0001:000039CC  2791 0001:000039D4
+  2792 0001:000039D8  2794 0001:000039DB  2802 0001:000039E0  2808 0001:000039E5
+  2813 0001:000039F1  2814 0001:000039F8  2816 0001:00003A07  2810 0001:00003A0E
+  2819 0001:00003A1D  2808 0001:00003A20  2821 0001:00003A23  2828 0001:00003A28
+  2830 0001:00003A2A  2832 0001:00003A31  2836 0001:00003A40  2837 0001:00003A4C
+  2842 0001:00003A59  2844 0001:00003A5F  2855 0001:00003A64  2857 0001:00003A70
+  2859 0001:00003A74  2860 0001:00003A7E  2861 0001:00003A82  2862 0001:00003A84
+  2867 0001:00003A88  2871 0001:00003AAB  2876 0001:00003AAF  2877 0001:00003ABB
+  2879 0001:00003AC2  2881 0001:00003AC4  2887 0001:00003AC8  2896 0001:00003AD3
+  2897 0001:00003ADA  2899 0001:00003AE9  2893 0001:00003AF0  2903 0001:00003AFF
+  2955 0001:00003B04  2956 0001:00003B07  2958 0001:00003B09  2959 0001:00003B0C
+  2962 0001:00003B0E  2965 0001:00003B12  2966 0001:00003B1B  2968 0001:00003B20
+  2971 0001:00003B35  2974 0001:00003B3F  2978 0001:00003B50  3028 0001:00003B54
+  3031 0001:00003B55  3032 0001:00003B60  3033 0001:00003B68  3035 0001:00003B6D
+  3037 0001:00003B74  3038 0001:00003B77  3039 0001:00003B79  3040 0001:00003B7C
+  3041 0001:00003B7E  3043 0001:00003B81  3046 0001:00003B85  3048 0001:00003B8A
+  3051 0001:00003B9D  3054 0001:00003BAC  3111 0001:00003BB0  3112 0001:00003BB6
+  3113 0001:00003BBC  3116 0001:00003BC0  3117 0001:00003BC5  3119 0001:00003BCE
+  3134 0001:00003BD2  3139 0001:00003BDA  3141 0001:00003BEB  3146 0001:00003BF4
+  3150 0001:00003C13  3151 0001:00003C16  3154 0001:00003C21  3155 0001:00003C29
+  3157 0001:00003C32  3227 0001:00003C38  3229 0001:00003C3E  3231 0001:00003C43
+  3233 0001:00003C56  3236 0001:00003C5A  3237 0001:00003C60  3238 0001:00003C68
+  3239 0001:00003C6D  3240 0001:00003C70  3242 0001:00003C72  3244 0001:00003C85
+  3246 0001:00003C92  3247 0001:00003C96  3249 0001:00003C9B  3254 0001:00003CA8
+  3255 0001:00003CAF  3257 0001:00003CB1  3277 0001:00003CB4  3286 0001:00003CBF
+  3287 0001:00003CC6  3289 0001:00003CD5  3283 0001:00003CDC  3293 0001:00003CEB
+  3303 0001:00003CF0  3307 0001:00003CFA  3310 0001:00003D10  3313 0001:00003D21
+  3316 0001:00003D25  3317 0001:00003D2D  3319 0001:00003D33  3320 0001:00003D38
+  3321 0001:00003D3D  3322 0001:00003D43  3323 0001:00003D49  3324 0001:00003D4C
+  3325 0001:00003D4E  3327 0001:00003D55  3331 0001:00003D58  3332 0001:00003D5D
+  3335 0001:00003D68  3346 0001:00003D70  3348 0001:00003D7B  3350 0001:00003D7E
+  3351 0001:00003D83  3352 0001:00003D8A  3355 0001:00003D90  3359 0001:00003D98
+  3360 0001:00003DA9  3362 0001:00003DB0  3368 0001:00003DB9  3369 0001:00003DBB
+  3370 0001:00003DC0  3374 0001:00003DC5  3376 0001:00003DD1  3378 0001:00003DE2
+  3379 0001:00003DE9  3382 0001:00003DEB  3385 0001:00003DF2  3386 0001:00003DF4
+  3371 0001:00003DF6  3391 0001:00003DF8  3394 0001:00003DFE  3395 0001:00003E06
+  3398 0001:00003E0F  3399 0001:00003E16  3542 0001:00003E20  3545 0001:00003E29
+  3549 0001:00003E37  3560 0001:00003E52  3563 0001:00003E61  3564 0001:00003E64
+  3567 0001:00003E73  3568 0001:00003E76  3571 0001:00003E85  3574 0001:00003E88
+  3576 0001:00003E8F  3579 0001:00003E9E  3557 0001:00003EA5  3584 0001:00003EA7
+  3586 0001:00003EAA  3589 0001:00003EAE  3591 0001:00003EB1  3594 0001:00003EBB
+  3596 0001:00003EC6  3601 0001:00003ECD  3603 0001:00003ED6  3605 0001:00003ED9
+  3607 0001:00003EDF  3610 0001:00003EE9  3611 0001:00003EEC  3612 0001:00003EEF
+  3618 0001:00003EF7  3620 0001:00003EFA  3623 0001:00003F01  3625 0001:00003F04
+  3627 0001:00003F07  3632 0001:00003F15  3706 0001:00003F1A  3707 0001:00003F20
+  3710 0001:00003F28  3712 0001:00003F39  3715 0001:00003F41  3717 0001:00003F44
+  3719 0001:00003F4C  3720 0001:00003F51  3726 0001:00003F5C  3728 0001:00003F63
+  3729 0001:00003F6B  3733 0001:00003F6F  3735 0001:00003F76  3737 0001:00003F79
+  3739 0001:00003F7B  3747 0001:00003F80  3749 0001:00003F90  3751 0001:00003F97
+  3752 0001:00003F99  3753 0001:00003F9B  3754 0001:00003FA0  3756 0001:00003FA7
+  3757 0001:00003FAA  3758 0001:00003FB1  3759 0001:00003FBA  3763 0001:00003FC6
+  3767 0001:00003FE4  3768 0001:00003FE7  3772 0001:00003FF5  3774 0001:00003FF8
+  3779 0001:00004004  3784 0001:00004010  3787 0001:00004022  3789 0001:0000402E
+  3791 0001:00004033  3793 0001:00004038  3794 0001:0000404F  3797 0001:00004053
+  3816 0001:00004068  3817 0001:0000406E  3823 0001:00004073  3824 0001:0000407F
+  3827 0001:00004082  3829 0001:0000408B  3831 0001:00004091  3833 0001:0000409A
+  3838 0001:000040A9  3842 0001:000040B3  3844 0001:000040B7  3845 0001:000040BC
+  3847 0001:000040CA  3853 0001:000040E5  3854 0001:000040EC  3862 0001:000040EE
+  3864 0001:000040F5  3868 0001:000040F8  3875 0001:00004109  3882 0001:00004110
+  3884 0001:00004117  3904 0001:0000411C  3907 0001:0000411F  3919 0001:00004127
+  3927 0001:0000412A  3930 0001:0000412C  3935 0001:00004135  3936 0001:00004139
+  3938 0001:00004142  3941 0001:00004144  4397 0001:00004150  4399 0001:00004158
+  4401 0001:00004161  4403 0001:00004166  4405 0001:0000416B  4406 0001:0000416F
+  4429 0001:00004176  4476 0001:0000417E  4479 0001:00004185  4483 0001:0000418E
+  4499 0001:00004197  4501 0001:0000419E  4541 0001:000041A0  4551 0001:000041A8
+  4553 0001:000041B2  4555 0001:000041BA  4558 0001:000041BE  4560 0001:000041C0
+  4569 0001:000041C4  4570 0001:000041CB  4572 0001:000041DA  4566 0001:000041E1
+  4577 0001:000041F2  4579 0001:000041F5  4582 0001:000041F9  4583 0001:000041FC
+  4584 0001:000041FF  4585 0001:00004202  4586 0001:00004205  4589 0001:00004208
+  4591 0001:00004213  4593 0001:00004219  4619 0001:0000421C  4624 0001:0000421F
+  4629 0001:00004223  4631 0001:00004227  4637 0001:00004231  4638 0001:00004235
+  4640 0001:0000423F  4643 0001:00004242  5936 0001:00004248  5937 0001:0000424C
+  5944 0001:00004250  5948 0001:0000425A  5949 0001:0000425C  5955 0001:00004270
+  5957 0001:00004277  5958 0001:00004279  5963 0001:0000428D  5945 0001:00004294
+  5966 0001:00004296  5970 0001:0000429C  5971 0001:000042A3  5976 0001:000042A4
+  5977 0001:000042AB  5982 0001:000042AC  5986 0001:000042B5  5989 0001:000042C5
+  5991 0001:000042CC  5993 0001:000042DC  5983 0001:000042E3  5996 0001:000042E5
+  6001 0001:000042E8  6002 0001:000042F1  6003 0001:000042F8  6015 0001:000042FC
+  6017 0001:000042FD  6018 0001:000042FF  6023 0001:00004303  6025 0001:00004306
+  6028 0001:0000430A  6030 0001:0000430B  6031 0001:00004310  6020 0001:00004312
+  6034 0001:00004314  6035 0001:00004318  6048 0001:0000431C  6050 0001:0000432D
+  6054 0001:0000434B  6060 0001:0000436F  6062 0001:0000437C  6064 0001:0000438A
+  6065 0001:00004392  6068 0001:00004393  6069 0001:000043A3  6071 0001:000043B6
+  6075 0001:000043D6  6078 0001:000043DF  6080 0001:000043EB  6081 0001:00004402
+  6083 0001:00004415  6084 0001:00004421  6085 0001:00004431  6086 0001:00004434
+  6087 0001:00004435  6088 0001:00004445  6089 0001:00004448  6090 0001:00004449
+  6091 0001:00004459  6092 0001:0000445C  6093 0001:0000445D  6094 0001:0000446D
+  6095 0001:00004470  6096 0001:00004471  6098 0001:0000447B  6099 0001:0000447E
+  6101 0001:0000447F  6102 0001:0000448F  6103 0001:00004492  6104 0001:00004493
+  6106 0001:0000449D  6107 0001:000044A0  6109 0001:000044A1  6111 0001:000044B1
+  6112 0001:000044C4  6113 0001:000044D7  6115 0001:000044F3  6117 0001:00004504
+  6119 0001:0000450A  6130 0001:0000455C  6132 0001:00004566  6135 0001:00004572
+  6138 0001:0000457A  6141 0001:00004597  6144 0001:000045AF  6147 0001:000045B3
+  6149 0001:000045BD  6150 0001:000045C5  6153 0001:000045C6  6154 0001:000045D6
+  6156 0001:000045E9  6159 0001:000045FE  6167 0001:00004618  6169 0001:0000461E
+  6171 0001:00004627  6172 0001:0000462E  6175 0001:00004635  6176 0001:00004644
+  6180 0001:00004647  6181 0001:0000464C  6190 0001:00004650  6191 0001:0000465C
+  6197 0001:00004660  6198 0001:00004663  6200 0001:0000466F  6201 0001:00004675
+  6207 0001:00004684  6212 0001:0000468B  6215 0001:00004690  6216 0001:00004693
+  6218 0001:0000469C  6224 0001:000046A4  6229 0001:000046AB  6235 0001:000046B0
+  6236 0001:000046B2  6238 0001:000046B4  6239 0001:000046B7  6240 0001:000046BA
+  6241 0001:000046BC  6249 0001:000046C0  6250 0001:000046C2  6252 0001:000046C4
+  6253 0001:000046C7  6254 0001:000046C9  6255 0001:000046CC  6257 0001:000046CE
+  6258 0001:000046D1  6263 0001:000046D4  6264 0001:000046D8  6267 0001:000046EF
+  6272 0001:000046F4  6273 0001:000046FA  6274 0001:00004701  6275 0001:00004704
+  6276 0001:00004713  6281 0001:00004718  6283 0001:00004721  6285 0001:00004731
+  6286 0001:00004744  6288 0001:00004752  6289 0001:00004765  6290 0001:00004776
+  6297 0001:000047BC  6298 0001:000047C5  6299 0001:000047D4  6300 0001:000047E5
+  6301 0001:000047E8  6303 0001:000047E9  6304 0001:000047EB  6306 0001:000047ED
+  6308 0001:000047F2  6309 0001:000047F5  6310 0001:000047F6  6311 0001:000047F9
+  6315 0001:000047FC  6316 0001:000047FF  6319 0001:00004800  6320 0001:00004803
+  6321 0001:00004811  6322 0001:00004812  6323 0001:0000481E  6325 0001:0000481F
+  6326 0001:00004820  6304 0001:00004821  6328 0001:00004829  6329 0001:00004832
+  6331 0001:00004834  6333 0001:00004839  6334 0001:0000483C  6335 0001:0000483D
+  6336 0001:00004840  6340 0001:00004843  6341 0001:00004846  6342 0001:00004847
+  6343 0001:0000484A  6346 0001:0000484B  6347 0001:0000484E  6348 0001:00004853
+  6350 0001:00004858  6351 0001:0000485A  6353 0001:0000485B  6354 0001:0000485C
+  6329 0001:0000485D  6355 0001:00004865  6361 0001:000048A0  6362 0001:000048A2
+  6363 0001:000048A4  6370 0001:000048A8  6372 0001:000048B2  6374 0001:000048B7
+  6379 0001:000048BE  6385 0001:000048C3  6387 0001:000048E4  6393 0001:000048EC
+  6395 0001:000048F9  6397 0001:000048FE  6401 0001:00004902  6404 0001:0000490F
+  6405 0001:00004912  6408 0001:00004917  6409 0001:0000491A  6410 0001:0000491B
+  6417 0001:0000492D  6419 0001:00004933  6423 0001:00004948  6424 0001:0000494B
+  6425 0001:0000494C  6426 0001:0000494F  6428 0001:00004950  6429 0001:0000495C
+  6430 0001:0000495F  6431 0001:00004960  6432 0001:0000496C  6433 0001:0000496F
+  6435 0001:00004970  6438 0001:00004973  6398 0001:00004974  6441 0001:0000497F
+  6442 0001:00004981  6455 0001:000049B0  6457 0001:000049D6  6458 0001:000049ED
+  6459 0001:000049FF  6460 0001:00004A14  6461 0001:00004A29  6462 0001:00004A3E
+  6464 0001:00004A51  6466 0001:00004A64  6469 0001:00004A6E  6474 0001:00004A74
+  6476 0001:00004A79  6478 0001:00004A8C  6484 0001:00004A99  6485 0001:00004A9F
+  6487 0001:00004AB4  6492 0001:00004AC9  6495 0001:00004ADC  6496 0001:00004AE1
+  6498 0001:00004AF6  6499 0001:00004B09  6501 0001:00004B15  6503 0001:00004B1B
+  6504 0001:00004B20  6506 0001:00004B35  6507 0001:00004B48  6508 0001:00004B54
+  6509 0001:00004B67  6512 0001:00004B78  6513 0001:00004B83  6515 0001:00004B93
+  6516 0001:00004BA6  6530 0001:00004BB2  6532 0001:00004BC5  6533 0001:00004BD8
+  6534 0001:00004BE7  6535 0001:00004BF1  6537 0001:00004BF6  6554 0001:00004C02
+  6556 0001:00004C08  6557 0001:00004C1B  6560 0001:00004C27  6561 0001:00004C3A
+  6566 0001:00004C48  6568 0001:00004C4E  6569 0001:00004C61  6572 0001:00004C6D
+  6573 0001:00004C80  6576 0001:00004C8C  6578 0001:00004C92  6579 0001:00004CA5
+  6580 0001:00004CB1  6581 0001:00004CC4  6587 0001:00004CD7  6590 0001:00004CEA
+  6593 0001:00004D0A  6596 0001:00004D15  6597 0001:00004D18  6598 0001:00004D19
+  6599 0001:00004D1C  6601 0001:00004D1D  6604 0001:00004D20  6611 0001:00004D35
+  6612 0001:00004D45  6614 0001:00004D56  6626 0001:00005024  6628 0001:00005042
+  6629 0001:00005046  6631 0001:0000505F  6632 0001:00005076  6634 0001:0000508B
+  6636 0001:00005098  6639 0001:000050A0  6641 0001:000050A6  6642 0001:000050B9
+  6643 0001:000050C5  6644 0001:000050D8  6646 0001:000050E9  6648 0001:000050FC
+  6649 0001:0000510B  6650 0001:00005114  6652 0001:00005116  6654 0001:0000511A
+  6658 0001:00005125  6659 0001:0000513B  6660 0001:00005148  6661 0001:0000515D
+  6684 0001:00005170  6686 0001:00005176  6687 0001:00005189  6690 0001:00005195
+  6691 0001:000051A8  6696 0001:000051B6  6697 0001:000051B9  6698 0001:000051BA
+  6699 0001:000051BD  6700 0001:000051BE  6704 0001:000051D1  6707 0001:000051DC
+  6708 0001:000051DF  6709 0001:000051E0  6710 0001:000051E3  6712 0001:000051E4
+  6714 0001:000051E7  6715 0001:000051FC  6723 0001:00005324  6724 0001:00005335
+  6725 0001:0000533E  6727 0001:00005344  6730 0001:00005365  6735 0001:00005381
+  6743 0001:00005394  6747 0001:000053AC  6750 0001:000053BD  6751 0001:000053BF
+  6753 0001:000053CD  6754 0001:000053DF  6757 0001:000053E3  6758 0001:000053E5
+  6761 0001:000053EC  6763 0001:000053F5  6764 0001:000053FE  6766 0001:00005403
+  6767 0001:00005408  6770 0001:00005416  6771 0001:00005424  6775 0001:0000542E
+  6779 0001:00005451  6781 0001:00005466  6783 0001:0000546E  6785 0001:00005475
+  6787 0001:00005484  6788 0001:00005489  6790 0001:00005491  6797 0001:000054A5
+  6799 0001:000054A8  6801 0001:000054B0  6803 0001:000054B3  6804 0001:000054BC
+  6808 0001:000054C6  6813 0001:000054D8  6815 0001:000054E5  6820 0001:000054F0
+  6822 0001:000054F9  6823 0001:00005506  6827 0001:00005524  6829 0001:00005532
+  6834 0001:00005536  6836 0001:00005542  6838 0001:00005544  6844 0001:00005548
+  6846 0001:00005551  6847 0001:0000555A  6849 0001:0000555F  6852 0001:00005567
+  6855 0001:00005578  6856 0001:0000557D  6859 0001:0000558B  6860 0001:00005592
+  6863 0001:0000559A  6865 0001:000055A1  6867 0001:000055B3  6869 0001:000055BB
+  6871 0001:000055C0  6874 0001:000055CF  6876 0001:000055D6  6879 0001:000055DD
+  6880 0001:000055E6  6882 0001:000055ED  6885 0001:00005604  6895 0001:00005611
+  6897 0001:00005618  6905 0001:00005624  6907 0001:00005632  6908 0001:0000563B
+  6910 0001:00005640  6913 0001:0000564D  6916 0001:0000565F  6919 0001:00005667
+  6922 0001:0000567A  6923 0001:00005685  6926 0001:0000568B  6927 0001:00005690
+  6931 0001:0000569E  6933 0001:000056A6  6934 0001:000056AF  6936 0001:000056B8
+  6939 0001:000056CA  6942 0001:000056D7  6943 0001:000056DD  6944 0001:000056E2
+  6946 0001:000056E5  6948 0001:000056F1  6952 0001:000056FB  6958 0001:00005702
+  6959 0001:00005707  6962 0001:00005715  6970 0001:0000572F  6972 0001:00005738
+  6975 0001:0000574D  6978 0001:0000575A  6983 0001:00005762  6985 0001:00005767
+  6989 0001:00005770  6990 0001:00005777  6992 0001:00005780  6993 0001:00005784
+  6994 0001:0000578F  6999 0001:00005798  7001 0001:0000579B  7004 0001:000057A2
+  7007 0001:000057A7  7011 0001:000057AE  7019 0001:000057B0  7021 0001:000057C1
+  7026 0001:000057D0  7028 0001:000057D8  7030 0001:000057E6  7033 0001:000057F6
+  7037 0001:00005802  7042 0001:00005809  7043 0001:0000581D  7046 0001:00005822
+  7023 0001:0000582B  7048 0001:00005833  7059 0001:0000583C  7063 0001:0000584B
+  7064 0001:00005850  7066 0001:0000585E  7069 0001:00005869  7070 0001:00005872
+  7072 0001:00005876  7074 0001:0000587D  7077 0001:00005885  7080 0001:0000588D
+  7084 0001:0000589C  7086 0001:000058A9  7089 0001:000058B9  7093 0001:000058C4
+  7099 0001:000058CB  7100 0001:000058DD  7103 0001:000058E2  7070 0001:000058EB
+  7106 0001:000058EF  7067 0001:000058F2  7109 0001:000058FE  7112 0001:00005906
+  7114 0001:00005916  7117 0001:00005928  7121 0001:00005933  7123 0001:00005938
+  7110 0001:0000593B  7127 0001:00005950  7129 0001:0000595D  7137 0001:00005964
+  7139 0001:00005967  7142 0001:0000596F  7143 0001:00005971  7146 0001:00005974
+  7147 0001:00005979  7152 0001:0000597C  7154 0001:0000597F  7155 0001:00005989
+  7165 0001:0000598C  7166 0001:000059AA  7167 0001:000059C8  7168 0001:000059E6
+  7169 0001:00005A04  7171 0001:00005A22  7172 0001:00005A40  7173 0001:00005A5E
+  7174 0001:00005A7C  7175 0001:00005A9A  7177 0001:00005AB8  7178 0001:00005AD6
+  7179 0001:00005AF4  7180 0001:00005B12  7181 0001:00005B30  7183 0001:00005B4E
+  7184 0001:00005B6C  7185 0001:00005B8A  7186 0001:00005BA8  7187 0001:00005BC6
+  7189 0001:00005BE4  7190 0001:00005C02  7191 0001:00005C20  7192 0001:00005C3E
+  7193 0001:00005C5C  7195 0001:00005C7A  7196 0001:00005C98  7197 0001:00005CB6
+  7198 0001:00005CD4  7199 0001:00005CF2  7201 0001:00005D10  7202 0001:00005D2E
+  7203 0001:00005D4C  7204 0001:00005D6A  7205 0001:00005D88  7207 0001:00005DA6
+  7208 0001:00005DC4  7209 0001:00005DE2  7210 0001:00005E00  7211 0001:00005E1E
+  7213 0001:00005E3C  7214 0001:00005E41  7226 0001:00005E44  7228 0001:00005E79
+  7230 0001:00005E91  7232 0001:00005E99  7234 0001:00005EA1  7236 0001:00005EB8
+  7239 0001:00005EC8  7240 0001:00005ED2  7242 0001:00005EDF  7243 0001:00005EF2
+  7246 0001:00005EFD  7247 0001:00005F10  7249 0001:00005F16  7253 0001:00005F72
+  7254 0001:00005F85  7257 0001:00005F91  7259 0001:00005F9E  7260 0001:00005FB1
+  7263 0001:00005FBF  7265 0001:00005FC5  7266 0001:00005FD8  7269 0001:00005FE4
+  7270 0001:00005FF7  7272 0001:00006003  7274 0001:00006009  7275 0001:0000601C
+  7276 0001:00006028  7277 0001:0000603B  7280 0001:0000604C  7282 0001:00006052
+  7283 0001:00006065  7284 0001:00006071  7285 0001:00006084  7291 0001:00006097
+  7294 0001:000060AA  7297 0001:000060B8  7300 0001:000060C3  7301 0001:000060C6
+  7302 0001:000060C7  7303 0001:000060CA  7305 0001:000060CB  7308 0001:000060CE
+  7315 0001:000060E3  7316 0001:000060F3  7319 0001:00006104  7320 0001:00006114
+  7370 0001:000062AC  7372 0001:000062B5  7374 0001:000062BA  7375 0001:000062BF
+  7378 0001:000062C7  7380 0001:000062CF  7381 0001:000062D1  7386 0001:000062D6
+  7399 0001:0000630D  7401 0001:0000631B  7403 0001:00006321  7406 0001:00006327
+  7407 0001:0000632D  7408 0001:00006334  7409 0001:00006339  7411 0001:00006343
+  7413 0001:0000634B  7414 0001:00006356  7416 0001:0000635E  7418 0001:00006363
+  7421 0001:00006368  7422 0001:0000636F  7375 0001:00006371  7426 0001:00006379
+  7429 0001:0000637F  7430 0001:00006387  7432 0001:0000638B  7436 0001:00006399
+  7438 0001:000063A7  7439 0001:000063B4  7448 0001:000063BB  7450 0001:000063C8
+  7451 0001:000063CA  7453 0001:000063CE  7454 0001:000063D4  7455 0001:000063D8
+  7456 0001:000063DA  7460 0001:000063DF  7461 0001:000063E7  7462 0001:000063EB
+  7463 0001:000063ED  7465 0001:000063F2  7467 0001:000063F7  7471 0001:00006404
+  7480 0001:0000640F  7481 0001:00006416  7483 0001:00006425  7477 0001:0000642C
+  7488 0001:0000643B  7489 0001:00006444  7491 0001:0000645C  7492 0001:00006466
+  7499 0001:0000646C  7504 0001:00006472  7506 0001:0000647A  7510 0001:0000647F
+  7511 0001:00006484  7513 0001:0000648B  7515 0001:000064B0  7516 0001:000064B7
+  7590 0001:000064BC  7595 0001:000064C2  7597 0001:000064CA  7601 0001:000064CF
+  7602 0001:000064D4  7604 0001:000064DB  7606 0001:00006500  7607 0001:00006507
+  7698 0001:0000650C  7700 0001:0000650E  7702 0001:00006518  7703 0001:0000651A
+  7716 0001:0000651D  7722 0001:00006522  7724 0001:00006525  7726 0001:0000652E
+  7728 0001:00006536  7729 0001:00006538  7733 0001:0000653B  7736 0001:0000653E
+  7737 0001:00006543  7739 0001:00006549  7741 0001:0000654E  7742 0001:00006550
+  7744 0001:00006553  7737 0001:00006554  7747 0001:00006557  7748 0001:0000655C
+  7750 0001:00006560  7755 0001:00006564  7756 0001:00006569  7758 0001:0000656F
+  7760 0001:00006575  7761 0001:00006577  7763 0001:0000657A  7756 0001:0000657D
+  7766 0001:00006580  7767 0001:00006586  7769 0001:0000658A  7771 0001:0000658C
+  7823 0001:00006590  7825 0001:0000659D  7826 0001:0000659F  7829 0001:000065A8
+  7830 0001:000065AB  7834 0001:000065B0  7835 0001:000065B5  7836 0001:000065BC
+  7838 0001:000065D2  7839 0001:000065D4  7842 0001:000065D6  7844 0001:000065DB
+  7860 0001:000065E6  7861 0001:000065E9  7863 0001:000065FF  7864 0001:00006601
+  7867 0001:00006603  7868 0001:00006608  7869 0001:0000661E  7871 0001:00006620
+  7886 0001:0000662C  7888 0001:00006637  7890 0001:00006643  7893 0001:0000664A
+  7894 0001:00006655  7896 0001:00006665  7901 0001:00006677  7904 0001:00006683
+  7911 0001:00006695  7916 0001:000066A3  7919 0001:000066AD  7928 0001:000066CE
+  7931 0001:000066D9  7933 0001:000066DB  7935 0001:000066E6  7968 0001:000066EC
+  7969 0001:0000670A  7970 0001:00006711  7978 0001:00006718  7981 0001:0000671D
+  7990 0001:00006731  7979 0001:00006732  7992 0001:0000673A  7993 0001:00006742
+  7995 0001:0000674D  7998 0001:0000674F  8006 0001:00006758  8010 0001:00006768
+  7898 0001:00006771  8012 0001:0000677D  8015 0001:00006784  8018 0001:000067A9
+  8019 0001:000067BB  8021 0001:000067CD  8023 0001:000067D5  8026 0001:000067DC
+  8029 0001:000067E7  8030 0001:000067F0  8032 0001:000067F8  8034 0001:000067FF
+  8037 0001:0000680B  8039 0001:00006818  8042 0001:00006820  8046 0001:0000682E
+  8052 0001:0000684B  8054 0001:00006857  8057 0001:00006861  8059 0001:00006874
+  8064 0001:00006892  8071 0001:0000689B  8072 0001:000068AE  8083 0001:000068B6
+  8087 0001:000068C4  8030 0001:000068CD  8090 0001:000068D5  8027 0001:000068D8
+  8093 0001:000068E4  8096 0001:000068F1  8099 0001:000068FC  8105 0001:00006918
+  8107 0001:00006924  8110 0001:0000692A  8112 0001:0000693C  8117 0001:0000695A
+  8124 0001:00006966  8125 0001:00006973  8129 0001:00006979  8097 0001:0000697C
+  8132 0001:00006988  8135 0001:00006995  8136 0001:0000699C  8138 0001:000069A4
+  8140 0001:000069B9  8142 0001:000069D9  8144 0001:000069EB  8145 0001:000069F5
+  8146 0001:000069FE  8148 0001:00006A06  8150 0001:00006A0D  8154 0001:00006A1A
+  8157 0001:00006A28  8160 0001:00006A31  8162 0001:00006A3A  8163 0001:00006A4A
+  8166 0001:00006A51  8168 0001:00006A5A  8169 0001:00006A5D  8170 0001:00006A5E
+  8171 0001:00006A61  8172 0001:00006A62  8173 0001:00006A6F  8174 0001:00006A72
+  8175 0001:00006A73  8176 0001:00006A76  8177 0001:00006A77  8178 0001:00006A7A
+  8179 0001:00006A7B  8180 0001:00006A88  8181 0001:00006A98  8185 0001:00006AA1
+  8186 0001:00006AA4  8187 0001:00006AA5  8188 0001:00006AA8  8191 0001:00006AA9
+  8195 0001:00006AB7  8200 0001:00006AC9  8205 0001:00006ADB  8224 0001:00006AED
+  8231 0001:00006AF6  8232 0001:00006AF9  8233 0001:00006AFA  8234 0001:00006AFD
+  8235 0001:00006AFE  8236 0001:00006B01  8237 0001:00006B02  8239 0001:00006B0A
+  8150 0001:00006B0E  8240 0001:00006B17  8241 0001:00006B23  8140 0001:00006B34
+  8243 0001:00006B40  8246 0001:00006B49  8248 0001:00006B52  8249 0001:00006B55
+  8250 0001:00006B56  8251 0001:00006B59  8252 0001:00006B5A  8253 0001:00006B5D
+  8254 0001:00006B5E  8255 0001:00006B61  8258 0001:00006B62  8260 0001:00006B72
+  8262 0001:00006B86  8264 0001:00006B8A  8265 0001:00006B8D  8266 0001:00006B8E
+  8267 0001:00006B91  8269 0001:00006B92  8272 0001:00006B9A  8274 0001:00006BA4
+  8260 0001:00006BA8  8278 0001:00006BAB  8280 0001:00006BBB  8290 0001:00006BD2
+  8291 0001:00006BE2  8296 0001:00006BF3  8507 0001:00006C90  8509 0001:00006C9B
+  8511 0001:00006CA9  8513 0001:00006CAE  8515 0001:00006CB3  8519 0001:00006CC0
+  8520 0001:00006CC6  8522 0001:00006CCD  8525 0001:00006CD4  8526 0001:00006CDE
+  8529 0001:00006CE6  8531 0001:00006CED  8533 0001:00006CF5  8535 0001:00006CFD
+  8538 0001:00006D05  8540 0001:00006D13  8543 0001:00006D2A  8546 0001:00006D34
+  8547 0001:00006D40  8548 0001:00006D49  8553 0001:00006D54  8554 0001:00006D5B
+  8557 0001:00006D62  8558 0001:00006D6B  8564 0001:00006D71  8567 0001:00006D77
+  8526 0001:00006D80  8570 0001:00006D88  8516 0001:00006D91  8573 0001:00006D9F
+  8575 0001:00006DA7  8577 0001:00006DAE  8578 0001:00006DB8  8577 0001:00006DBE
+  8580 0001:00006DC1  8581 0001:00006DC6  8584 0001:00006DCD  8585 0001:00006DD3
+  8586 0001:00006DD5  8587 0001:00006DD8  8589 0001:00006DE4  8592 0001:00006DF0
+  8582 0001:00006DF3  8594 0001:00006DFA  8596 0001:00006E01  8597 0001:00006E0D
+  8661 0001:00006E14  8663 0001:00006E1E  8675 0001:00006E20  8681 0001:00006E29
+  8682 0001:00006E39  8684 0001:00006E49  8688 0001:00006E4B  8698 0001:00006E54
+  8699 0001:00006E64  8702 0001:00006E74  8705 0001:00006E76  8712 0001:00006E8A
+  8713 0001:00006E9A  8715 0001:00006EAA  8719 0001:00006EAC  8720 0001:00006EAE
+  8728 0001:00007124  8748 0001:0000712A  8749 0001:0000712C  8756 0001:00007133
+  8758 0001:00007138  8766 0001:0000713E  8767 0001:00007144  8769 0001:0000714A
+  8770 0001:00007166  8769 0001:0000716F  8773 0001:00007172  8774 0001:00007177
+  8776 0001:0000717E  8780 0001:0000719D  8781 0001:000071A4  8783 0001:000071A9
+  8786 0001:000071B6  8787 0001:000071BB  8789 0001:000071C0  8791 0001:000071CB
+  8793 0001:000071D6  8797 0001:000071FB  8798 0001:00007203  8799 0001:00007208
+  8800 0001:00007210  8802 0001:00007215  8805 0001:00007223  8809 0001:00007240
+  8813 0001:0000725B  8820 0001:00007262  8821 0001:00007266  8749 0001:0000726A
+  8837 0001:00007273  8838 0001:0000727D  8840 0001:00007287  8842 0001:00007291
+  8843 0001:00007293  8844 0001:00007295  8845 0001:00007298  8840 0001:0000729B
+  8847 0001:0000729E  8848 0001:000072A8  8853 0001:000072B2  8855 0001:000072CC
+  8857 0001:000072D8  8859 0001:000072DA  8864 0001:000072F9  8857 0001:000072FA
+  8866 0001:00007302  8868 0001:00007307  8878 0001:0000730C  8879 0001:0000730F
+  8883 0001:00007318  8949 0001:00007333  8950 0001:0000733D  8951 0001:00007347
+  8957 0001:00007351  8960 0001:0000735B  8961 0001:00007365  8968 0001:0000736F
+  9033 0001:00007376  9035 0001:00007380  9037 0001:0000738A  9045 0001:00007391
+  9100 0001:00007394  9102 0001:00007397  9109 0001:000073A0  9112 0001:000073A9
+  9154 0001:000073B0  9156 0001:000073B9  9157 0001:000073CB  9168 0001:000073D2
+  9193 0001:000073D4  9196 0001:000073F2
+
+Line numbers for FastMM4(FastMM4.pas) segment .itext
+
+  9170 0002:000000AC  9177 0002:000000B8  9181 0002:000000BD  9186 0002:000000C6
+  9191 0002:000000CB
+
+Line numbers for BorlndMM(BorlndMM.dpr) segment .text
+
+    87 0001:00007414    89 0001:00007416    97 0001:00007418    99 0001:0000741A
+   104 0001:0000741C   109 0001:00007420   110 0001:00007425   115 0001:00007428
+   116 0001:0000742D
+
+Line numbers for BorlndMM(BorlndMM.dpr) segment .itext
+
+   178 0002:000000D0   179 0002:000000E0   180 0002:000000E8
+
+Bound resource files
+
+BorlndMM.RES
+BorlndMM.drf
+
+
+Program entry point at 0002:000000D0

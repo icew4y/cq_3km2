@@ -1,0 +1,17 @@
+For Delphi 5, 6, 7, 2005, 2006:
+
+ - open bsfd*.dpk file
+ - install package
+
+For C++Builder 5, 6:
+
+ - open bsfcb*.bpk file
+ - install package
+
+For C++Builder 2006:
+
+ - open bsfcb2006.bdsproj file
+ - install package
+
+See bsfsb.zip with SkinBuilder sources.
+

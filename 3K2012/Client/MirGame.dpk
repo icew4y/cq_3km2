@@ -1,0 +1,51 @@
+package MirGame;
+
+{$R *.res}
+{$R 'DWinCtl.dcr'}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$IMPLICITBUILD ON}
+
+requires
+  vcl,
+  rtl,
+  DelphiX_for2007,
+  VclSmp,
+  vclx,
+  designide,
+  xmlrtl,
+  vclactnband;
+
+contains
+  WIL in 'WIL.pas',
+  DWinCtl in 'DWinCtl.pas',
+  uDScrollBox in 'uDScrollBox.pas',
+  uDScrollBar in 'uDScrollBar.pas',
+  uDTreeView in 'uDTreeView.pas',
+  uDListView in 'uDListView.pas',
+  uDLabel in 'uDLabel.pas',
+  uDCheckBox in 'uDCheckBox.pas',
+  uDPopupMenu in 'uDPopupMenu.pas',
+  uDComboBox in 'uDComboBox.pas',
+  uDChatMemo in 'uDChatMemo.pas';
+
+end.

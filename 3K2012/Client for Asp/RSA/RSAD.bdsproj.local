@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010-09-07 02:08:58.109.pas,E:\个人重要资料(勿删)\Administrator\My Documents\RAD Studio\Projects\Unit1.pas=Z:\系统补丁\清客\Mir200\Client\RSA\uMain.pas</Transaction>
+    <Transaction>2010-09-07 02:08:58.109.dfm,E:\个人重要资料(勿删)\Administrator\My Documents\RAD Studio\Projects\Unit1.dfm=Z:\系统补丁\清客\Mir200\Client\RSA\uMain.dfm</Transaction>
+    <Transaction>2010-09-07 02:09:08.984.bdsproj,E:\个人重要资料(勿删)\Administrator\My Documents\RAD Studio\Projects\Project1.bdsproj=Z:\系统补丁\清客\Mir200\Client\RSA\RSAD.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,143 @@
+What's new in version 5.0
+
+Short description of new features:
+
+  + At design-time grid can show such components as DataSource, DataSet, 
+    DataDriver in its the bottom left part. These components can be selected in 
+    object inspector by mouse clicking. It allows quickly to find and 
+    select components which grid is connected to.
+
+  + New mode - RowPanel. In this mode grid allows to show out cells of record 
+    one under another and change height of every cell separately.
+
+  + Grid can have special panel of detail information for record. It is allowed
+    to put any control from component palette on this panel. At run time, panel is
+    hidden and user can open it by pressing on a '+' sign which is shown at the 
+    begining of every row.
+
+  + Grid can scroll data smoothly and by small steps of one pixel size.
+    Grid can scroll data smoothly vertically and horizontally.
+
+  + Hot track. Grid can highlight a cell or a row under mouse cursor.
+
+  + Grid can show vertical lines in gradient mode between data rows and bottom 
+    part of the grid.
+  
+  + In mode Column.AlwaysShowEditButton grid shows EditButtons in shadow mode.
+    It doesn't irritate eyes by big amount of edit buttons in the grid.
+
+Detail description of new features:
+
++----
+
+At design-time grid can show such components as DataSource, DataSet, 
+DataDriver in its the bottom left part. These components can be selected in 
+object inspector by mouse clicking. It allows quickly to find and 
+select components which grid is connected to. Feature of showing components
+is available only for components which is placed on a same Form as a grid is
+placed.
+
++----
+
+New mode - RowPanel. In this mode grid allows to show out cells of record 
+one under another and change height of every cell separately.
+Set RowPanel property to True to activate this mode.
+
+When user change hight or width of cells, the hight or width of the adjacent
+cells are also changed. To change size of individual cell press Shift key 
+in time of changing.
+
+To move cell to other position, push left mouse key above title cell and drag
+cell to requaried position.
+
++----
+
+The new RowDetailPanel property is added.
+Use subpropertioes of this property to adjust additional panel of detail 
+information for grid rows.
+
+At run time, use '+' and Ctrl-Down keys to open panel.
+Use Ctrl-Up key to move from panel to the grid row.
+Use '*' key to show/hide panel.
+
+Subpropertioes of RowDetailPanel property:
+published
+  Active: Boolean This property activates and show detail panel. On activation
+                  the '+' sign appeares at the start of every row. At design-time
+                  panel is allows in opened state. You can drop any control from
+                  components palette on the panel.
+
+  Width: Integer  Width of panel.
+  Height: Integer Height of panel.
+  ActiveControl: TWinControl Assign control which will get focus when the panel is 
+                  opened using Ctrl-Down keyboard.
+  BevelEdges: TBevelEdges 
+  BevelInner: TBevelCut
+  BevelOuter: TBevelCut
+  BevelKind: TBevelKind
+  BevelWidth: TBevelWidth these properties controls the bevel around panel.
+  BorderStyle: TBorderStyle    Style of panel border.
+  Color: TColor read GetColor  Color of panel background.
+  ParentColor: Boolean         Determine if neet to use grid color as a 
+                               background of panel.
+
+public
+  Visible: Boolean Determines whether the panel appears onscreen.
+
+Grid have new event - OnCheckRowHaveDetailPanel. Write this event to 
+permit/deny panel showing for required row.
+
+Grid have new events - OnRowDetailPanelHide è OnRowDetailPanelShow.
+Write these events to execute specific action before panel open and 
+after panel close.
+
++-----
+New subpropertioes in HorzScrollBar and VertScrollBar properies.
+  Tracking: Boolean      now by default - True
+  SmoothStep: Boolean    Specifies whether the scroll bar is smooth or segmented. 
+                         When scroll bar is smooth it scroll grid by one or several 
+                         pixel for one step.
+
++-----
+New value dghHotTrack is added to TOptionsEh type (OptionsEh property). If this 
+value is included in OptionsEh then grid will highlight a cell or a row under 
+mouse cursor.
+
+
++-----
+
+In mode Column.AlwaysShowEditButton grid shows EditButtons in shadow mode.
+It doesn't irritate eyes by big amount of edit buttons in the grid.
+
++-----
+
+The shape of sizing line is changed. Now it is a thin red line with triangle
+in the end parts.
+
++-----
+
+New values cbsCustomUpDown, cbsCustomDropDown are added in properties 
+Column.ButtonStyle: TColumnButtonStyleEh and  
+TDBEditEh.EditButton.Style: TEditButtonEh.
+New values is a new types of edit buttons for DropDown and UpDown style.
+These buttons are useful when EditContol have several edit buttons.
+It allows to show all buttons in unified style.
+
++-----
+
+Type of border of EditControls, when Flat is True, is changed.
+When ThemeServices.ThemesEnabled is true either, the border is drawn using 
+standart Windows methods.
+To switch to old style of drawing set global variable OldStyleFlatBorder to 
+True.
+
++-----
+
+New value dghExtendVertLines is added in TOptionsEh type (OptionsEh property).
+When this value is included in OptionsEh, grid show vertial lines in gradient 
+mode between data rows and bottom part of the grid as extension of column 
+divided lines.
+
++-----
+
+See DEMOS\DEMO5_0 for view new features of version 5.

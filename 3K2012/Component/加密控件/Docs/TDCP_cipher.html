@@ -1,0 +1,293 @@
+<html>
+<head><title>DCPcrypt v2 - TDCP_cipher</title></head>
+<body>
+<hr width="50%">
+<center><h1>The DCPcrypt Component Library v2</h1></center>
+<center>David Barton (<a href="mailto:davebarton@bigfoot.com">davebarton@bigfoot.com</a>)</center>
+<hr width="50%">
+<h2>TDCP_cipher</h2>
+<p>The TDCP_cipher component provides the basis of all of the encryption components in the DCPcrypt library. Stream ciphers are directly descended from this class by overriding the Encrypt and Decrypt procedures, where as block ciphers are descended from the <a href="TDCP_blockcipher.html">TDCP_blockcipher</a> class which its self is descended from the TDCP_cipher class.
+<pre><b>type</b>
+  TDCP_cipher= <b>class</b>(TComponent)
+  <b>public</b>
+    <b>property</b> <a href="#Initialized">Initialized</a>: boolean;
+    <b>class function</b> <a href="#GetId">GetId</a>: longint; <b>virtual; abstract;</b>
+    <b>class function</b> <a href="#GetAlgorithm">GetAlgorithm</a>: string; <b>virtual; abstract;</b>
+    <b>class function</b> <a href="#GetMaxKeySize">GetMaxKeySize</a>: longint; <b>virtual; abstract;</b>
+    <b>class function</b> <a href="#SelfTest">SelfTest</a>: boolean; <b>virtual; abstract;</b>
+    <b>procedure</b> <a href="#Init">Init</a>(<b>const</b> Key; Size: longint; InitVector: pointer); <b>virtual;</b>
+    <b>procedure</b> <a href="#InitStr">InitStr</a>(<b>const</b> Key: <b>string</b>);
+    <b>procedure</b> <a href="#Burn">Burn</a>; <b>virtual;</b>
+    <b>procedure</b> <a href="#Reset">Reset</a>; <b>virtual; abstract;</b>
+    <b>procedure</b> <a href="#Encrypt">Encrypt</a>(<b>const</b> Indata; <b>var</b> Outdata; Size: longint); <b>virtual; abstract;</b>
+    <b>procedure</b> <a href="#Decrypt">Decrypt</a>(<b>const</b> Indata; <b>var</b> Outdata; Size: longint); <b>virtual; abstract;</b>
+    <b>function</b> <a href="#EncryptStream">EncryptStream</a>(InStream, OutStream: TStream; Size: longint): longint;
+    <b>function</b> <a href="#DecryptStream">DecryptStream</a>(InStream, OutStream: TStream; Size: longint): longint;
+    <b>function</b> <a href="#EncryptString">EncryptString</a>(<b>const</b> Str: <b>string</b>): <b>string; virtual;</b>
+    <b>function</b> <a href="#DecryptString">DecryptString</a>(<b>const</b> Str: <b>string</b>): <b>string; virtual;</b>
+    <b>constructor</b> Create(AOwner: TComponent); <b>override;</b>
+    <b>destructor</b> Destroy; <b>override;</b>
+  <b>published</b>
+    <b>property</b> <a href="#GetId">Id</a>: longint;
+    <b>property</b> <a href="#GetAlgorithm">Algorithm</a>: <b>string;</b>
+    <b>property</b> <a href="#GetMaxKeySize">MaxKeySize</a>: longint;
+  <b>end;</b></pre>
+
+<hr>
+<a name="Initialized">
+<font size="+1"><b>property</b> Initialized: boolean;</font>
+<p>This property indicates whether or not key setup has been done for the cipher. If this is set to <i>false</i> then either the <a href="#Init">Init</a> or <a href="#InitStr">InitStr</a> procedures need to be called before data can be encrypted or decrypted.
+<pre>
+  ...
+  <b>if not</b> Cipher.Initialized <b>then</b>  <i><font color="0000FF">{ We forgot to initialize the cipher! }</font></i>
+    Cipher.InitStr('<i>Hello World</i>');
+  Cipher.Encrypt(SomeDataIn,SomeDataOut,<b>Sizeof</b>(SomeDataIn));
+  ...
+</pre>
+
+<hr>
+<a name="GetId">
+<font size="+1"><b>class function</b> GetId: longint;</font>
+<p>This function returns the Id number of the algorithm used by the cipher, each Id number is unique within DCPcrypt and as such can be used to identify which cipher should be used to encrypt/decrypt data. A component can be directly created from the Id number of the algorithm by using the <a href="Helper.html#DCPcipherfromid">DCPcipherfromid</a> function. As this function is a class function, it can be used without having to first create the component. For example;
+<pre>  Id:= TDCP_blowfish.GetId;</pre>
+<p>Will return the Id number of the Blowfish algorithm.
+<p>
+
+<hr>
+<a name="GetAlgorithm">
+<font size="+1"><b>class function</b> GetAlgorithm: <b>string;</b></font>
+<p>This function returns the name of the algorithm used by the cipher, for example the TDCP_blowfish component returns Blowfish. A component can be directly created from the algorithm name by using the <a href="Helper.html#DCPcipherfromname">DCPcipherfromname</a> function. As this function is a class function, it can be used without having to first create the component. For example;
+<pre>  Name:= TDCP_blowfish.GetAlgorithm;</pre>
+<p>Will return the algorithm name of the TDCP_blowfish component.
+<p>
+
+<hr>
+<a name="GetMaxKeySize">
+<font size="+1"><b>class function</b> GetMaxKeySize: longint;</font>
+<p>This functions returns the maximum key size you can pass to a cipher in <strong>BITS</strong>. As this function is a class function, it can be used without having to first create the component. For example;
+<pre>  MaxKeySize:= TDCP_blowfish.GetMaxKeySize;</pre>
+<p>Will return the maximum key size which can be used with the TDCP_blowfish component.
+<p>
+
+<hr>
+<a name="SelfTest">
+<font size="+1"><b>class function</b> SelfTest: boolean;</font>
+<p>This function performs a self test on the cipher implementation by encrypting test values for which the results that should be produced are known. This does not need to be called regularly, it's primary purpose is to ensure that the implementation works correctly with different compilers. As this function is a class function, it can be used without having to first create the component. For example;
+<pre>  Result:= TDCP_blowfish.SelfTest;</pre>
+<p>Will return the test result of the TDCP_blowfish component.
+<p>
+
+<hr>
+<a name="Init">
+<font size="+1"><b>procedure</b> Init(<b>const</b> Key; Size: longint; InitVector: pointer);</font>
+<p>This procedure performs the cipher key setup for the algorithm. It is necessary to call this function (or <a href="#InitStr">InitStr</a>) before any of the encryption or decryption routines are used. The Size parameter specifies the size of the key passed in <strong>BITS</strong>. The InitVector parameter specifies an initialization vector for the cipher of size equal to the block size of the cipher. If this parameter is NIL then an initialization vector is generated automatically from the key.
+<pre>
+  <b>const</b>
+    Key: <b>array</b>[0..7] <b>of</b> byte= ($12,$34,$56,$78,$9A,$BC,$DE,$F0);
+  <b>var</b>
+    Cipher: TDCP_blowfish;
+  <b>begin</b>
+    Cipher:= TDCP_blowfish.Create(<b>nil</b>);
+    Cipher.Init(Key,Sizeof(Key) * 8 <i><font color="0000FF">{ Size in bits! }</font></i>,<b>nil</b>);
+      <i><font color="0000FF">{ Do encryption/decryption stuff }</font></i>
+    Cipher.Burn;  <i><font color="0000FF">{ Erase key information }</font></i>
+    Cipher.Free;
+  <b>end;</b>
+</pre>
+<p>For initializing the cipher with a string use <a href="#InitStr">InitStr</a> instead of Init.
+<p>
+
+<hr>
+<a name="InitStr">
+<font size="+1"><b>procedure</b> InitStr(<b>const</b> Key: <b>string</b>);</font>
+<p>This procedure performs the cipher key setup for the algorithm. The key string is hashed using the SHA1 algorithm to produce a 160bit digest which is then used as the key material to initialize the cipher. Note: When using a passphrase as the key string the chances are that there isn't 160bits of entropy in it and as a result the key produced is actually far weaker than 160bits. When using this procedure to initialize the cipher, an initialization vector is produced in the same way as <a href="#Init">Init</a> does when passed <b>nil</b> for the InitVector parameter.
+<pre>
+  <b>const</b>
+    Key= '<i>Hello World!</i>';
+  <b>var</b>
+    Cipher: TDCP_blowfish;
+  <b>begin</b>
+    Cipher:= TDCP_blowfish.Create(<b>nil</b>);
+    Cipher.InitStr(Key);
+      <i><font color="0000FF">{ Do encryption/decryption stuff }</font></i>
+    Cipher.Burn;  <i><font color="0000FF">{ Erase key information }</font></i>
+    Cipher.Free;
+  <b>end;</b>
+</pre>
+<p>For initializing the cipher with raw data use <a href="#Init">Init</a> instead of InitStr.
+<p>
+
+<hr>
+<a name="Burn">
+<font size="+1"><b>procedure</b> Burn;</font>
+<p>This procedure clears all sensitive key data stored within the cipher component. This should be called as soon as all encryption/decryption has been performed. After Burn has been called you must call either <a href="#Init">Init</a> or <a href="#InitStr">InitStr</a> to reinitialize the cipher before any further encryptions/decryptions can be performed.
+<pre>
+  ...
+  <b>if</b> Cipher.Initialized <b>then</b>
+    Cipher.Burn;
+  ...
+</pre>
+<p>
+
+<hr>
+<a name="Reset">
+<font size="+1"><b>procedure</b> Reset;</font>
+<p>This procedure resets the chaining information stored within the component. Depending on the cipher and the mode of encryption used it is sometimes necessary to reset the chaining information after every block of encrypts and decrypts. For example, the following will not work;
+<pre>
+  ...
+  Cipher.Reset;
+  Str1:= Cipher.EncryptString(Edit1.Text);
+  Str2:= Cipher.EncryptString(Edit2.Text);
+  Str3:= Cipher.EncryptString(Edit3.Text);
+  Cipher.Reset; <i><font color="0000FF">{ This resets the chaining information to start of Str1 }</font></i>
+  Label2.Text:= Cipher.DecryptString(Str2);
+    <i><font color="0000FF">{ Chaining information at Str2 doesn't equal chaining information at Str1
+      so this fails }</font></i>
+  Label3.Text:= Cipher.DecryptString(Str3);
+  Cipher.Reset;
+  ...
+</pre>
+<p>There are two ways to solve this problem, by making the chaining information at Str1 equal to that at Str2 (by use of another reset), or by decrypting Str1 as well.
+<p>Making the chaining information at Str1 equal to that at Str2;
+<pre>
+  ...
+  Cipher.Reset;
+  Str1:= Cipher.EncryptString(Edit1.Text);
+  Cipher.Reset;
+  Str2:= Cipher.EncryptString(Edit2.Text);
+  Str3:= Cipher.EncryptString(Edit3.Text);
+  Cipher.Reset; <i><font color="0000FF">{ This resets the chaining information to start of Str1 & Str2 }</font></i>
+  Label2.Text:= Cipher.DecryptString(Str2);
+    <i><font color="0000FF">{ Chaining information at Str2 does equal chaining information at Str1
+      so this works }</font></i>
+  Label3.Text:= Cipher.DecryptString(Str3);
+  Cipher.Reset;
+  ...
+</pre>
+<p>Decrypting Str1 as well;
+<pre>
+  ...
+  Cipher.Reset;
+  Str1:= Cipher.EncryptString(Edit1.Text);
+  Str2:= Cipher.EncryptString(Edit2.Text);
+  Str3:= Cipher.EncryptString(Edit3.Text);
+  Cipher.Reset; <i><font color="0000FF">{ This resets the chaining information to start of Str1 }</font></i>
+  Label1.Text:= Cipher.DecryptString(Str1);
+  Label2.Text:= Cipher.DecryptString(Str2);
+  Label3.Text:= Cipher.DecryptString(Str3);
+  Cipher.Reset;
+  ...
+</pre>
+
+<hr>
+<a name="Encrypt">
+<font size="+1"><b>procedure</b> Encrypt(<b>const</b> Indata; <b>var</b> Outdata; Size: longint);</font>
+<p>The encrypt procedure encrypts a block of data of Size bytes in length and returns it in Outdata.
+<pre>
+  <b>const</b>
+    Indata: <b>array</b>[0..7] <b>of</b> byte= ($01,$23,$45,$67,$89,$AB,$CD,$EF);
+  <b>var</b>
+    Data: <b>array</b>[0..7] <b>of</b> byte;
+    Cipher: TDCP_blowfish;
+  <b>begin</b>
+    Cipher:= TDCP_blowfish.Create(<b>nil</b>);
+    Cipher.InitStr('Hello World');
+    Cipher.Encrypt(Indata,Data,<b>Sizeof</b>(Indata)); 
+      <i><font color="0000FF">{ Data now contains the encrypted version of Indata }</font></i>
+    Cipher.Burn;
+    Cipher.Free;
+  <b>end;</b>
+</pre>
+
+<hr>
+<a name="Decrypt">
+<font size="+1"><b>procedure</b> Decrypt(<b>const</b> Indata; <b>var</b> Outdata; Size: longint);</font>
+<p>The decrypt procedure decrypts a block of data of Size bytes in length and returns it in Outdata.
+<pre>
+  <b>const</b>
+    Indata: <b>array</b>[0..7] <b>of</b> byte= ($48,$A9,$69,$42,$01,$24,$FF,$F7);
+  <b>var</b>
+    Data: <b>array</b>[0..7] <b>of</b> byte;
+    Cipher: TDCP_blowfish;
+  <b>begin</b>
+    Cipher:= TDCP_blowfish.Create(<b>nil</b>);
+    Cipher.InitStr('Hello World');
+    Cipher.Decrypt(Indata,Data,<b>Sizeof</b>(Indata)); 
+      <i><font color="0000FF">{ Data now contains the decrypted version of Indata }</font></i>
+    Cipher.Burn;
+    Cipher.Free;
+  <b>end;</b>
+</pre>
+
+<hr>
+<a name="EncryptStream">
+<font size="+1"><b>function</b> EncryptStream(InStream, OutStream: TStream; Size: longint): longint;</font>
+<p>This procedure encrypts Size bytes from the InStream to the OutStream using the <a href="#Encrypt">Encrypt</a> method. It returns the number of bytes encrypted.
+<pre>
+  <b>var</b>
+    Source, Dest: TFileStream;
+    Cipher: TDCP_blowfish;
+  <b>begin</b>
+    Cipher:= TDCP_blowfish.Create(<b>nil</b>);
+    Source:= TFileStream.Create('ATestFile.dat',fmOpenRead);
+    Dest:= TFileStream.Create('OutputFile.dat',fmCreate);
+    Cipher.InitStr('Hello World');
+    Cipher.EncryptStream(Source,Dest,Source.Size);
+    Cipher.Burn;
+    Cipher.Free;
+    Source.Free;
+    Dest.Free;
+  <b>end;</b>
+</pre>
+
+<hr>
+<a name="DecryptStream">
+<font size="+1"><b>function</b> DecryptStream(InStream, OutStream: TStream; Size: longint): longint;</font>
+<p>This procedure decrypts Size bytes from the InStream to the OutStream using the <a href="#Decrypt">Decrypt</a> method. It returns the number of bytes decrypted.
+<pre>
+  <b>var</b>
+    Source, Dest: TFileStream;
+    Cipher: TDCP_blowfish;
+  <b>begin</b>
+    Cipher:= TDCP_blowfish.Create(<b>nil</b>);
+    Source:= TFileStream.Create('OutputFile.dat',fmOpenRead);
+    Dest:= TFileStream.Create('ATestFile.dat',fmCreate);
+    Cipher.InitStr('Hello World');
+    Cipher.DecryptStream(Source,Dest,Source.Size);
+    Cipher.Burn;
+    Cipher.Free;
+    Source.Free;
+    Dest.Free;
+  <b>end;</b>
+</pre>
+
+<hr>
+<a name="EncryptString">
+<font size="+1"><b>function</b> EncryptString(<b>const</b> Str: <b>string</b>): <b>string</b>;</font>
+<p>This procedure encrypts the string passed and then <a href="Helper.html#Base64Encode">Base64</a> encoded to ensure that there are no non-printable characters. When using a block cipher to encrypt a string the mode specified in <a href="TDCP_blockcipher.html#CipherMode">CipherMode</a> is used. Since it is likely that a chaining mode will be used to encrypt the string you cannot encrypt and then immediately decrypt, you must call <a href="#Reset">Reset</a> first. For example the following will not work;
+<pre>
+  ...
+  s:= Cipher.EncryptString('A nice string');
+  t:= Cipher.DecryptString(s);
+  ...
+</pre>
+<p>To get this to work we need to use Reset.
+<pre>
+  ...
+  Cipher.Reset;
+  s:= Cipher.EncryptString('A nice string');
+  Cipher.Reset;
+  t:= Cipher.DecryptString(s);
+  ...
+</pre>
+
+<hr>
+<a name="DecryptString">
+<font size="+1"><b>function</b> DecryptString(<b>const</b> Str: <b>string</b>): <b>string</b>;</font>
+<p>This procedure decodes the <a href="Helper.html#Base64Decode">Base64</a> encoded string and then decrypts it. When using a block cipher to decrypt a string the mode specified in <a href="TDCP_blockcipher.html#CipherMode">CipherMode</a> is used.
+<p>
+
+<hr>
+<center>DCPcrypt v2 - Copyright &copy; 1999-2000 David Barton (<a href="mailto:davebarton@bigfoot.com">davebarton@bigfoot.com</a>)</center>
+</body>
+</html>

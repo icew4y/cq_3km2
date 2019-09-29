@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2012-05-07 20:01:20.531.pas,C:\Documents and Settings\app56\My Documents\RAD Studio\Projects\Unit1.pas=D:\Working\3K2012\Tools\ResDemo\Unit1.pas</Transaction>
+    <Transaction>2012-05-07 20:01:20.531.dfm,C:\Documents and Settings\app56\My Documents\RAD Studio\Projects\Unit1.dfm=D:\Working\3K2012\Tools\ResDemo\Unit1.dfm</Transaction>
+    <Transaction>2012-05-07 20:01:21.953.bdsproj,C:\Documents and Settings\app56\My Documents\RAD Studio\Projects\Project1.bdsproj=D:\Working\3K2012\Tools\ResDemo\ResDemo.bdsproj</Transaction>
+    <Transaction>2012-05-09 11:17:47.234.pas,D:\Working\3K2012\Tools\ResDemo\Unit2.pas=D:\Working\3K2012\Tools\ResDemo\uRes.pas</Transaction>
+  </Transactions>
+</BorlandProject>

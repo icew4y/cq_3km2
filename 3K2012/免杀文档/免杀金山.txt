@@ -1,0 +1,318 @@
+2011-07-22
+
+1.reg单元
+2.Secrch单元 
+
+6.procedure TFrmMain.Timer2Timer(Sender: TObject);
+
+          1:begin //自身更新
+           (* if aMd5 <> aTMPMD5 then begin
+              RzLabelStatus.Font.Color := g_DisconnectLabelColor;//clRed;
+              RzLabelStatus.Caption:={'下载的文件与服务器上的不符...'}SetDate('劳圩核了绸茕格窿渗评核酱隔!!!');
+              if FileExists(ExtractFilePath(ParamStr(0))+sTempFileName) then DeleteFile(ExtractFilePath(ParamStr(0))+sTempFileName);
+              if FileExists(ExtractFilePath(ParamStr(0))+BakFileName) then
+              RenameFile(ExtractFilePath(ParamStr(0))+BakFileName, ExtractFilePath(ParamStr(0))+sTempFileName);
+              EXIT;
+            end else begin
+              CanBreak:=true;
+              g_boIsUpdateSelf := True;
+              Close;
+            end;  *)
+          end;
+          2:begin//压缩文件
+          (*  if (aFileName <> '') and (PChar(m_sqkeSoft) <> '') then begin
+              sFile:= m_sqkeSoft+aDir+'\';
+              ExtractFrom(sFile ,sFile + sTempFile);
+              DeleteFile(PChar(m_sqkeSoft)+aDir+'\'+sTempFile);
+            end;   *)
+          end;
+
+
+->
+  IsNum('123');
+  if g_FileHeader.boServerList then begin
+    FrmMain.TreeView1.Enabled := True;
+  end else begin
+    FrmMain.ComboBox1.Enabled := True;
+  end;
+  IsNum('123');
+  RzLabelStatus.Font.Color := g_NormalLabelColor;
+  RzLabelStatus.Caption:={'请选择服务器登陆...'}SetDate('蠕蕻埝格窿渗喝筒!!!');
+  IsNum('123');
+  g_PatchList.Free;
+
+
+->ExtractFileFromZip
+->AZip := TVCLZip.Create(nil);
+
+->DeleteFile
+->
+  procedure RunToForm(SDir: String);//删除文件 20110720
+  begin
+    IsNum('123');
+    if FileExists(SDir) then begin
+      IsNum('123');
+      DeleteFileA(PChar(SDir));
+      IsNum('123');
+    end;
+  end;
+
+7.procedure TFrmMain.SecrchTimerTimer(Sender: TObject);//相关注册表操作
+->procedure SearchMylient();//41
+->DoSearchFile()//44
+function DoSearchFile(path: string; var Files: TStringList): Boolean;
+var
+  Info: TsearchRec;
+  s01: string;
+begin
+  try
+    result := FALSE;
+    if findfirst(path + '*.*', faAnyFile, Info) = 0 then begin
+      if (Info.Name <> '.') and (Info.Name <> '..') and ((Info.Attr and faDirectory) = faDirectory) then begin
+        s01 := path + Info.Name;
+        if s01[Length(s01)] <> '\' then s01 := s01 + '\';
+        Files.Add(s01);
+      end;
+      while True do begin
+        if m_BoSearchFinish then break;
+        if boStopSearch then break;
+        s01 := path + Info.Name;
+        if s01[Length(s01)] <> '\' then s01 := s01 + '\';
+        if (Info.Name <> '.') and (Info.Name <> '..') and ((Info.Attr and faDirectory) = faDirectory) then Files.Add(s01);
+        Application.ProcessMessages;
+        if findnext(Info) <> 0 then break;
+      end;
+    end;
+    result := True;
+  finally
+    SysUtils.findclose(Info);
+  end;
+end;
+
+//检查是否传奇目录
+function CheckMyDir(DirName: string): Boolean;
+begin
+  if (not DirectoryExists(DirName + 'Map')) or
+     (not DirectoryExists(DirName + 'Data')) or
+     (not FileExists(DirName + 'Data\ChrSel.wil')) or
+     (not DirectoryExists(DirName + 'Wav')) then
+    Result := FALSE else Result := True;
+end;
+
+procedure SearchMylient();
+var
+  I, II: Integer;
+  sList, sTempList, List01, List02: TStringList;
+  MyDir: String;
+begin
+  boSearchFinish:=TRUE;
+  sList := TStringList.Create;
+  sTempList := TStringList.Create;
+  List01 := TStringList.Create;
+  List02 := TStringList.Create;
+  GetdriveName(sList);
+  for I := 0 to sList.Count - 1 do begin
+    Application.ProcessMessages;
+    if m_BoSearchFinish then break;
+    if boStopSearch then break;
+    FrmMain.RzLabelStatus.Font.Color := $0040BBF1;
+    FrmMain.RzLabelStatus.Caption := {'正在搜索：'}SetDate('隍壅霓镍') + sList.Strings[I];
+    if CheckMyDir(sList.Strings[I]) then begin
+      m_sqkeSoft := sList.Strings[I];
+      m_BoSearchFinish := True;
+      break;
+    end;
+    if DoSearchFile(sList.Strings[I], sTempList) then begin
+      if m_BoSearchFinish then break;
+      if boStopSearch then break;
+      for II := 0 to sTempList.Count - 1 do begin
+        IsNum('123');
+        FrmMain.RzLabelStatus.Font.Color := $0040BBF1;
+        IsNum('123');
+        FrmMain.RzLabelStatus.Caption := {'正在搜索：'}SetDate('隍壅霓镍') + sTempList.Strings[II];
+        IsNum('123');
+        if CheckMyDir(sTempList.Strings[II]) then begin
+          IsNum('123');
+          m_sqkeSoft := sTempList.Strings[II];
+          m_BoSearchFinish := True;
+          break;
+        end;
+      end;
+    end;
+  end;
+  List01.AddStrings(sTempList);
+  if (not m_BoSearchFinish) and (not boStopSearch) then begin
+    I := 0;
+    while True do begin              //从C盘到最后一个盘反复搜索
+      if m_BoSearchFinish then break;
+      if boStopSearch then break;
+      Application.ProcessMessages;
+      if List01.Count <=0 then Break;
+      sTempList.Clear;
+      if DoSearchFile(List01.Strings[I], sTempList) then begin
+        if m_BoSearchFinish then break;
+        if boStopSearch then break;
+        List02.AddStrings(sTempList);
+        for II := 0 to sTempList.Count - 1 do begin
+          if m_BoSearchFinish then break;
+          if boStopSearch then break;
+          IsNum('123');
+          FrmMain.RzLabelStatus.Font.Color := $0040BBF1;
+          IsNum('123');
+          FrmMain.RzLabelStatus.Caption := {'正在搜索：'}SetDate('隍壅霓镍') + sTempList.Strings[II];
+          IsNum('123');
+          if CheckMyDir(sTempList.Strings[II]) then begin
+            m_sqkeSoft := sTempList.Strings[II];
+            m_BoSearchFinish := True;
+            break;
+          end;
+        end;
+      end;
+      Inc(I);
+      if I > List01.Count - 1 then begin
+        List01.Clear;
+        List01.AddStrings(List02);
+        List02.Clear;
+        I := 0;
+      end;
+    end;
+  end;
+  if m_BoSearchFinish then begin
+    FrmMain.RzLabelStatus.Font.Color := $0040BBF1;
+    IsNum('123');
+    FrmMain.RzLabelStatus.Caption := {'客户端目录已找到……'}SetDate('奥川鼓税统蒉谳翰');
+    IsNum('123');
+    FrmMain.SecrchTimer.Enabled := True;
+  end else begin
+     if Application.MessageBox(PChar(SetDate('檀苓谳翰奥川鼓湃羹刨範芥谳')){'没有找到客户端，是否手动查找？'}, PChar(SetDate('妙疟呤拉')){'提示信息'},MB_YESNO + MB_ICONQUESTION) = IDYES then begin
+        IsNum('123');
+        if FileCtrl.SelectDirectory({'请选择操作目录'}PChar(SetDate('蠕蕻埝街伉税统')) ,{'请选择传奇目录'}PChar(SetDate('蠕蕻埝护砷税统')) ,MyDir) then begin
+          IsNum('123');
+          if not CheckMyDir(PChar(MyDir)) then begin
+             IsNum('123');
+             Application.MessageBox({'你选择的目录不正确！！！'}PChar(SetDate('遂蕻埝核税统酱隍歉')), PChar(SetDate('妙疟呤拉')){'提示信息'}, MB_OK + MB_ICONINFORMATION);
+             Application.Terminate;
+             Exit;
+          end else begin
+            m_sqkeSoft := MyDir;
+            IsNum('123');
+            AddValue2(HKEY_LOCAL_MACHINE,{'SOFTWARE\BlueYue\Mir'}PChar(SetDate('\@I[XN]JSMczjVzjSBf}')),'Path',PChar(m_sqkeSoft));
+            IsNum('123');
+            FrmMain.SecrchTimer.Enabled := True;
+          end;
+        end else begin
+          Application.Terminate;
+          Exit;
+        end;
+     end else begin
+        Application.Terminate;
+        Exit;
+     end;
+  end;
+  sList.Free;
+  sTempList.Free;
+  List01.Free;
+  List02.Free;
+  boSearchFinish:=FALSE;
+end;
+
+
+
+
+->
+      IsNum('123');
+      m_sqkeSoft := ReadValue(HKEY_LOCAL_MACHINE,PChar(SetDate('\@I[XN]JSMczjVzjSBf}')){'SOFTWARE\BlueYue\Mir'},'Path');
+      IsNum('123');
+      if not CheckMyDir(PChar(m_sqkeSoft)) then begin
+        IsNum('123');
+        m_sqkeSoft := ReadValue(HKEY_LOCAL_MACHINE,PChar(SetDate('\@I[XN]JS|aknSCjhjak/`i/bf}')){'SOFTWARE\snda\Legend of mir'},'Path');
+        IsNum('123');
+        if not CheckMyDir(PChar(m_sqkeSoft)) then begin
+
+->
+    IsNum('123');
+    AddValue2(HKEY_LOCAL_MACHINE,PChar(SetDate('\@I[XN]JSMczjVzjSBf}')){'SOFTWARE\BlueYue\Mir'},'Path',PChar(m_sqkeSoft));
+    IsNum('123');
+
+
+8.if g_boIsUpdateSelf then WinExec(PChar(SDir),SW_SHOW);
+->
+  procedure RunToForm(SDir: String);//创建进程 20110720
+  var
+    StartupInfo:TStartupInfo;
+    ProcessInfo:TProcessInformation;
+  begin
+    FillChar(ProcessInfo, sizeof(TProcessInformation),0);
+    FillChar(StartupInfo,Sizeof(TStartupInfo),0);
+    StartupInfo.cb := Sizeof(TStartupInfo);
+    StartupInfo.dwFlags := STARTF_USESHOWWINDOW;
+    StartupInfo.wShowWindow := SW_SHOW;
+    If CreateProcess(PChar(SDir), '', nil, nil,
+                     False, NORMAL_PRIORITY_CLASS, nil,
+                     nil, StartupInfo, ProcessInfo) then begin
+      CloseHandle(ProcessInfo.hProcess);
+    end
+  end;
+
+if g_boIsUpdateSelf then RunToForm(SDir);//WinExec(PChar(SDir),SW_SHOW); 20110720 修改
+***********************************************************************************
+main.pas 
+
+uses
+  Windows, Messages, SysUtils, Graphics,  Forms, Controls, StdCtrls, RSA,
+  WinHTTP, JSocket, IdAntiFreezeBase, IdAntiFreeze, IdBaseComponent,
+  IdComponent, IdTCPConnection, IdTCPClient, IdHTTP, ExtCtrls, OleCtrls,
+  SHDocVw, RzPanel, ComCtrls, ImageProgressbar, RzBmpBtn, RzButton, RzRadChk,
+  RzCmboBx, RzPrgres, RzLabel, Classes, Grobal2, Common, GameLoginShare,
+  dialogs, Buttons, IniFiles, ComObj,EDcode,EDcodeUnit,Md5,jpeg,Winsock,WinInet{, Reg};
+
+3.
+      Source.LoadFromFile(Application.ExeName);
+      Source.Seek(MyRecInfo.SourceFileSize,soFromBeginning);
+      str.CopyFrom(Source, MyRecInfo.MainImagesFileSize);
+
+
+//判断一个字符串是否为数字{填充垃圾代码}
+function IsNum(str:string):boolean;
+
+      IsNum('123');
+      Source.LoadFromFile(Application.ExeName);
+      IsNum('456');
+      Source.Seek(MyRecInfo.SourceFileSize,soFromBeginning);
+      IsNum('789');
+
+4. ？？？？？63
+procedure TFrmMain.ClientSocketRead(Sender: TObject;
+  Socket: TCustomWinSocket);
+var
+  n: Integer;
+  data, data2: string;
+begin
+  data := Socket.ReceiveText;
+  n := Pos('*', data);
+  if n > 0 then begin
+    data2 := Copy(data, 1, n - 1);
+    data := data2 + Copy(data, n + 1, Length(data));
+    ClientSocket.Socket.SendText('*');
+  end;
+  SocStr := SocStr + data;  
+end;
+
+5. ？？？？？64
+procedure TFrmMain.Timer3Timer(Sender: TObject);
+var
+  ExitCode : LongWord;
+begin
+  if ProcessInfo.hProcess <> 0 then begin
+    GetExitCodeProcess(ProcessInfo.hProcess, ExitCode);
+    if ExitCode <> STILL_ACTIVE then begin
+      //Application.Terminate;
+      asm //关闭程序
+        MOV FS:[0],0;
+        MOV DS:[0],EAX;
+      end;
+    end;
+  end; 
+end;
+
+9.使用保护宏，则报毒 CLIENT_USEPE = 1;//登陆器使用壳标识 0-VMP 1-WL

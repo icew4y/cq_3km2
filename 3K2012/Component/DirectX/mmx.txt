@@ -1,0 +1,502 @@
+高质量的快速的图像缩放 上篇 近邻取样插值和其速度优化
+了便于讨论，这里只处理32bit的ARGB颜色；
+代码使用C++;涉及到汇编优化的时候假定为x86平台;使用的编译器为vc6;
+为了代码的可读性,没有加入异常处理代码;
+测试使用的CPU为赛扬2G;
+
+
+速度测试说明:
+只测试内存数据到内存数据的缩放
+测试图片都是800*600缩放到1024*768; fps表示每秒钟的帧数,值越大表示函数越快
+
+////////////////////////////////////////////////////////////////////////////////
+//Windows GDI相关函数参考速度:
+//==============================================================================
+// BitBlt 245 fps //is copy 800*600 to 800*600
+// BitBlt 159 fps //is copy 1024*768 to 1024*768
+// StretchBlt 169 fps //is zoom 800*600 to 1024*768
+////////////////////////////////////////////////////////////////////////////////
+
+
+A: 首先定义图像数据结构: 
+
+
+#define asm __asm
+
+typedef unsigned char TUInt8; // [0..255]
+struct TARGB32 //32 bit color
+{
+TUInt8 B,G,R,A; // A is alpha
+};
+
+struct TPicRegion //一块颜色数据区的描述，便于参数传递
+{
+TARGB32* pdata; //颜色数据首地址
+long byte_width; //一行数据的物理宽度(字节宽度)；
+//abs(byte_width)有可能大于等于width*sizeof(TARGB32);
+long width; //像素宽度
+long height; //像素高度
+};
+
+//那么访问一个点的函数可以写为：
+inline TARGB32& Pixels(const TPicRegion& pic,const long x,const long y)
+{
+return ( (TARGB32*)[1] return;
+//函数能够处理的最大图片尺寸65536*65536
+unsigned long xrIntFloat_16=(Src.width16;
+Pixels(Dst,x,y)=Pixels(Src,srcx,srcy);
+}
+}
+}
+
+
+
+转载-----图形图像处理－之－高质量的快速的图像缩放 上篇 近邻取样插值和其速度优化（序）
+(尝试过利用CPU显式prefetcht0、prefetchnta预读指令或直接的mov读取指令等速度反
+   而略有下降:(   但预读在copy算法中速度优化效果很明显 ) void PicZoom3_SSE(const TPicRegion& Dst,const TPicRegion& Src)
+{
+    //警告: 函数需要CPU支持MMX和movntq指令
+    if (  (0==Dst.width)||(0==Dst.height)
+        ||(0==Src.width)||(0==Src.height)) return;
+    unsigned long xrIntFloat_16=(Src.width<<16)/Dst.width+1; 
+    unsigned long yrIntFloat_16=(Src.height<<16)/Dst.height+1;
+
+    unsigned long dst_width=Dst.width;
+    TARGB32* pDstLine=Dst.pdata;
+    unsigned long srcy_16=0;
+    for (unsigned long y=0;y<Dst.height;++y)
+    {
+        TARGB32* pSrcLine=((TARGB32*)((TUInt8*)Src.pdata+Src.byte_width*(srcy_16>>16)));
+
+        asm
+        {
+            push      ebp
+            mov       esi,pSrcLine
+            mov       edi,pDstLine
+            mov       edx,xrIntFloat_16
+            mov       ecx,dst_width
+            xor       ebp,ebp           //srcx_16=0
+
+            and    ecx, (not 3)    //循环4次展开
+            TEST   ECX,ECX   //nop
+            jle    EndWriteLoop
+
+            lea       edi,[edi+ecx*4]
+            neg       ecx
+
+              //todo: 预读
+
+                WriteLoop:
+                        mov       eax,ebp
+                        shr       eax,16            //srcx_16>>16
+                        lea       ebx,[ebp+edx]
+                        movd      mm0,[esi+eax*4]
+                        shr       ebx,16            //srcx_16>>16
+                        PUNPCKlDQ mm0,[esi+ebx*4]
+                        lea       ebp,[ebp+edx*2]
+                       
+                        // movntq qword ptr [edi+ecx*4], mm0  //不使用缓存的写入指令
+                        asm _emit 0x0F asm _emit 0xE7 asm _emit 0x04 asm _emit 0x8F  
+
+                        mov       eax,ebp
+                        shr       eax,16            //srcx_16>>16
+                        lea       ebx,[ebp+edx]
+                        movd      mm1,[esi+eax*4]
+                        shr       ebx,16            //srcx_16>>16
+                        PUNPCKlDQ mm1,[esi+ebx*4]
+                        lea       ebp,[ebp+edx*2]
+                        
+                        // movntq qword ptr [edi+ecx*4+8], mm1 //不使用缓存的写入指令
+                        asm _emit 0x0F asm _emit 0xE7 asm _emit 0x4C asm _emit 0x8F asm _emit 0x08
+
+                        add ecx, 4
+                        jnz WriteLoop
+
+                        //sfence //刷新写入
+                        asm _emit 0x0F asm _emit 0xAE asm _emit 0xF8  
+                        emms
+                EndWriteLoop:
+
+            mov    ebx,ebp
+            pop    ebp
+
+            //处理边界  循环次数为0,1,2,3；(这个循环可以展开,做一个跳转表,略)
+            mov    ecx,dst_width
+            and    ecx,3
+            TEST   ECX,ECX
+            jle    EndLineZoom
+
+            lea       edi,[edi+ecx*4]
+            neg       ecx
+      StartBorder:
+            mov       eax,ebx
+            shr       eax,16            //srcx_16>>16
+            mov       eax,[esi+eax*4]
+            mov       [edi+ecx*4],eax
+            add       ebx,edx
+
+            inc       ECX
+            JNZ       StartBorder
+      EndLineZoom:
+        }
+
+        //
+        srcy_16+=yrIntFloat_16;
+        ((TUInt8*&)pDstLine)+=Dst.byte_width;
+    }
+}
+//=====================================================================
+//鉴于有读者反映汇编代码阅读困难，这里给出一个使用intel提供的函数调用方式的实现，
+//读者可以相互对照来阅读代码
+//要编译PicZoom3_SSE_mmh,需要#include <mmintrin.h> #include <xmmintrin.h>
+//并且需要编译器支持
+//函数PicZoom3_SSE_mmh速度为 593.7 fps
+void PicZoom3_SSE_mmh(const TPicRegion& Dst,const TPicRegion& Src)
+{
+    //警告: 函数需要CPU支持MMX和movntq指令
+    if (  (0==Dst.width)||(0==Dst.height)
+        ||(0==Src.width)||(0==Src.height)) return;
+    unsigned long xrIntFloat_16=(Src.width<<16)/Dst.width+1; 
+    unsigned long yrIntFloat_16=(Src.height<<16)/Dst.height+1;
+    unsigned long dst_width=Dst.width;
+    TARGB32* pDstLine=Dst.pdata;
+    unsigned long srcy_16=0;
+    unsigned long for4count=dst_width/4*4;
+    for (unsigned long y=0;y<Dst.height;++y)
+    {
+        TARGB32* pSrcLine=((TARGB32*)((TUInt8*)Src.pdata+Src.byte_width*(srcy_16>>16)));
+        unsigned long srcx_16=0;
+        unsigned long x;
+        for (x=0;x<for4count;x+=4)//循环4次展开
+        {
+            __m64 m0=_m_from_int(*(int*)(&pSrcLine[srcx_16>>16]));
+            srcx_16+=xrIntFloat_16;
+            m0=_m_punpckldq(m0, _m_from_int(*(int*)(&pSrcLine[srcx_16>>16])) );
+            srcx_16+=xrIntFloat_16;
+            __m64 m1=_m_from_int(*(int*)(&pSrcLine[srcx_16>>16]));
+            srcx_16+=xrIntFloat_16;
+            m1=_m_punpckldq(m1, _m_from_int(*(int*)(&pSrcLine[srcx_16>>16])) );
+            srcx_16+=xrIntFloat_16;
+            _mm_stream_pi((__m64 *)&pDstLine[x],m0); //不使用缓存的写入指令
+            _mm_stream_pi((__m64 *)&pDstLine[x+2],m1); //不使用缓存的写入指令
+        }
+        for (x=for4count;x<dst_width;++x)//处理边界
+        {
+            pDstLine[x]=pSrcLine[srcx_16>>16];
+            srcx_16+=xrIntFloat_16;
+        }
+        srcy_16+=yrIntFloat_16;
+        ((TUInt8*&)pDstLine)+=Dst.byte_width;
+    }
+    _m_empty();
+}
+
+
+
+
+
+
+H:使用MMX指令改写:PicZoom_Bilinear_MMX
+
+    inline void  Bilinear_Fast_MMX(TARGB32* PColor0,TARGB32* PColor1,unsigned long u_8,unsigned long v_8,TARGB32* result)
+    {
+        asm
+        {    
+              MOVD      MM6,v_8
+              MOVD      MM5,u_8
+              mov       edx,PColor0
+              mov       eax,PColor1
+              PXOR      mm7,mm7
+
+              MOVD         MM2,dword ptr [eax]  
+              MOVD         MM0,dword ptr [eax+4]
+              PUNPCKLWD    MM5,MM5
+              PUNPCKLWD    MM6,MM6
+              MOVD         MM3,dword ptr [edx]  
+              MOVD         MM1,dword ptr [edx+4]
+              PUNPCKLDQ    MM5,MM5 
+              PUNPCKLBW    MM0,MM7
+              PUNPCKLBW    MM1,MM7
+              PUNPCKLBW    MM2,MM7
+              PUNPCKLBW    MM3,MM7
+              PSUBw        MM0,MM2
+              PSUBw        MM1,MM3
+              PSLLw        MM2,8
+              PSLLw        MM3,8
+              PMULlw       MM0,MM5
+              PMULlw       MM1,MM5
+              PUNPCKLDQ    MM6,MM6 
+              PADDw        MM0,MM2
+              PADDw        MM1,MM3
+
+              PSRLw        MM0,8
+              PSRLw        MM1,8
+              PSUBw        MM0,MM1
+              PSLLw        MM1,8
+              PMULlw       MM0,MM6
+              mov       eax,result
+              PADDw        MM0,MM1
+
+              PSRLw        MM0,8
+              PACKUSwb     MM0,MM7
+              movd      [eax],MM0 
+              //emms
+        }
+    }
+
+    void Bilinear_Border_MMX(const TPicRegion& pic,const long x_16,const long y_16,TARGB32* result)
+    {
+        long x=(x_16>>16);
+        long y=(y_16>>16);
+        unsigned long u_16=((unsigned short)(x_16));
+        unsigned long v_16=((unsigned short)(y_16));
+
+        TARGB32 pixel[4];
+        pixel[0]=Pixels_Bound(pic,x,y);
+        pixel[1]=Pixels_Bound(pic,x+1,y);
+        pixel[2]=Pixels_Bound(pic,x,y+1);
+        pixel[3]=Pixels_Bound(pic,x+1,y+1);
+        
+        Bilinear_Fast_MMX(&pixel[0],&pixel[2],u_16>>8,v_16>>8,result);
+    }
+
+void PicZoom_Bilinear_MMX(const TPicRegion& Dst,const TPicRegion& Src)
+{
+    if (  (0==Dst.width)||(0==Dst.height)
+        ||(0==Src.width)||(0==Src.height)) return;
+
+    long xrIntFloat_16=((Src.width)<<16)/Dst.width+1; 
+    long yrIntFloat_16=((Src.height)<<16)/Dst.height+1;
+    const long csDErrorX=-(1<<15)+(xrIntFloat_16>>1);
+    const long csDErrorY=-(1<<15)+(yrIntFloat_16>>1);
+
+    unsigned long dst_width=Dst.width;
+
+    //计算出需要特殊处理的边界
+    long border_y0=-csDErrorY/yrIntFloat_16+1;              //y0+y*yr>=0; y0=csDErrorY => y>=-csDErrorY/yr
+    if (border_y0>=Dst.height) border_y0=Dst.height;
+    long border_x0=-csDErrorX/xrIntFloat_16+1;     
+    if (border_x0>=Dst.width ) border_x0=Dst.width; 
+    long border_y1=(((Src.height-2)<<16)-csDErrorY)/yrIntFloat_16+1; //y0+y*yr<=(height-2) => y<=(height-2-csDErrorY)/yr
+    if (border_y1<border_y0) border_y1=border_y0;
+    long border_x1=(((Src.width-2)<<16)-csDErrorX)/xrIntFloat_16+1; 
+    if (border_x1<border_x0) border_x1=border_x0;
+
+    TARGB32* pDstLine=Dst.pdata;
+    long Src_byte_width=Src.byte_width;
+    long srcy_16=csDErrorY;
+    long y;
+    for (y=0;y<border_y0;++y)
+    {
+        long srcx_16=csDErrorX;
+        for (unsigned long x=0;x<dst_width;++x)
+        {
+            Bilinear_Border_MMX(Src,srcx_16,srcy_16,&pDstLine[x]); //border
+            srcx_16+=xrIntFloat_16;
+        }
+        srcy_16+=yrIntFloat_16;
+        ((TUInt8*&)pDstLine)+=Dst.byte_width;
+    }
+    for (y=border_y0;y<border_y1;++y)
+    {
+        long srcx_16=csDErrorX;
+        long x;
+        for (x=0;x<border_x0;++x)
+        {
+            Bilinear_Border_MMX(Src,srcx_16,srcy_16,&pDstLine[x]);//border
+            srcx_16+=xrIntFloat_16;
+        }
+
+        {
+            unsigned long v_8=(srcy_16 & 0xFFFF)>>8;
+            TARGB32* PSrcLineColor= (TARGB32*)((TUInt8*)(Src.pdata)+Src_byte_width*(srcy_16>>16)) ;
+            for (unsigned long x=border_x0;x<border_x1;++x)
+            {
+                TARGB32* PColor0=&PSrcLineColor[srcx_16>>16];
+                TARGB32* PColor1=(TARGB32*)((TUInt8*)(PColor0)+Src_byte_width);
+                Bilinear_Fast_MMX(PColor0,PColor1,(srcx_16 & 0xFFFF)>>8,v_8,&pDstLine[x]);
+                srcx_16+=xrIntFloat_16;
+            }
+        }
+
+        for (x=border_x1;x<dst_width;++x)
+        {
+            Bilinear_Border_MMX(Src,srcx_16,srcy_16,&pDstLine[x]);//border
+            srcx_16+=xrIntFloat_16;
+        }
+        srcy_16+=yrIntFloat_16;
+        ((TUInt8*&)pDstLine)+=Dst.byte_width;
+    }
+    for (y=border_y1;y<Dst.height;++y)
+    {
+        long srcx_16=csDErrorX;
+        for (unsigned long x=0;x<dst_width;++x)
+        {
+            Bilinear_Border_MMX(Src,srcx_16,srcy_16,&pDstLine[x]); //border
+            srcx_16+=xrIntFloat_16;
+        }
+        srcy_16+=yrIntFloat_16;
+        ((TUInt8*&)pDstLine)+=Dst.byte_width;
+    }
+    asm emms
+}
+////////////////////////////////////////////////////////////////////////////////
+//速度测试:
+//==============================================================================
+// PicZoom_BilInear_MMX 132.9 fps
+////////////////////////////////////////////////////////////////////////////////
+
+ 
+
+H' 对BilInear_MMX简单改进:PicZoom_Bilinear_MMX_Ex
+
+
+void PicZoom_Bilinear_MMX_Ex(const TPicRegion& Dst,const TPicRegion& Src)
+{
+    if (  (0==Dst.width)||(0==Dst.height)
+        ||(0==Src.width)||(0==Src.height)) return;
+
+    long xrIntFloat_16=((Src.width)<<16)/Dst.width+1; 
+    long yrIntFloat_16=((Src.height)<<16)/Dst.height+1;
+    const long csDErrorX=-(1<<15)+(xrIntFloat_16>>1);
+    const long csDErrorY=-(1<<15)+(yrIntFloat_16>>1);
+
+    unsigned long dst_width=Dst.width;
+
+    //计算出需要特殊处理的边界
+    long border_y0=-csDErrorY/yrIntFloat_16+1;              //y0+y*yr>=0; y0=csDErrorY => y>=-csDErrorY/yr
+    if (border_y0>=Dst.height) border_y0=Dst.height;
+    long border_x0=-csDErrorX/xrIntFloat_16+1;     
+    if (border_x0>=Dst.width ) border_x0=Dst.width; 
+    long border_y1=(((Src.height-2)<<16)-csDErrorY)/yrIntFloat_16+1; //y0+y*yr<=(height-2) => y<=(height-2-csDErrorY)/yr
+    if (border_y1<border_y0) border_y1=border_y0;
+    long border_x1=(((Src.width-2)<<16)-csDErrorX)/xrIntFloat_16+1; 
+    if (border_x1<border_x0) border_x1=border_x0;
+
+    TARGB32* pDstLine=Dst.pdata;
+    long Src_byte_width=Src.byte_width;
+    long srcy_16=csDErrorY;
+    long y;
+    for (y=0;y<border_y0;++y)
+    {
+        long srcx_16=csDErrorX;
+        for (unsigned long x=0;x<dst_width;++x)
+        {
+            Bilinear_Border_MMX(Src,srcx_16,srcy_16,&pDstLine[x]); //border
+            srcx_16+=xrIntFloat_16;
+        }
+        srcy_16+=yrIntFloat_16;
+        ((TUInt8*&)pDstLine)+=Dst.byte_width;
+    }
+
+    for (y=border_y0;y<border_y1;++y)
+    {
+        long srcx_16=csDErrorX;
+        long x;
+        for (x=0;x<border_x0;++x)
+        {
+            Bilinear_Border_MMX(Src,srcx_16,srcy_16,&pDstLine[x]);//border
+            srcx_16+=xrIntFloat_16;
+        }
+
+        {
+            long dst_width_fast=border_x1-border_x0;
+            if (dst_width_fast>0)
+            {
+                unsigned long v_8=(srcy_16 & 0xFFFF)>>8;
+                TARGB32* PSrcLineColor= (TARGB32*)((TUInt8*)(Src.pdata)+Src_byte_width*(srcy_16>>16)) ;
+                TARGB32* PSrcLineColorNext= (TARGB32*)((TUInt8*)(PSrcLineColor)+Src_byte_width) ;
+                TARGB32* pDstLine_Fast=&pDstLine[border_x0];
+                asm
+                {
+                      movd         mm6,v_8
+                      pxor         mm7,mm7 //mm7=0
+                      PUNPCKLWD    MM6,MM6
+                      PUNPCKLDQ    MM6,MM6//mm6=v_8
+                    
+                      mov       esi,PSrcLineColor
+                      mov       ecx,PSrcLineColorNext
+                      mov       edx,srcx_16
+                      mov       ebx,dst_width_fast
+                      mov       edi,pDstLine_Fast
+                      lea       edi,[edi+ebx*4]
+                      push      ebp
+                      mov       ebp,xrIntFloat_16
+                      neg       ebx
+
+                loop_start:
+
+                          mov       eax,edx
+                          shl       eax,16
+                          shr       eax,24
+                          //== movzx       eax,dh  //eax=u_8
+                          MOVD      MM5,eax
+                          mov       eax,edx
+                          shr       eax,16     //srcx_16>>16
+
+                          MOVD         MM2,dword ptr [ecx+eax*4]  
+                          MOVD         MM0,dword ptr [ecx+eax*4+4]
+                          PUNPCKLWD    MM5,MM5
+                          MOVD         MM3,dword ptr [esi+eax*4]  
+                          MOVD         MM1,dword ptr [esi+eax*4+4]
+                          PUNPCKLDQ    MM5,MM5 //mm5=u_8
+                          PUNPCKLBW    MM0,MM7
+                          PUNPCKLBW    MM1,MM7
+                          PUNPCKLBW    MM2,MM7
+                          PUNPCKLBW    MM3,MM7
+                          PSUBw        MM0,MM2
+                          PSUBw        MM1,MM3
+                          PSLLw        MM2,8
+                          PSLLw        MM3,8
+                          PMULlw       MM0,MM5
+                          PMULlw       MM1,MM5
+                          PADDw        MM0,MM2
+                          PADDw        MM1,MM3
+
+                          PSRLw        MM0,8
+                          PSRLw        MM1,8
+                          PSUBw        MM0,MM1
+                          PSLLw        MM1,8
+                          PMULlw       MM0,MM6
+                          PADDw        MM0,MM1
+
+                          PSRLw     MM0,8
+                          PACKUSwb  MM0,MM7
+                          MOVd   dword ptr    [edi+ebx*4],MM0 //write DstColor
+                                      
+                          add       edx,ebp //srcx_16+=xrIntFloat_16
+                          inc       ebx
+                          jnz       loop_start
+
+                      pop       ebp
+                      mov       srcx_16,edx
+                }
+            }
+        }
+
+        for (x=border_x1;x<dst_width;++x)
+        {
+            Bilinear_Border_MMX(Src,srcx_16,srcy_16,&pDstLine[x]);//border
+            srcx_16+=xrIntFloat_16;
+        }
+        srcy_16+=yrIntFloat_16;
+        ((TUInt8*&)pDstLine)+=Dst.byte_width;
+    }
+    for (y=border_y1;y<Dst.height;++y)
+    {
+        long srcx_16=csDErrorX;
+        for (unsigned long x=0;x<dst_width;++x)
+        {
+            Bilinear_Border_MMX(Src,srcx_16,srcy_16,&pDstLine[x]); //border
+            srcx_16+=xrIntFloat_16;
+        }
+        srcy_16+=yrIntFloat_16;
+        ((TUInt8*&)pDstLine)+=Dst.byte_width;
+    }
+    asm emms
+}
+////////////////////////////////////////////////////////////////////////////////
+//速度测试:
+//==============================================================================
+// PicZoom_Bilinear_MMX_Ex 157.0 fps
+////////////////////////////////////////////////////////////////////////////////

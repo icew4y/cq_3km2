@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2012-12-15 12:06:15.609.pas,C:\Documents and Settings\game\My Documents\RAD Studio\Projects\Unit1.pas=D:\Working\3K2012\Tools\UpDateServer\fmMain.pas</Transaction>
+    <Transaction>2012-12-15 12:06:15.609.dfm,C:\Documents and Settings\game\My Documents\RAD Studio\Projects\Unit1.dfm=D:\Working\3K2012\Tools\UpDateServer\fmMain.dfm</Transaction>
+    <Transaction>2012-12-15 12:06:21.843.dproj,C:\Documents and Settings\game\My Documents\RAD Studio\Projects\Project1.dproj=D:\Working\3K2012\Tools\UpDateServer\UpDateServer.dproj</Transaction>
+    <Transaction>2012-12-15 12:56:23.328.pas,D:\Working\3K2012\Tools\UpDateServer\Unit1.pas=D:\Working\3K2012\Common\fsShare.pas</Transaction>
+    <Transaction>2012-12-15 14:05:28.734.pas,D:\Working\3K2012\EGameTools for Zlib\mywil.pas=D:\Working\3K2012\Tools\UpDateServer\mywil.pas</Transaction>
+    <Transaction>2012-12-15 14:18:10.531.pas,D:\Working\3K2012\Tools\UpDateServer\mywil.pas=D:\Working\3K2012\Tools\UpDateServer\WilRead.pas</Transaction>
+  </Transactions>
+</BorlandProject>

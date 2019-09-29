@@ -1,0 +1,1 @@
+Open an ActiveX.html document.

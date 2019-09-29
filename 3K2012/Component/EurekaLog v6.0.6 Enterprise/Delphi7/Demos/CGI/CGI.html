@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>EurekaLog 6.x - CGI Application Demo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<p align="center"><font size="5" face="Verdana, Arial, Helvetica, sans-serif"> 
+  <em><strong>EurekaLog 6.x - CGI Application Demo</strong></em></font></p>
+<div align="center">
+  <table width="400" height="172" border="1" cellspacing="0">
+<tr> 
+      <td bordercolor="#333333" bgcolor="#999999"> 
+<div align="center"><font color="#FFFFFF" face="Verdana, Arial, Helvetica, sans-serif"><strong>Select 
+          the exception to raise:</strong></font></div></td>
+    </tr>
+    <tr> 
+      <td bordercolor="#333333" bgcolor="#CCCCCC"> 
+<form name="form1" method="get" action="cgi-bin/CGI.exe">
+<p> 
+            <input name="Exception" type="radio" value="0" checked>
+            <font face="Verdana, Arial, Helvetica, sans-serif">Access violation</font><br>
+            <input type="radio" name="Exception" value="1">
+            <font face="Verdana, Arial, Helvetica, sans-serif">Division by zero</font><br>
+            <input type="radio" name="Exception" value="2">
+            <font face="Verdana, Arial, Helvetica, sans-serif"> String conversion 
+            errors</font><br>
+            <input type="radio" name="Exception" value="3">
+            <font face="Verdana, Arial, Helvetica, sans-serif"> Raise custom exception</font><br>
+            <input type="radio" name="Exception" value="4">
+            <font face="Verdana, Arial, Helvetica, sans-serif"> Invalid variant 
+            type conversion</font><br>
+            <input type="radio" name="Exception" value="5">
+            <font face="Verdana, Arial, Helvetica, sans-serif"> List index out 
+            of bounds</font></p>
+          <p><font face="Verdana, Arial, Helvetica, sans-serif">
+            <input name="Active" type="checkbox" id="Active" value="True" checked>
+            Activate EurekaLog</font></p>
+          <p align="center"> 
+            <input type="submit" value="Raise exception">
+          </p>
+        </form> </td>
+    </tr>
+  </table>
+  <p><FONT size="2" face="Verdana, Arial, Helvetica, sans-serif" class=tiny>Copyright 
+    © 2001 - 2007 by <a href="mailto:support@eurekalog.com">Fabio Dell'Aria</a></FONT></p>
+  <hr width="50%">
+  <p><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>Note:</strong> 
+    Place the compiled CGI executable into <em>cgi-bin</em> subfolder of this 
+    HTML file.</font></p>
+  </div>
+
+</body>
+</html>

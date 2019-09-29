@@ -1,0 +1,72 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{EA0EA7C2-4F00-43F5-937E-4215E8FE3AF4}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="EhLib140.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="EhLibDataDrivers140.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="DclEhLib140.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="DclEhLibDataDrivers140.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="EhLib140">
+			<MSBuild Projects="EhLib140.dproj"/>
+		</Target>
+		<Target Name="EhLib140:Clean">
+			<MSBuild Targets="Clean" Projects="EhLib140.dproj"/>
+		</Target>
+		<Target Name="EhLib140:Make">
+			<MSBuild Targets="Make" Projects="EhLib140.dproj"/>
+		</Target>
+		<Target Name="EhLibDataDrivers140">
+			<MSBuild Projects="EhLibDataDrivers140.dproj"/>
+		</Target>
+		<Target Name="EhLibDataDrivers140:Clean">
+			<MSBuild Targets="Clean" Projects="EhLibDataDrivers140.dproj"/>
+		</Target>
+		<Target Name="EhLibDataDrivers140:Make">
+			<MSBuild Targets="Make" Projects="EhLibDataDrivers140.dproj"/>
+		</Target>
+		<Target Name="DclEhLib140">
+			<MSBuild Projects="DclEhLib140.dproj"/>
+		</Target>
+		<Target Name="DclEhLib140:Clean">
+			<MSBuild Targets="Clean" Projects="DclEhLib140.dproj"/>
+		</Target>
+		<Target Name="DclEhLib140:Make">
+			<MSBuild Targets="Make" Projects="DclEhLib140.dproj"/>
+		</Target>
+		<Target Name="DclEhLibDataDrivers140">
+			<MSBuild Projects="DclEhLibDataDrivers140.dproj"/>
+		</Target>
+		<Target Name="DclEhLibDataDrivers140:Clean">
+			<MSBuild Targets="Clean" Projects="DclEhLibDataDrivers140.dproj"/>
+		</Target>
+		<Target Name="DclEhLibDataDrivers140:Make">
+			<MSBuild Targets="Make" Projects="DclEhLibDataDrivers140.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="EhLib140;EhLibDataDrivers140;DclEhLib140;DclEhLibDataDrivers140"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="EhLib140:Clean;EhLibDataDrivers140:Clean;DclEhLib140:Clean;DclEhLibDataDrivers140:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="EhLib140:Make;EhLibDataDrivers140:Make;DclEhLib140:Make;DclEhLibDataDrivers140:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

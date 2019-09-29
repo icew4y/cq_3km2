@@ -1,0 +1,48 @@
+package WinSkinD2010;
+
+{$R *.res}
+{$R 'WinSkinReg.dcr'}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'VCLSkin 2010'}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  designide;
+
+contains
+  imgutil in 'imgutil.pas',
+  SkinRead in 'SkinRead.pas',
+  WinConvert in 'WinConvert.pas',
+  WinSkinCollection in 'WinSkinCollection.pas',
+  WinSkinData in 'WinSkinData.pas',
+  WinSkinDlg in 'WinSkinDlg.pas',
+  WinSkinForm in 'WinSkinForm.pas',
+  Winskinini in 'Winskinini.pas',
+  Winskinmenu in 'Winskinmenu.pas',
+  WinSkinReg in 'WinSkinReg.pas',
+  WinSkinStore in 'WinSkinStore.pas',
+  WinSubClass in 'WinSubClass.pas';
+
+end.

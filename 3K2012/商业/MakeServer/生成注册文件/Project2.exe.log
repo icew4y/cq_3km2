@@ -1,0 +1,76 @@
+WinLicense - Professional Software Protection and Licensing Management  [Version 2.1.6.0]
+
+Protection Options for Software: Éú³ÉÆ÷ÄÚºË (Input File: Project2.exe)
+----------------------------------
+
+Macros Information
+------------------
+VM Macros: 0
+CodeReplace Macros: 0
+ENCRYPT Macros: 0
+CLEAR Macros: 0
+RegisteredVM Macros: 0
+CHECK_PROTECTION Macros: 0
+CHECK_CODE_INTEGRITY Macros: 0
+CHECK_REGISTRATION Macros: 0
+CHECK_VIRTUAL_PC Macros: 0
+
+
+Protection Options
+------------------
+Anti-Debugger: Disabled
+Anti-Dumpers: DISABLED
+Entry Point Obfuscation: DISABLED
+Resource Encryption: DISABLED
+VMWare compatible: ENABLED
+API-Wrapping Level: Disable
+Anti-Patching: File Patch (sign support)
+Metamorph Security: DISABLED
+Memory Guard: ENABLED
+When Debugger Found: Exit Silently
+Application compression: ENABLED
+Resources compression: ENABLED
+SecureEngine compression: DISABLED
+Anti-File Monitor: DISABLED
+Anti-Registry Monitor: DISABLED
+Delphi/BCB form protection: DISABLED
+Ring-0 Protection: DISABLED
+
+
+Virtual Machine Settings
+------------------------
+Number of Virtual APIs wrapped: 0
+API Virtualization Level: 3
+Entry Point Virtualization: 0 instructions
+Multi Branch Technology: DISABLED
+Virtual Machine Processor: Mutable CISC processor
+Number of CPUs: 1
+Opcode Type: Metamorphic - Level 2
+Dynamic Opcode: 20% Dynamic
+
+
+Trial Settings
+--------------
+UnLimited: ENABLED
+Clock Change: 1 hour
+Trial Extension: DISABLED
+With single file: extendkey.dat
+
+
+Advanced Protection Options
+---------------------------
+Encrypt Application: ENABLED
+DLL plugin: ENABLED
+Export Generators: DISABLED
+Keep Trial Running: ENABLED
+Hide from PE scanners: Standard
+.NET assemblies: DISABLED
+Active Context: DISABLED
+Custom Event: 
+Add Manifest: Don't add manifest
+Launch Application: 
+
+
+XBundler files
+--------------
+No files to bundle

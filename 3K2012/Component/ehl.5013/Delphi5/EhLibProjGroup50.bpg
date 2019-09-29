@@ -1,0 +1,30 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = Ehlib50.bpl DclEhlib50.bpl EhLibDataDrivers50.bpl \
+  DclEhLibDataDrivers50.bpl
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+Ehlib50.bpl: Ehlib50.dpk
+  $(DCC)
+
+DclEhlib50.bpl: DclEhlib50.dpk
+  $(DCC)
+
+EhLibDataDrivers50.bpl: EhLibDataDrivers50.dpk
+  $(DCC)
+
+DclEhLibDataDrivers50.bpl: DclEhLibDataDrivers50.dpk
+  $(DCC)
+
+

@@ -1,0 +1,1508 @@
+object FrmGameAssistant: TFrmGameAssistant
+  Left = 723
+  Top = 166
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsDialog
+  Caption = #34013#26376#20256#22855#20869#25346
+  ClientHeight = 309
+  ClientWidth = 248
+  Color = clBtnFace
+  Font.Charset = GB2312_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 12
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 248
+    Height = 309
+    ActivePage = TabSheet2
+    Align = alClient
+    MultiLine = True
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = #22522#26412
+      object Label1: TLabel
+        Left = 158
+        Top = 153
+        Width = 12
+        Height = 12
+        Caption = #38190
+      end
+      object Label2: TLabel
+        Left = 218
+        Top = 153
+        Width = 12
+        Height = 12
+        Caption = #31186
+      end
+      object CheckBoxShowRedHPLable: TCheckBox
+        Left = 3
+        Top = 1
+        Width = 66
+        Height = 17
+        Caption = #26174#31034#34880#26465
+        TabOrder = 0
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxShowGroupMember: TCheckBox
+        Left = 84
+        Top = 1
+        Width = 66
+        Height = 17
+        Caption = #26174#31034#38431#21592
+        Enabled = False
+        TabOrder = 1
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxShowAllItem: TCheckBox
+        Left = 166
+        Top = 1
+        Width = 66
+        Height = 17
+        Caption = #26174#31034#29289#21697
+        TabOrder = 2
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxShowBlueMpLable: TCheckBox
+        Left = 3
+        Top = 19
+        Width = 66
+        Height = 17
+        Caption = #26174#31034#34013#26465
+        Enabled = False
+        TabOrder = 3
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxShowName: TCheckBox
+        Left = 84
+        Top = 19
+        Width = 66
+        Height = 17
+        Caption = #20154#21517#26174#31034
+        TabOrder = 4
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxShowFilter: TCheckBox
+        Left = 166
+        Top = 19
+        Width = 66
+        Height = 17
+        Caption = #26174#31034#36807#28388
+        TabOrder = 5
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxShowHPNumber: TCheckBox
+        Left = 3
+        Top = 37
+        Width = 66
+        Height = 17
+        Caption = #25968#23383#26174#34880
+        TabOrder = 6
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxShowAllName: TCheckBox
+        Left = 84
+        Top = 37
+        Width = 66
+        Height = 17
+        Caption = #26174#31034#20840#21517
+        Enabled = False
+        TabOrder = 7
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxRunHum: TCheckBox
+        Left = 166
+        Top = 37
+        Width = 66
+        Height = 17
+        Caption = #31359#36807#20154#29289
+        TabOrder = 8
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxAutoUpDrugs: TCheckBox
+        Left = 3
+        Top = 56
+        Width = 66
+        Height = 17
+        Caption = #33258#21160#25918#33647
+        Enabled = False
+        TabOrder = 9
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxDuraWarning: TCheckBox
+        Left = 84
+        Top = 56
+        Width = 66
+        Height = 17
+        Caption = #25345#20037#35686#21578
+        TabOrder = 10
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxRunMon: TCheckBox
+        Left = 166
+        Top = 56
+        Width = 66
+        Height = 17
+        Caption = #31359#36807#24618#29289
+        TabOrder = 11
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxMusic: TCheckBox
+        Left = 3
+        Top = 74
+        Width = 66
+        Height = 17
+        Caption = #32972#26223#38899#20048
+        Enabled = False
+        TabOrder = 12
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxShowDura: TCheckBox
+        Left = 84
+        Top = 74
+        Width = 66
+        Height = 17
+        Caption = #26174#31034#25345#20037
+        TabOrder = 13
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxRunNpc: TCheckBox
+        Left = 166
+        Top = 74
+        Width = 66
+        Height = 17
+        Caption = #31359#36807'NPC'
+        TabOrder = 14
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxMoveSlow: TCheckBox
+        Left = 3
+        Top = 93
+        Width = 66
+        Height = 17
+        Caption = #20813#36127#37325
+        TabOrder = 15
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxMoveRedShow: TCheckBox
+        Left = 84
+        Top = 93
+        Width = 66
+        Height = 17
+        Caption = #21435#34880#26174#31034
+        TabOrder = 16
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxAutoPuckUpItem: TCheckBox
+        Left = 166
+        Top = 93
+        Width = 66
+        Height = 17
+        Caption = #33258#21160#25441#29289
+        TabOrder = 17
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxParalyCan: TCheckBox
+        Left = 3
+        Top = 111
+        Width = 66
+        Height = 17
+        Caption = #38450#30707#21270
+        Enabled = False
+        TabOrder = 18
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxShowTop: TCheckBox
+        Left = 84
+        Top = 111
+        Width = 66
+        Height = 17
+        Caption = #39030#37096#26174#31034
+        TabOrder = 19
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxFilterAutoItemUp: TCheckBox
+        Left = 166
+        Top = 111
+        Width = 66
+        Height = 17
+        Caption = #25441#21462#36807#28388
+        TabOrder = 20
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBoxMagicLock: TCheckBox
+        Left = 3
+        Top = 130
+        Width = 66
+        Height = 17
+        Caption = #39764#27861#38145#23450
+        TabOrder = 21
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object GroupBox1: TGroupBox
+        Left = 3
+        Top = 189
+        Width = 233
+        Height = 69
+        TabOrder = 22
+        object Label3: TLabel
+          Left = 14
+          Top = 12
+          Width = 48
+          Height = 12
+          Caption = #31227#21160#21152#36895
+        end
+        object Label4: TLabel
+          Left = 91
+          Top = 12
+          Width = 48
+          Height = 12
+          Caption = #25915#20987#21152#36895
+        end
+        object Label5: TLabel
+          Left = 169
+          Top = 12
+          Width = 48
+          Height = 12
+          Caption = #39764#27861#21152#36895
+        end
+        object Label6: TLabel
+          Left = 35
+          Top = 27
+          Width = 6
+          Height = 12
+          Caption = '0'
+        end
+        object Label7: TLabel
+          Left = 112
+          Top = 27
+          Width = 6
+          Height = 12
+          Caption = '0'
+        end
+        object Label8: TLabel
+          Left = 190
+          Top = 27
+          Width = 6
+          Height = 12
+          Caption = '0'
+        end
+        object TrackBar1: TTrackBar
+          Left = 7
+          Top = 40
+          Width = 65
+          Height = 25
+          TabOrder = 0
+          ThumbLength = 10
+          TickMarks = tmTopLeft
+          OnChange = TrackBar1Change
+        end
+        object TrackBar2: TTrackBar
+          Left = 84
+          Top = 40
+          Width = 65
+          Height = 25
+          TabOrder = 1
+          ThumbLength = 10
+          TickMarks = tmTopLeft
+          OnChange = TrackBar1Change
+        end
+        object TrackBar3: TTrackBar
+          Left = 161
+          Top = 40
+          Width = 65
+          Height = 25
+          TabOrder = 2
+          ThumbLength = 10
+          TickMarks = tmTopLeft
+          OnChange = TrackBar1Change
+        end
+      end
+      object RadioButton1: TRadioButton
+        Left = 84
+        Top = 130
+        Width = 66
+        Height = 17
+        Caption = #30456#23545#38145#23450
+        Checked = True
+        TabOrder = 23
+        TabStop = True
+      end
+      object RadioButton2: TRadioButton
+        Left = 166
+        Top = 130
+        Width = 66
+        Height = 17
+        Caption = #32477#23545#38145#23450
+        TabOrder = 24
+      end
+      object CheckBoxAutoMagic: TCheckBox
+        Left = 3
+        Top = 150
+        Width = 66
+        Height = 17
+        Caption = #33258#21160#32451#21151
+        TabOrder = 25
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object ComboBox1: TComboBox
+        Left = 84
+        Top = 150
+        Width = 73
+        Height = 20
+        Style = csDropDownList
+        ItemHeight = 12
+        ItemIndex = 0
+        TabOrder = 26
+        Text = 'F1'
+        Items.Strings = (
+          'F1'
+          'F2'
+          'F3'
+          'F4'
+          'F5'
+          'F6'
+          'F7'
+          'F8'
+          'Ctrl+F1'
+          'Ctrl+F2'
+          'Ctrl+F3'
+          'Ctrl+F4'
+          'Ctrl+F5'
+          'Ctrl+F6'
+          'Ctrl+F7'
+          'Ctrl+F8')
+      end
+      object SpinEdit1: TSpinEdit
+        Left = 176
+        Top = 150
+        Width = 41
+        Height = 21
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 27
+        Value = 0
+      end
+      object CheckBoxNoStruck: TCheckBox
+        Left = 3
+        Top = 171
+        Width = 66
+        Height = 17
+        Caption = #31283#22914#27888#23665
+        TabOrder = 28
+        OnClick = CheckBoxShowRedHPLableClick
+      end
+      object CheckBox25: TCheckBox
+        Left = 84
+        Top = 171
+        Width = 117
+        Height = 17
+        Caption = #20351#29992#25216#33021#33258#21160#19979#39532
+        Enabled = False
+        TabOrder = 29
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = #29289#21697
+      ImageIndex = 1
+      object PageControl2: TPageControl
+        Left = 0
+        Top = 0
+        Width = 240
+        Height = 265
+        ActivePage = TabSheet10
+        Align = alClient
+        Style = tsButtons
+        TabOrder = 0
+        object TabSheet9: TTabSheet
+          Caption = #36807#28388#35774#32622
+          object LabelFilterColor: TLabel
+            Left = 150
+            Top = 197
+            Width = 11
+            Height = 18
+            AutoSize = False
+            Color = clRed
+            ParentColor = False
+          end
+          object EditFilterItem: TEdit
+            Left = 2
+            Top = 170
+            Width = 109
+            Height = 20
+            TabOrder = 0
+          end
+          object ButtonAddFilter: TButton
+            Left = 119
+            Top = 169
+            Width = 50
+            Height = 21
+            Caption = #28155#21152
+            TabOrder = 1
+            OnClick = ButtonAddFilterClick
+          end
+          object Button2: TButton
+            Left = 176
+            Top = 169
+            Width = 50
+            Height = 21
+            Caption = #21024#38500
+            TabOrder = 2
+            OnClick = Button2Click
+          end
+          object CheckBoxItemsChangeColor: TCheckBox
+            Left = 2
+            Top = 196
+            Width = 93
+            Height = 17
+            Caption = #29305#27530#21464#33394#26174#31034
+            TabOrder = 3
+            OnClick = CheckBoxItemsChangeColorClick
+          end
+          object CheckBoxItemsHint: TCheckBox
+            Left = 2
+            Top = 216
+            Width = 97
+            Height = 17
+            Caption = #29305#27530#29289#21697#25552#31034
+            TabOrder = 4
+            OnClick = CheckBoxItemsHintClick
+          end
+          object SpinEditFilterColor: TSpinEdit
+            Left = 103
+            Top = 196
+            Width = 41
+            Height = 21
+            MaxValue = 0
+            MinValue = 0
+            TabOrder = 5
+            Value = 249
+            OnChange = SpinEditFilterColorChange
+          end
+          object ListViewFilterItem: TListView
+            Left = 2
+            Top = 0
+            Width = 228
+            Height = 167
+            Columns = <
+              item
+                Caption = #29289#21697#21517#31216
+                Width = 100
+              end
+              item
+                Caption = #26174
+                Width = 30
+              end
+              item
+                Caption = #25441
+                Width = 30
+              end
+              item
+                Caption = #29305
+                Width = 30
+              end
+              item
+                Caption = #25552
+                Width = 30
+              end>
+            GridLines = True
+            HotTrack = True
+            HotTrackStyles = [htUnderlineCold]
+            ReadOnly = True
+            RowSelect = True
+            TabOrder = 6
+            ViewStyle = vsReport
+            OnMouseUp = ListViewFilterItemMouseUp
+          end
+        end
+        object TabSheet10: TTabSheet
+          Caption = #35299#21253#35774#32622
+          ImageIndex = 1
+          object Label10: TLabel
+            Left = 0
+            Top = 171
+            Width = 54
+            Height = 12
+            Caption = #29289#21697#21517#31216':'
+          end
+          object Label11: TLabel
+            Left = 0
+            Top = 194
+            Width = 66
+            Height = 12
+            Caption = #29289#21697#21253#21517#31216':'
+          end
+          object ListViewAutoPut: TListView
+            Left = 2
+            Top = 0
+            Width = 228
+            Height = 158
+            Columns = <
+              item
+                Caption = #29289#21697#21517#31216
+                Width = 100
+              end
+              item
+                Caption = #29289#21697#21253#21517#31216
+                Width = 100
+              end>
+            GridLines = True
+            ReadOnly = True
+            RowSelect = True
+            TabOrder = 0
+            ViewStyle = vsReport
+          end
+          object EditPutItemName: TEdit
+            Left = 66
+            Top = 167
+            Width = 108
+            Height = 20
+            TabOrder = 1
+          end
+          object EditPutItemBagName: TEdit
+            Left = 66
+            Top = 191
+            Width = 108
+            Height = 20
+            TabOrder = 2
+          end
+          object ButtonAddPut: TButton
+            Left = 180
+            Top = 166
+            Width = 50
+            Height = 21
+            Caption = #28155#21152
+            TabOrder = 3
+            OnClick = ButtonAddPutClick
+          end
+          object ButtonDelPut: TButton
+            Left = 180
+            Top = 190
+            Width = 50
+            Height = 21
+            Caption = #21024#38500
+            TabOrder = 4
+            OnClick = ButtonDelPutClick
+          end
+          object CheckBoxAutoPut: TCheckBox
+            Left = 66
+            Top = 216
+            Width = 97
+            Height = 17
+            Caption = #29289#21697#33258#21160#35299#21253
+            Enabled = False
+            TabOrder = 5
+          end
+        end
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = #25112#26007
+      ImageIndex = 2
+      object PageControl3: TPageControl
+        Left = 0
+        Top = 0
+        Width = 240
+        Height = 265
+        ActivePage = TabSheet12
+        Align = alClient
+        Style = tsButtons
+        TabOrder = 0
+        object TabSheet11: TTabSheet
+          Caption = #20445#25252
+          object CheckBoxCommonHp: TCheckBox
+            Left = 2
+            Top = 8
+            Width = 32
+            Height = 17
+            Caption = 'HP'
+            TabOrder = 0
+            OnClick = CheckBoxCommonHpClick
+          end
+          object CheckBoxSpecialHp: TCheckBox
+            Left = 2
+            Top = 32
+            Width = 32
+            Height = 17
+            Caption = 'HP'
+            TabOrder = 1
+          end
+          object CheckBoxCommonMp: TCheckBox
+            Left = 2
+            Top = 56
+            Width = 32
+            Height = 17
+            Caption = 'MP'
+            TabOrder = 2
+          end
+          object CheckBoxSpecialMp: TCheckBox
+            Left = 2
+            Top = 80
+            Width = 32
+            Height = 17
+            Caption = 'MP'
+            Enabled = False
+            TabOrder = 3
+          end
+          object CheckBoxRandomHp: TCheckBox
+            Left = 2
+            Top = 104
+            Width = 32
+            Height = 17
+            Caption = #20445
+            TabOrder = 4
+          end
+          object Edit4: TEdit
+            Left = 36
+            Top = 7
+            Width = 38
+            Height = 20
+            TabOrder = 5
+            Text = '200'
+          end
+          object Edit5: TEdit
+            Left = 36
+            Top = 31
+            Width = 38
+            Height = 20
+            TabOrder = 6
+            Text = '200'
+          end
+          object Edit6: TEdit
+            Left = 36
+            Top = 55
+            Width = 38
+            Height = 20
+            TabOrder = 7
+            Text = '80'
+          end
+          object Edit7: TEdit
+            Left = 36
+            Top = 79
+            Width = 38
+            Height = 20
+            Enabled = False
+            TabOrder = 8
+            Text = '80'
+          end
+          object Edit8: TEdit
+            Left = 36
+            Top = 103
+            Width = 38
+            Height = 20
+            TabOrder = 9
+            Text = '100'
+          end
+          object ComboBox2: TComboBox
+            Left = 79
+            Top = 7
+            Width = 101
+            Height = 20
+            Style = csDropDownList
+            ItemHeight = 12
+            ItemIndex = 0
+            TabOrder = 10
+            Text = #37329#21019#33647'('#23567#37327')'
+            Items.Strings = (
+              #37329#21019#33647'('#23567#37327')'
+              #37329#21019#33647'('#20013#37327')'
+              #24378#25928#37329#21019#33647)
+          end
+          object ComboBox3: TComboBox
+            Left = 79
+            Top = 31
+            Width = 101
+            Height = 20
+            Style = csDropDownList
+            ItemHeight = 12
+            ItemIndex = 0
+            TabOrder = 11
+            Text = #22826#38451#27700
+            Items.Strings = (
+              #22826#38451#27700
+              #24378#25928#22826#38451#27700
+              #30103#20260#33647
+              #19975#24180#38634#38684)
+          end
+          object ComboBox4: TComboBox
+            Left = 79
+            Top = 55
+            Width = 101
+            Height = 20
+            Style = csDropDownList
+            ItemHeight = 12
+            ItemIndex = 0
+            TabOrder = 12
+            Text = #39764#27861#33647'('#23567#37327')'
+            Items.Strings = (
+              #39764#27861#33647'('#23567#37327')'
+              #39764#27861#33647'('#20013#37327')'
+              #24378#25928#39764#27861#33647)
+          end
+          object ComboBox5: TComboBox
+            Left = 79
+            Top = 79
+            Width = 101
+            Height = 20
+            Style = csDropDownList
+            Enabled = False
+            ItemHeight = 12
+            ItemIndex = 0
+            TabOrder = 13
+            Text = #22826#38451#27700
+            Items.Strings = (
+              #22826#38451#27700
+              #24378#25928#22826#38451#27700
+              #30103#20260#33647
+              #19975#24180#38634#38684)
+          end
+          object ComboBox6: TComboBox
+            Left = 79
+            Top = 103
+            Width = 101
+            Height = 20
+            Style = csDropDownList
+            ItemHeight = 12
+            ItemIndex = 0
+            TabOrder = 14
+            Text = #38543#26426#20256#36865#21367
+            Items.Strings = (
+              #38543#26426#20256#36865#21367
+              #22320#29282#36867#33073#21367
+              #22238#22478#21367
+              #34892#20250#22238#22478#21367
+              #38543#26426#20256#36865#30707
+              #30431#37325#20256#36865#30707
+              #27604#22855#20256#36865#30707)
+          end
+          object SpinEdit3: TSpinEdit
+            Left = 183
+            Top = 7
+            Width = 47
+            Height = 21
+            MaxValue = 0
+            MinValue = 0
+            TabOrder = 15
+            Value = 4
+          end
+          object SpinEdit4: TSpinEdit
+            Left = 183
+            Top = 31
+            Width = 47
+            Height = 21
+            MaxValue = 0
+            MinValue = 0
+            TabOrder = 16
+            Value = 1
+          end
+          object SpinEdit5: TSpinEdit
+            Left = 183
+            Top = 55
+            Width = 47
+            Height = 21
+            MaxValue = 0
+            MinValue = 0
+            TabOrder = 17
+            Value = 4
+          end
+          object SpinEdit6: TSpinEdit
+            Left = 183
+            Top = 79
+            Width = 47
+            Height = 21
+            Enabled = False
+            MaxValue = 0
+            MinValue = 0
+            TabOrder = 18
+            Value = 1
+          end
+          object SpinEdit7: TSpinEdit
+            Left = 183
+            Top = 103
+            Width = 47
+            Height = 21
+            MaxValue = 0
+            MinValue = 0
+            TabOrder = 19
+            Value = 10
+          end
+        end
+        object TabSheet12: TTabSheet
+          Caption = #21151#33021
+          ImageIndex = 1
+          object Label12: TLabel
+            Left = 127
+            Top = 38
+            Width = 12
+            Height = 12
+            Caption = #31186
+          end
+          object CheckBoxHitEffect: TCheckBox
+            Left = 2
+            Top = 8
+            Width = 66
+            Height = 17
+            Caption = #25915#20987#25928#26524
+            Enabled = False
+            TabOrder = 0
+            OnClick = CheckBoxHitEffectClick
+          end
+          object CheckBoxClearBody: TCheckBox
+            Left = 2
+            Top = 35
+            Width = 66
+            Height = 17
+            Caption = #28165#29702#25112#22330
+            TabOrder = 1
+            OnClick = CheckBoxHitEffectClick
+          end
+          object CheckBoxNoShift: TCheckBox
+            Left = 144
+            Top = 35
+            Width = 66
+            Height = 17
+            Caption = #20813'Shift'
+            TabOrder = 2
+            OnClick = CheckBoxHitEffectClick
+          end
+          object RadioButtonWideHit: TRadioButton
+            Left = 73
+            Top = 8
+            Width = 66
+            Height = 17
+            Caption = #21322#26376#25915#20987
+            Checked = True
+            Enabled = False
+            TabOrder = 3
+            TabStop = True
+            OnClick = CheckBoxHitEffectClick
+          end
+          object RadioButtonFireHit: TRadioButton
+            Left = 144
+            Top = 8
+            Width = 66
+            Height = 17
+            Caption = #28872#28779#25915#20987
+            Enabled = False
+            TabOrder = 4
+            OnClick = CheckBoxHitEffectClick
+          end
+          object SpinEditClearBodyTimer: TSpinEdit
+            Left = 73
+            Top = 33
+            Width = 50
+            Height = 21
+            MaxValue = 0
+            MinValue = 0
+            TabOrder = 5
+            Value = 1
+            OnChange = SpinEditClearBodyTimerChange
+          end
+        end
+        object TabSheet13: TTabSheet
+          Caption = #29305#27530
+          ImageIndex = 2
+          object GroupBox2: TGroupBox
+            Left = 1
+            Top = 8
+            Width = 230
+            Height = 224
+            Caption = #29305#27530#24618#29289
+            TabOrder = 0
+            object ListBoxBossHintList: TListBox
+              Left = 8
+              Top = 17
+              Width = 132
+              Height = 196
+              ItemHeight = 12
+              TabOrder = 0
+            end
+            object EditBossHint: TEdit
+              Left = 145
+              Top = 17
+              Width = 77
+              Height = 20
+              TabOrder = 1
+            end
+            object ButtonAddBossHint: TButton
+              Left = 145
+              Top = 42
+              Width = 36
+              Height = 22
+              Caption = #28155#21152
+              TabOrder = 2
+              OnClick = ButtonAddBossHintClick
+            end
+            object ButtonDelBossHint: TButton
+              Left = 186
+              Top = 42
+              Width = 36
+              Height = 22
+              Caption = #21024#38500
+              TabOrder = 3
+              OnClick = ButtonAddBossHintClick
+            end
+            object CheckBoxBossHint: TCheckBox
+              Left = 145
+              Top = 76
+              Width = 66
+              Height = 17
+              Caption = #25509#36817#25552#31034
+              TabOrder = 4
+              OnClick = ButtonAddBossHintClick
+            end
+            object CheckBox41: TCheckBox
+              Left = 145
+              Top = 96
+              Width = 66
+              Height = 17
+              Caption = #33258#21160#38145#23450
+              Enabled = False
+              TabOrder = 5
+            end
+            object CheckBox42: TCheckBox
+              Left = 145
+              Top = 116
+              Width = 66
+              Height = 17
+              Caption = #21464#33394#26174#31034
+              Enabled = False
+              TabOrder = 6
+            end
+            object ComboBox7: TComboBox
+              Left = 145
+              Top = 136
+              Width = 77
+              Height = 20
+              Style = csDropDownList
+              Enabled = False
+              ItemHeight = 12
+              ItemIndex = 0
+              TabOrder = 7
+              Text = #28784#33394
+              Items.Strings = (
+                #28784#33394
+                #26126#20142
+                #40657#33394
+                #30333#33394
+                #32418#33394
+                #32511#33394
+                #34013#33394
+                #40644#33394
+                #32043#32418#33394)
+            end
+          end
+        end
+      end
+    end
+    object TabSheet4: TTabSheet
+      Caption = #32842#22825
+      ImageIndex = 3
+      object GroupBox3: TGroupBox
+        Left = 8
+        Top = 8
+        Width = 225
+        Height = 97
+        Caption = #33258#21160#21898#35805
+        TabOrder = 0
+        object Label13: TLabel
+          Left = 10
+          Top = 40
+          Width = 54
+          Height = 12
+          Caption = #21898#35805#20869#23481':'
+        end
+        object Label14: TLabel
+          Left = 10
+          Top = 64
+          Width = 54
+          Height = 12
+          Caption = #21457#36865#21629#20196':'
+        end
+        object CheckBoxAutoTalk: TCheckBox
+          Left = 10
+          Top = 16
+          Width = 97
+          Height = 17
+          Caption = #25171#24320#33258#21160#21898#35805
+          TabOrder = 0
+          OnClick = CheckBoxAutoTalkClick
+        end
+        object EditTalkTime: TEdit
+          Left = 65
+          Top = 37
+          Width = 152
+          Height = 20
+          TabOrder = 1
+          OnChange = EditTalkTimeChange
+        end
+        object ComboBoxSendCmd: TComboBox
+          Left = 65
+          Top = 62
+          Width = 105
+          Height = 20
+          Style = csDropDownList
+          ItemHeight = 12
+          ItemIndex = 0
+          TabOrder = 2
+          Text = #25298#32477#31169#32842
+          Items.Strings = (
+            #25298#32477#31169#32842
+            #25298#32477#21898#35805
+            #25298#32477#20132#26131
+            #21152#20837#38376#27966
+            #36864#20986#38376#27966
+            #25298#32477#34892#20250#32842#22825
+            #20801#35768#32852#30431
+            #20801#35768#22825#22320#21512#19968
+            #20801#35768#34892#20250#21512#19968
+            #20801#35768#20256#21796#20276#20387
+            #20801#35768#20256#21796#24466#24351)
+        end
+        object Button7: TButton
+          Left = 174
+          Top = 61
+          Width = 42
+          Height = 20
+          Caption = #21457#36865
+          TabOrder = 3
+          OnClick = Button7Click
+        end
+      end
+    end
+    object TabSheet5: TTabSheet
+      Caption = #29615#22659
+      ImageIndex = 4
+      object ListView3: TListView
+        Left = 5
+        Top = 6
+        Width = 228
+        Height = 232
+        Columns = <
+          item
+            Caption = #21517#31216
+            Width = 100
+          end
+          item
+            Caption = #26041#20301
+            Width = 40
+          end
+          item
+            Caption = #22352#26631
+            Width = 80
+          end>
+        Enabled = False
+        GridLines = True
+        TabOrder = 0
+        ViewStyle = vsReport
+      end
+      object ComboBox9: TComboBox
+        Left = 5
+        Top = 242
+        Width = 110
+        Height = 20
+        Style = csDropDownList
+        Enabled = False
+        ItemHeight = 12
+        ItemIndex = 0
+        TabOrder = 1
+        Text = #20840#37096#20449#24687
+        Items.Strings = (
+          #20840#37096#20449#24687
+          #20154#29289#20449#24687
+          'NPC'#20449#24687
+          #24618#29289#20449#24687)
+      end
+      object CheckBox44: TCheckBox
+        Left = 123
+        Top = 242
+        Width = 97
+        Height = 17
+        Caption = #21047#26032#21608#22260#20449#24687
+        Enabled = False
+        TabOrder = 2
+      end
+    end
+    object TabSheet6: TTabSheet
+      Caption = #32844#19994
+      ImageIndex = 5
+      object PageControl4: TPageControl
+        Left = 0
+        Top = 0
+        Width = 240
+        Height = 265
+        ActivePage = TabSheet15
+        Align = alClient
+        Style = tsButtons
+        TabOrder = 0
+        object TabSheet14: TTabSheet
+          Caption = #25112#22763
+          object CheckBoxLongHit: TCheckBox
+            Left = 1
+            Top = 6
+            Width = 66
+            Height = 17
+            Caption = #20992#20992#21050#26432
+            TabOrder = 0
+            OnClick = CheckBoxLongHitClick
+          end
+          object CheckBoxAutoWideHit: TCheckBox
+            Left = 74
+            Top = 6
+            Width = 66
+            Height = 17
+            Caption = #26234#33021#21322#26376
+            TabOrder = 1
+          end
+          object CheckBoxAutoFireHit: TCheckBox
+            Left = 148
+            Top = 6
+            Width = 66
+            Height = 17
+            Caption = #33258#21160#28872#28779
+            TabOrder = 2
+          end
+          object CheckBox48: TCheckBox
+            Left = 1
+            Top = 24
+            Width = 66
+            Height = 17
+            Caption = #28872#28779#36817#36523
+            Enabled = False
+            TabOrder = 3
+          end
+          object CheckBox49: TCheckBox
+            Left = 74
+            Top = 24
+            Width = 66
+            Height = 17
+            Caption = #26234#33021#25265#26376
+            Enabled = False
+            TabOrder = 4
+          end
+          object CheckBox52: TCheckBox
+            Left = 148
+            Top = 24
+            Width = 82
+            Height = 17
+            Caption = #33258#21160#24320#22825#26025
+            Enabled = False
+            TabOrder = 5
+          end
+          object CheckBox53: TCheckBox
+            Left = 1
+            Top = 43
+            Width = 66
+            Height = 17
+            Caption = #38548#20301#21050#26432
+            Enabled = False
+            TabOrder = 6
+          end
+        end
+        object TabSheet15: TTabSheet
+          Caption = #39764#27861#24072
+          ImageIndex = 1
+          object CheckBox50: TCheckBox
+            Left = 2
+            Top = 8
+            Width = 66
+            Height = 17
+            Caption = #33258#21160#24320#30462
+            Enabled = False
+            TabOrder = 0
+          end
+          object CheckBox51: TCheckBox
+            Left = 2
+            Top = 28
+            Width = 66
+            Height = 17
+            Caption = #25509#36817#25239#25298
+            Enabled = False
+            TabOrder = 1
+          end
+          object RadioButton5: TRadioButton
+            Left = 73
+            Top = 8
+            Width = 66
+            Height = 17
+            Caption = #25345#32493#24320#30462
+            Checked = True
+            Enabled = False
+            TabOrder = 2
+            TabStop = True
+          end
+          object RadioButton6: TRadioButton
+            Left = 144
+            Top = 8
+            Width = 66
+            Height = 17
+            Caption = #25509#36817#24320#30462
+            Enabled = False
+            TabOrder = 3
+          end
+        end
+        object TabSheet16: TTabSheet
+          Caption = #36947#22763
+          ImageIndex = 2
+          object Label16: TLabel
+            Left = 214
+            Top = 11
+            Width = 12
+            Height = 12
+            Caption = #31186
+          end
+          object Label17: TLabel
+            Left = 139
+            Top = 82
+            Width = 12
+            Height = 12
+            Caption = #31186
+          end
+          object Label18: TLabel
+            Left = 139
+            Top = 106
+            Width = 12
+            Height = 12
+            Caption = #31186
+          end
+          object Label19: TLabel
+            Left = 139
+            Top = 130
+            Width = 12
+            Height = 12
+            Caption = #31186
+          end
+          object CheckBox54: TCheckBox
+            Left = 8
+            Top = 8
+            Width = 66
+            Height = 17
+            Caption = #33258#21160#27835#24840
+            Enabled = False
+            TabOrder = 0
+          end
+          object CheckBox55: TCheckBox
+            Left = 8
+            Top = 32
+            Width = 66
+            Height = 17
+            Caption = #33258#21160#27602#31526
+            Enabled = False
+            TabOrder = 1
+          end
+          object CheckBox56: TCheckBox
+            Left = 149
+            Top = 32
+            Width = 82
+            Height = 17
+            Caption = #32418#32511#27602#20114#25442
+            Enabled = False
+            TabOrder = 2
+          end
+          object CheckBox57: TCheckBox
+            Left = 8
+            Top = 56
+            Width = 66
+            Height = 17
+            Caption = #33258#21160#38544#36523
+            Enabled = False
+            TabOrder = 3
+          end
+          object CheckBox58: TCheckBox
+            Left = 8
+            Top = 80
+            Width = 66
+            Height = 17
+            Caption = #25345#32493#21152#38450
+            Enabled = False
+            TabOrder = 4
+          end
+          object CheckBox61: TCheckBox
+            Left = 8
+            Top = 104
+            Width = 66
+            Height = 17
+            Caption = #25345#32493#21152#39764
+            Enabled = False
+            TabOrder = 5
+          end
+          object CheckBox62: TCheckBox
+            Left = 8
+            Top = 128
+            Width = 66
+            Height = 17
+            Caption = #25345#32493#21152#25915
+            Enabled = False
+            TabOrder = 6
+          end
+          object Edit11: TEdit
+            Left = 80
+            Top = 7
+            Width = 56
+            Height = 20
+            Enabled = False
+            TabOrder = 7
+          end
+          object Edit12: TEdit
+            Left = 80
+            Top = 79
+            Width = 56
+            Height = 20
+            Enabled = False
+            TabOrder = 8
+          end
+          object Edit13: TEdit
+            Left = 80
+            Top = 103
+            Width = 56
+            Height = 20
+            Enabled = False
+            TabOrder = 9
+          end
+          object Edit14: TEdit
+            Left = 80
+            Top = 127
+            Width = 56
+            Height = 20
+            Enabled = False
+            TabOrder = 10
+          end
+          object SpinEdit9: TSpinEdit
+            Left = 149
+            Top = 7
+            Width = 59
+            Height = 21
+            Enabled = False
+            MaxValue = 0
+            MinValue = 0
+            TabOrder = 11
+            Value = 0
+          end
+          object ComboBox10: TComboBox
+            Left = 80
+            Top = 31
+            Width = 56
+            Height = 20
+            Style = csDropDownList
+            Enabled = False
+            ItemHeight = 12
+            ItemIndex = 0
+            TabOrder = 12
+            Text = #32511#27602
+            Items.Strings = (
+              #32511#27602
+              #32418#27602)
+          end
+          object RadioButton10: TRadioButton
+            Left = 80
+            Top = 56
+            Width = 66
+            Height = 17
+            Caption = #25345#32493#38544#36523
+            Enabled = False
+            TabOrder = 13
+          end
+          object RadioButton11: TRadioButton
+            Left = 149
+            Top = 56
+            Width = 66
+            Height = 17
+            Caption = #25509#36817#38544#36523
+            Checked = True
+            Enabled = False
+            TabOrder = 14
+            TabStop = True
+          end
+        end
+        object TabSheet17: TTabSheet
+          Caption = #33521#38596
+          ImageIndex = 3
+          object CheckBox59: TCheckBox
+            Left = 9
+            Top = 8
+            Width = 118
+            Height = 17
+            Caption = #27861#24072#33521#38596#25345#32493#24320#30462
+            Enabled = False
+            TabOrder = 0
+          end
+          object CheckBox60: TCheckBox
+            Left = 9
+            Top = 30
+            Width = 119
+            Height = 17
+            Caption = #26041#22763#33521#38596#21484#21796#23456#29289
+            Enabled = False
+            TabOrder = 1
+          end
+          object RadioButton7: TRadioButton
+            Left = 9
+            Top = 53
+            Width = 66
+            Height = 17
+            Caption = #21484#21796#39607#39621
+            Enabled = False
+            TabOrder = 2
+          end
+          object RadioButton8: TRadioButton
+            Left = 83
+            Top = 53
+            Width = 66
+            Height = 17
+            Caption = #21484#21796#31070#20861
+            Enabled = False
+            TabOrder = 3
+          end
+          object RadioButton9: TRadioButton
+            Left = 158
+            Top = 53
+            Width = 66
+            Height = 17
+            Caption = #21484#21796#26376#28789
+            Checked = True
+            Enabled = False
+            TabOrder = 4
+            TabStop = True
+          end
+        end
+      end
+    end
+    object TabSheet8: TTabSheet
+      Caption = #24110#21161
+      ImageIndex = 7
+      object Memo1: TMemo
+        Left = 0
+        Top = 8
+        Width = 238
+        Height = 246
+        Lines.Strings = (
+          '['#24555#25463#38190']'
+          ''
+          '[~]'#9' '#38190#65306#24555#36895#25441#36215#33050#19979#29289#21697#12290
+          ''
+          '[Alt+W]'#9' '#38190#65306#23558#25351#23450#20154#29289#21152#20837#32452#38431
+          ''
+          '[Alt+E]'#9' '#38190#65306#23558#25351#23450#20154#29289#36386#20986#32452#38431
+          ''
+          '[Alt+S]'#9' '#38190#65306#23558#25351#23450#20154#29289#21152#20837#40657#21517#21333
+          #9'     '#20877#27425#20351#29992#23558#31227#20986#40657#21517#21333
+          ''
+          '[Alt+F]'#9' '#38190#65306#23558#25351#23450#20154#29289#21152#20837#22909#21451#21517#21333
+          #9'     '#20877#27425#20351#29992#23558#31227#20986#22909#21451#21517#21333
+          ''
+          '[Alt+R]'#9' '#38190#65306#21047#26032#20154#29289#32972#21253#29289#21697
+          ''
+          '[Ctrl+M] '#38190#65306#24555#36895#20999#25442#39569#39532#29366#24577)
+        ReadOnly = True
+        TabOrder = 0
+      end
+    end
+  end
+end

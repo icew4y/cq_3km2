@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="GB2312" standalone="yes"?>
+<classes componentname="MiTeC System Information Component" version="8.6.5" copyright="Copyright &#169; 1997,2004 Michal Mutl" os="Windows XP Service Pack 3 (5.1.2600)" machine="APP-E9379AA063E">
+<OperatingSystem classname="TOperatingSystem">
+<data name="Platform" type="string">Windows NT</data>
+<data name="VersionName" type="string">Multiprocessor Free</data>
+<data name="MajorVersion" type="integer">5</data>
+<data name="MinorVersion" type="integer">1</data>
+<data name="Build" type="integer">2600</data>
+<data name="CSD" type="string">Service Pack 3</data>
+<data name="ProductID" type="string">76481-640-8834005-23153</data>
+<data name="ProductKey" type="string"></data>
+<data name="RegisteredUser" type="string">app</data>
+<data name="RegisteredOrganisation" type="string"></data>
+<data name="DVDRegion" type="string"></data>
+<section name="Environment">
+<data name="" type="string">::=::\</data>
+<data name="ALLUSERSPROFILE" type="string">C:\Documents and Settings\All Users</data>
+<data name="APPDATA" type="string">C:\Documents and Settings\app56\Application Data</data>
+<data name="BDSCOMMONDIR" type="string">C:\Documents and Settings\All Users\Documents\RAD Studio\5.0</data>
+<data name="CLIENTNAME" type="string">Console</data>
+<data name="CommonProgramFiles" type="string">C:\Program Files\Common Files</data>
+<data name="COMPUTERNAME" type="string">APP-E9379AA063E</data>
+<data name="ComSpec" type="string">C:\WINDOWS\system32\cmd.exe</data>
+<data name="FP_NO_HOST_CHECK" type="string">NO</data>
+<data name="HOMEDRIVE" type="string">C:</data>
+<data name="HOMEPATH" type="string">\Documents and Settings\app56</data>
+<data name="LOGONSERVER" type="string">\\APP-E9379AA063E</data>
+<data name="NUMBER_OF_PROCESSORS" type="string">2</data>
+<data name="OS" type="string">Windows_NT</data>
+<data name="Path" type="string">C:\Program Files\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;e:\Program Files\CodeGear\RAD Studio\5.0\bin;C:\Program Files\TortoiseSVN\bin;C:\Documents and Settings\All Users\Documents\RAD Studio\5.0\Bpl</data>
+<data name="PATHEXT" type="string">.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH</data>
+<data name="PROCESSOR_ARCHITECTURE" type="string">x86</data>
+<data name="PROCESSOR_IDENTIFIER" type="string">x86 Family 6 Model 23 Stepping 10, GenuineIntel</data>
+<data name="PROCESSOR_LEVEL" type="string">6</data>
+<data name="PROCESSOR_REVISION" type="string">170a</data>
+<data name="ProgramFiles" type="string">C:\Program Files</data>
+<data name="SESSIONNAME" type="string">Console</data>
+<data name="SystemDrive" type="string">C:</data>
+<data name="SystemRoot" type="string">C:\WINDOWS</data>
+<data name="TEMP" type="string">C:\DOCUME~1\app56\LOCALS~1\Temp</data>
+<data name="TMP" type="string">C:\DOCUME~1\app56\LOCALS~1\Temp</data>
+<data name="USERDOMAIN" type="string">APP-E9379AA063E</data>
+<data name="USERNAME" type="string">TasNat</data>
+<data name="USERPROFILE" type="string">C:\Documents and Settings\app56</data>
+<data name="windir" type="string">C:\WINDOWS</data>
+</section>
+<section name="Folders">
+<data name="CommonFiles" type="string"></data>
+<data name="ProgramFiles" type="string"></data>
+<data name="Device" type="string"></data>
+<data name="OtherDevice" type="string"></data>
+<data name="Media" type="string"></data>
+<data name="Config" type="string"></data>
+<data name="Wallpaper" type="string"></data>
+<data name="Windows" type="string">C:\WINDOWS</data>
+<data name="System" type="string">C:\WINDOWS\system32</data>
+<data name="Temp" type="string">C:\DOCUME~1\app56\LOCALS~1\Temp\</data>
+<data name="AppData" type="string">C:\Documents and Settings\app56\Application Data</data>
+<data name="CommonDesktopDir" type="string">C:\Documents and Settings\All Users\&#215;烂�</data>
+<data name="CommonAltStartUp" type="string"></data>
+<data name="RecycleBin" type="string"></data>
+<data name="CommonPrograms" type="string">C:\Documents and Settings\All Users\&#161;&#184;&#191;肌共说程序</data>
+<data name="CommonStartMenu" type="string">C:\Documents and Settings\All Users\&#161;&#184;开始」菜单</data>
+<data name="CommonStartup" type="string">C:\Documents and Settings\All Users\&#161;&#184;&#191;&#170;始」菜单\程序\启动</data>
+<data name="CommonFavorites" type="string">C:\Documents and Settings\All Users\Favorites</data>
+<data name="Cookies" type="string">C:\Documents and Settings\app56\Cookies</data>
+<data name="Controls" type="string"></data>
+<data name="Desktop" type="string">C:\Documents and Settings\app56\&#215;烂�</data>
+<data name="DesktopDir" type="string">C:\Documents and Settings\app56\&#215;烂�</data>
+<data name="Favorites" type="string">C:\Documents and Settings\app56\Favorites</data>
+<data name="Drives" type="string"></data>
+<data name="Fonts" type="string">C:\WINDOWS\Fonts</data>
+<data name="History" type="string">C:\Documents and Settings\app56\Local Settings\History</data>
+<data name="Internet" type="string"></data>
+<data name="InternetCache" type="string">C:\Documents and Settings\app56\Local Settings\Temporary Internet Files</data>
+<data name="NetWork" type="string"></data>
+<data name="NetHood" type="string">C:\Documents and Settings\app56\NetHood</data>
+<data name="MyDocuments" type="string">C:\Documents and Settings\app56\My Documents</data>
+<data name="PrintHood" type="string">C:\Documents and Settings\app56\PrintHood</data>
+<data name="Printers" type="string"></data>
+<data name="Programs" type="string">C:\Documents and Settings\app56\&#161;&#184;&#191;肌共说程序</data>
+<data name="Recent" type="string">C:\Documents and Settings\app56\Recent</data>
+<data name="SendTo" type="string">C:\Documents and Settings\app56\SendTo</data>
+<data name="StartMenu" type="string">C:\Documents and Settings\app56\&#161;&#184;开始」菜单</data>
+<data name="StartUp" type="string">C:\Documents and Settings\app56\&#161;&#184;&#191;&#170;始」菜单\程序\启动</data>
+<data name="Templates" type="string">C:\Documents and Settings\app56\Templates</data>
+<data name="Profile" type="string">C:\Documents and Settings\app56</data>
+</section>
+</OperatingSystem>
+<NTSpecific classname="TNTSpecific">
+<data name="ProductType" type="string">Professional</data>
+<data name="MSSmallBusinessServer" type="boolean">0</data>
+<data name="Windows2000AdvancedServer" type="boolean">0</data>
+<data name="MSBackOfficeComponents" type="boolean">0</data>
+<data name="Communications" type="boolean">0</data>
+<data name="TerminalServices" type="boolean">0</data>
+<data name="MSSmallBusinessServerWithRestrictiveClientLicenseInForce" type="boolean">0</data>
+<data name="EmbeddedNT" type="boolean">0</data>
+<data name="Windows2000DatacenterServer" type="boolean">0</data>
+<data name="ServicePack_MajorVersion" type="integer">3</data>
+<data name="ServicePack_MinorVersion" type="integer">0</data>
+<data name="HotFixes" type="string">KB2423089,KB2570947,KB898461,Q147222</data>
+</NTSpecific>
+<TimeZone classname="TTimeZone">
+<data name="TimeZone" type="string">(GMT+08:00) &#177;&#177;&#190;&#169;&#163;&#172;重庆，香港特别行政区，乌鲁木齐</data>
+<data name="StandardName" type="string">1899-12-30</data>
+<data name="StandardBias" type="integer" unit="min">0</data>
+<data name="DaylightName" type="string">1899-12-30</data>
+<data name="DaylightBias" type="integer" unit="min">0</data>
+</TimeZone>
+<Internet classname="TInternet">
+<data name="DefaultBrowser" type="string">C:\Program Files\Internet Explorer\iexplore.exe</data>
+<data name="DefaultMailClient" type="string">C:\Program Files\Outlook Express\msimn.exe</data>
+<data name="Connection" type="string">None</data>
+<section name="ProxyServer">
+</section>
+</Internet>
+<LocaleInfo classname="TLocaleInfo">
+<data name="AbbreviateCountryCode" type="string">CHN</data>
+<data name="AbbreviateLanguageCode" type="string">CHS</data>
+<data name="CountryCode" type="string">86</data>
+<data name="CurrencyDecimalDigits" type="string">2</data>
+<data name="FullCountryCode" type="string">&#214;&#208;&#187;嗣窆埠凸�</data>
+<data name="FullEnglishLanguageName" type="string">Chinese</data>
+<data name="FullLocalizeLanguageName" type="string">&#214;&#208;文(中国)</data>
+<data name="IntlMonetarySymbol" type="string">CNY</data>
+<data name="LocalMonetarySymbol" type="string">￥</data>
+<data name="PositiveCurrencyMode" type="string">Prefix_No_Separation</data>
+<data name="NegativeCurrencyMode" type="string">￥-1.1</data>
+<data name="CurrencyDecimalSeparator" type="string">.</data>
+<data name="CurrencyThousandSeparator" type="string">,</data>
+<data name="DecimalSeparator" type="string">.</data>
+<data name="NumberOfDecimalDigits" type="string">2</data>
+<data name="ListSeparator" type="string">,</data>
+<data name="DateSeparator" type="string">-</data>
+<data name="LongDateOrder" type="string">Y-M-D</data>
+<data name="ShortDateOrder" type="string">Y-M-D</data>
+<data name="ShortDateFormat" type="string">yyyy-M-d</data>
+<data name="LongDateFormat" type="string">yyyy'年'M'月'd'日'</data>
+<data name="TimeFormat" type="string">H:mm:ss</data>
+<data name="TimeFormatSpecifier" type="string">24H</data>
+<data name="YearFormat" type="string">Four Digit</data>
+<data name="MeasurementSystem" type="string">Metric</data>
+</LocaleInfo>
+<CPU classname="TCPU">
+<data name="Count" type="string" source="API">2</data>
+<data name="REG_Vendor" type="string" source="Registry">GenuineIntel</data>
+<data name="REG_VendorID" type="string" source="Registry">x86 Family 6 Model 23 Stepping 10</data>
+<data name="REG_NameString" type="string" source="Registry">Intel(R) Core(TM)2 Duo CPU     E7500  @ 2.93GHz</data>
+<data name="REG_Frequency" type="integer" source="Registry" unit="MHz">2933</data>
+<data name="Vendor" type="string" source="CPUID">GenuineIntel</data>
+<data name="NameString" type="string" source="CPUID">Intel(R) Core(TM)2 Duo CPU     E7500  @ 2.93GHz</data>
+<data name="FriendlyName" type="string" source="CPUID">Pentium III</data>
+<data name="CodeName" type="string" source="CPUID">Katmai (0.25 &#181;m)</data>
+<data name="Family" type="integer" source="CPUID">6</data>
+<data name="ExtendedFamily" type="integer" source="CPUID">0</data>
+<data name="Model" type="integer" source="CPUID">7</data>
+<data name="ExtendedModel" type="integer" source="CPUID">0</data>
+<data name="Stepping" type="integer" source="CPUID">10</data>
+<data name="ExtendedStepping" type="integer" source="CPUID">0</data>
+<data name="Type" type="integer" source="CPUID">0</data>
+<data name="Brand" type="integer" source="CPUID">0</data>
+<data name="MaximumFunctionLevel" type="integer" source="CPUID">13</data>
+<data name="MaximumExtendedFunctionLevel" type="integer" source="CPUID">-2147483640</data>
+<data name="Frequency" type="integer" source="CPUID" unit="MHz">2950</data>
+<data name="SerialNumber" type="string" source="CPUID">0001-067A-BFEB-FBFF-0408-E3BD</data>
+<data name="FDIVBug" type="boolean" source="API">0</data>
+</CPU>
+<CPUFeatures classname="TCPUFeatures">
+<data name="BuiltInFPU" type="boolean" source="CPUID">1</data>
+<data name="VirtualModeExtension" type="boolean" source="CPUID">1</data>
+<data name="DebuggingExtension" type="boolean" source="CPUID">1</data>
+<data name="PageSizeExtension" type="boolean" source="CPUID">1</data>
+<data name="TimeStampCounter" type="boolean" source="CPUID">1</data>
+<data name="ModelSpecificRegisters" type="boolean" source="CPUID">1</data>
+<data name="PhysicalAddressExtension" type="boolean" source="CPUID">1</data>
+<data name="MachineCheckException" type="boolean" source="CPUID">1</data>
+<data name="CMPXCHG8BInstruction" type="boolean" source="CPUID">1</data>
+<data name="OnChipAPICHardware" type="boolean" source="CPUID">1</data>
+<data name="FastSystemCall" type="boolean" source="CPUID">1</data>
+<data name="MemoryTypeRangeRegisters" type="boolean" source="CPUID">1</data>
+<data name="PageGlobalExtension" type="boolean" source="CPUID">1</data>
+<data name="MachineCheckArchitecture" type="boolean" source="CPUID">1</data>
+<data name="ConditionalMoveInstruction" type="boolean" source="CPUID">1</data>
+<data name="PageAttributeTable" type="boolean" source="CPUID">1</data>
+<data name="PageSizeExtension36bit" type="boolean" source="CPUID">1</data>
+<data name="SerialNumber" type="boolean" source="CPUID">0</data>
+<data name="CLFLUSHInstruction" type="boolean" source="CPUID">1</data>
+<data name="DebugStore" type="boolean" source="CPUID">1</data>
+<data name="ACPI" type="boolean" source="CPUID">1</data>
+<data name="MMX" type="boolean" source="CPUID">1</data>
+<data name="FastFloatingPointSaveRestore" type="boolean" source="CPUID">1</data>
+<data name="StreamingSIMDExtensions" type="boolean" source="CPUID">1</data>
+<data name="StreamingSIMDExtensions2" type="boolean" source="CPUID">1</data>
+<data name="SelfSnoop" type="boolean" source="CPUID">1</data>
+<data name="HyperThreadingTechnology" type="boolean" source="CPUID">1</data>
+<data name="ThermalMonitor" type="boolean" source="CPUID">1</data>
+<data name="3DNow" type="boolean" source="CPUID">0</data>
+<data name="Enhanced3DNow" type="boolean" source="CPUID">0</data>
+<data name="EnhancedMMX" type="boolean" source="CPUID">0</data>
+</CPUFeatures>
+<CPUCache classname="TCPUCache">
+<data name="Level1Data" type="integer" source="CPUID" unit="KB">0</data>
+<data name="Level1Code" type="integer" source="CPUID" unit="KB">0</data>
+<data name="Level2" type="integer" source="CPUID" unit="KB">0</data>
+<data name="Level3" type="integer" source="CPUID" unit="KB">0</data>
+<data name="CacheDescriptions" type="string" source="CPUID">Instruction TLB, 4K pages, 4-way set associative, 32 entries</data>
+</CPUCache>
+<Memory classname="TMemory">
+<data name="PhysicalTotal" type="integer" unit="B">3488657408</data>
+<data name="PhysicalFree" type="integer" unit="B">2901835776</data>
+<data name="PageFileTotal" type="integer" unit="B">5469622272</data>
+<data name="PageFileFree" type="integer" unit="B">4633907200</data>
+<data name="VirtualTotal" type="integer" unit="B">2147352576</data>
+<data name="VirtualFree" type="integer" unit="B">2112696320</data>
+<data name="AllocationGranularity" type="integer" unit="B">65536</data>
+<data name="MinAppAddress" type="integer">65536</data>
+<data name="MaxAppAddress" type="integer">2147418111</data>
+<data name="PageSize" type="integer" unit="B">4096</data>
+</Memory>
+</classes>

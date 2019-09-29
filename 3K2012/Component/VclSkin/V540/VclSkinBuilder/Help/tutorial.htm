@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>VclSkin Builder Tutorial</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<h1 align="center">Skin Builder Tutorial</h1>
+<p><b>1. Skin Fundamentals </b> </p>
+<p>The first step in learning skin is to understand how it works. Unlike some 
+  apps where you create a mostly static skin, Vclskin must work with the dynamic 
+  environment of Windows. The various windows and buttons change shape and size 
+  with each program, so Skin must adapt your graphics to each item. It is important 
+  to keep this in mind when creating your design. With the code, you are able 
+  to set how many pixels of the image around the border, are to be left alone. 
+  The rest of the image is then stretched or tiled (as you specify) in order to 
+  enlarge or compact the image as needed. </p>
+<p><b>2. Image</b></p>
+<p><img src="rect.gif" width="483" height="416"></p>
+<ul>
+  <li><b>Image margins</b>: margin of image that should not be stretched/tiled.<br>
+  </li>
+  <li><b>Stretch and Tile</b> : image is tiled or stretched.</li>
+  <li><b>Transparency</b> : draw the image transparently, Transparent Color is 
+    clFuchsia,RGB: 255,000,255, $00FF00FF.</li>
+  <li><b>Frame</b> : Image state number.<br>
+  </li>
+</ul>
+<p><b>3. Windows Border and MainMenu</b></p>
+<p><img src="border.gif" width="500" height="500"></p>
+<p>There are also two other possible image states: inactive and active window. 
+  The active window is the window that is currently being used, while the inactive 
+  window is any window(s) that is in the background.</p>
+<p></p>
+<p><b>4. Title buttons</b></p>
+<p><img src="titlebutton.gif" width="500" height="181"></p>
+<p><b>5.Button</b></p>
+<p> <img src="button.gif" width="471" height="259"></p>
+<p>There are five different states for the buttons image, each displayed at a 
+  different time.</p>
+<ul>
+  <li><b>Normal: </b>The normal state is what you see when the button is just 
+    there, undisturbed.</li>
+  <li><b>Pressed:</b> The pressed state is what you see when the button has been 
+    clicked and/or the mouse button is being held down with the cursor over the 
+    button.</li>
+  <li><b>Disabled:</b> This state is visible when the function of the button is 
+    not available. For example, when you open a new Internet Explorer window, 
+    the back button is not available because you have no webpage to go back to 
+    at that time. Therefore, the back button will be displayed with the disabled 
+    state.</li>
+  <li><b>Focus:</b> The focus state is displayed when the mouse cursor passes 
+    over the button.</li>
+  <li><b>Default: </b>The default state is displayed.</li>
+</ul>
+<p><b>6.Menuitem</b></p>
+<p><img src="menuitem.gif" width="400" height="200"></p>
+<p><b>7.Color</b> </p>
+<p><img src="color.gif" width="478" height="342"></p>
+<p><b>Pick color and capture color</b><br>
+  <img src="color-change.gif" width="471" height="449"> </p>
+</body>
+</html>

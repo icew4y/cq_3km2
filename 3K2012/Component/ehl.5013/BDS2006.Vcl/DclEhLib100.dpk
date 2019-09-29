@@ -1,0 +1,51 @@
+package DclEhLib100;
+
+{$R *.res}
+{$R 'EhLibReg.dcr'}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'EhLib 5.0 Components'}
+{$DESIGNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  EhLib100,
+  rtl,
+  designide,
+  dcldb;
+
+contains
+  RichEdEh in 'RichEdEh.pas' {RichStrEditDlgEh},
+  EhLibReg in 'EhLibReg.pas',
+  GridEhEd in 'GridEhEd.pas',
+  PropStorageEditEh in 'PropStorageEditEh.pas' {PropStorageEditEhForm},
+  UpdateSQLEditEh in 'UpdateSQLEditEh.pas',
+  FormSelectFromList in 'FormSelectFromList.pas' {fSelectFromList},
+  MemTableDesignEh in 'MemTableDesignEh.pas',
+  SelectFromListDialog in 'SelectFromListDialog.pas' {fSelectFromListDialog},
+  SQLDriverEditEh in 'SQLDriverEditEh.pas',
+  SQLEditFrameEh in 'SQLEditFrameEh.pas',
+  DesignConnectionListEh in 'DesignConnectionListEh.pas' {fDesignConnectionListEh},
+  MemTableEditEh in 'MemTableEditEh.pas' {MemTableDataForm},
+  MTCreateDataDriver in 'MTCreateDataDriver.pas' {fMTCreateDataDriver};
+
+end.

@@ -1,0 +1,80 @@
+What's new in version 4.
+
+*	This version does not support Delphi 4 and C++ Builer 4 anymore.
+
+
++ There are new components for unified loading tabular information from 
+	server to client with after-treatment this data on the client:
+  editing, sorting, filtrations and unloading changed given on 
+  the server back. Components do not include drivers to access to server.
+  To ensure functionality of components it is sufficiently to write a 
+  global event that execute SQL expression with parameters using your 
+  favorite access data base engine and return DataSet-cursor.
+
+  The technology is represented by two main component:
+    TMemTableEh - dataset, which hold all data in memory.
+    You can consider it as array of records.
+      More other it:
+        Supports a special interface, that allows DBGridEh component 
+          to view all datas without moving active record.
+        Allows load data from TDataDriverEh (DataDriver property).
+        Allows to unload changes back to DataDriver, operative or postponed 
+          (in dependencies of CachedUpdates property).
+        Allows to create master/datail relationship on client side 
+          (by filterring record) or on external source (by updating 
+          parameters [Params] and requering data from DetailDataDriver).
+        Allows to sort datas, including Calculated and Lookup field.
+        Allows to create and fill data at design-time and save data in dfm
+          file of the form.
+        Allows to keep records tree like relations. Each record can 
+          have record nodes and work as node of parental record. TDBGridEh 
+          component can show of the tree-type structure of records.
+        Allows to show internal array of other TMemTableEh ( ExternalMemData 
+          property ) and work with this data: sort, filter, edit.
+        Has an interface to get the list of all values of the field, 
+         ignoring local filter. TDBGridEh uses this property for
+         automatic building a list in DropDownBox of the filter.
+
+     TDataDriverEh - executes two tasks:
+        1. Delivers records in TMemTableEh.
+        2. Processes records, changed in TMemTableEh (writes them in other 
+           dataset, or call events for processing the changes to the program).
+
+     Furthermore, there are several components that inheritted from TDataDriverEh.
+     It is a TSQLDataDriverEh, that have properies to keep four SQL expressions and 
+     parameters for querying data, removing a record, insertions record, 
+     updating record and querying one record. TSQLDataDriverEh can not requests data
+     from server, but can prepare parameters of the request and call global
+     event, where programm can transfer SQL expression on the server.
+     There are several components that inherited from TSQLDataDriverEh, which
+     can send SQL expressions on the server through the corresponding access engine.
+     It is TBDEDataDriverEh, TIBXDataDriverEh, TDBXDataDriverEh and TADODataDriverEh 
+     component.
+
+     There are a powerful design-time editors for TMemTableEh and TSQLDataDriverEh.
+
+
+* New version of TDBGridEh has changed a parent. Now TCustomDBGridEh is inheritted 
+  from TCustomGridEh. If in your forms DBGrid and DBGridEh are not used
+  simultaneously then turning on the new version must not appear a problems.
+  However in some cases compiler can raise error about inconsistency of 
+  Grids.TGridDrawState and GridsEh.TGridDrawState types or similar errors. 
+  To deliverance from this errors it is necessary to delete 'Grids' and 
+  'DBGrids' unit from the 'uses' clause. If 'Grids' and 
+  'DBGrids' are necessary in the uses clause, then it is need to move
+  these strings in place before 'GridsEh' and 'DBGridEh'.
+  If even in this case you will get error messages about TGridDrawState types,
+  it is necessary to elaborate the name of type by the name of the module.
+  For instance write GridsEh.TGridDrawState or Grids.TGridDrawState instead 
+  of TGridDrawState.
+
+
++ In TDBGridEh 
+    Added ContraColCount property. Property defines amount write nonscrolled
+    columns. These columns can not get a input focus.
+
++ If DBGridEh is connected to TMemTableEh, then it allows:
+    View all datas, not moving active record.
+    Show data as tree (If TMemTableEh is in the TreeList mode).
+    Move records as tree-node in tree (When dgsRowMoving is in OptionsEh).
+    Automatic building a list in DropDownBox of the filter cell.

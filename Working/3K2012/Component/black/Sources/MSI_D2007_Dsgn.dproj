@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
-    <DCC_DependencyCheckOutputName>C:\Documents and Settings\All Users\Documents\RAD Studio\5.0\Bpl\MSI_D2007_Dsgn.bpl</DCC_DependencyCheckOutputName>
+    <DCC_DependencyCheckOutputName>C:\Users\Public\Documents\RAD Studio\5.0\Bpl\MSI_D2007_Dsgn.bpl</DCC_DependencyCheckOutputName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Version>7.0</Version>
@@ -29,8 +29,8 @@
     <DelphiCompile Include="MSI_D2007_Dsgn.dpk">
       <MainSource>MainSource</MainSource>
     </DelphiCompile>
-    <DCCReference Include="..\..\..\Mir200\Client\designide.dcp" />
-    <DCCReference Include="..\..\..\Mir200\Client\MSI_D2007_Rtl.dcp" />
+    <DCCReference Include="designide.dcp" />
+    <DCCReference Include="MSI_D2007_Rtl.dcp" />
     <DCCReference Include="MSI_DsgnIntf.pas" />
   </ItemGroup>
 </Project>

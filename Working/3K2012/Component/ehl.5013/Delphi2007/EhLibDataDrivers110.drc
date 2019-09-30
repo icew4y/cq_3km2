@@ -8,16 +8,9 @@
   resources were bound to the produced executable.
 */
 
-DESCRIPTION RCDATA
+STRINGTABLE
 BEGIN
-	"\x45", "\x00", "\x68", "\x00", "\x4c", "\x00", "\x69", "\x00", 	/* 0000: E.h.L.i. */
-	"\x62", "\x00", "\x20", "\x00", "\x35", "\x00", "\x2e", "\x00", 	/* 0008: b. .5... */
-	"\x30", "\x00", "\x00", "\x00"	/* 0010: 0... */
 END
 
-/* PrvFrmEh.DFM */
-/* PrViewEh.RES */
-/* CalculatorEh.DFM */
-/* DBGridEhFindDlgs.dfm */
-/* DBGRIDEH.RES */
-/* PrnDgDlg.DFM */
+/* D:\3KM2\Working\3K2012\Component\ehl.5013\Delphi2007\EhLibDataDrivers110.res */
+/* D:\3KM2\Working\3K2012\Component\ehl.5013\Delphi2007\EhLibDataDrivers110.drf */

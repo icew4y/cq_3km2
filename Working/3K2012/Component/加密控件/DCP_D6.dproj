@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
-    <DCC_DependencyCheckOutputName>C:\Documents and Settings\All Users\Documents\RAD Studio\5.0\Bpl\DCP_D6.bpl</DCC_DependencyCheckOutputName>
+    <DCC_DependencyCheckOutputName>C:\Users\Public\Documents\RAD Studio\5.0\Bpl\DCP_D6.bpl</DCC_DependencyCheckOutputName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Version>7.0</Version>
@@ -58,12 +58,12 @@
     <DCCReference Include="DCPconst.pas" />
     <DCCReference Include="DCPcrypt.pas" />
     <DCCReference Include="DCPreg.pas" />
-    <DCCReference Include="e:\Program Files\CodeGear\RAD Studio\5.0\bin\vcl.dcp" />
     <DCCReference Include="Hashes\Haval.pas" />
     <DCCReference Include="Hashes\Md4.pas" />
     <DCCReference Include="Hashes\Md5.pas" />
     <DCCReference Include="Hashes\Rmd160.pas" />
     <DCCReference Include="Hashes\Sha1.pas" />
+    <DCCReference Include="vcl.dcp" />
   </ItemGroup>
 </Project>
 <!-- EurekaLog First Line

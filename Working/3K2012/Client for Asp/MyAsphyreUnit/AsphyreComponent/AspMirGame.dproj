@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{36ad9f06-b0d9-494b-8002-295b05cc00da}</ProjectGuid>
+    <MainSource>AspMirGame.dpk</MainSource>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>C:\Documents and Settings\All Users\Documents\RAD Studio\5.0\Bpl\AspMirGame.bpl</DCC_DependencyCheckOutputName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_WriteableConstants>True</DCC_WriteableConstants>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_MapFile>3</DCC_MapFile>
+    <DCC_UnitSearchPath>..\;..\..\;..\..\..\..\Component\Asphyre5-2011-01-13\Source;..\..\..\..\Component\Asphyre5-2011-01-13\Source\Common;..\..\..\..\Component\Asphyre5-2011-01-13\Source\Common\以前DX控件;..\..\..\..\Component\Asphyre5-2011-01-13\Source\DirectX;..\..\..\Common;..\..\AsphyreFonts</DCC_UnitSearchPath>
+    <DCC_ResourcePath>..\;..\..\;..\..\..\..\Component\Asphyre5-2011-01-13\Source;..\..\..\..\Component\Asphyre5-2011-01-13\Source\Common;..\..\..\..\Component\Asphyre5-2011-01-13\Source\Common\以前DX控件;..\..\..\..\Component\Asphyre5-2011-01-13\Source\DirectX;..\..\..\Common;..\..\AsphyreFonts</DCC_ResourcePath>
+    <DCC_ObjPath>..\;..\..\;..\..\..\..\Component\Asphyre5-2011-01-13\Source;..\..\..\..\Component\Asphyre5-2011-01-13\Source\Common;..\..\..\..\Component\Asphyre5-2011-01-13\Source\Common\以前DX控件;..\..\..\..\Component\Asphyre5-2011-01-13\Source\DirectX;..\..\..\Common;..\..\AsphyreFonts</DCC_ObjPath>
+    <DCC_IncludePath>..\;..\..\;..\..\..\..\Component\Asphyre5-2011-01-13\Source;..\..\..\..\Component\Asphyre5-2011-01-13\Source\Common;..\..\..\..\Component\Asphyre5-2011-01-13\Source\Common\以前DX控件;..\..\..\..\Component\Asphyre5-2011-01-13\Source\DirectX;..\..\..\Common;..\..\AsphyreFonts</DCC_IncludePath>
+    <DCC_Define>RELEASE</DCC_Define>
+    <DCC_UNSAFE_TYPE>True</DCC_UNSAFE_TYPE>
+    <DCC_UNSAFE_CODE>True</DCC_UNSAFE_CODE>
+    <DCC_UNSAFE_CAST>True</DCC_UNSAFE_CAST>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_WriteableConstants>True</DCC_WriteableConstants>
+    <DCC_MapFile>3</DCC_MapFile>
+    <DCC_UNSAFE_TYPE>True</DCC_UNSAFE_TYPE>
+    <DCC_UNSAFE_CODE>True</DCC_UNSAFE_CODE>
+    <DCC_UNSAFE_CAST>True</DCC_UNSAFE_CAST>
+    <DCC_Define>ProjectIsBpl</DCC_Define>
+    <DCC_UnitSearchPath>.\Common;.\DirectX</DCC_UnitSearchPath>
+    <DCC_ResourcePath>.\Common;.\DirectX</DCC_ResourcePath>
+    <DCC_ObjPath>.\Common;.\DirectX</DCC_ObjPath>
+    <DCC_IncludePath>.\Common;.\DirectX</DCC_IncludePath>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType>Package</Borland.ProjectType>
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><Package_Options><Package_Options Name="ImplicitBuild">True</Package_Options><Package_Options Name="DesigntimeOnly">False</Package_Options><Package_Options Name="RuntimeOnly">False</Package_Options></Package_Options><VersionInfo><VersionInfo Name="IncludeVerInfo">True</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">1</VersionInfo><VersionInfo Name="MinorVer">0</VersionInfo><VersionInfo Name="Release">0</VersionInfo><VersionInfo Name="Build">0</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">2052</VersionInfo><VersionInfo Name="CodePage">936</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName"></VersionInfoKeys><VersionInfoKeys Name="FileDescription"></VersionInfoKeys><VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="InternalName"></VersionInfoKeys><VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys><VersionInfoKeys Name="ProductName"></VersionInfoKeys><VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Source><Source Name="MainSource">AspMirGame.dpk</Source></Source></Delphi.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="AspMirGame.dpk">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="AspDWinCtl.dcr" />
+    <DCCReference Include="AspDWinCtl.dcr" />
+    <DCCReference Include="AspDWinCtl.pas" />
+    <DCCReference Include="Common\CommonDef.pas" />
+    <DCCReference Include="designide.dcp" />
+    <DCCReference Include="DX8Textures.pas" />
+    <DCCReference Include="rtl.dcp" />
+    <DCCReference Include="uAspDChatMemo.pas" />
+    <DCCReference Include="uAspDCheckBox.pas" />
+    <DCCReference Include="uAspDComboBox.pas" />
+    <DCCReference Include="uAspDLabel.pas" />
+    <DCCReference Include="uAspDListView.pas" />
+    <DCCReference Include="uAspDPopupMenu.pas" />
+    <DCCReference Include="uAspDScrollBar.pas" />
+    <DCCReference Include="uAspDScrollBox.pas" />
+    <DCCReference Include="uAspDTreeView.pas" />
+    <DCCReference Include="vcl.dcp" />
+    <DCCReference Include="vclactnband.dcp" />
+    <DCCReference Include="vclie.dcp" />
+    <DCCReference Include="vcljpg.dcp" />
+    <DCCReference Include="VclSmp.dcp" />
+    <DCCReference Include="vclx.dcp" />
+    <DCCReference Include="xmlrtl.dcp" />
+  </ItemGroup>
+</Project>

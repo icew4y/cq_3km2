@@ -5826,8 +5826,6 @@ begin
     PlayObject.m_boMakeSlave:= False;//是否正在召唤下属
   end;
 end;
-
-
 //强化召唤骷髅
 function TMagicManager.MagMakeSlaveEx(PlayObject: TBaseObject; UserMagic: pTUserMagic; nTargetX, nTargetY: Integer; var boSpellFire: Boolean): Boolean;
 var

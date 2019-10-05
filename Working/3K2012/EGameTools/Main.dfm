@@ -225,7 +225,7 @@ object FrmMain: TFrmMain
         Left = 0
         Top = 0
         Width = 811
-        Height = 568
+        Height = 569
         ActivePage = bsSkinTabSheet6
         Align = alClient
         Font.Charset = GB2312_CHARSET
@@ -247,11 +247,15 @@ object FrmMain: TFrmMain
         SkinDataName = 'tab'
         object bsSkinTabSheet4: TbsSkinTabSheet
           Caption = #25216#33021
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object bsSkinSplitter1: TbsSkinSplitter
             Left = 193
             Top = 82
             Width = 10
-            Height = 466
+            Height = 462
             Transparent = False
             DefaultSize = 10
             SkinDataName = 'vsplitter'
@@ -717,7 +721,7 @@ object FrmMain: TFrmMain
             Left = 0
             Top = 82
             Width = 193
-            Height = 466
+            Height = 462
             TabOrder = 2
             SkinData = bsSkinData1
             SkinDataName = 'expanel'
@@ -743,11 +747,12 @@ object FrmMain: TFrmMain
             Caption = #21442#32771#24110#21161
             ParentShowHint = False
             ShowHint = False
+            ExplicitHeight = 468
             object bsSkinMemo1: TbsSkinMemo
               Left = 1
               Top = 21
               Width = 191
-              Height = 444
+              Height = 440
               Align = alClient
               Font.Charset = GB2312_CHARSET
               Font.Color = clBlack
@@ -783,7 +788,7 @@ object FrmMain: TFrmMain
             Left = 203
             Top = 82
             Width = 606
-            Height = 466
+            Height = 468
             TabOrder = 3
             SkinDataName = 'panel'
             DefaultFont.Charset = GB2312_CHARSET
@@ -813,7 +818,7 @@ object FrmMain: TFrmMain
               Left = 1
               Top = 1
               Width = 604
-              Height = 464
+              Height = 466
               Align = alClient
               DataSource = FrmDM.DataSourceMagic
               Flat = False
@@ -949,11 +954,15 @@ object FrmMain: TFrmMain
         end
         object bsSkinTabSheet5: TbsSkinTabSheet
           Caption = #24618#29289
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object bsSkinSplitter2: TbsSkinSplitter
             Left = 169
             Top = 82
             Width = 10
-            Height = 466
+            Height = 462
             Transparent = False
             DefaultSize = 10
             SkinDataName = 'vsplitter'
@@ -1260,7 +1269,7 @@ object FrmMain: TFrmMain
             Left = 0
             Top = 82
             Width = 169
-            Height = 466
+            Height = 462
             TabOrder = 2
             SkinData = bsSkinData1
             SkinDataName = 'expanel'
@@ -1286,11 +1295,12 @@ object FrmMain: TFrmMain
             Caption = #21442#32771#24110#21161
             ParentShowHint = False
             ShowHint = False
+            ExplicitHeight = 468
             object bsSkinMemo2: TbsSkinMemo
               Left = 1
               Top = 21
               Width = 167
-              Height = 444
+              Height = 440
               Align = alClient
               Font.Charset = GB2312_CHARSET
               Font.Color = clBlack
@@ -1340,7 +1350,7 @@ object FrmMain: TFrmMain
             Left = 179
             Top = 82
             Width = 630
-            Height = 466
+            Height = 468
             TabOrder = 3
             SkinDataName = 'panel'
             DefaultFont.Charset = GB2312_CHARSET
@@ -1370,7 +1380,7 @@ object FrmMain: TFrmMain
               Left = 1
               Top = 1
               Width = 628
-              Height = 464
+              Height = 466
               Align = alClient
               DataSource = FrmDM.DataSourceMonster
               Flat = False
@@ -1525,7 +1535,7 @@ object FrmMain: TFrmMain
             Left = 217
             Top = 82
             Width = 10
-            Height = 466
+            Height = 468
             Transparent = False
             DefaultSize = 10
             SkinDataName = 'vsplitter'
@@ -1989,7 +1999,7 @@ object FrmMain: TFrmMain
             Left = 0
             Top = 82
             Width = 217
-            Height = 466
+            Height = 468
             TabOrder = 2
             SkinData = bsSkinData1
             SkinDataName = 'expanel'
@@ -2031,7 +2041,7 @@ object FrmMain: TFrmMain
               Left = 1
               Top = 156
               Width = 196
-              Height = 309
+              Height = 311
               Align = alClient
               Font.Charset = GB2312_CHARSET
               Font.Color = clBlack
@@ -2111,7 +2121,7 @@ object FrmMain: TFrmMain
               Left = 197
               Top = 156
               Width = 19
-              Height = 309
+              Height = 311
               TabOrder = 2
               SkinData = bsSkinData1
               SkinDataName = 'vscrollbar'
@@ -2142,7 +2152,7 @@ object FrmMain: TFrmMain
             Left = 227
             Top = 82
             Width = 582
-            Height = 466
+            Height = 468
             TabOrder = 3
             SkinDataName = 'panel'
             DefaultFont.Charset = GB2312_CHARSET
@@ -2172,7 +2182,7 @@ object FrmMain: TFrmMain
               Left = 562
               Top = 1
               Width = 19
-              Height = 464
+              Height = 466
               TabOrder = 0
               Visible = False
               SkinData = bsSkinData1
@@ -2203,7 +2213,7 @@ object FrmMain: TFrmMain
               Left = 1
               Top = 1
               Width = 561
-              Height = 464
+              Height = 466
               Align = alClient
               DataSource = FrmDM.DataSourceStdItems
               Flat = False
@@ -2365,11 +2375,15 @@ object FrmMain: TFrmMain
         object bsSkinTabSheet7: TbsSkinTabSheet
           Caption = #31216#21495
           OnShow = bsSkinTabSheet7Show
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object bsSkinSplitter8: TbsSkinSplitter
             Left = 217
             Top = 82
             Width = 10
-            Height = 466
+            Height = 462
             Transparent = False
             DefaultSize = 10
             SkinDataName = 'vsplitter'
@@ -2592,8 +2606,8 @@ object FrmMain: TFrmMain
                 Caption = #36807#28388#21495#65306
               end
               object ComboBoxFilterFongHaoMode: TbsSkinComboBox
-                Left = 1209
-                Top = 387
+                Left = 57
+                Top = 27
                 Width = 199
                 Height = 20
                 TabOrder = 0
@@ -2783,7 +2797,7 @@ object FrmMain: TFrmMain
             Left = 0
             Top = 82
             Width = 217
-            Height = 466
+            Height = 468
             TabOrder = 2
             SkinData = bsSkinData1
             SkinDataName = 'expanel'
@@ -2825,7 +2839,7 @@ object FrmMain: TFrmMain
               Left = 1
               Top = 156
               Width = 196
-              Height = 309
+              Height = 305
               Align = alClient
               Font.Charset = GB2312_CHARSET
               Font.Color = clBlack
@@ -2847,6 +2861,7 @@ object FrmMain: TFrmMain
               VScrollBar = bsSkinScrollBar1
               SkinData = bsSkinData1
               SkinDataName = 'memo'
+              ExplicitHeight = 311
             end
             object ListBoxFongHaoHint: TbsSkinListBox
               Left = 1
@@ -2905,7 +2920,7 @@ object FrmMain: TFrmMain
               Left = 197
               Top = 156
               Width = 19
-              Height = 309
+              Height = 311
               TabOrder = 2
               SkinData = bsSkinData1
               SkinDataName = 'vscrollbar'
@@ -2936,7 +2951,7 @@ object FrmMain: TFrmMain
             Left = 227
             Top = 82
             Width = 582
-            Height = 466
+            Height = 468
             Align = alClient
             DataSource = FrmDM.DataSourceFongHao
             Flat = False
@@ -3087,11 +3102,15 @@ object FrmMain: TFrmMain
     end
     object bsSkinTabSheet3: TbsSkinTabSheet
       Caption = 'Wil'#32534#36753#22120
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object bsSkinSplitter5: TbsSkinSplitter
         Left = 233
         Top = 0
         Width = 10
-        Height = 568
+        Height = 566
         Transparent = False
         DefaultSize = 10
         SkinDataName = 'vsplitter'
@@ -3102,7 +3121,7 @@ object FrmMain: TFrmMain
         Left = 0
         Top = 0
         Width = 233
-        Height = 568
+        Height = 566
         TabOrder = 0
         SkinData = bsSkinData1
         SkinDataName = 'panel'
@@ -3129,9 +3148,10 @@ object FrmMain: TFrmMain
         Spacing = 2
         Caption = 'bsSkinPanel8'
         Align = alLeft
+        ExplicitHeight = 569
         object bsSkinGroupBox3: TbsSkinGroupBox
           Left = 1
-          Top = 318
+          Top = 316
           Width = 231
           Height = 121
           TabOrder = 0
@@ -3160,6 +3180,7 @@ object FrmMain: TFrmMain
           Spacing = 2
           Caption = #22270#29255#20449#24687
           Align = alBottom
+          ExplicitTop = 319
           object Label3: TbsSkinStdLabel
             Left = 12
             Top = 23
@@ -3372,7 +3393,7 @@ object FrmMain: TFrmMain
         end
         object bsSkinGroupBox4: TbsSkinGroupBox
           Left = 1
-          Top = 439
+          Top = 437
           Width = 231
           Height = 128
           TabOrder = 1
@@ -3401,6 +3422,7 @@ object FrmMain: TFrmMain
           Spacing = 2
           Caption = #26174#31034#25511#21046
           Align = alBottom
+          ExplicitTop = 440
           object checkboxTransparent: TbsSkinCheckRadioBox
             Left = 9
             Top = 81
@@ -3696,7 +3718,7 @@ object FrmMain: TFrmMain
           Left = 1
           Top = 1
           Width = 231
-          Height = 317
+          Height = 315
           TabOrder = 2
           SkinData = bsSkinData1
           SkinDataName = 'panel'
@@ -3723,6 +3745,7 @@ object FrmMain: TFrmMain
           Spacing = 2
           Caption = 'bsSkinPanel10'
           Align = alClient
+          ExplicitHeight = 318
           object bsSkinStdLabel6: TbsSkinStdLabel
             Left = 4
             Top = 7
@@ -4161,7 +4184,7 @@ object FrmMain: TFrmMain
         Left = 243
         Top = 0
         Width = 568
-        Height = 568
+        Height = 566
         TabOrder = 1
         SkinData = bsSkinData1
         SkinDataName = 'panel'
@@ -4188,6 +4211,7 @@ object FrmMain: TFrmMain
         Spacing = 2
         Caption = 'bsSkinPanel9'
         Align = alClient
+        ExplicitHeight = 569
         object bsSkinSplitter6: TbsSkinSplitter
           Left = 1
           Top = 282
@@ -4205,7 +4229,7 @@ object FrmMain: TFrmMain
           Left = 1
           Top = 292
           Width = 566
-          Height = 275
+          Height = 276
           TabOrder = 0
           SkinData = bsSkinData1
           SkinDataName = 'panel'
@@ -4236,7 +4260,7 @@ object FrmMain: TFrmMain
             Left = 1
             Top = 1
             Width = 564
-            Height = 273
+            Height = 274
             Align = alClient
             ColCount = 6
             DefaultRowHeight = 64
@@ -4307,6 +4331,10 @@ object FrmMain: TFrmMain
     object bsSkinTabSheet2: TbsSkinTabSheet
       Caption = #20854#20182#24037#20855
       OnShow = bsSkinTabSheet2Show
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object bsSkinGroupBox2: TbsSkinGroupBox
         Left = 0
         Top = 0

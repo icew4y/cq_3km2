@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
-    <DCC_DependencyCheckOutputName>D:\mir\热血传奇New\M2Server.exe</DCC_DependencyCheckOutputName>
+    <DCC_DependencyCheckOutputName>D:\热血传奇New\M2Server.exe</DCC_DependencyCheckOutputName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Version>7.0</Version>
@@ -29,7 +29,7 @@
     <Version>7.0</Version>
     <DCC_Alignment>4</DCC_Alignment>
     <DCC_Optimize>False</DCC_Optimize>
-    <DCC_ExeOutput>D:\mir\热血传奇New</DCC_ExeOutput>
+    <DCC_ExeOutput>D:\热血传奇New</DCC_ExeOutput>
     <DCC_DcuOutput>.\Temp</DCC_DcuOutput>
     <DCC_ObjOutput>.\Temp</DCC_ObjOutput>
     <DCC_HppOutput>.\Temp</DCC_HppOutput>

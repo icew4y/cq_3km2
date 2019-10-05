@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
-    <DCC_DependencyCheckOutputName>..\..\..\..\热血传奇New\LoginGate.exe</DCC_DependencyCheckOutputName>
+    <DCC_DependencyCheckOutputName>D:\热血传奇New\LoginGate.exe</DCC_DependencyCheckOutputName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Version>7.0</Version>
@@ -20,7 +20,7 @@
     <DCC_ObjPath>$(BDS)\Lib\Debug\Indy10;$(BDS)\lib\Debug;$(BDS)\Lib\Debug\Indy9;..\Common;D:\Working\3K2012\Component\JSocket;D:\Working\3K2012\Component\加密控件;D:\Working\3K2012\Component\加密控件\Hashes;D:\Working\3K2012\Component\加密控件\Ciphers</DCC_ObjPath>
     <DCC_IncludePath>$(BDS)\Lib\Debug\Indy10;$(BDS)\lib\Debug;$(BDS)\Lib\Debug\Indy9;..\Common;D:\Working\3K2012\Component\JSocket;D:\Working\3K2012\Component\加密控件;D:\Working\3K2012\Component\加密控件\Hashes;D:\Working\3K2012\Component\加密控件\Ciphers</DCC_IncludePath>
     <DCC_Define>RELEASE</DCC_Define>
-    <DCC_ExeOutput>D:\mir\热血传奇New</DCC_ExeOutput>
+    <DCC_ExeOutput>D:\热血传奇New</DCC_ExeOutput>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <Version>7.0</Version>

@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
-    <DCC_DependencyCheckOutputName>D:\mir\热血传奇New\GameCenter.exe</DCC_DependencyCheckOutputName>
+    <DCC_DependencyCheckOutputName>D:\热血传奇New\GameCenter.exe</DCC_DependencyCheckOutputName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Version>7.0</Version>
@@ -41,7 +41,7 @@
     <DCC_UNSAFE_TYPE>True</DCC_UNSAFE_TYPE>
     <DCC_UNSAFE_CODE>True</DCC_UNSAFE_CODE>
     <DCC_UNSAFE_CAST>True</DCC_UNSAFE_CAST>
-    <DCC_ExeOutput>D:\mir\热血传奇New</DCC_ExeOutput>
+    <DCC_ExeOutput>D:\热血传奇New</DCC_ExeOutput>
   </PropertyGroup>
   <ProjectExtensions>
     <Borland.Personality>Delphi.Personality</Borland.Personality>

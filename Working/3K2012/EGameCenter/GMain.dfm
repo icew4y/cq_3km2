@@ -24,7 +24,7 @@ object frmMain: TfrmMain
     Top = 8
     Width = 520
     Height = 361
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     HotTrack = True
     TabOrder = 0
     object TabSheet1: TTabSheet
@@ -52,8 +52,8 @@ object frmMain: TfrmMain
           ParentFont = False
         end
         object ButtonStartGame: TButton
-          Left = 166
-          Top = 262
+          Left = 168
+          Top = 260
           Width = 160
           Height = 28
           Caption = #21551#21160#28216#25103#25511#21046#22120'(&S)'
@@ -225,7 +225,7 @@ object frmMain: TfrmMain
         Left = 0
         Top = 0
         Width = 512
-        Height = 333
+        Height = 334
         ActivePage = TabSheet12
         Align = alClient
         TabOrder = 1
@@ -2732,7 +2732,7 @@ object frmMain: TfrmMain
             Left = 0
             Top = 0
             Width = 505
-            Height = 283
+            Height = 284
             BorderWidth = 1
             Orientation = orVertical
             Position = 93
@@ -3002,9 +3002,10 @@ object frmMain: TfrmMain
               Left = 1
               Top = 1
               Width = 501
-              Height = 184
+              Height = 185
               Orientation = orVertical
               Position = 91
+              Percent = 49
               RealTimeDrag = True
               LowerRight.BorderWidth = 1
               SplitterWidth = 2
@@ -3258,7 +3259,7 @@ object frmMain: TfrmMain
                 Left = 1
                 Top = 1
                 Width = 499
-                Height = 89
+                Height = 90
                 Align = alClient
                 Caption = #21024#38500#33258#23450#20041#30446#24405#25968#25454
                 Font.Charset = GB2312_CHARSET
